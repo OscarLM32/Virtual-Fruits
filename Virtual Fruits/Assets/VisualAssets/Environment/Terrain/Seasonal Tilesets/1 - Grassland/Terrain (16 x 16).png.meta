@@ -113,6 +113,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -904,7 +928,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Terrain (16 x 16)_22: 260613725
+      Terrain (16 x 16)_34: 1468454470
       Terrain (16 x 16)_1: 1837986722
       Terrain (16 x 16)_5: 760118669
       Terrain (16 x 16)_3: -751772272
@@ -939,8 +963,8 @@ TextureImporter:
       Terrain (16 x 16)_0: -590579168
       Terrain (16 x 16)_7: 1623477862
       Terrain (16 x 16)_23: 1404972944
-      Terrain (16 x 16)_34: 1468454470
       Terrain (16 x 16)_4: -474811014
+      Terrain (16 x 16)_22: 260613725
       Terrain (16 x 16)_6: 83842199
   spritePackingTag: 
   pSDRemoveMatte: 0

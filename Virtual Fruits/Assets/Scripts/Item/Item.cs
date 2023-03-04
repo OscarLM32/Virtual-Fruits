@@ -1,31 +1,36 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    private const string COLLECTION_ANIMATION = "ItemCollectionAnimation";
+    private const float COLLECTION_ANIMATION_TIME = 0.5f;
+    
     public int id;
     public ItemSO itemSO;
-    private const string COLLECTION_ANIMATION = "ItemCollectionAnimation";
-    private int _itemType;
+    
+
+    [SerializeField]private int _itemType;
     private Animator _animator;
+    private AudioManager _audioManager;
 
-
-    private void Start()
+    private void Awake()
     {
-        _itemType = itemSO.itemType;
+        _itemType = (int)itemSO.itemType;
         _animator = GetComponent<Animator>();
-        //TODO: change this non-working method to the one I use in the player animator
         _animator.SetInteger("Type", _itemType);
+        _audioManager = GetComponent<AudioManager>();
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
+    private IEnumerator OnTriggerEnter2D(Collider2D col)
     {
+        GetComponent<Collider2D>().enabled = false;
+        _audioManager.Play("ItemPickUp");
         _animator.Play(COLLECTION_ANIMATION);
         //Tell the SaveLoadSystem that I have been picked
         GameActions.ItemPicked(_itemType, id);
         //Destroy the gameObject after playing the animation;
+        yield return new WaitForSeconds(COLLECTION_ANIMATION_TIME);
         Destroy(gameObject);
     }
     

@@ -1,17 +1,27 @@
 
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 
 public class SecretZone : Cave
 {
-    private Tilemap tilemap;
-    private Color color;
+    private Tilemap _tilemap;
+    private Color _color;
+    
+    public List<GameObject> lanterns;
 
-    void Start()
+    private new void Start()
     {
         base.Start();
-        tilemap = GetComponent<Tilemap>();
-        color = GetComponent<Tilemap>().color;
+        
+        foreach (var lantern in lanterns)
+        {
+            lantern.GetComponent<Light2D>().enabled = false;
+        }
+
+        _tilemap = GetComponent<Tilemap>();
+        _color = GetComponent<Tilemap>().color;
     }
 
     private void Update()
@@ -19,7 +29,7 @@ public class SecretZone : Cave
         if (!zoneChange)
             return;
 
-        if (entering)
+        if (lightDown)
         {
             FadeOut();
             LightDown(); 
@@ -31,19 +41,13 @@ public class SecretZone : Cave
         }
 
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        base.OnTriggerEnter2D(col);
-    }
-
+    
     private void FadeIn()
     {
-        float fadeInAmount;
-        fadeInAmount = color.a + (speed * Time.deltaTime);
-        color = new Color(color.r, color.g, color.b, fadeInAmount);
-        tilemap.color = color;
-        if (color.a >= 1)
+        float fadeInAmount = _color.a + (speed * Time.deltaTime);
+        _color = new Color(_color.r, _color.g, _color.b, fadeInAmount);
+        _tilemap.color = _color;
+        if (_color.a >= 1)
         {
             zoneChange = false;
         }
@@ -51,14 +55,34 @@ public class SecretZone : Cave
 
     private void FadeOut()
     {
-        float fadeOutAmount;
-        fadeOutAmount = color.a - (speed * Time.deltaTime);
-        color = new Color(color.r, color.g, color.b, fadeOutAmount);
-        tilemap.color = color;
+        float fadeOutAmount = _color.a - (speed * Time.deltaTime);
+        _color = new Color(_color.r, _color.g, _color.b, fadeOutAmount);
+        _tilemap.color = _color;
 
-        if (color.a <= 0)
+        if (_color.a <= 0)
         {
             zoneChange = false;
+        }
+    }
+    
+    private new void  OnTriggerEnter2D(Collider2D col)
+    {
+        zoneChange = true;
+        lightDown = true;
+        foreach (var lantern in lanterns)
+        {
+            lantern.GetComponent<Light2D>().enabled = !lantern.GetComponent<Light2D>().enabled;
+        }
+    }
+    
+    protected new void OnTriggerExit2D(Collider2D other)
+    {
+
+        zoneChange = true;
+        lightDown = false;
+        foreach (var lantern in lanterns)
+        {
+            lantern.GetComponent<Light2D>().enabled = !lantern.GetComponent<Light2D>().enabled;
         }
     }
 }

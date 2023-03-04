@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerStateFactory
 {
@@ -10,12 +11,16 @@ public class PlayerStateFactory
         empty,
         idle,
         movement,
+        jumpDownPlatform,
+        wallJump,
         grounded,
         jumping,
         falling,
         dashing,
         gliding,
-        grapplingWall
+        grapplingWall,
+        hit,
+        attack
     }
    
     public PlayerStateFactory(PlayerStateMachine currentContext)
@@ -24,12 +29,16 @@ public class PlayerStateFactory
         _cache[States.empty] = new PlayerEmptySubState(_context, this);
         _cache[States.idle] = new PlayerIdleState(_context, this);
         _cache[States.movement] = new PlayerMovementState(_context, this);
+        _cache[States.jumpDownPlatform] = new PlayerJumpDownPlatformState(_context, this);
+        _cache[States.wallJump] = new PlayerWallJumpState(_context, this);
         _cache[States.grounded] = new PlayerGroundState(_context, this);
         _cache[States.jumping] = new PlayerJumpingState(_context, this);
         _cache[States.falling] = new PlayerFallState(_context, this);
         _cache[States.dashing] = new PlayerDashingState(_context, this);
         _cache[States.gliding] = new PlayerGlidingState(_context, this);
         _cache[States.grapplingWall] = new PlayerGrapplingWallState(_context, this);
+        _cache[States.hit] = new PlayerHitState(_context, this);
+        _cache[States.attack] = new PlayerAttackState(_context, this);
     }
 
     public PlayerBaseState Empty()
@@ -45,6 +54,16 @@ public class PlayerStateFactory
     public PlayerBaseState Movement()
     {
         return _cache[States.movement];
+    }
+
+    public PlayerBaseState JumpDownPlatform()
+    {
+        return _cache[States.jumpDownPlatform];
+    }
+
+    public PlayerBaseState WallJump()
+    {
+        return _cache[States.wallJump];
     }
 
     public PlayerBaseState Grounded()
@@ -74,6 +93,16 @@ public class PlayerStateFactory
     public PlayerBaseState GrapplingWall()
     {
         return _cache[States.grapplingWall];
+    }
+
+    public PlayerBaseState Hit()
+    {
+        return _cache[States.hit];
+    }
+    
+    public PlayerBaseState Attack()
+    {
+        return _cache[States.attack];
     }
 
 }

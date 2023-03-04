@@ -15,7 +15,6 @@ public class PlayerEmptySubState : PlayerBaseState
 
     public override void UpdateState()
     {
-
     }
 
     public override void ExitState()

@@ -51,7 +51,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""id"": ""fbab4f17-4f29-48ad-9c9a-e327ffdf5429"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
@@ -61,6 +61,42 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JumpDownPlatform"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac4a8e18-fc01-4dca-8b96-9e554e1e2250"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""07357a73-8fa3-434a-b418-12e69a89974d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ControllerAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""d1d6a782-c2be-4f92-a0ce-4609c530351e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""05160c00-2633-4aee-b330-efabf2c17d56"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -103,7 +139,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""id"": ""bbad003a-454f-403d-8efe-5c541ef2e870"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": ""StickDeadzone"",
+                    ""processors"": ""StickDeadzone(min=0.25,max=1)"",
                     ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
@@ -163,6 +199,155 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""4fc823bf-c9b3-4f3a-b463-65d90136d474"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpDownPlatform"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""6408c880-b355-4f0d-9d7e-11cee80d2d98"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpDownPlatform"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""10e4a6d8-be67-4248-b16c-cd95fb8fd08d"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpDownPlatform"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Controller"",
+                    ""id"": ""7b3cbe3f-d923-40c3-a2e8-dff7bd1e374d"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpDownPlatform"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""2199fa83-fc61-4706-b161-5e0b06b87088"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpDownPlatform"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""button"",
+                    ""id"": ""a90ab4fa-141c-4721-a7bb-78b226c5db0b"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpDownPlatform"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7f7ee19-b9d9-4cfb-9126-c5b45cbdebad"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e6aa8cb-9649-467b-bc87-477d654d565d"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22371327-b158-4ec1-83f0-ab99b22c3615"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a32204ab-df55-47cc-96de-c758607378d9"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""MenuControls"",
+            ""id"": ""3b86406a-fe9d-4f96-baa4-bda99b0f1a94"",
+            ""actions"": [
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""75529639-3a75-40af-9bb0-ec3a07e4e779"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9389171a-4d75-443e-9aad-ceeeae68969f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc043db1-6673-4d7d-b1fc-bd2eca0f1dc2"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -175,6 +360,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_CharacterControls_Jump = m_CharacterControls.FindAction("Jump", throwIfNotFound: true);
         m_CharacterControls_Dash = m_CharacterControls.FindAction("Dash", throwIfNotFound: true);
         m_CharacterControls_Walk = m_CharacterControls.FindAction("Walk", throwIfNotFound: true);
+        m_CharacterControls_JumpDownPlatform = m_CharacterControls.FindAction("JumpDownPlatform", throwIfNotFound: true);
+        m_CharacterControls_MouseAim = m_CharacterControls.FindAction("MouseAim", throwIfNotFound: true);
+        m_CharacterControls_ControllerAim = m_CharacterControls.FindAction("ControllerAim", throwIfNotFound: true);
+        m_CharacterControls_Attack = m_CharacterControls.FindAction("Attack", throwIfNotFound: true);
+        // MenuControls
+        m_MenuControls = asset.FindActionMap("MenuControls", throwIfNotFound: true);
+        m_MenuControls_PauseMenu = m_MenuControls.FindAction("PauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,6 +430,10 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterControls_Jump;
     private readonly InputAction m_CharacterControls_Dash;
     private readonly InputAction m_CharacterControls_Walk;
+    private readonly InputAction m_CharacterControls_JumpDownPlatform;
+    private readonly InputAction m_CharacterControls_MouseAim;
+    private readonly InputAction m_CharacterControls_ControllerAim;
+    private readonly InputAction m_CharacterControls_Attack;
     public struct CharacterControlsActions
     {
         private @PlayerInput m_Wrapper;
@@ -246,6 +442,10 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_CharacterControls_Jump;
         public InputAction @Dash => m_Wrapper.m_CharacterControls_Dash;
         public InputAction @Walk => m_Wrapper.m_CharacterControls_Walk;
+        public InputAction @JumpDownPlatform => m_Wrapper.m_CharacterControls_JumpDownPlatform;
+        public InputAction @MouseAim => m_Wrapper.m_CharacterControls_MouseAim;
+        public InputAction @ControllerAim => m_Wrapper.m_CharacterControls_ControllerAim;
+        public InputAction @Attack => m_Wrapper.m_CharacterControls_Attack;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -267,6 +467,18 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Walk.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnWalk;
                 @Walk.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnWalk;
                 @Walk.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnWalk;
+                @JumpDownPlatform.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJumpDownPlatform;
+                @JumpDownPlatform.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJumpDownPlatform;
+                @JumpDownPlatform.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnJumpDownPlatform;
+                @MouseAim.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMouseAim;
+                @MouseAim.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMouseAim;
+                @MouseAim.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMouseAim;
+                @ControllerAim.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnControllerAim;
+                @ControllerAim.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnControllerAim;
+                @ControllerAim.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnControllerAim;
+                @Attack.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -283,15 +495,68 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Walk.started += instance.OnWalk;
                 @Walk.performed += instance.OnWalk;
                 @Walk.canceled += instance.OnWalk;
+                @JumpDownPlatform.started += instance.OnJumpDownPlatform;
+                @JumpDownPlatform.performed += instance.OnJumpDownPlatform;
+                @JumpDownPlatform.canceled += instance.OnJumpDownPlatform;
+                @MouseAim.started += instance.OnMouseAim;
+                @MouseAim.performed += instance.OnMouseAim;
+                @MouseAim.canceled += instance.OnMouseAim;
+                @ControllerAim.started += instance.OnControllerAim;
+                @ControllerAim.performed += instance.OnControllerAim;
+                @ControllerAim.canceled += instance.OnControllerAim;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
     public CharacterControlsActions @CharacterControls => new CharacterControlsActions(this);
+
+    // MenuControls
+    private readonly InputActionMap m_MenuControls;
+    private IMenuControlsActions m_MenuControlsActionsCallbackInterface;
+    private readonly InputAction m_MenuControls_PauseMenu;
+    public struct MenuControlsActions
+    {
+        private @PlayerInput m_Wrapper;
+        public MenuControlsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PauseMenu => m_Wrapper.m_MenuControls_PauseMenu;
+        public InputActionMap Get() { return m_Wrapper.m_MenuControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuControlsActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuControlsActions instance)
+        {
+            if (m_Wrapper.m_MenuControlsActionsCallbackInterface != null)
+            {
+                @PauseMenu.started -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.performed -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.canceled -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnPauseMenu;
+            }
+            m_Wrapper.m_MenuControlsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @PauseMenu.started += instance.OnPauseMenu;
+                @PauseMenu.performed += instance.OnPauseMenu;
+                @PauseMenu.canceled += instance.OnPauseMenu;
+            }
+        }
+    }
+    public MenuControlsActions @MenuControls => new MenuControlsActions(this);
     public interface ICharacterControlsActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
+        void OnJumpDownPlatform(InputAction.CallbackContext context);
+        void OnMouseAim(InputAction.CallbackContext context);
+        void OnControllerAim(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+    }
+    public interface IMenuControlsActions
+    {
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
 }

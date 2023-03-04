@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerJumpingState : PlayerBaseState, IRootState
 {
+    private enum Sounds
+    {
+        Jump
+    }
+    
+    private PlayerStateMachine.WallJumpInformation _currentWallJump;
     private static class JumpingAnimations
     {
         public static readonly string JUMP        = "PlayerJump";
@@ -14,13 +20,17 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
         : base(currentContext, playerStateFactory)
     {
         IsRootState = true;
-
     }
 
     public override void EnterState()
     {
         InitializeSubState();
+        if (Context.WallJumpsCount < Context.MaxWallJumps)
+        {
+            _currentWallJump = Context.WallJumpsData[Context.WallJumpsCount];
+        }
         Context.debugText.text = "STATE: JUMPING";
+        Context.PlayerAudioManager.Play(Sounds.Jump.ToString());
     }
 
     public override void UpdateState()
@@ -36,6 +46,11 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
 
     public override void InitializeSubState()
     {
+        if (Context.IsGrapplingWall)
+        {
+            SetSubState(Factory.WallJump());
+            return;
+        }
         if (Context.CurrentMovementInput.x == 0)
         {
             SetSubState(Factory.Idle());
@@ -50,6 +65,18 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
     {
         //Whenever the player starts jumping this function comes into play even before the grounded
         //variable switches to false
+        if (Context.PlayerHit)
+        {
+            SwitchState(Factory.Hit());
+            return;
+        }
+        
+        if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
+        {
+            SwitchState(Factory.Attack());
+            return;
+        }
+        
         if (Context.IsGrounded && !Context.IsJumpPressed)
         {
             SwitchState(Factory.Grounded());
@@ -58,7 +85,7 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
         {
             SwitchState(Factory.Falling());
         }
-        else if (!Context.Dashed && Context.IsDashPressed)
+        else if (!Context.Dashed && Context.IsDashPressed && !Context.RequireNewDashPress)
         {
             SwitchState(Factory.Dashing());
         }
@@ -68,13 +95,37 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
         }
     }
     
-    //TODO: Create a method that handles the wall jumps
-
     private void HandleJump()
+    {
+        if (Context.IsGrapplingWall && !Context.RequireNewJumpPress)
+        {
+            HandleWallJump();
+        }else if (!Context.RequireNewJumpPress)
+        {
+            HandleNormalJump(); 
+        }
+    }
+    
+    private void HandleWallJump()
+    {
+        float xJumpVelocity = _currentWallJump.InitialJumpVelocity * 0.4f;
+        float yJumpVelocity = _currentWallJump.InitialJumpVelocity;
+        int direction = Context.LastFacingDirection * -1; //The opposite direction
+        
+        Context.WallJumped = true;
+        Context.IsGrapplingWall = false;
+        Context.Rb2D.velocity = new Vector2(xJumpVelocity * direction, yJumpVelocity);
+        Context.RequireNewJumpPress = true;
+        Context.WallJumpsCount++;
+        HandleAnimation();
+    }
+    
+    private void HandleNormalJump()
     {
         if (!Context.IsJumpPressed || Context.RequireNewJumpPress)
             return;
-        
+
+        Context.WallJumped = false;
         if (!Context.Jumped)
         {
             Context.Rb2D.velocity = new Vector2(Context.Rb2D.velocity.x, Context.InitialJumpVelocity);
@@ -95,6 +146,23 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
 
     public void HandleGravity()
     {
+        if (Context.WallJumped)
+        {
+            HandleWallJumpGravity();
+        }
+        else
+        {
+            HandleNormalJumpGravity(); 
+        }
+    }
+
+    private void HandleWallJumpGravity()
+    {
+        Context.Rb2D.gravityScale = _currentWallJump.GravityFactor;
+    }
+
+    private void HandleNormalJumpGravity()
+    {
         if (Context.DoubleJumped && Context.IsJumpPressed)
         {
             Context.Rb2D.gravityScale = Context.DoubleJumpingGravityFactor;
@@ -106,10 +174,9 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
             return;
         }
         Context.Rb2D.gravityScale = Context.FallingGravityFactor;
-
     }
 
-    private void HandleAnimation()
+    public void HandleAnimation()
     {
         if (Context.DoubleJumped)
         {

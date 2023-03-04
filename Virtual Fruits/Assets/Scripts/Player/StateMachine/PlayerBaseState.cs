@@ -60,8 +60,10 @@ public abstract class PlayerBaseState
 
     protected void SetSubState(PlayerBaseState newSubState)
     {
+        CurrentSubState?.ExitState();
         CurrentSubState = newSubState;
         newSubState.SetSuperState(this);
+        CurrentSubState.EnterState();
     }
     
     

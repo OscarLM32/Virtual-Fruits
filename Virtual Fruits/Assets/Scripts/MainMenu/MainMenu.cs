@@ -1,36 +1,50 @@
 using System;
-using System.Reflection;
-using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject mainMenu;
-    public GameObject levelSelection;
+    public GameObject MainMenuOptions;
+    public TextMeshProUGUI Score;
 
-    public static int selectedLevel = 0;
+    private AudioManager _audioManager;
+    private void Start()
+    {
+        _audioManager = GetComponent<AudioManager>();
+        SetScore(); 
+    }
 
+    public void OpenMenu(GameObject menu)
+    {
+        _audioManager.Play("Button");
+        MainMenuOptions.SetActive(false);
+        menu.SetActive(true);
+    }
+
+    public void CloseMenu(GameObject menu)
+    {
+        _audioManager.Play("Button");
+        menu.SetActive(false);
+        MainMenuOptions.SetActive(true);
+    }
 
     public void Play()
     {
-        //SceneManager.LoadScene("LevelSelection");
-        SceneManager.LoadScene("LevelFinalPractice");
+        _audioManager.Play("Button");
+        SceneManager.LoadScene(1);
     }
 
-    public void LevelSelectionEnter()
-    {
-        mainMenu.SetActive(false);
-        levelSelection.SetActive(true); 
-    }
-
-    public void LevelSelectionExit()
-    {
-        levelSelection.SetActive(false);
-        mainMenu.SetActive(true);
-    }
-
-    public void Quit()
+    public void CloseApp()
     {
         Application.Quit();
     }
+
+    private void SetScore()
+    {
+        Score.text = SaveLoadSystem.I.GetTotalPickedFruits().ToString();
+    }
+    
 }

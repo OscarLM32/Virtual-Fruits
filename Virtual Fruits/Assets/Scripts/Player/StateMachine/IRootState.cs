@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IRootState
 {
     public void HandleGravity();
-    //TODO: declare a HandleAnimation function
+    public void HandleAnimation();
 }

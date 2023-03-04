@@ -9,25 +9,40 @@ public class PlayerGroundState : PlayerBaseState, IRootState
         public static readonly string WALK = "PlayerWalk";
         public static readonly string RUN  = "PlayerRun";
     }
-    
+
+    private enum Sounds
+    {
+        Steps,
+        Landing
+    }
+
+    private const float _stepsCoolDownTime = 0.45f;
+    private float _elapsedTime = _stepsCoolDownTime;
+
     public PlayerGroundState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
         : base(currentContext, playerStateFactory)
     {
         IsRootState = true;
-        
     }
 
     public override void EnterState()
     {
         Context.debugText.text = "STATE: GROUNDED";
         InitializeSubState();
+        
+        //Reset all the movement variables
         Context.Jumped = false;
         Context.DoubleJumped = false;
         Context.Dashed = false;
+        Context.WallJumped = false;
+        Context.WallJumpsCount = 0;
+        
+        Context.PlayerAudioManager.Play(Sounds.Landing.ToString());
     }
 
     public override void UpdateState()
     {
+        HandleSteps();
         HandleAnimation();
         CheckSwitchStates();
     }
@@ -38,6 +53,12 @@ public class PlayerGroundState : PlayerBaseState, IRootState
 
     public override void InitializeSubState()
     {
+        if (Context.IsJumpingDownPlatform || Context.IsJumpDownPlatformPressed)
+        {
+            SetSubState(Factory.JumpDownPlatform());
+            return;
+        }
+        
         if (Context.CurrentMovementInput.x == 0)
         {
             SetSubState(Factory.Idle());
@@ -50,6 +71,18 @@ public class PlayerGroundState : PlayerBaseState, IRootState
 
     public override void CheckSwitchStates()
     {
+        if (Context.PlayerHit)
+        {
+            SwitchState(Factory.Hit());
+            return;
+        }
+
+        if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
+        {
+            SwitchState(Factory.Attack());
+            return;
+        }
+        
         if (Context.IsJumpPressed && !Context.RequireNewJumpPress)
         {
             SwitchState(Factory.Jumping());
@@ -58,13 +91,13 @@ public class PlayerGroundState : PlayerBaseState, IRootState
         {
             SwitchState(Factory.Falling());
         }
-        else if (!Context.Dashed && Context.IsDashPressed)
+        else if (!Context.Dashed && Context.IsDashPressed && !Context.RequireNewDashPress)
         {
             SwitchState(Factory.Dashing());
         }
     }
 
-    private void HandleAnimation()
+    public void HandleAnimation()
     {
         if(Context.CurrentMovementInput.x == 0)
             Context.PlayerAnimator.Play(GroundedAnimations.IDLE);
@@ -81,4 +114,20 @@ public class PlayerGroundState : PlayerBaseState, IRootState
     }
 
 
+    private void HandleSteps()
+    {
+        if (Context.CurrentMovement == Vector2.zero)
+        {
+            _elapsedTime = 0;
+            return;
+        }
+
+        if (_elapsedTime >= _stepsCoolDownTime)
+        {
+            Context.PlayerAudioManager.Play(Sounds.Steps.ToString());
+            _elapsedTime = 0;
+        }
+        else
+            _elapsedTime += Time.deltaTime;
+    }
 }

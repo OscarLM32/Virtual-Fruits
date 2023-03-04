@@ -29,12 +29,12 @@ public class ParallaxLayer : MonoBehaviour
         if (distX > length)
         {
             transform.position += new Vector3(length , 0, 0);
-            distX = 0;
+            distX -= length ;
         }
         else if (distX < -length)
         {
             transform.position -= new Vector3(length, 0, 0);
-            distX = 0;
+            distX += length;
         }
     }
 }

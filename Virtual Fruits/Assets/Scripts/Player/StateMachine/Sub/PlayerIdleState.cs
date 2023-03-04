@@ -20,13 +20,18 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void ExitState()
     {
-        //TODO: implement some dust particles when the character begins moving
+        //TODO: implement some dust particles when the character begins moving and grounded
     }
 
     public override void InitializeSubState(){}
 
     public override void CheckSwitchStates()
     {
+        if (Context.IsJumpDownPlatformPressed)
+        {
+            SwitchState(Factory.JumpDownPlatform());
+            return;
+        }
         if (Context.CurrentMovementInput.x != 0)
         {
             SwitchState(Factory.Movement());

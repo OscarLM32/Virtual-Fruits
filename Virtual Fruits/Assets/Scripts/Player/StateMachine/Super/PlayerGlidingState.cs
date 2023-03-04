@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class PlayerGlidingState : PlayerBaseState, IRootState
@@ -17,7 +18,7 @@ public class PlayerGlidingState : PlayerBaseState, IRootState
         Context.debugText.text = "STATE: GLIDING";
         InitializeSubState();
         HandleGravity();
-        Context.PlayerAnimator.Play(GLIDING_ANIMATION);
+        HandleAnimation();
     }
 
     public override void UpdateState()
@@ -45,6 +46,18 @@ public class PlayerGlidingState : PlayerBaseState, IRootState
 
     public override void CheckSwitchStates()
     {
+        if (Context.PlayerHit)
+        {
+            SwitchState(Factory.Hit());
+            return;
+        }
+        
+        if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
+        {
+            SwitchState(Factory.Attack());
+            return;
+        }
+        
         if (Context.IsGrounded)
         {
             SwitchState(Factory.Grounded());
@@ -53,7 +66,7 @@ public class PlayerGlidingState : PlayerBaseState, IRootState
         {
             SwitchState(Factory.Falling());
         }
-        else if (!Context.Dashed && Context.IsDashPressed)
+        else if (!Context.Dashed && Context.IsDashPressed && !Context.RequireNewDashPress)
         {
             SwitchState(Factory.Dashing());
         }
@@ -67,8 +80,13 @@ public class PlayerGlidingState : PlayerBaseState, IRootState
     {
         Context.Rb2D.gravityScale = Context.GlidingGravityFactor;
     }
+
+    public void HandleAnimation()
+    {
+        Context.PlayerAnimator.Play(GLIDING_ANIMATION);
+    }
     
-    void CheckMaxFallVelocity()
+    private void CheckMaxFallVelocity()
     {
         Vector2 velocity = Context.Rb2D.velocity;
         Context.Rb2D.velocity = new Vector2(velocity.x,Mathf.Max(velocity.y, MAX_FALL_VELOCITY));

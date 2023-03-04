@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //TODO: refactor class name to "PlayerFallingState"
-public class PlayerFallState : PlayerBaseState
+public class PlayerFallState : PlayerBaseState, IRootState
 {
     private const float MAX_FALL_VELOCITY = -20;
     private const string FALL_ANIMATION = "PlayerFall";
@@ -19,7 +19,8 @@ public class PlayerFallState : PlayerBaseState
         Context.debugText.text = "STATE: FALLING";
         HandleAnimation();
         HandleGravity();
-        Context.Jumped = true; //This is needed so that the character cannot jump in midair
+        Context.Jumped = true;
+        Context.WallJumped = false;
     }
 
     public override void UpdateState()
@@ -31,10 +32,17 @@ public class PlayerFallState : PlayerBaseState
 
     public override void ExitState()
     {
+        Context.GlidingPressedTime = 0;
     }
 
     public override void InitializeSubState()
     {
+        if (Context.IsJumpDownPlatformPressed)
+        {
+            SetSubState(Factory.JumpDownPlatform());
+            return;
+        }
+        
         if (Context.CurrentMovementInput.x == 0)
         {
             SetSubState(Factory.Idle());
@@ -47,15 +55,27 @@ public class PlayerFallState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.IsGrounded)
+        if (Context.PlayerHit)
+        {
+            SwitchState(Factory.Hit());
+            return;
+        }
+        
+        if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
+        {
+            SwitchState(Factory.Attack());
+            return;
+        }
+        
+        if (Context.IsGrounded && !Context.IsJumpingDownPlatform)
         {
             SwitchState(Factory.Grounded());
         }
-        else if (Context.IsJumpPressed && !Context.RequireNewJumpPress)
+        else if (Context.IsJumpPressed && !Context.RequireNewJumpPress && !(Context.Jumped && Context.DoubleJumped))
         {
             SwitchState(Factory.Jumping());
         }
-        else if (!Context.Dashed && Context.IsDashPressed)
+        else if (!Context.Dashed && Context.IsDashPressed && !Context.RequireNewDashPress)
         {
             SwitchState(Factory.Dashing());
         }
@@ -69,12 +89,12 @@ public class PlayerFallState : PlayerBaseState
         }
     }
 
-    void HandleGravity()
+    public void HandleGravity()
     {
         Context.Rb2D.gravityScale = Context.FallingGravityFactor;
     }
 
-    void HandleAnimation()
+    public void HandleAnimation()
     {
         Context.PlayerAnimator.Play(FALL_ANIMATION);
     }

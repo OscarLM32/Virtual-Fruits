@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerGrapplingWallState : PlayerBaseState, IRootState
 {
+    private enum Sounds
+    {
+        GrappleWall
+    }
+    
     private const string WALL_GRAPPLING_ANIMATION = "PlayerWallGrapple";
     
     public PlayerGrapplingWallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
@@ -19,43 +24,44 @@ public class PlayerGrapplingWallState : PlayerBaseState, IRootState
         InitializeSubState();
         HandleGravity();
         Context.Rb2D.velocity = new Vector2(0, 0);
-        
-        Context.Jumped = false;
-        Context.DoubleJumped = false;
-        Context.Dashed = false;
-        
 
+        Context.Jumped = true;
+        Context.Dashed = false;
+        Context.WallJumped = false;
+        
+        HandleAnimation();
+        
+        Context.PlayerAudioManager.Play(Sounds.GrappleWall.ToString());
     }
 
     public override void UpdateState()
     {
-        Context.PlayerAnimator.Play(WALL_GRAPPLING_ANIMATION);
         CheckSwitchStates();
     }
 
     public override void ExitState()
     {
+        Context.DoubleJumped = false;
     }
 
     public override void InitializeSubState()
     {
-        if (Context.CurrentMovementInput.x == 0)
-        {
-            SetSubState(Factory.Idle());
-        }
-        else
-        {
-            SetSubState(Factory.Movement());
-        }
+        SetSubState(Factory.Empty());
     }
 
     public override void CheckSwitchStates()
     {
+        if (Context.PlayerHit)
+        {
+            SwitchState(Factory.Hit());
+            return;
+        }
+        
         if (Context.IsGrounded)
         {
             SwitchState(Factory.Grounded());
         }
-        else if (Context.IsJumpPressed && !Context.RequireNewJumpPress)
+        else if (Context.IsJumpPressed && !Context.RequireNewJumpPress && (Context.WallJumpsCount < Context.MaxWallJumps))
         {
             SwitchState(Factory.Jumping());
         }
@@ -68,5 +74,10 @@ public class PlayerGrapplingWallState : PlayerBaseState, IRootState
     public void HandleGravity()
     {
         Context.Rb2D.gravityScale = Context.WallGrapplingGravityFactor;
+    }
+
+    public void HandleAnimation()
+    {
+        Context.PlayerAnimator.Play(WALL_GRAPPLING_ANIMATION);
     }
 }

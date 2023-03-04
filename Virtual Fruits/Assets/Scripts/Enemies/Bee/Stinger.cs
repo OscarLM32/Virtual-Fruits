@@ -6,25 +6,22 @@ using UnityEngine;
 
 public class Stinger : MonoBehaviour
 {
-    public ParticleSystem stingerDestroy;
-    private Color invisibleColor = new Color(0,0,0,0);
-    void Start()
+    public GameObject particles;
+    
+    void OnEnable()
     {
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -4f);
-    }
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        StartCoroutine(instantiateParticles());
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -5f);
     }
     
-    private IEnumerator instantiateParticles()
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        ParticleSystem particles;
-        particles = Instantiate(stingerDestroy, gameObject.transform.position, quaternion.identity);
-        gameObject.GetComponent<SpriteRenderer>().color = invisibleColor;
-        yield return new WaitForSeconds(1f); 
-        Destroy(particles.gameObject);
-        Destroy(gameObject);
+        InstantiateParticles();
+    }
+    
+    private void InstantiateParticles()
+    {
+        Instantiate(particles, gameObject.transform.position, quaternion.identity);
+        EnemyProjectilePool.I.DeleteProjectile(gameObject);
     }
     
 

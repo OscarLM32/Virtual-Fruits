@@ -24,7 +24,12 @@ public class PlayerMovementState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        if (Context.CurrentMovementInput.x == 0)
+        if (Context.IsJumpDownPlatformPressed)
+        {
+            SwitchState(Factory.JumpDownPlatform());
+            return;
+        }
+        if (Context.CurrentMovementInput.x == 0 || Context.IsGrapplingWall)
         {
             SwitchState(Factory.Idle());
         }

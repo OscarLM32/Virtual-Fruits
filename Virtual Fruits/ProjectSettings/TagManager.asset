@@ -5,12 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - BeeEnemy
-  - Apple
   - Item
-  - Stinger
   - Checkpoint
   - End
-  - PigEnemy
+  - Weapon
+  - Stinger
+  - Snail
   layers:
   - Default
   - TransparentFX
@@ -23,8 +23,8 @@ TagManager:
   - Item
   - Projectile
   - Checkpoint
-  - 
-  - 
+  - Player
+  - Weapon
   - 
   - 
   - 
@@ -48,12 +48,24 @@ TagManager:
   - name: Background
     uniqueID: 3322423919
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Backdecor
+    uniqueID: 3867226363
+    locked: 0
+  - name: Decor
+    uniqueID: 1327925699
+    locked: 0
+  - name: Foredecor
+    uniqueID: 791493021
     locked: 0
   - name: Terrain
     uniqueID: 1101678777
     locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Foreground
     uniqueID: 649679459
+    locked: 0
+  - name: HUD
+    uniqueID: 2289720921
     locked: 0
