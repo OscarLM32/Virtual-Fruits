@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3336fb04a0be06d41bd933741f86b1e7, type: 3}
+  m_Name: PlayerSounds
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Steps
+    clip: {fileID: 8300000, guid: f2f4b1c6715106243a8069061d98582c, type: 3}
+    volume: 0.5
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: Landing
+    clip: {fileID: 8300000, guid: 929cf72ca074e9a49908453740ae047c, type: 3}
+    volume: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: e83fe635e86c72a4db9c94739430e5d0, type: 3}
+    volume: 0.5
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: cb33e75b31c64f44697c4d77665ca3dc, type: 3}
+    volume: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: GrappleWall
+    clip: {fileID: 8300000, guid: bdf5a752c001deb46a22c56633f16bc1, type: 3}
+    volume: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: BounceBack
+    clip: {fileID: 8300000, guid: 41a97d8d2ce386d4eac945e72c0472d2, type: 3}
+    volume: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 35ba0bb41d26f474a8d569f83f27b8b4, type: 3}
+    volume: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
+  - name: Attack
+    clip: {fileID: 8300000, guid: d7b117750a065f441808ef4495bea389, type: 3}
+    volume: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}

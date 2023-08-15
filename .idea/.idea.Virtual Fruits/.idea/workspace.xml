@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="679c9d0c-ba0d-46e4-a4d4-7949afc645c1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/.idea/.idea.Metroidvania.dir/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/.idea/.idea.Metroidvania.dir/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/.idea/.idea.Metroidvania.dir/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/.idea/.idea.Metroidvania.dir/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/.idea/.idea.Metroidvania/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/.idea/.idea.Metroidvania/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/.idea/.idea.Metroidvania/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/.idea/.idea.Metroidvania/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios/Background.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios/Background.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios/EnemyHit.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios/EnemyHit.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios/ItemPickUp.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios/ItemPickUp.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios/Jump.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Audios/Jump.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/GameAssets.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/GameAssets.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Materials/DeadCharacterMaterial.physicsMaterial2D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Materials/DeadCharacterMaterial.physicsMaterial2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Materials/GroundMaterial.physicsMaterial2D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Materials/GroundMaterial.physicsMaterial2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Materials/SlipperyPlayer.physicsMaterial2D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Materials/SlipperyPlayer.physicsMaterial2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/BeeEnemy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/BeeEnemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/Item.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/Item.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/PigEnemy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/PigEnemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/SawPrefab.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/SawPrefab.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/Stinger.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Resources/Prefabs/Stinger.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/Level1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/Level1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/Level2.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/Level2.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/Level3.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/Level3.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/Level4.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/Level4.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/MainMenu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/MainMenu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/PracticeLevel.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scenes/PracticeLevel.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/AudioController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/AudioController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies/BeeBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies/BeeBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies/Patrol.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies/Patrol.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies/PigBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies/PigBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies/Stinger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Enemies/Stinger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/GameAssets.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/GameAssets.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/GameController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/GameController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Item.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Item/ItemBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Item/ItemBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/MainMenu.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/MainMenu/LevelSelection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/MainMenu/LevelSelection.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/MainMenu/MainMenu.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/MainMenu/MainMenu.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/MovingBackground.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/MovingBackground.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerBehaviour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerBehaviour.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerInput.inputactions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerInput.inputactions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/PlayerMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded/PlayerGroundState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded/PlayerGroundState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded/PlayerIdleState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded/PlayerIdleState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded/PlayerJumpState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded/PlayerJumpState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded/PlayerMovementState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/Grounded/PlayerMovementState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/Jumping.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/Jumping/PlayerJumpingState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/Jumping/PlayerJumpingState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/PLayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/PLayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/PlayerAirMovementState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/PlayerAirMovementState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/PlayerDoubleJumpState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/PlayerDoubleJumpState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/PlayerOnAirState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/OnAir/PlayerOnAirState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/PlayerBaseState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/PlayerBaseState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/PlayerFallState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/PlayerFallState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/PlayerStateFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/PlayerStateFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Anton OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Anton OFL.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Anton.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Anton.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Bangers - OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Bangers - OFL.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Bangers.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Bangers.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Electronic Highway Sign.TTF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Electronic Highway Sign.TTF.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Oswald-Bold - OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Oswald-Bold - OFL.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Oswald-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Oswald-Bold.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Roboto-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Fonts/Roboto-Bold.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Crate - Surface Shader Scene.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Crate - Surface Shader Scene.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Ground - Logo Scene.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Ground - Logo Scene.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Ground - Surface Shader Scene.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Ground - Surface Shader Scene.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Small Crate_diffuse.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Materials/Small Crate_diffuse.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Prefabs/Text Popup.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Prefabs/Text Popup.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Prefabs/TextMeshPro - Prefab 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Prefabs/TextMeshPro - Prefab 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Prefabs/TextMeshPro - Prefab 2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Prefabs/TextMeshPro - Prefab 2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets/Blue to Purple - Vertical.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets/Blue to Purple - Vertical.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets/Dark to Light Green - Vertical.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets/Dark to Light Green - Vertical.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets/Light to Dark Green - Vertical.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets/Light to Dark Green - Vertical.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets/Yellow to Orange - Vertical.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Color Gradient Presets/Yellow to Orange - Vertical.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF - Drop Shadow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF - Drop Shadow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF - Outline.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF - Outline.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF - Sunny Days.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF - Sunny Days.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Anton SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF - Drop Shadow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF - Drop Shadow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF - Outline.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF - Outline.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF Glow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF Glow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF Logo.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF Logo.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Bangers SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Electronic Highway Sign SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/LiberationSans SDF - Metalic Green.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/LiberationSans SDF - Metalic Green.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/LiberationSans SDF - Overlay.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/LiberationSans SDF - Overlay.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/LiberationSans SDF - Soft Mask.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/LiberationSans SDF - Soft Mask.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Oswald Bold SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF - Drop Shadow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF - Drop Shadow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF - Surface.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF - Surface.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Sprite Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Sprite Assets/Default Sprite Asset.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Sprite Assets/Default Sprite Asset.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Sprite Assets/DropCap Numbers.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Sprite Assets/DropCap Numbers.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/01-  Single Line TextMesh Pro.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/01-  Single Line TextMesh Pro.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/02 - Multi-line TextMesh Pro.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/02 - Multi-line TextMesh Pro.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/03 - Line Justification.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/03 - Line Justification.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/04 - Word Wrapping.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/04 - Word Wrapping.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/05 - Style Tags.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/05 - Style Tags.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/06 - Extra Rich Text Examples.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/06 - Extra Rich Text Examples.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/07 - Superscript &amp; Subscript Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/07 - Superscript &amp; Subscript Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/08 - Improved Text Alignment.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/08 - Improved Text Alignment.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/09 - Margin Tag Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/09 - Margin Tag Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/10 - Bullets &amp; Numbered List Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/10 - Bullets &amp; Numbered List Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/11 - The Style Tag.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/11 - The Style Tag.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/12 - Link Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/12 - Link Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/12a - Text Interactions.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/12a - Text Interactions.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/13 - Soft Hyphenation.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/13 - Soft Hyphenation.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/14 - Multi Font &amp; Sprites.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/14 - Multi Font &amp; Sprites.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/15 - Inline Graphics &amp; Sprites.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/15 - Inline Graphics &amp; Sprites.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/16 - Linked text overflow mode example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/16 - Linked text overflow mode example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/17 - Old Computer Terminal.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/17 - Old Computer Terminal.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/18 - ScrollRect &amp; Masking &amp; Layout.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/18 - ScrollRect &amp; Masking &amp; Layout.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/19 - Masking Texture &amp; Soft Mask.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/19 - Masking Texture &amp; Soft Mask.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/20 - Input Field with Scrollbar.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/20 - Input Field with Scrollbar.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/21 - Script Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/21 - Script Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/22 - Basic Scripting Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/22 - Basic Scripting Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/23 - Animating Vertex Attributes.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/23 - Animating Vertex Attributes.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/24 - Surface Shader Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/24 - Surface Shader Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/25 - Sunny Days Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/25 - Sunny Days Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/26 - Dropdown Placeholder Example.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/26 - Dropdown Placeholder Example.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/Benchmark (Floating Text).unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scenes/Benchmark (Floating Text).unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01_UGUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark01_UGUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark02.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark03.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/Benchmark04.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/CameraController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/DropdownSample.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/EnvMapAnimator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ObjectSpin.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ShaderPropAnimator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SkewTextExample.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SkewTextExample.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_DigitValidator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_FrameRateCounter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_PhoneNumberValidator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventCheck.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextEventHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextInfoDebugTool.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_A.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_TextSelector_B.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_UiFrameRateCounter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMPro_InstructionOverlay.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextConsoleSimulator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextConsoleSimulator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshProFloatingText.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TextMeshSpawner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexColorCycler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexJitter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeA.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexShakeB.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/VertexZoom.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/WarpTextExample.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Sprites/Default Sprites.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Sprites/Default Sprites.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Sprites/DropCap Numbers.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Sprites/DropCap Numbers.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Brushed Metal 3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Brushed Metal 3.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Floor Cement.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Floor Cement.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Floor Tiles 1 - diffuse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Floor Tiles 1 - diffuse.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Fruit Jelly (B&amp;W).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Fruit Jelly (B&amp;W).jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Gradient Diagonal (Color).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Gradient Diagonal (Color).jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Gradient Horizontal (Color).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Gradient Horizontal (Color).jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Gradient Vertical (Color).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Gradient Vertical (Color).jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Mask Zig-n-Zag.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Mask Zig-n-Zag.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Small Crate_diffuse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Small Crate_diffuse.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Small Crate_normal.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Small Crate_normal.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Sunny Days - Seamless.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Sunny Days - Seamless.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Text Overflow - Linked Text Image 1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Text Overflow - Linked Text Image 1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Text Overflow - Linked Text UI Screenshot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Text Overflow - Linked Text UI Screenshot.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Wipe Pattern - Circle.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Wipe Pattern - Circle.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Wipe Pattern - Diagonal.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Wipe Pattern - Diagonal.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Wipe Pattern - Radial Double.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Wipe Pattern - Radial Double.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Wipe Pattern - Radial Quad.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Examples &amp; Extras/Textures/Wipe Pattern - Radial Quad.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Fonts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Fonts/LiberationSans.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Resources/TMP Settings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMPro.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMPro.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Sprites/EmojiOne.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Sprites/EmojiOne.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Sprites/EmojiOne.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/TextMesh Pro/Sprites/EmojiOne.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee/BeeAnimator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee/BeeAnimator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee/BeeAttack.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee/BeeAttack.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee/BeeHitAnimation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee/BeeHitAnimation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee/BeeIdle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Bee/BeeIdle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig/PigAnimator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig/PigAnimator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig/PigIdle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig/PigIdle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig/PigOnHit.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig/PigOnHit.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig/PigWalk.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Pig/PigWalk.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Saw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Saw/SawAnimation.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Saw/SawAnimation.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Saw/SawRotation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/EnemyAnimations/Saw/SawRotation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/Items.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/Items/AppleAnimation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/Items/AppleAnimation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/Items/CollectionAnimation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/Items/CollectionAnimation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/Items/ItemAnimator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/Items/ItemAnimator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerAnimator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerAnimator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerDoubleJump.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerDoubleJump.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerHit.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerHit.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerIdle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerIdle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerJumpDown.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerJumpDown.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerJumpUp.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerJumpUp.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerRun.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Animations/PlayerAnimations/PlayerRun.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background/Brown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background/Brown.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background/Gray.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background/Gray.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background/Green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background/Green.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background/Pink.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Background/Pink.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Double Jump (32x32).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Double Jump (32x32).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Fall (32x32).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Fall (32x32).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Hit (32x32).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Hit (32x32).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Idle (32x32).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Idle (32x32).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Jump (32x32).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Jump (32x32).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Run (32x32).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/CharacterSprites/Run (32x32).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee/Attack (36x34).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee/Attack (36x34).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee/Hit (36x34).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee/Hit (36x34).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee/Idle (36x34).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee/Idle (36x34).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee/Stinger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Bee/Stinger.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Pig.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Pig/Hit 2 (36x30).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Pig/Hit 2 (36x30).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Pig/Idle (36x30).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Pig/Idle (36x30).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Pig/Walk (36x30).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Pig/Walk (36x30).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Saw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Saw/On (38x38).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enemies/Saw/On (38x38).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Terrain (16x16).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Terrain (16x16).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Enviroment Palette.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Enviroment Palette.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Green_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_0.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_0.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_10.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_10.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_100.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_100.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_101.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_101.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_102.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_102.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_103.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_103.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_104.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_104.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_105.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_105.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_106.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_106.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_107.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_107.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_108.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_108.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_109.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_109.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_11.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_11.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_110.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_110.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_111.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_111.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_112.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_112.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_113.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_113.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_114.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_114.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_115.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_115.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_116.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_116.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_117.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_117.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_118.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_118.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_119.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_119.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_12.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_12.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_120.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_120.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_121.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_121.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_122.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_122.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_123.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_123.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_124.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_124.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_125.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_125.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_126.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_126.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_127.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_127.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_128.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_128.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_129.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_129.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_13.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_13.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_130.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_130.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_131.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_131.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_132.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_132.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_133.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_133.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_134.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_134.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_135.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_135.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_136.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_136.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_137.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_137.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_138.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_138.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_139.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_139.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_14.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_14.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_140.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_140.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_141.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_141.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_142.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_142.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_143.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_143.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_15.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_15.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_16.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_16.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_17.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_17.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_18.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_18.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_19.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_19.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_20.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_20.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_21.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_21.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_22.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_22.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_23.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_23.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_24.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_24.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_25.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_25.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_26.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_26.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_27.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_27.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_28.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_28.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_29.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_29.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_30.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_30.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_31.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_31.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_32.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_32.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_33.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_33.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_34.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_34.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_35.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_35.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_36.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_36.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_37.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_37.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_38.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_38.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_39.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_39.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_40.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_40.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_41.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_41.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_42.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_42.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_43.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_43.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_44.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_44.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_45.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_45.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_46.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_46.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_47.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_47.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_48.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_48.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_49.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_49.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_5.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_5.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_50.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_50.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_51.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_51.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_52.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_52.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_53.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_53.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_54.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_54.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_55.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_55.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_56.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_56.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_57.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_57.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_58.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_58.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_59.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_59.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_6.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_6.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_60.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_60.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_61.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_61.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_62.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_62.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_63.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_63.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_64.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_64.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_65.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_65.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_66.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_66.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_67.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_67.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_68.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_68.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_69.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_69.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_7.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_7.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_70.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_70.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_71.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_71.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_72.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_72.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_73.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_73.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_74.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_74.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_75.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_75.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_76.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_76.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_77.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_77.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_78.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_78.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_79.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_79.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_8.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_8.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_80.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_80.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_81.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_81.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_82.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_82.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_83.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_83.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_84.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_84.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_85.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_85.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_86.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_86.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_87.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_87.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_88.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_88.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_89.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_89.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_9.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_9.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_90.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_90.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_91.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_91.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_92.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_92.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_93.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_93.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_94.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_94.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_95.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_95.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_96.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_96.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_97.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_97.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_98.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_98.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_99.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Enviroment/Tile Palettes/Tiles/Terrain (16x16)_99.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Items.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Items/Apple.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Items/Apple.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Items/Collected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Assets/VisualAssets/Sprites/Items/Collected.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Packages/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/Packages/packages-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/AudioManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/BurstAotSettings_StandaloneWindows.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/BurstAotSettings_WebGL.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/ClusterInputManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/CommonBurstAotSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/DynamicsManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/EditorSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/GraphicsSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/InputManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/MemorySettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/NavMeshAreas.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/NetworkManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/Physics2DSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/PresetManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/ProjectSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/ProjectVersion.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/QualitySettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/SceneTemplateSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/TagManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/TimeManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/TimelineSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/VFXManager.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/VersionControlSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/XRSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Metroidvania/ProjectSettings/boot.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="false" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/InputManagerStateMonitors.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/NativeInputRuntime.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.3/InputSystem/InputManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8d52d11edb304e6d82433aaa29e701d53a00/49/9998c251/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Sub/PlayerIdleState.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IUzQKlyrrVvMtNjBlPn8L7X4Ld" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.515625" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor &amp; Play" />
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="679c9d0c-ba0d-46e4-a4d4-7949afc645c1" name="Changes" comment="" />
+      <created>1670250993028</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670250993028</updated>
+      <workItem from="1670250994092" duration="459000" />
+      <workItem from="1670251485157" duration="359000" />
+      <workItem from="1670251929731" duration="4633000" />
+      <workItem from="1670256641955" duration="443000" />
+      <workItem from="1670274055301" duration="856000" />
+      <workItem from="1670330245543" duration="3716000" />
+      <workItem from="1670346589593" duration="1202000" />
+      <workItem from="1670357722470" duration="8331000" />
+      <workItem from="1670416519326" duration="1850000" />
+      <workItem from="1671664854919" duration="4097000" />
+      <workItem from="1671754322489" duration="1930000" />
+      <workItem from="1671810305235" duration="3627000" />
+      <workItem from="1671969364054" duration="5680000" />
+      <workItem from="1672245839723" duration="15450000" />
+      <workItem from="1672329630952" duration="10524000" />
+      <workItem from="1672684947145" duration="5842000" />
+      <workItem from="1672800829832" duration="6078000" />
+      <workItem from="1672962304981" duration="1010000" />
+      <workItem from="1673211281983" duration="1093000" />
+      <workItem from="1673740329888" duration="1232000" />
+      <workItem from="1673751067958" duration="565000" />
+      <workItem from="1673797538235" duration="4398000" />
+      <workItem from="1673887365815" duration="10430000" />
+      <workItem from="1673919609384" duration="2678000" />
+      <workItem from="1673968488700" duration="7046000" />
+      <workItem from="1674177867959" duration="2222000" />
+      <workItem from="1674229091598" duration="6325000" />
+      <workItem from="1674304682839" duration="16303000" />
+      <workItem from="1674410133391" duration="3855000" />
+      <workItem from="1674565997790" duration="5637000" />
+      <workItem from="1674608447195" duration="5066000" />
+      <workItem from="1674677463307" duration="15964000" />
+      <workItem from="1674735890499" duration="10382000" />
+      <workItem from="1674768025471" duration="8266000" />
+      <workItem from="1674821217389" duration="10985000" />
+      <workItem from="1675008225397" duration="11257000" />
+      <workItem from="1675083453238" duration="6033000" />
+      <workItem from="1675110854292" duration="2955000" />
+      <workItem from="1675179682840" duration="5424000" />
+      <workItem from="1675264673065" duration="8874000" />
+      <workItem from="1675373217675" duration="11213000" />
+      <workItem from="1675428357340" duration="12779000" />
+      <workItem from="1675610089823" duration="5254000" />
+      <workItem from="1675702890802" duration="5892000" />
+      <workItem from="1675725225936" duration="6339000" />
+      <workItem from="1675786903930" duration="3326000" />
+      <workItem from="1675879450968" duration="2874000" />
+      <workItem from="1675964642091" duration="3232000" />
+      <workItem from="1676251495174" duration="2608000" />
+      <workItem from="1676254209262" duration="49000" />
+      <workItem from="1676254298570" duration="246000" />
+      <workItem from="1676254571094" duration="148000" />
+      <workItem from="1676254767951" duration="575000" />
+      <workItem from="1677122386043" duration="357000" />
+      <workItem from="1677429465508" duration="679000" />
+      <workItem from="1677675118648" duration="1442000" />
+      <workItem from="1677678106397" duration="2000" />
+      <workItem from="1677712738284" duration="7360000" />
+      <workItem from="1677781413083" duration="13756000" />
+      <workItem from="1677859142412" duration="1209000" />
+      <workItem from="1677875773119" duration="1326000" />
+      <workItem from="1678207377739" duration="124000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

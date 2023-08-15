@@ -1,0 +1,4 @@
+repository "Virtual_Fruits@Shikuga_Dev@cloud"
+  path "/"
+    br "/main"
+    co "/main"
