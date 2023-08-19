@@ -74,7 +74,7 @@ crashlytics-build.properties
 
 #Plastic SCM
 .plastic/
-.ignore.conf
+ignore.conf
 
 #Jetbrains Raider
 .idea/ 
