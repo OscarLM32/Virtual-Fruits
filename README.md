@@ -7,7 +7,7 @@ For more information refer to the [Game Design Document](https://github.com/Osca
 
 ---
 
-##Implementation summary
+## Implementation summary
 | **Implemented**            | **Not implemented**                                 |
 |----------------------------|-----------------------------------------------------|
 | Character movement &check; | Character movement progression &cross;              |
