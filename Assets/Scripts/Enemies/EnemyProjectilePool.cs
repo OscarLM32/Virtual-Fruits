@@ -9,6 +9,7 @@ public enum ProjectileType
     Bean
 }
 
+//TODO: refactor code turn Lists of projectiles into queues
 public class EnemyProjectilePool : MonoBehaviour, ISerializationCallbackReceiver
 {
     //The amount of projectiles of each type that are going to be spawned
