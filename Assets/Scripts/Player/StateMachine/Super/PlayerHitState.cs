@@ -29,7 +29,7 @@ public class PlayerHitState : PlayerBaseState, IRootState
 
     public override void EnterState()
     {
-        Context.debugText.SetText("State: HIT"); 
+        //Context.debugText.SetText("State: HIT"); 
         
         _timeElapsed = 0;
         InitializeSubState();

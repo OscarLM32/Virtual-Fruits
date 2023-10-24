@@ -18,6 +18,7 @@ public class PlayerStateMachine : MonoBehaviour
     
     public Transform groundChecker;
     public Transform wallChecker;
+    //TODO: move this debugging logic to a separate file
     public TextMeshProUGUI debugText;
 
     public GameObject weaponGameObject;

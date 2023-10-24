@@ -27,7 +27,7 @@ public class PlayerGroundState : PlayerBaseState, IRootState
 
     public override void EnterState()
     {
-        Context.debugText.text = "STATE: GROUNDED";
+        //Context.debugText.text = "STATE: GROUNDED";
         InitializeSubState();
         
         //Reset all the movement variables

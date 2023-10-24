@@ -5,9 +5,9 @@ using UnityEngine;
 namespace Level.DynamicDifficulty
 {
     [Serializable]
-    public class DifficultyModifierSetting
+    public class DifficultyModifier
     {
-        public DifficultyModifierActionType action;
+        public DifficultyModifierAction action;
         public GameObject target;
 
         public EnemyType enemyType;

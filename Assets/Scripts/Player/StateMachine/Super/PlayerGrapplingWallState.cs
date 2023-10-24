@@ -19,7 +19,7 @@ public class PlayerGrapplingWallState : PlayerBaseState, IRootState
 
     public override void EnterState()
     {
-        Context.debugText.text = "STATE: GRAPPLING WALL";
+        //Context.debugText.text = "STATE: GRAPPLING WALL";
         
         InitializeSubState();
         HandleGravity();

@@ -21,7 +21,7 @@ public class PlayerAttackState : PlayerBaseState, IRootState
 
     public override void EnterState()
     {
-        Context.debugText.text = "STATE: ATTACKING";
+        //Context.debugText.text = "STATE: ATTACKING";
         InitializeSubState();
         CalculateFinalAttackPosition();
         Context.PlayerAudioManager.Play(Sounds.Attack.ToString());

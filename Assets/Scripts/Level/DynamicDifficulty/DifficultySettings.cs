@@ -6,6 +6,6 @@ namespace Level.DynamicDifficulty
     public class DifficultySettings
     {
         public Difficulty difficulty;
-        public DifficultyModifierSetting[] difficultyModifierSettings;
+        public DifficultyModifier[] difficultyModifiers;
     }
 }

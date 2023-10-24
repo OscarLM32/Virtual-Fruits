@@ -15,7 +15,7 @@ public class PlayerGlidingState : PlayerBaseState, IRootState
 
     public override void EnterState()
     {
-        Context.debugText.text = "STATE: GLIDING";
+        //Context.debugText.text = "STATE: GLIDING";
         InitializeSubState();
         HandleGravity();
         HandleAnimation();

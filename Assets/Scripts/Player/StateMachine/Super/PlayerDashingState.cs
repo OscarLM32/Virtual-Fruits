@@ -22,7 +22,7 @@ public class PlayerDashingState : PlayerBaseState, IRootState
 
     public override void EnterState()
     {
-        Context.debugText.text = "STATE: DASHING";
+        //Context.debugText.text = "STATE: DASHING";
         _timeSpentDashing = 0;
 
         InitializeSubState();
