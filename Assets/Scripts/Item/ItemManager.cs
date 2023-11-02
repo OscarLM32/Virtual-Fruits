@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +6,11 @@ public class ItemManager : MonoBehaviour
 {
     [Tooltip("Resets the item collection bitmap when true")]
     public bool debug = false;
-    
+
     private const String ITEM_TAG = "Item";
-    
-    [SerializeField]private List<bool> _pickedItems = new List<bool>();
-    [SerializeField]private List<GameObject> _items = new List<GameObject>();
+
+    [SerializeField] private List<bool> _pickedItems = new List<bool>();
+    [SerializeField] private List<GameObject> _items = new List<GameObject>();
 
     private void Start()
     {

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Level.DynamicDifficulty
@@ -19,7 +18,7 @@ namespace Level.DynamicDifficulty
         private const float k = 1;
 
         private const float minimumSkillParameter = -3;
-        private const float maximumSkillParameter =  3;
+        private const float maximumSkillParameter = 3;
 
         private float currentSkillParameter = 0;
         private bool wasLastObstacleSurpassed = false;
@@ -48,7 +47,7 @@ namespace Level.DynamicDifficulty
         private void PlayerSurpassedObstacle()
         {
             //if obstacle was not surpassed last time
-                //consecutiveness == 0
+            //consecutiveness == 0
             //currentSkillParameter += f(value,consecutiveness)
             //consecutiveness += 1
             //if currentSkillParameter > 3 --> currentSkillParameter = 3

@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJumpDownPlatformState : PlayerBaseState
 {
     private float _minIgnoreTime = 0.2f;
     private float _timeElapsed = 0f;
-    public PlayerJumpDownPlatformState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
-        : base(currentContext, playerStateFactory) {}
-    
+    public PlayerJumpDownPlatformState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        : base(currentContext, playerStateFactory) { }
+
     public override void EnterState()
     {
         _timeElapsed = 0;
@@ -35,7 +33,7 @@ public class PlayerJumpDownPlatformState : PlayerBaseState
         Context.IsJumpingDownPlatform = false;
     }
 
-    public override void InitializeSubState(){}
+    public override void InitializeSubState() { }
 
     public override void CheckSwitchStates()
     {
@@ -45,6 +43,6 @@ public class PlayerJumpDownPlatformState : PlayerBaseState
             return;
         }
         SwitchState(Factory.Movement());
-        
+
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJumpingState : PlayerBaseState, IRootState
@@ -8,11 +6,11 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
     {
         Jump
     }
-    
+
     private PlayerStateMachine.WallJumpInformation _currentWallJump;
     private static class JumpingAnimations
     {
-        public static readonly string JUMP        = "PlayerJump";
+        public static readonly string JUMP = "PlayerJump";
         public static readonly string DOUBLE_JUMP = "PlayerDoubleJump";
     }
 
@@ -70,13 +68,13 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
             SwitchState(Factory.Hit());
             return;
         }
-        
+
         if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
         {
             SwitchState(Factory.Attack());
             return;
         }
-        
+
         if (Context.IsGrounded && !Context.IsJumpPressed)
         {
             SwitchState(Factory.Grounded());
@@ -94,24 +92,25 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
             SwitchState(Factory.GrapplingWall());
         }
     }
-    
+
     private void HandleJump()
     {
         if (Context.IsGrapplingWall && !Context.RequireNewJumpPress)
         {
             HandleWallJump();
-        }else if (!Context.RequireNewJumpPress)
+        }
+        else if (!Context.RequireNewJumpPress)
         {
-            HandleNormalJump(); 
+            HandleNormalJump();
         }
     }
-    
+
     private void HandleWallJump()
     {
         float xJumpVelocity = _currentWallJump.InitialJumpVelocity * 0.4f;
         float yJumpVelocity = _currentWallJump.InitialJumpVelocity;
         int direction = Context.LastFacingDirection * -1; //The opposite direction
-        
+
         Context.WallJumped = true;
         Context.IsGrapplingWall = false;
         Context.Rb2D.velocity = new Vector2(xJumpVelocity * direction, yJumpVelocity);
@@ -119,7 +118,7 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
         Context.WallJumpsCount++;
         HandleAnimation();
     }
-    
+
     private void HandleNormalJump()
     {
         if (!Context.IsJumpPressed || Context.RequireNewJumpPress)
@@ -134,7 +133,7 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
             HandleAnimation();
             return;
         }
-        
+
         if (!Context.DoubleJumped)
         {
             Context.Rb2D.velocity = new Vector2(Context.Rb2D.velocity.x, Context.InitialDoubleJumpVelocity);
@@ -152,7 +151,7 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
         }
         else
         {
-            HandleNormalJumpGravity(); 
+            HandleNormalJumpGravity();
         }
     }
 

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +17,7 @@ public class EnemyProjectilePool : MonoBehaviour, ISerializationCallbackReceiver
     public List<ProjectileType> projectileTypesInLevel;
     public List<GameObject> projectilePrefabs;
 
-    private Dictionary<ProjectileType, GameObject> _projectilesToSpawn = 
+    private Dictionary<ProjectileType, GameObject> _projectilesToSpawn =
         new Dictionary<ProjectileType, GameObject>();
 
     private Dictionary<ProjectileType, List<GameObject>> _projectiles =

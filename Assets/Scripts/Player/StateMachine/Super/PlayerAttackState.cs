@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttackState : PlayerBaseState, IRootState
@@ -9,7 +7,7 @@ public class PlayerAttackState : PlayerBaseState, IRootState
     {
         Attack
     }
-    
+
     private const string ATTACK_ANIMATION = "PlayerAttack";
     private Vector2 _finalAttackPosition;
 
@@ -67,5 +65,5 @@ public class PlayerAttackState : PlayerBaseState, IRootState
         _finalAttackPosition *= Context.MaxAttackDistance;
         _finalAttackPosition += (Vector2)Context.gameObject.transform.position;
     }
-    
+
 }

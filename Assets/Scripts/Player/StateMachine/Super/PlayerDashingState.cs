@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Cinemachine.Utility;
 using UnityEngine;
 
 public class PlayerDashingState : PlayerBaseState, IRootState
@@ -9,7 +6,7 @@ public class PlayerDashingState : PlayerBaseState, IRootState
     {
         Dash
     }
-    
+
     private const string DASH_ANIMATION = "PlayerDash";
     private float _timeSpentDashing = 0;
     private Vector2 _lastPosition;
@@ -30,7 +27,7 @@ public class PlayerDashingState : PlayerBaseState, IRootState
         Dash();
 
         HandleAnimation();
-        
+
         Context.PlayerAudioManager.Play(Sounds.Dash.ToString());
     }
 
@@ -57,14 +54,14 @@ public class PlayerDashingState : PlayerBaseState, IRootState
             SwitchState(Factory.Hit());
             return;
         }
-        
+
         if (Context.IsGrapplingWall)
         {
             Context.Dashed = true;
             SwitchState(Factory.GrapplingWall());
             return;
         }
-        
+
         if (!Context.Dashed)
             return;
 
@@ -95,12 +92,12 @@ public class PlayerDashingState : PlayerBaseState, IRootState
         Context.Rb2D.velocity = new Vector2(Context.DashSpeed * Context.LastFacingDirection, 0f);
         Context.RequireNewDashPress = true;
     }
-    
+
     private void HandleDashTimer()
     {
         if (_timeSpentDashing > Context.DashTime)
             Context.Dashed = true;
         _timeSpentDashing += Time.deltaTime;
     }
-    
+
 }

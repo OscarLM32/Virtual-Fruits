@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGrapplingWallState : PlayerBaseState, IRootState
@@ -8,9 +6,9 @@ public class PlayerGrapplingWallState : PlayerBaseState, IRootState
     {
         GrappleWall
     }
-    
+
     private const string WALL_GRAPPLING_ANIMATION = "PlayerWallGrapple";
-    
+
     public PlayerGrapplingWallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
         : base(currentContext, playerStateFactory)
     {
@@ -20,7 +18,7 @@ public class PlayerGrapplingWallState : PlayerBaseState, IRootState
     public override void EnterState()
     {
         //Context.debugText.text = "STATE: GRAPPLING WALL";
-        
+
         InitializeSubState();
         HandleGravity();
         Context.Rb2D.velocity = new Vector2(0, 0);
@@ -28,9 +26,9 @@ public class PlayerGrapplingWallState : PlayerBaseState, IRootState
         Context.Jumped = true;
         Context.Dashed = false;
         Context.WallJumped = false;
-        
+
         HandleAnimation();
-        
+
         Context.PlayerAudioManager.Play(Sounds.GrappleWall.ToString());
     }
 
@@ -56,7 +54,7 @@ public class PlayerGrapplingWallState : PlayerBaseState, IRootState
             SwitchState(Factory.Hit());
             return;
         }
-        
+
         if (Context.IsGrounded)
         {
             SwitchState(Factory.Grounded());

@@ -13,5 +13,11 @@ namespace Level.DynamicDifficulty
                 levelSector.SetDifficultyChanges(difficulty);
             }
         }
+
+        [ContextMenu("UpdateLevelSectorList")]
+        private void UpdateLevelSectorList()
+        {
+            _levelSectors = FindObjectsOfType<LevelSector>();
+        }
     }
 }

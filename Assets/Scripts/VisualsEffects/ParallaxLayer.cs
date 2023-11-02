@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 
@@ -6,7 +5,7 @@ public class ParallaxLayer : MonoBehaviour
 {
     public float parallaxFactorX;
     public float parallaxFactorY;
-    
+
     public float length;
     public float distX = 0; //The distance that the camera has travelled in relation to the layer
 
@@ -28,8 +27,8 @@ public class ParallaxLayer : MonoBehaviour
 
         if (distX > length)
         {
-            transform.position += new Vector3(length , 0, 0);
-            distX -= length ;
+            transform.position += new Vector3(length, 0, 0);
+            distX -= length;
         }
         else if (distX < -length)
         {

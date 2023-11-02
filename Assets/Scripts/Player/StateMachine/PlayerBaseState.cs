@@ -22,10 +22,10 @@ public abstract class PlayerBaseState
     public abstract void InitializeSubState();
 
     public abstract void CheckSwitchStates();
-    
-    
+
+
     public void UpdateStates()
-    { 
+    {
         //TODO: try refs
         if (CurrentSubState != null)
         {
@@ -33,20 +33,21 @@ public abstract class PlayerBaseState
         }
         UpdateState();
     }
-    
+
     protected void SwitchState(PlayerBaseState newState)
     {
         //Current state exits state
         ExitState();
-        
+
         //New state enters state
         newState.EnterState();
 
         //Switch current state of context
         if (IsRootState)
         {
-            Context.CurrentState = newState;   
-        }else if (CurrentSuperState != null)
+            Context.CurrentState = newState;
+        }
+        else if (CurrentSuperState != null)
         {
             //set the superstate's substate to be the new one.
             CurrentSuperState.SetSubState(newState);
@@ -65,6 +66,6 @@ public abstract class PlayerBaseState
         newSubState.SetSuperState(this);
         CurrentSubState.EnterState();
     }
-    
-    
+
+
 }

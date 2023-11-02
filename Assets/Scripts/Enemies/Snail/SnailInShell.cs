@@ -1,18 +1,16 @@
-using System;
-using System.Collections;
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
 
 public class SnailInShell : MonoBehaviour
 {
     private static class SnailInShellAnimations
     {
-        public static readonly string SHELL_IDLE  = "ShellIdle";
-        public static readonly string SHELL_OUT  = "ShellOut";
-        public static readonly string SHELL_HIT  = "ShellHit";
+        public static readonly string SHELL_IDLE = "ShellIdle";
+        public static readonly string SHELL_OUT = "ShellOut";
+        public static readonly string SHELL_HIT = "ShellHit";
     }
-    
+
     private SnailStateMachine Context;
     private float _hitTime = 1;
     private float _timeElapsed = 0;
@@ -25,12 +23,12 @@ public class SnailInShell : MonoBehaviour
 
     private void Update()
     {
-        if(_playerCollided)
+        if (_playerCollided)
             HandleHit();
         else if (!Context.PlayerIntrigger)
             StartCoroutine(Exit());
     }
-    
+
     private void HandleHit()
     {
         if (_timeElapsed > _hitTime)

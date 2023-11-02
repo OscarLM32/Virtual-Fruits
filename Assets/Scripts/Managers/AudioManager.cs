@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -12,7 +9,7 @@ public class AudioManager : MonoBehaviour
         GameObject soundObject = new GameObject("Sounds");
         soundObject.transform.position = transform.position;
         soundObject.transform.SetParent(transform);
-        
+
         foreach (var s in sounds.sounds)
         {
             s.source = soundObject.AddComponent<AudioSource>();

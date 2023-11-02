@@ -14,14 +14,14 @@ public class PlayerHitState : PlayerBaseState, IRootState
         Death,
         BounceBack
     }
-    
+
     private const int BOUNCE_BACK_FORCE = 400;
     private const float BOUNCE_BACK_TIME = 0.7f;
     private const float DEATH_TIME = 1.5f;
     private float _exitTime = 0f;
     private float _timeElapsed = 0;
-    
-    public PlayerHitState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
+
+    public PlayerHitState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
         : base(currentContext, playerStateFactory)
     {
         IsRootState = true;
@@ -30,12 +30,12 @@ public class PlayerHitState : PlayerBaseState, IRootState
     public override void EnterState()
     {
         //Context.debugText.SetText("State: HIT"); 
-        
+
         _timeElapsed = 0;
         InitializeSubState();
         HandleGravity();
         HandleAnimation();
-        
+
         IgnoreThreatCollisions(true);
         SetTimer();
         HandleBounceBack();
@@ -52,9 +52,9 @@ public class PlayerHitState : PlayerBaseState, IRootState
     {
         if (Context.PlayerDead)
             GameActions.PlayerDeath();
-        
+
         IgnoreThreatCollisions(false);
-        
+
         Context.PlayerHit = false;
         Context.PlayerDead = false;
         Context.PlayerBounceBack = false;
@@ -69,7 +69,7 @@ public class PlayerHitState : PlayerBaseState, IRootState
     {
         if (_timeElapsed < _exitTime)
             return;
-        
+
         if (Context.IsGrounded)
         {
             SwitchState(Factory.Grounded());
@@ -81,7 +81,7 @@ public class PlayerHitState : PlayerBaseState, IRootState
             SwitchState(Factory.GrapplingWall());
             return;
         }
-       
+
         SwitchState(Factory.Falling());
     }
 
@@ -102,7 +102,7 @@ public class PlayerHitState : PlayerBaseState, IRootState
     {
         Context.PlayerAnimator.Play(Context.PlayerBounceBack ? HitAnimations.BOUNCE_BACK : HitAnimations.DEATH);
     }
-    
+
     private void HandleBounceBack()
     {
         //TODO: create a bouncy material (not the ragdoll one) and apply it while in the state
@@ -117,7 +117,7 @@ public class PlayerHitState : PlayerBaseState, IRootState
 
     private void HandleSound()
     {
-        if(Context.PlayerDead)
+        if (Context.PlayerDead)
             Context.PlayerAudioManager.Play(Sounds.Death.ToString());
         else
             Context.PlayerAudioManager.Play(Sounds.BounceBack.ToString());

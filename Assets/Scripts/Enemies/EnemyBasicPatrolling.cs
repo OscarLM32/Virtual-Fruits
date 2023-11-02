@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -19,10 +17,10 @@ public class EnemyBasicPatrolling : MonoBehaviour
     void Start()
     {
         transform.DOLocalPath(
-            patrolPoints, 
-            totalPatrolTime, 
-            pathType, 
-            PathMode.Sidescroller2D, 
+            patrolPoints,
+            totalPatrolTime,
+            pathType,
+            PathMode.Sidescroller2D,
             5)
             .SetId(patrolId)
             .SetEase(easeType)

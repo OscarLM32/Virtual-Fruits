@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -9,7 +8,7 @@ public class Cave : MonoBehaviour
     private float _desiredLight = 0.7f;
     private float _lightDifference;
 
-    protected bool zoneChange = false; 
+    protected bool zoneChange = false;
     protected float speed = 2.5f;
     protected bool lightDown = false;
 
@@ -26,8 +25,8 @@ public class Cave : MonoBehaviour
     {
         if (!zoneChange)
             return;
-        
-        if(lightDown)
+
+        if (lightDown)
             LightDown();
         else
             LightUp();

@@ -8,13 +8,13 @@ public class SecretZone : Cave
 {
     private Tilemap _tilemap;
     private Color _color;
-    
+
     public List<GameObject> lanterns;
 
     private new void Start()
     {
         base.Start();
-        
+
         foreach (var lantern in lanterns)
         {
             lantern.GetComponent<Light2D>().enabled = false;
@@ -32,7 +32,7 @@ public class SecretZone : Cave
         if (lightDown)
         {
             FadeOut();
-            LightDown(); 
+            LightDown();
         }
         else
         {
@@ -41,7 +41,7 @@ public class SecretZone : Cave
         }
 
     }
-    
+
     private void FadeIn()
     {
         float fadeInAmount = _color.a + (speed * Time.deltaTime);
@@ -64,8 +64,8 @@ public class SecretZone : Cave
             zoneChange = false;
         }
     }
-    
-    private new void  OnTriggerEnter2D(Collider2D col)
+
+    private new void OnTriggerEnter2D(Collider2D col)
     {
         zoneChange = true;
         lightDown = true;
@@ -74,7 +74,7 @@ public class SecretZone : Cave
             lantern.GetComponent<Light2D>().enabled = !lantern.GetComponent<Light2D>().enabled;
         }
     }
-    
+
     protected new void OnTriggerExit2D(Collider2D other)
     {
 

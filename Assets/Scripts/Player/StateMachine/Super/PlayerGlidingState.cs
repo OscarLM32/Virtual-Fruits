@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 
 public class PlayerGlidingState : PlayerBaseState, IRootState
@@ -29,7 +26,7 @@ public class PlayerGlidingState : PlayerBaseState, IRootState
 
     public override void ExitState()
     {
-        
+
     }
 
     public override void InitializeSubState()
@@ -51,13 +48,13 @@ public class PlayerGlidingState : PlayerBaseState, IRootState
             SwitchState(Factory.Hit());
             return;
         }
-        
+
         if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
         {
             SwitchState(Factory.Attack());
             return;
         }
-        
+
         if (Context.IsGrounded)
         {
             SwitchState(Factory.Grounded());
@@ -85,10 +82,10 @@ public class PlayerGlidingState : PlayerBaseState, IRootState
     {
         Context.PlayerAnimator.Play(GLIDING_ANIMATION);
     }
-    
+
     private void CheckMaxFallVelocity()
     {
         Vector2 velocity = Context.Rb2D.velocity;
-        Context.Rb2D.velocity = new Vector2(velocity.x,Mathf.Max(velocity.y, MAX_FALL_VELOCITY));
+        Context.Rb2D.velocity = new Vector2(velocity.x, Mathf.Max(velocity.y, MAX_FALL_VELOCITY));
     }
 }

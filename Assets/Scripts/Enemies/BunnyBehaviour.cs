@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BunnyBehaviour : MonoBehaviour
@@ -23,7 +22,7 @@ public class BunnyBehaviour : MonoBehaviour
     private Rigidbody2D _rb;
     private AudioManager _audioManager;
 
-    [SerializeField]private int _currentDirection;
+    [SerializeField] private int _currentDirection;
     private float _speed = 5;
 
     [SerializeField] private int _jumpCount = 0;
@@ -101,7 +100,7 @@ public class BunnyBehaviour : MonoBehaviour
     private void SetUpJumpVariables()
     {
         float timeToApex = _maxJumpTime / 2;
-        float desiredGravity = (-2 * _maxJumpHeight) / (float) Math.Pow(timeToApex, 2);
+        float desiredGravity = (-2 * _maxJumpHeight) / (float)Math.Pow(timeToApex, 2);
         _initialJumpVelocity = (2 * _maxJumpHeight) / timeToApex;
         _jumpingGravityFactor = (desiredGravity / -9.8f);
     }
@@ -123,7 +122,7 @@ public class BunnyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);
     }
-    
+
     private void LaunchEnemy(GameObject other)
     {
         //It must have a collider because for the time being it should only be collided by the player 

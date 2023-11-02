@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
@@ -14,7 +10,7 @@ public class HUDManager : MonoBehaviour
     {
         _currentChild = transform.childCount - 1;
     }
-    
+
     private void UpdateHealth()
     {
         Transform child = transform.GetChild(_currentChild);

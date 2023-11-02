@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,7 +11,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         _audioManager = GetComponent<AudioManager>();
-        SetScore(); 
+        SetScore();
     }
 
     public void OpenMenu(GameObject menu)
@@ -46,5 +43,5 @@ public class MainMenu : MonoBehaviour
     {
         Score.text = SaveLoadSystem.I.GetTotalPickedFruits().ToString();
     }
-    
+
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour
         _gamePaused = !_gamePaused;
         GameActions.GamePause(_gamePaused);
         PauseMenu.SetActive(_gamePaused);
-        Time.timeScale = _gamePaused ? 0f: 1f;
+        Time.timeScale = _gamePaused ? 0f : 1f;
     }
 
     public void ResumeGame()
@@ -51,7 +50,7 @@ public class GameManager : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
-    
+
     public void ExitLevel()
     {
         SceneManager.LoadScene(LVL_SELECT_MENU_IDX);
@@ -67,7 +66,7 @@ public class GameManager : MonoBehaviour
         }
         _player.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, 0);
     }
-    
+
     private void CheckpointReached()
     {
         //Maybe we could pass the transform while calling so more than one checkpoint can be placed
@@ -85,7 +84,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(LVL_SELECT_MENU_IDX);
     }
-    
+
     private void OnEnable()
     {
         _playerInput.MenuControls.Enable();

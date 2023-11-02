@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,21 +30,21 @@ public class ParallaxBackground : MonoBehaviour
     }
 
     void InitPosition()
-      {
-          //Not necessary, but gives some safety making sure that the player always spawns in front of the background
-          deltaX = transform.position.x - cameraPos.x;
-          deltaY = transform.position.y - cameraPos.y;
-          //If the background is positioned higher than the character it should be perfectly aligned
-          if (deltaY > 0) {deltaY = 0;}
-          Move(deltaX, deltaY);
-      }
+    {
+        //Not necessary, but gives some safety making sure that the player always spawns in front of the background
+        deltaX = transform.position.x - cameraPos.x;
+        deltaY = transform.position.y - cameraPos.y;
+        //If the background is positioned higher than the character it should be perfectly aligned
+        if (deltaY > 0) { deltaY = 0; }
+        Move(deltaX, deltaY);
+    }
     void SetLayers()
     {
         parallaxLayers.Clear();
         for (int i = 0; i < transform.childCount; i++)
         {
             ParallaxLayer layer = transform.GetChild(i).GetComponent<ParallaxLayer>();
-  
+
             if (layer != null)
             {
                 layer.name = "Layer-" + i;
@@ -54,7 +53,7 @@ public class ParallaxBackground : MonoBehaviour
         }
     }
 
-    void Move(float deltaX, float deltaY) 
+    void Move(float deltaX, float deltaY)
     {
         foreach (ParallaxLayer layer in parallaxLayers)
         {

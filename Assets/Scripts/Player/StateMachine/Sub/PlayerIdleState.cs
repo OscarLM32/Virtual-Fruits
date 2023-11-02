@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerIdleState : PlayerBaseState
 {
-    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
-        : base(currentContext, playerStateFactory){}
+    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        : base(currentContext, playerStateFactory) { }
 
     public override void EnterState()
     {
@@ -23,7 +21,7 @@ public class PlayerIdleState : PlayerBaseState
         //TODO: implement some dust particles when the character begins moving and grounded
     }
 
-    public override void InitializeSubState(){}
+    public override void InitializeSubState() { }
 
     public override void CheckSwitchStates()
     {

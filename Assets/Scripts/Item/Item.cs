@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,12 +6,12 @@ public class Item : MonoBehaviour
 {
     private const string COLLECTION_ANIMATION = "ItemCollectionAnimation";
     private const float COLLECTION_ANIMATION_TIME = 0.5f;
-    
+
     public int id;
     public ItemSO itemSO;
-    
 
-    [SerializeField]private int _itemType;
+
+    [SerializeField] private int _itemType;
     private Animator _animator;
     private AudioManager _audioManager;
 
@@ -24,7 +23,7 @@ public class Item : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = itemSO.itemSprite;
         _audioManager = GetComponent<AudioManager>();
     }
-    
+
     private IEnumerator OnTriggerEnter2D(Collider2D col)
     {
         GetComponent<Collider2D>().enabled = false;

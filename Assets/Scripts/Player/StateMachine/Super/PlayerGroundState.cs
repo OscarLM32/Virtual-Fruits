@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerGroundState : PlayerBaseState, IRootState
@@ -7,7 +6,7 @@ public class PlayerGroundState : PlayerBaseState, IRootState
     {
         public static readonly string IDLE = "PlayerIdle";
         public static readonly string WALK = "PlayerWalk";
-        public static readonly string RUN  = "PlayerRun";
+        public static readonly string RUN = "PlayerRun";
     }
 
     private enum Sounds
@@ -29,14 +28,14 @@ public class PlayerGroundState : PlayerBaseState, IRootState
     {
         //Context.debugText.text = "STATE: GROUNDED";
         InitializeSubState();
-        
+
         //Reset all the movement variables
         Context.Jumped = false;
         Context.DoubleJumped = false;
         Context.Dashed = false;
         Context.WallJumped = false;
         Context.WallJumpsCount = 0;
-        
+
         Context.PlayerAudioManager.Play(Sounds.Landing.ToString());
     }
 
@@ -58,7 +57,7 @@ public class PlayerGroundState : PlayerBaseState, IRootState
             SetSubState(Factory.JumpDownPlatform());
             return;
         }
-        
+
         if (Context.CurrentMovementInput.x == 0)
         {
             SetSubState(Factory.Idle());
@@ -82,7 +81,7 @@ public class PlayerGroundState : PlayerBaseState, IRootState
             SwitchState(Factory.Attack());
             return;
         }
-        
+
         if (Context.IsJumpPressed && !Context.RequireNewJumpPress)
         {
             SwitchState(Factory.Jumping());
@@ -99,7 +98,7 @@ public class PlayerGroundState : PlayerBaseState, IRootState
 
     public void HandleAnimation()
     {
-        if(Context.CurrentMovementInput.x == 0)
+        if (Context.CurrentMovementInput.x == 0)
             Context.PlayerAnimator.Play(GroundedAnimations.IDLE);
         else if (Context.IsWalking || (Context.CurrentMovementInput.x < 0.5 && Context.CurrentMovementInput.x > -0.5))
             Context.PlayerAnimator.Play(GroundedAnimations.WALK);

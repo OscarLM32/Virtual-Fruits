@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class PlayerStateFactory
 {
@@ -22,7 +21,7 @@ public class PlayerStateFactory
         hit,
         attack
     }
-   
+
     public PlayerStateFactory(PlayerStateMachine currentContext)
     {
         _context = currentContext;
@@ -79,7 +78,7 @@ public class PlayerStateFactory
     {
         return _cache[States.falling];
     }
-    
+
     public PlayerBaseState Dashing()
     {
         return _cache[States.dashing];
@@ -89,7 +88,7 @@ public class PlayerStateFactory
     {
         return _cache[States.gliding];
     }
-    
+
     public PlayerBaseState GrapplingWall()
     {
         return _cache[States.grapplingWall];
@@ -99,7 +98,7 @@ public class PlayerStateFactory
     {
         return _cache[States.hit];
     }
-    
+
     public PlayerBaseState Attack()
     {
         return _cache[States.attack];

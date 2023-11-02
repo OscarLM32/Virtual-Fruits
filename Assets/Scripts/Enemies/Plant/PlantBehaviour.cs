@@ -1,7 +1,6 @@
+using DG.Tweening;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 
 public class PlantBehaviour : MonoBehaviour
@@ -14,12 +13,12 @@ public class PlantBehaviour : MonoBehaviour
     }
 
     private const float ATTACK_ANIMATION_TIME = 0.5f;
-    
+
     public ProjectileType projectileType;
 
     private Animator _animator;
     private AudioManager _audioManager;
-    [SerializeField]private float _attackCycleTime = 3f;
+    [SerializeField] private float _attackCycleTime = 3f;
     private float _timeElapsed = 0f;
     private bool _hit = false;
 
@@ -33,10 +32,10 @@ public class PlantBehaviour : MonoBehaviour
     {
         if (_hit)
             return;
-        
+
         if (_timeElapsed > _attackCycleTime)
         {
-            StartCoroutine(AttackBehaviour()); 
+            StartCoroutine(AttackBehaviour());
             _timeElapsed = 0f;
         }
         _timeElapsed += Time.deltaTime;
@@ -48,13 +47,13 @@ public class PlantBehaviour : MonoBehaviour
         yield return new WaitForSeconds(ATTACK_ANIMATION_TIME);
 
         if (_hit) yield break;
-        
+
         GameObject projectile = EnemyProjectilePool.I.GetProjectile(projectileType);
         Bean beanScript = projectile.GetComponent<Bean>();
         //The direction of the sprite is inverted (looking to the left originally) so I have to invert the direction 
         beanScript.direction = (int)(Math.Abs(transform.localScale.x) / transform.localScale.x) * -1;
-        projectile.transform.position = new Vector2(transform.position.x+0.5f, transform.position.y+0.1f);
-        
+        projectile.transform.position = new Vector2(transform.position.x + 0.5f, transform.position.y + 0.1f);
+
         _animator.Play(PlantAnimations.IDLE);
         _audioManager.Play("Shoot");
     }

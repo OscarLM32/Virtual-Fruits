@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class SnailOutShell : MonoBehaviour
@@ -11,11 +7,11 @@ public class SnailOutShell : MonoBehaviour
     {
         public static readonly string IDLE = "SnailIdle";
         public static readonly string WALK = "SnailWalk";
-        public static readonly string SHELL_IN  = "ShellIn";
+        public static readonly string SHELL_IN = "ShellIn";
     }
 
     private SnailStateMachine Context;
-    
+
     private void Awake()
     {
         Context = GetComponent<SnailStateMachine>();

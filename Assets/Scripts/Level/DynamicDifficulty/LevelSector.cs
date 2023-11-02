@@ -1,14 +1,12 @@
 using System;
-using System.IO;
 using UnityEngine;
 
 namespace Level.DynamicDifficulty
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    //TODO: Add ICallbackReciever so that I can ensure that there is only 1 DifficultySetting for each difficulty
-    public class LevelSector : MonoBehaviour
+    public class LevelSector : MonoBehaviour, ISerializationCallbackReceiver
     {
-        public DifficultySettings[] difficultySettings;
+        [SerializeField] private DifficultySetting[] _difficultySettings;
 
         public void SetDifficultyChanges(Difficulty difficulty)
         {
@@ -20,14 +18,25 @@ namespace Level.DynamicDifficulty
             }
         }
 
-        private DifficultySettings GetDifficultySettings(Difficulty difficulty)
+        private DifficultySetting GetDifficultySettings(Difficulty difficulty)
         {
-            foreach(var settings in difficultySettings)
+            foreach (var settings in _difficultySettings)
             {
                 if (difficulty == settings.difficulty)
                     return settings;
             }
             return null;
         }
+
+        public void OnAfterDeserialize()
+        {
+
+        }
+
+        public void OnBeforeSerialize()
+        {
+
+        }
+
     }
 }

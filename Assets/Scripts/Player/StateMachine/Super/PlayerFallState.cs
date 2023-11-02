@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 //TODO: refactor class name to "PlayerFallingState"
@@ -42,7 +40,7 @@ public class PlayerFallState : PlayerBaseState, IRootState
             SetSubState(Factory.JumpDownPlatform());
             return;
         }
-        
+
         if (Context.CurrentMovementInput.x == 0)
         {
             SetSubState(Factory.Idle());
@@ -60,13 +58,13 @@ public class PlayerFallState : PlayerBaseState, IRootState
             SwitchState(Factory.Hit());
             return;
         }
-        
+
         if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
         {
             SwitchState(Factory.Attack());
             return;
         }
-        
+
         if (Context.IsGrounded && !Context.IsJumpingDownPlatform)
         {
             SwitchState(Factory.Grounded());
@@ -106,10 +104,10 @@ public class PlayerFallState : PlayerBaseState, IRootState
             Context.GlidingPressedTime += Time.deltaTime;
         }
     }
-    
+
     void CheckMaxFallVelocity()
     {
         Vector2 velocity = Context.Rb2D.velocity;
-        Context.Rb2D.velocity = new Vector2(velocity.x,Mathf.Max(velocity.y, MAX_FALL_VELOCITY));
+        Context.Rb2D.velocity = new Vector2(velocity.x, Mathf.Max(velocity.y, MAX_FALL_VELOCITY));
     }
 }

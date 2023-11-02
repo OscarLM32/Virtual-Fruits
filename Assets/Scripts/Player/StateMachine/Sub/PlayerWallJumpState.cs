@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerWallJumpState : PlayerBaseState
 {
     private float _timeToHalfApex;
     private float _timeElapsed = 0;
-    
-    public PlayerWallJumpState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
-        : base(currentContext, playerStateFactory){}
+
+    public PlayerWallJumpState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        : base(currentContext, playerStateFactory) { }
 
     public override void EnterState()
     {
