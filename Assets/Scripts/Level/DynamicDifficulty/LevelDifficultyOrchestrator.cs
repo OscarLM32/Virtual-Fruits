@@ -14,6 +14,7 @@ namespace Level.DynamicDifficulty
             }
         }
 
+        //TODO: implement custom editor to include this button in the inspector
         [ContextMenu("UpdateLevelSectorList")]
         private void UpdateLevelSectorList()
         {
