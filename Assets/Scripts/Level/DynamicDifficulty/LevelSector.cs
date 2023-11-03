@@ -1,3 +1,4 @@
+using Extensions;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,21 +38,31 @@ namespace Level.DynamicDifficulty
 
         private void CheckSettingsIntegrity()
         {
-            Debug.Log(_difficultySettings.Length);
-            var currentSettings = _difficultySettings;
             var difficulties = Enum.GetValues(typeof(Difficulty)) as Difficulty[];
+            var currentSettings = _difficultySettings;
+            Debug.Log(currentSettings.Length);
+            currentSettings = currentSettings.Resize(difficulties.Length - 1);
+            Debug.Log(currentSettings.Length);
 
             List<DifficultySetting> aux = new();
 
             int counter = 0;
 
-            for (int i = 0; i < Math.Min(difficulties.Length, _difficultySettings.Length+1); i++)
+            for (int i = 0; i < difficulties.Length; i++)
             {
+                //TODO revisit this code since it does not look like null checking was done properly
                 var difficulty = difficulties[i];
                 if (difficulty != DynamicDifficultyConstants.baseDifficulty)
                 {
-                    //I have no default constructor, so I need to check for null before trying to acces member
-                    aux.Add(new DifficultySetting(difficulty, currentSettings[counter]?.difficultyModifiers));
+                    if (currentSettings[counter] != null)
+                    {
+                        aux.Add(new DifficultySetting(difficulty, currentSettings[counter]?.difficultyModifiers));
+                    }
+                    else
+                    {
+                        aux.Add(new DifficultySetting(difficulty));
+                    }
+
                     counter++;
                 }
             }
