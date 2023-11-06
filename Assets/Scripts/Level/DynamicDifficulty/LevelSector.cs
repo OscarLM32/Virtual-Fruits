@@ -11,10 +11,12 @@ namespace Level.DynamicDifficulty
     {
         [SerializeField] private DifficultySetting[] _difficultySettings = new DifficultySetting[Enum.GetValues(typeof(Difficulty)).Length - 1];
 
+#if UNITY_EDIITOR
         private void Awake()
         {
             CheckSettingsIntegrity();
         }
+#endif
 
         public void SetDifficultyChanges(Difficulty difficulty)
         {
@@ -40,10 +42,8 @@ namespace Level.DynamicDifficulty
         {
             var difficulties = Enum.GetValues(typeof(Difficulty)) as Difficulty[];
             var currentSettings = _difficultySettings;
-            Debug.Log(currentSettings.Length);
-            currentSettings = currentSettings.Resize(difficulties.Length - 1);
-            Debug.Log(currentSettings.Length);
 
+            currentSettings = currentSettings.Resize(difficulties.Length - 1);
             List<DifficultySetting> aux = new();
 
             int counter = 0;
