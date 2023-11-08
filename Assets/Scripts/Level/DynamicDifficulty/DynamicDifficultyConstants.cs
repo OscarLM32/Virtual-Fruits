@@ -1,5 +1,3 @@
-using System;
-
 namespace Level.DynamicDifficulty
 {
     public static class DynamicDifficultyConstants

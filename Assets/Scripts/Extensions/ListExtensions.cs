@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace Extensions
 {
@@ -11,7 +10,7 @@ namespace Extensions
             List<T> aux = new List<T>();
             int i;
 
-            for(i = 0; i < Math.Min(list.Count, size); i++)
+            for (i = 0; i < Math.Min(list.Count, size); i++)
             {
                 aux.Add(list[i]);
             }
