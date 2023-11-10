@@ -12,5 +12,6 @@ namespace Level.DynamicDifficulty
 
         public EnemyType enemyType;
         public Vector2 targetPosition;
+        public Transform parentObject;
     }
 }

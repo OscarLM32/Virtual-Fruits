@@ -1,12 +1,16 @@
 using Enemies;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Level.DynamicDifficulty
 {
-    public static class DifficultyModifierFactory
+    internal class DifficultyModifierFactory
     {
-        public static Action GetLevelModifier(DifficultyModifier settings)
+        private Dictionary<EnemyType, GameObject> _loadedEnemies = new();
+
+        public Action GetLevelModifier(DifficultyModifier settings)
         {
             var actionType = settings.action;
             Action modifier = null;
@@ -18,7 +22,7 @@ namespace Level.DynamicDifficulty
                 case DifficultyModifierAction.CHANGE_TERRAIN:
                     break;
                 case DifficultyModifierAction.ADD_ENEMY:
-                    modifier = () => AddEnemyAction(settings.enemyType, settings.targetPosition);
+                    modifier = () => AddEnemyAction(settings.enemyType, settings.targetPosition, settings.parentObject);
                     break;
                 case DifficultyModifierAction.REMOVE_ENEMY:
                     modifier = () => RemoveEnemyAction(settings.target);
@@ -29,18 +33,28 @@ namespace Level.DynamicDifficulty
         }
 
         #region ACTIONS
-        private static void AddEnemyAction(EnemyType type, Vector2 position)
+        private void AddEnemyAction(EnemyType type, Vector3 position, Transform parent)
         {
-            //get enemy prefab from the type specified in settings (probably from addressables)
-            //get the data 
-            //instantiate the enemy
+            var enemy = _loadedEnemies[type];
+            if (enemy == null)
+            {
+                enemy = LoadEnemyPrefab(type);
+                _loadedEnemies.Add(type, enemy);
+            }
+
+            UnityEngine.Object.Instantiate(enemy, position, Quaternion.identity, parent);
         }
 
         //This is currently quite overengenired but it may be possible that we add exra logic to it in a future
-        private static void RemoveEnemyAction(GameObject target)
+        private void RemoveEnemyAction(GameObject target)
         {
             UnityEngine.Object.Destroy(target);
         }
         #endregion
+
+        private GameObject LoadEnemyPrefab(EnemyType type)
+        {
+            return null;
+        }
     }
 }

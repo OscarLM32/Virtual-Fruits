@@ -5,6 +5,7 @@ namespace Enemies
         //Spring
         BEE,
         SNAIL,
-        PLANT
+        PLANT,
+        BUNNY
     }
 }

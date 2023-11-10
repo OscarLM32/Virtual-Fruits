@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: 40ff981a94ec4ad478621faa8f058f21
+  m_DefaultGroup: 81e64f3f7029a1e438915a524d2c442c
   m_currentHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -38,15 +38,14 @@ MonoBehaviour:
     m_Id: 
   m_RemoteCatalogLoadPath:
     m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
   - {fileID: 11400000, guid: 9a93d5f89d167434eaba2e949fd09221, type: 2}
-  - {fileID: 11400000, guid: cf903e405894c68469188d1b4216516d, type: 2}
-  - {fileID: 11400000, guid: e871d4ef6df88e047a9a87798f1fdd84, type: 2}
+  - {fileID: 11400000, guid: 7f269d203be51a74eb82015df1d924e7, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -88,6 +87,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - Enemy
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 07d13aa696faa2843a7b7be57bf94d4d, type: 2}

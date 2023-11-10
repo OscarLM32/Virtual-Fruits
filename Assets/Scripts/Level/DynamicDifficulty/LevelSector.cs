@@ -10,20 +10,28 @@ namespace Level.DynamicDifficulty
     public class LevelSector : MonoBehaviour, ISerializationCallbackReceiver
     {
         [SerializeField] private DifficultySetting[] _difficultySettings = new DifficultySetting[Enum.GetValues(typeof(Difficulty)).Length - 1];
+        private DifficultyModifierFactory _modifierFactory = new();
 
-#if UNITY_EDIITOR
+
+        #if UNITY_EDITOR
         private void Awake()
         {
             CheckSettingsIntegrity();
         }
-#endif
+        #endif
 
         public void SetDifficultyChanges(Difficulty difficulty)
         {
             var settings = GetDifficultySettings(difficulty);
+            if(settings == null)
+            {
+                Debug.LogError("["+ gameObject.name + "]"+ "There are no difficulty settings specified for that difficulty");
+                return;
+            }
+
             foreach (var modifierSettings in settings.difficultyModifiers)
             {
-                Action modifierAction = DifficultyModifierFactory.GetLevelModifier(modifierSettings);
+                Action modifierAction = _modifierFactory.GetLevelModifier(modifierSettings);
                 modifierAction?.Invoke();
             }
         }
