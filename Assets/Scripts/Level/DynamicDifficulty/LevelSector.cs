@@ -5,20 +5,19 @@ using UnityEngine;
 
 namespace Level.DynamicDifficulty
 {
-    [ExecuteInEditMode]
     [RequireComponent(typeof(BoxCollider2D))]
     public class LevelSector : MonoBehaviour, ISerializationCallbackReceiver
     {
-        [SerializeField] private DifficultySetting[] _difficultySettings = new DifficultySetting[Enum.GetValues(typeof(Difficulty)).Length - 1];
+        [SerializeField] private DifficultySetting[] _difficultySettings;
         private DifficultyModifierFactory _modifierFactory = new();
 
 
-        #if UNITY_EDITOR
         private void Awake()
         {
+            #if UNITY_EDITOR
             CheckSettingsIntegrity();
+            #endif
         }
-        #endif
 
         public void SetDifficultyChanges(Difficulty difficulty)
         {
@@ -70,7 +69,6 @@ namespace Level.DynamicDifficulty
                     {
                         aux.Add(new DifficultySetting(difficulty));
                     }
-
                     counter++;
                 }
             }

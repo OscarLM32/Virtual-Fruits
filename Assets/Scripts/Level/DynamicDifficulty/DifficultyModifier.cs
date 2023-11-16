@@ -11,7 +11,11 @@ namespace Level.DynamicDifficulty
         public GameObject target;
 
         public EnemyType enemyType;
-        public Vector2 targetPosition;
+        public Vector2 position;
+        //TODO: i'm not a fan of this so, I should give it a whirl later on
         public Transform parentObject;
+        //TODO: add patrolling values
+        //TODO: add enemy transform parameters
+
     }
 }

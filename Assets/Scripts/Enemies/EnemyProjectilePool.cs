@@ -23,7 +23,7 @@ public class EnemyProjectilePool : MonoBehaviour, ISerializationCallbackReceiver
     private Dictionary<ProjectileType, List<GameObject>> _projectiles =
         new Dictionary<ProjectileType, List<GameObject>>();
 
-    private static EnemyProjectilePool _i;
+    private static EnemyProjectilePool _i = null;
 
     public static EnemyProjectilePool I => _i;
 

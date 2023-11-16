@@ -86,7 +86,6 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
-    - default
     - Enemy
   m_SchemaTemplates: []
   m_GroupTemplateObjects:

@@ -51,10 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05078fa9aee34cb468b515035635b841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints:
-  - {x: 68.82, y: 6, z: 0}
-  - {x: 68.82, y: 17, z: 0}
-  totalPatrolTime: 12
+  patrolPoints: []
+  totalPatrolTime: 0
   pathType: 0
   patrolId: Snail1
   easeType: 1

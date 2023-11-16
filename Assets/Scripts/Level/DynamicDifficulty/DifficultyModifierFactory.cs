@@ -1,28 +1,28 @@
 using Enemies;
+using Extensions;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Level.DynamicDifficulty
-{
+namespace Level.DynamicDifficulty 
+{ 
     internal class DifficultyModifierFactory
     {
         private Dictionary<EnemyType, GameObject> _loadedEnemies = new();
 
         public Action GetLevelModifier(DifficultyModifier settings)
         {
-            var actionType = settings.action;
             Action modifier = null;
 
-            switch (actionType)
+            switch (settings.action)
             {
                 case DifficultyModifierAction.CUSTOM:
                     break;
                 case DifficultyModifierAction.CHANGE_TERRAIN:
                     break;
                 case DifficultyModifierAction.ADD_ENEMY:
-                    modifier = () => AddEnemyAction(settings.enemyType, settings.targetPosition, settings.parentObject);
+                    modifier = () => AddEnemyAction(settings.enemyType, settings.position, settings.parentObject);
                     break;
                 case DifficultyModifierAction.REMOVE_ENEMY:
                     modifier = () => RemoveEnemyAction(settings.target);
@@ -35,7 +35,9 @@ namespace Level.DynamicDifficulty
         #region ACTIONS
         private void AddEnemyAction(EnemyType type, Vector3 position, Transform parent)
         {
-            var enemy = _loadedEnemies[type];
+            GameObject enemy;
+            _loadedEnemies.TryGetValue(type, out enemy);
+
             if (enemy == null)
             {
                 enemy = LoadEnemyPrefab(type);
@@ -54,7 +56,9 @@ namespace Level.DynamicDifficulty
 
         private GameObject LoadEnemyPrefab(EnemyType type)
         {
-            return null;
+            string address = type.GetAddressableKey();
+            Debug.Log("Loading enemy from address: " + address);
+            return Addressables.LoadAssetAsync<GameObject>(address).WaitForCompletion();
         }
     }
 }
