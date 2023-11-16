@@ -24,7 +24,7 @@ namespace Level.DynamicDifficulty
             var settings = GetDifficultySettings(difficulty);
             if(settings == null)
             {
-                Debug.LogError("["+ gameObject.name + "]"+ "There are no difficulty settings specified for that difficulty");
+                Debug.LogWarning("["+ gameObject.name + "]"+ "There are no difficulty settings specified for that difficulty");
                 return;
             }
 
