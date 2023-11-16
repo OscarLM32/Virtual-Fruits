@@ -9,7 +9,7 @@ namespace Level.DynamicDifficulty
 { 
     internal class DifficultyModifierFactory
     {
-        private Dictionary<EnemyType, GameObject> _loadedEnemies = new();
+        private static Dictionary<EnemyType, GameObject> _loadedEnemies = new();
 
         public Action GetLevelModifier(DifficultyModifier settings)
         {
@@ -36,9 +36,8 @@ namespace Level.DynamicDifficulty
         private void AddEnemyAction(EnemyType type, Vector3 position, Transform parent)
         {
             GameObject enemy;
-            _loadedEnemies.TryGetValue(type, out enemy);
 
-            if (enemy == null)
+            if (!_loadedEnemies.TryGetValue(type, out enemy))
             {
                 enemy = LoadEnemyPrefab(type);
                 _loadedEnemies.Add(type, enemy);
@@ -57,7 +56,7 @@ namespace Level.DynamicDifficulty
         private GameObject LoadEnemyPrefab(EnemyType type)
         {
             string address = type.GetAddressableKey();
-            Debug.Log("Loading enemy from address: " + address);
+            //Debug.Log("Loading enemy from address: " + address);
             return Addressables.LoadAssetAsync<GameObject>(address).WaitForCompletion();
         }
     }
