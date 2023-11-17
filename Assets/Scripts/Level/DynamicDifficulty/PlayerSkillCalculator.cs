@@ -92,7 +92,6 @@ namespace Level.DynamicDifficulty
 
         private void CalculatePlayerSkillScore()
         {
-            Debug.Log("Calculating skill score");
             _playerSkillScore = L / (1 + Mathf.Pow((float)Math.E, -k*(PlayerSkillParameter - x0)));
         }
 

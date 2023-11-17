@@ -2,6 +2,7 @@ using Extensions;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using EditorSystems.Logger;
 
 namespace Level.DynamicDifficulty
 {
@@ -24,7 +25,7 @@ namespace Level.DynamicDifficulty
             var settings = GetDifficultySettings(difficulty);
             if(settings == null)
             {
-                Debug.LogWarning("["+ gameObject.name + "]"+ "There are no difficulty settings specified for that difficulty");
+                EditorLogger.LogWarning(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "["+ gameObject.name + "]"+ "There are no difficulty settings specified for that difficulty");
                 return;
             }
 
