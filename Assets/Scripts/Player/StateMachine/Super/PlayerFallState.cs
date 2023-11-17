@@ -14,7 +14,6 @@ public class PlayerFallState : PlayerBaseState, IRootState
     public override void EnterState()
     {
         InitializeSubState();
-        //Context.debugText.text = "STATE: FALLING";
         HandleAnimation();
         HandleGravity();
         Context.Jumped = true;

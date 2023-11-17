@@ -27,7 +27,6 @@ public class PlayerJumpingState : PlayerBaseState, IRootState
         {
             _currentWallJump = Context.WallJumpsData[Context.WallJumpsCount];
         }
-        //Context.debugText.text = "STATE: JUMPING";
         Context.PlayerAudioManager.Play(Sounds.Jump.ToString());
     }
 

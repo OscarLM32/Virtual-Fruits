@@ -17,8 +17,6 @@ public class PlayerGrapplingWallState : PlayerBaseState, IRootState
 
     public override void EnterState()
     {
-        //Context.debugText.text = "STATE: GRAPPLING WALL";
-
         InitializeSubState();
         HandleGravity();
         Context.Rb2D.velocity = new Vector2(0, 0);

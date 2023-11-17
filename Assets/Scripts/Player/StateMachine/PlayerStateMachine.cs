@@ -1,3 +1,4 @@
+using Player.StateMachine;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -6,9 +7,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    private const float GRAVITY = -9.8f;
-    private const int ENEMY_LAYER = 3;
-    private const int PROJECTILE_LAYER = 9;
+    private const float _gravity = -9.8f;
+    private const int _enemyLayer = 3;
+    private const int _projectileLayer = 9;
 
     public LayerMask playerLayer;
     public LayerMask groundLayer;
@@ -20,6 +21,8 @@ public class PlayerStateMachine : MonoBehaviour
     public TextMeshProUGUI debugText;
 
     public GameObject weaponGameObject;
+
+    public Action<PlayerState> OnStateChange;
 
     private AudioManager _audioManager;
 
@@ -65,14 +68,14 @@ public class PlayerStateMachine : MonoBehaviour
     private float _maxDoubleJumpTime = 0.5f;
 
     //Wall jumping variables: Uses _isJumpPressed as input
-    private const int MAX_WALL_JUMPS = 3;
+    private const int _maxWallJumps = 3;
     private bool _wallJumped = false;
     private int _wallJumpsCount = 0;
     //Each field contains --> InitialJumpVelocity, GravityFactor and TimeToApex
     private Dictionary<int, WallJumpInformation> _wallJumpsData = new Dictionary<int, WallJumpInformation>();
 
     //Dashing variables
-    private const float DASH_COOL_DOWN = 0.25f;
+    private const float _dashCoolDown = 0.25f;
     private bool _isDashPressed = false;
     private bool _requireNewDashPress = false;
     private bool _dashed = false;
@@ -117,8 +120,8 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerBaseState CurrentState { get => _currentState; set => _currentState = value; }
     public int PlayerLayerID => _playerLayerID;
     public int PlatformLayerID => _platformLayerID;
-    public int EnemyLayerID => ENEMY_LAYER;
-    public int ProjectileLayerID => PROJECTILE_LAYER;
+    public int EnemyLayerID => _enemyLayer;
+    public int ProjectileLayerID => _projectileLayer;
     public Rigidbody2D Rb2D => _rb;
     public Animator PlayerAnimator => _animator;
     public PlayerWeapon Weapon => _weapon;
@@ -143,7 +146,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float InitialJumpVelocity => _initialJumpVelocity;
     public float InitialDoubleJumpVelocity => _initialDoubleJumpVelocity;
     public bool WallJumped { get => _wallJumped; set => _wallJumped = value; }
-    public int MaxWallJumps => MAX_WALL_JUMPS;
+    public int MaxWallJumps => _maxWallJumps;
     public int WallJumpsCount { get => _wallJumpsCount; set => _wallJumpsCount = value; }
     public Dictionary<int, WallJumpInformation> WallJumpsData => _wallJumpsData;
     ////////////////////////////////////////////////////////////////////////////////////
@@ -215,6 +218,20 @@ public class PlayerStateMachine : MonoBehaviour
 
         SetUpJumpAndGravityVariables();
     }
+    
+    private void OnEnable()
+    {
+        _playerInput.CharacterControls.Enable();
+        GameActions.RetrieveWeapon += OnRetrieveWeapon;
+        GameActions.GamePause += OnGamePause;
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.CharacterControls.Disable();
+        GameActions.RetrieveWeapon -= OnRetrieveWeapon;
+        GameActions.GamePause -= OnGamePause;
+    }
 
     private void HandleSpriteDirection()
     {
@@ -232,8 +249,6 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _isGrounded = false;
         Vector2 position = groundChecker.position;
-        //TODO: change this for a box
-        //For some reason it does not work properly with box
         if (Physics2D.OverlapBox(position, new Vector2(0.45f, 0.1f), 0, groundLayer) ||
             (Physics2D.OverlapBox(position, new Vector2(0.45f, 0.1f), 0, platformLayer) &&
              !_isJumpingDownPlatform))
@@ -254,7 +269,6 @@ public class PlayerStateMachine : MonoBehaviour
             _isGrapplingWall = false;
     }
 
-    //TODO: Investigate whether it is better for me to use update or fixedupdate  
     private void Update()
     {
         HandleGrounded();
@@ -302,7 +316,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnDash(InputAction.CallbackContext context)
     {
-        if (Time.time - _lastDashTime >= DASH_COOL_DOWN)
+        if (Time.time - _lastDashTime >= _dashCoolDown)
         {
             _isDashPressed = context.ReadValueAsButton();
             _requireNewDashPress = false;
@@ -339,7 +353,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == ENEMY_LAYER || col.gameObject.layer == PROJECTILE_LAYER)
+        if (col.gameObject.layer == _enemyLayer || col.gameObject.layer == _projectileLayer)
         {
             if (col.gameObject.CompareTag("Snail"))
             {
@@ -425,7 +439,7 @@ public class PlayerStateMachine : MonoBehaviour
         float timeToApex = _maxJumpTime / 2; //The time it takes to reach the highest point
         _desiredGravity = (-2 * _maxJumpHeight) / (float)Math.Pow(timeToApex, 2);
         _initialJumpVelocity = (2 * _maxJumpHeight) / timeToApex;
-        _jumpingGravityFactor = (_desiredGravity / GRAVITY);
+        _jumpingGravityFactor = (_desiredGravity / _gravity);
 
         //The falling gravity is higher than the jumping gravity;
         _fallingGravityFactor = _jumpingGravityFactor * 1.6f;
@@ -434,7 +448,7 @@ public class PlayerStateMachine : MonoBehaviour
         timeToApex = _maxDoubleJumpTime / 2;
         _desiredGravity = (-2 * _maxDoubleJumpHeight) / (float)Math.Pow(timeToApex, 2);
         _initialDoubleJumpVelocity = (2 * _maxDoubleJumpHeight) / timeToApex;
-        _doubleJumpingGravityFactor = (_desiredGravity / GRAVITY);
+        _doubleJumpingGravityFactor = (_desiredGravity / _gravity);
 
         //Wall grappling jumps
         SetUpWallJumpVariables();
@@ -450,31 +464,19 @@ public class PlayerStateMachine : MonoBehaviour
     //TODO: redo the calculus so I get a decent Jump
     private void SetUpWallJumpVariables()
     {
-        var ratio = 1f / (MAX_WALL_JUMPS + 1);
-        for (int i = 0; i < MAX_WALL_JUMPS; i++)
+        var ratio = 1f / (_maxWallJumps + 1);
+        for (int i = 0; i < _maxWallJumps; i++)
         {
             WallJumpInformation info = new WallJumpInformation();
             info.TimeToApex = (_maxJumpTime / 2) * (1 - ratio * i);
             var desiredGravity = (-2 * _maxJumpHeight) * (1 - ratio * i) / (float)Math.Pow(info.TimeToApex, 2);
             info.InitialJumpVelocity = (2 * _maxJumpHeight) * (1 - ratio * i) / info.TimeToApex;
-            info.GravityFactor = desiredGravity / GRAVITY;
+            info.GravityFactor = desiredGravity / _gravity;
             _wallJumpsData.Add(i, info);
         }
     }
 
-    private void OnEnable()
-    {
-        _playerInput.CharacterControls.Enable();
-        GameActions.RetrieveWeapon += OnRetrieveWeapon;
-        GameActions.GamePause += OnGamePause;
-    }
 
-    private void OnDisable()
-    {
-        _playerInput.CharacterControls.Disable();
-        GameActions.RetrieveWeapon -= OnRetrieveWeapon;
-        GameActions.GamePause -= OnGamePause;
-    }
 
     public class WallJumpInformation
     {
