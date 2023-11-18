@@ -2,7 +2,6 @@
 {
     public enum PlayerState
     {
-        EMPTY,
         IDLE,
         MOVEMENT,
         JUMP_DOWN_PLATFORM,

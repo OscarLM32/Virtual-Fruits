@@ -10,7 +10,6 @@ namespace Player.StateMachine
         public PlayerStateFactory(PlayerStateMachine currentContext)
         {
             _context = currentContext;
-            _cache[PlayerState.EMPTY] = new PlayerEmptySubState(_context, this);
             _cache[PlayerState.IDLE] = new PlayerIdleState(_context, this);
             _cache[PlayerState.MOVEMENT] = new PlayerMovementState(_context, this);
             _cache[PlayerState.JUMP_DOWN_PLATFORM] = new PlayerJumpDownPlatformState(_context, this);
