@@ -10,21 +10,21 @@ namespace GameSystems.Singleton
         {
             get
             {
-                if(i == null)
+                if (i == null)
                 {
                     Debug.LogError("The singleton trying to be accessed cannot be found");
                 }
                 return i;
             }
-            private set 
+            private set
             {
-                i = value; 
+                i = value;
             }
         }
 
         protected void Awake()
         {
-            if(i != null)
+            if (i != null)
             {
                 Destroy(gameObject);
             }

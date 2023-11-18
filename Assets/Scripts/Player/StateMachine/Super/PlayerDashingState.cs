@@ -10,8 +10,12 @@ namespace Player.StateMachine
         }
 
         private const string DASH_ANIMATION = "PlayerDash";
+
+        private const float _dashDuration = 0.25f;
+        private const float _dashDistance = 3.5f;
+        private float _dashSpeed = _dashDistance / _dashDuration;
+        
         private float _timeSpentDashing = 0;
-        private Vector2 _lastPosition;
 
         public PlayerDashingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
             : base(currentContext, playerStateFactory)
@@ -45,7 +49,6 @@ namespace Player.StateMachine
 
         public override void InitializeSubState()
         {
-            //SetSubState(null);
         }
 
         public override void CheckSwitchStates()
@@ -63,6 +66,7 @@ namespace Player.StateMachine
                 return;
             }
 
+            //If the player has not finished dashing wait for teh dash to finish
             if (!Context.Dashed)
                 return;
 
@@ -90,16 +94,19 @@ namespace Player.StateMachine
         {
             //TODO: spawn some particles when the dash begins
             //TODO: make the dash stop when it collides with an object
-            Context.Rb2D.velocity = new Vector2(Context.DashSpeed * Context.LastFacingDirection, 0f);
+
+            Context.Rb2D.velocity = new Vector2(_dashSpeed * Context.LastFacingDirection, 0f);
             Context.RequireNewDashPress = true;
         }
 
         private void HandleDashTimer()
         {
-            if (_timeSpentDashing > Context.DashTime)
+            if (_timeSpentDashing > _dashDuration)
+            {
                 Context.Dashed = true;
+            }
+
             _timeSpentDashing += Time.deltaTime;
         }
-
     }
 }

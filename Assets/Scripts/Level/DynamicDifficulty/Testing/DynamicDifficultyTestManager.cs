@@ -9,7 +9,7 @@ namespace Level.DynamicDifficulty.Testing
         [Range(-5, 5)]
         public float currentSkillParameter = 0;
         public LevelDifficultyOrchestrator levelDifficultyOrchestrator;
-        [HideInInspector]public Difficulty difficulty = Difficulty.VERY_EASY;
+        [HideInInspector] public Difficulty difficulty = Difficulty.VERY_EASY;
 
         [ContextMenu("Test")]
         private void Start()

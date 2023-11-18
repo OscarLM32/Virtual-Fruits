@@ -7,6 +7,10 @@ namespace Player.StateMachine
     {
         private const float MAX_FALL_VELOCITY = -20;
         private const string FALL_ANIMATION = "PlayerFall";
+
+        private const float _minGlidingActivationTime = 0.15f;
+        private float _glidingPressedTime = 0f;
+
         public PlayerFallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
             : base(currentContext, playerStateFactory)
         {
@@ -31,7 +35,7 @@ namespace Player.StateMachine
 
         public override void ExitState()
         {
-            Context.GlidingPressedTime = 0;
+            _glidingPressedTime = 0;
         }
 
         public override void InitializeSubState()
@@ -78,7 +82,7 @@ namespace Player.StateMachine
             {
                 SwitchState(PlayerState.DASHING);
             }
-            else if (Context.GlidingPressedTime >= Context.GlidingActivationTime)
+            else if (_glidingPressedTime >= _minGlidingActivationTime)
             {
                 SwitchState(PlayerState.GLIDING);
             }
@@ -102,7 +106,7 @@ namespace Player.StateMachine
         {
             if (Context.IsJumpPressed)
             {
-                Context.GlidingPressedTime += Time.deltaTime;
+                _glidingPressedTime += Time.deltaTime;
             }
         }
 

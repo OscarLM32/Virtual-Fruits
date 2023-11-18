@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Level.DynamicDifficulty 
-{ 
+namespace Level.DynamicDifficulty
+{
     internal class DifficultyModifierFactory
     {
         private static Dictionary<EnemyType, GameObject> _loadedEnemies = new();

@@ -12,8 +12,8 @@ namespace Level.DynamicDifficulty
      */
     public class PlayerSkillCalculator : SingletonScene<PlayerSkillCalculator>
     {
-        #if UNITY_EDITOR
-        public float PlayerSkillParameter 
+#if UNITY_EDITOR
+        public float PlayerSkillParameter
         {
             get
             {
@@ -28,7 +28,7 @@ namespace Level.DynamicDifficulty
                 CalculatePlayerSkillScore();
             }
         }
-        #endif
+#endif
 
         //TODO: need to assign proper values
         private const float L = 1;
@@ -92,7 +92,7 @@ namespace Level.DynamicDifficulty
 
         private void CalculatePlayerSkillScore()
         {
-            _playerSkillScore = L / (1 + Mathf.Pow((float)Math.E, -k*(PlayerSkillParameter - x0)));
+            _playerSkillScore = L / (1 + Mathf.Pow((float)Math.E, -k * (PlayerSkillParameter - x0)));
         }
 
         protected override void OnAwake()

@@ -27,7 +27,7 @@ namespace EditorSystems.Logger
 
         public static void LogErrror(LoggingSystem loggingSystem, string msg)
         {
-           Log(LoggingMode.ERROR, loggingSystem, msg);
+            Log(LoggingMode.ERROR, loggingSystem, msg);
         }
 
         private static void Log(LoggingMode mode, LoggingSystem loggingSystem, string msg)
@@ -52,7 +52,7 @@ namespace EditorSystems.Logger
         }
 
         private static string BuildLogMessage(LoggingSystem loggingSystem, string msg)
-        { 
+        {
             return $"[{loggingSystem}]: {msg}";
         }
     }

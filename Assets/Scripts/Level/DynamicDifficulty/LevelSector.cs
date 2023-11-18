@@ -1,8 +1,8 @@
+using EditorSystems.Logger;
 using Extensions;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using EditorSystems.Logger;
 
 namespace Level.DynamicDifficulty
 {
@@ -15,17 +15,17 @@ namespace Level.DynamicDifficulty
 
         private void Awake()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             CheckSettingsIntegrity();
-            #endif
+#endif
         }
 
         public void SetDifficultyChanges(Difficulty difficulty)
         {
             var settings = GetDifficultySettings(difficulty);
-            if(settings == null)
+            if (settings == null)
             {
-                EditorLogger.LogWarning(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "["+ gameObject.name + "]"+ "There are no difficulty settings specified for that difficulty");
+                EditorLogger.LogWarning(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "[" + gameObject.name + "]" + "There are no difficulty settings specified for that difficulty");
                 return;
             }
 

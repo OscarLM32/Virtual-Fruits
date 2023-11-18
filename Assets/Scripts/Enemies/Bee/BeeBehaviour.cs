@@ -28,7 +28,7 @@ public class BeeBehaviour : MonoBehaviour
 
     private void Start()
     {
-        if(EnemyProjectilePool.I == null)
+        if (EnemyProjectilePool.I == null)
         {
             this.enabled = false;
         }
@@ -61,7 +61,7 @@ public class BeeBehaviour : MonoBehaviour
         _animator.Play(BeeAnimations.ATTACK);
         yield return new WaitForSeconds(0.5f);
         //In case the bee gets hit while mid animation, we need to cancel this logic
-        if (!_stopAttacking )
+        if (!_stopAttacking)
         {
             GameObject projectile = EnemyProjectilePool.I.GetProjectile(projectileType);
             projectile.transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);

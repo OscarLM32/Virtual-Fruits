@@ -77,17 +77,10 @@ namespace Player.StateMachine
 
         //Dashing variables
         private const float _dashCoolDown = 0.25f;
+        private float _lastDashTime = 0;
         private bool _isDashPressed = false;
         private bool _requireNewDashPress = false;
         private bool _dashed = false;
-        private float _lastDashTime = 0;
-        private float _dashDistance = 3.5f;
-        private float _dashTime = 0.25f;
-        private float _dashSpeed;
-
-        //Gliding variables
-        private float _glidingPressedTime = 0f;
-        private float _glidingActivationTime = 0.15f; //The time it takes to have the button pressed before gliding
 
         //Gravity
         private float _desiredGravity; //TODO: I have to look into deleting or not this variable
@@ -157,14 +150,7 @@ namespace Player.StateMachine
         public bool RequireNewDashPress { get => _requireNewDashPress; set => _requireNewDashPress = value; }
         public bool Dashed { get => _dashed; set => _dashed = value; }
         public float LastDashTime { get => _lastDashTime; set => _lastDashTime = value; }
-        public float DashSpeed => _dashSpeed;
-        public float DashTime => _dashTime;
         ////////////////////////////////////////////////////////////////////////////////////
-
-        //GLIDING GETTER AND SETTERS
-        public float GlidingPressedTime { get => _glidingPressedTime; set => _glidingPressedTime = value; }
-        public float GlidingActivationTime => _glidingActivationTime;
-        //////////////////////////////////////////////////////////////////////////////////// 
 
         //GRAVITY GETTER AND SETTERS
         public float JumpingGravityFactor => _jumpingGravityFactor;
@@ -192,9 +178,6 @@ namespace Player.StateMachine
         public bool IsGrapplingWall { get => _isGrapplingWall; set => _isGrapplingWall = value; }
         //////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
         private void Awake()
         {
             _audioManager = GetComponent<AudioManager>();
@@ -215,7 +198,6 @@ namespace Player.StateMachine
             SetUpInputs();
 
             _walkingSpeed = _speed * 0.7f;
-            _dashSpeed = _dashDistance / _dashTime;
 
             SetUpJumpAndGravityVariables();
         }
@@ -307,7 +289,6 @@ namespace Player.StateMachine
             {
                 _requireNewJumpPress = false;
             }
-            _glidingPressedTime = 0f;
         }
 
         private void OnWalk(InputAction.CallbackContext context)
