@@ -46,10 +46,8 @@ namespace Player.StateMachine
 
         private int _lastFacingDirection = 1;
 
-        private float _speed = 6f;
-        private bool _isWalking = false;
-        private float _walkingSpeed;
 
+        private bool _isWalking = false;
 
         //Jumping variables
         private bool _isJumpPressed = false;
@@ -124,9 +122,7 @@ namespace Player.StateMachine
         //HORIZONTAL MOVEMENT GETTERS AND SETTER
         public Vector2 CurrentMovementInput => _currentMovementInput;
         public Vector2 CurrentMovement => _currentMovement;
-        public float Speed => _speed;
         public bool IsWalking => _isWalking;
-        public float WalkingSpeed => _walkingSpeed;
         public int LastFacingDirection => _lastFacingDirection;
         /////////////////////////////////////////////////////////////////////////////////
 
@@ -196,8 +192,6 @@ namespace Player.StateMachine
             _currentState.EnterState();
 
             SetUpInputs();
-
-            _walkingSpeed = _speed * 0.7f;
 
             SetUpJumpAndGravityVariables();
         }

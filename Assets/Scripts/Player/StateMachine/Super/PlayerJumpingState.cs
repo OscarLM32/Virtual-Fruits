@@ -9,12 +9,14 @@ namespace Player.StateMachine
             Jump
         }
 
-        private PlayerStateMachine.WallJumpInformation _currentWallJump;
         private static class JumpingAnimations
         {
             public static readonly string JUMP = "PlayerJump";
             public static readonly string DOUBLE_JUMP = "PlayerDoubleJump";
         }
+
+        private PlayerStateMachine.WallJumpInformation _currentWallJump;
+
 
         public PlayerJumpingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
             : base(currentContext, playerStateFactory)
