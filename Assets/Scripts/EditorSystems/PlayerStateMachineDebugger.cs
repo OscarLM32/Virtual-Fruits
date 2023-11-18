@@ -9,6 +9,8 @@ namespace EditorSystems
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class PlayerStateMachineDebugger : MonoBehaviour
     {
+        public bool display = true; 
+
         private static PlayerStateMachineDebugger _instance;
 
         [SerializeField] private PlayerStateMachine playerStateMachine;
@@ -32,22 +34,48 @@ namespace EditorSystems
                 if (playerStateMachine == null) Destroy(gameObject);
             }
 
-            _text = GetComponent<TextMeshProUGUI>();
+            SetUpDisplay();
         }
 
         private void OnEnable()
         {
-            playerStateMachine.OnStateChange += UpdateDisplay;
+            if (display)
+            {
+                playerStateMachine.OnStateChange += UpdateDisplay;
+            }
         }
 
         private void OnDisable()
         {
-            playerStateMachine.OnStateChange -= UpdateDisplay;
+            if (display)
+            {
+                playerStateMachine.OnStateChange -= UpdateDisplay;
+            }
+        }
+
+        private void SetUpDisplay()
+        {
+            _text = GetComponent<TextMeshProUGUI>();
+
+            if (!display)
+            {
+                _text.enabled = false;
+                return;
+            }
+
+            RectTransform rTransform = GetComponent<RectTransform>();
+            rTransform.anchorMax = Vector3.zero;
+            rTransform.anchorMin = Vector3.zero;
+            rTransform.sizeDelta = new Vector2(500, 65);
+            rTransform.anchoredPosition = new Vector2(250, 32.5f);
+
+            _text.enableAutoSizing = true;
         }
 
         private void UpdateDisplay(PlayerState newState)
         {
             _text.text = $"State: {newState}";
         }
+
     }
 }

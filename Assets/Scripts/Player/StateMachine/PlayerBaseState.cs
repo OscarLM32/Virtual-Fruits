@@ -48,15 +48,20 @@ namespace Player.StateMachine
             //Switch current state of context
             if (IsRootState)
             {
+                //In case I only want to debug super states
+                Context.OnStateChange?.Invoke(state);
                 Context.CurrentState = newState;
             }
             else if (CurrentSuperState != null)
             {
+                //In case I want to debug sub states
+                //Context.OnStateChange?.Invoke(state);
                 //set the superstate's substate to be the new one.
                 CurrentSuperState.SetSubState(newState);
             }
 
-            Context.OnStateChange?.Invoke(state);
+            //In case a want to debug all states
+            //Context.OnStateChange?.Invoke(state);
         }
 
         protected void SetSuperState(PlayerBaseState newSuperState)
