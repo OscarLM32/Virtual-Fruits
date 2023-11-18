@@ -1,112 +1,115 @@
 using UnityEngine;
 
-//TODO: refactor class name to "PlayerFallingState"
-public class PlayerFallState : PlayerBaseState, IRootState
+namespace Player.StateMachine
 {
-    private const float MAX_FALL_VELOCITY = -20;
-    private const string FALL_ANIMATION = "PlayerFall";
-    public PlayerFallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-        : base(currentContext, playerStateFactory)
+    //TODO: refactor class name to "PlayerFallingState"
+    public class PlayerFallState : PlayerBaseState, IRootState
     {
-        IsRootState = true;
-    }
-
-    public override void EnterState()
-    {
-        InitializeSubState();
-        HandleAnimation();
-        HandleGravity();
-        Context.Jumped = true;
-        Context.WallJumped = false;
-    }
-
-    public override void UpdateState()
-    {
-        HandleGlidingPressTime();
-        CheckMaxFallVelocity();
-        CheckSwitchStates();
-    }
-
-    public override void ExitState()
-    {
-        Context.GlidingPressedTime = 0;
-    }
-
-    public override void InitializeSubState()
-    {
-        if (Context.IsJumpDownPlatformPressed)
+        private const float MAX_FALL_VELOCITY = -20;
+        private const string FALL_ANIMATION = "PlayerFall";
+        public PlayerFallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+            : base(currentContext, playerStateFactory)
         {
-            SetSubState(Factory.JumpDownPlatform());
-            return;
+            IsRootState = true;
         }
 
-        if (Context.CurrentMovementInput.x == 0)
+        public override void EnterState()
         {
-            SetSubState(Factory.Idle());
-        }
-        else
-        {
-            SetSubState(Factory.Movement());
-        }
-    }
-
-    public override void CheckSwitchStates()
-    {
-        if (Context.PlayerHit)
-        {
-            SwitchState(Factory.Hit());
-            return;
+            InitializeSubState();
+            HandleAnimation();
+            HandleGravity();
+            Context.Jumped = true;
+            Context.WallJumped = false;
         }
 
-        if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
+        public override void UpdateState()
         {
-            SwitchState(Factory.Attack());
-            return;
+            HandleGlidingPressTime();
+            CheckMaxFallVelocity();
+            CheckSwitchStates();
         }
 
-        if (Context.IsGrounded && !Context.IsJumpingDownPlatform)
+        public override void ExitState()
         {
-            SwitchState(Factory.Grounded());
+            Context.GlidingPressedTime = 0;
         }
-        else if (Context.IsJumpPressed && !Context.RequireNewJumpPress && !(Context.Jumped && Context.DoubleJumped))
-        {
-            SwitchState(Factory.Jumping());
-        }
-        else if (!Context.Dashed && Context.IsDashPressed && !Context.RequireNewDashPress)
-        {
-            SwitchState(Factory.Dashing());
-        }
-        else if (Context.GlidingPressedTime >= Context.GlidingActivationTime)
-        {
-            SwitchState(Factory.Gliding());
-        }
-        else if (Context.IsGrapplingWall)
-        {
-            SwitchState(Factory.GrapplingWall());
-        }
-    }
 
-    public void HandleGravity()
-    {
-        Context.Rb2D.gravityScale = Context.FallingGravityFactor;
-    }
-
-    public void HandleAnimation()
-    {
-        Context.PlayerAnimator.Play(FALL_ANIMATION);
-    }
-
-    void HandleGlidingPressTime()
-    {
-        if (Context.IsJumpPressed)
+        public override void InitializeSubState()
         {
-            Context.GlidingPressedTime += Time.deltaTime;
-        }
-    }
+            if (Context.IsJumpDownPlatformPressed)
+            {
+                SetSubState(PlayerState.JUMP_DOWN_PLATFORM);
+                return;
+            }
 
-    void CheckMaxFallVelocity()
-    {
-        Vector2 velocity = Context.Rb2D.velocity;
-        Context.Rb2D.velocity = new Vector2(velocity.x, Mathf.Max(velocity.y, MAX_FALL_VELOCITY));
+            if (Context.CurrentMovementInput.x == 0)
+            {
+                SetSubState(PlayerState.IDLE);
+            }
+            else
+            {
+                SetSubState(PlayerState.MOVEMENT);
+            }
+        }
+
+        public override void CheckSwitchStates()
+        {
+            if (Context.PlayerHit)
+            {
+                SwitchState(PlayerState.HIT);
+                return;
+            }
+
+            if (Context.IsAttackPressed && !Context.RequireNewAttackPress && Context.IsWeaponReady)
+            {
+                SwitchState(PlayerState.ATTACK);
+                return;
+            }
+
+            if (Context.IsGrounded && !Context.IsJumpingDownPlatform)
+            {
+                SwitchState(PlayerState.GROUNDED);
+            }
+            else if (Context.IsJumpPressed && !Context.RequireNewJumpPress && !(Context.Jumped && Context.DoubleJumped))
+            {
+                SwitchState(PlayerState.JUMPING);
+            }
+            else if (!Context.Dashed && Context.IsDashPressed && !Context.RequireNewDashPress)
+            {
+                SwitchState(PlayerState.DASHING);
+            }
+            else if (Context.GlidingPressedTime >= Context.GlidingActivationTime)
+            {
+                SwitchState(PlayerState.GLIDING);
+            }
+            else if (Context.IsGrapplingWall)
+            {
+                SwitchState(PlayerState.GRAPPLING_WALL);
+            }
+        }
+
+        public void HandleGravity()
+        {
+            Context.Rb2D.gravityScale = Context.FallingGravityFactor;
+        }
+
+        public void HandleAnimation()
+        {
+            Context.PlayerAnimator.Play(FALL_ANIMATION);
+        }
+
+        void HandleGlidingPressTime()
+        {
+            if (Context.IsJumpPressed)
+            {
+                Context.GlidingPressedTime += Time.deltaTime;
+            }
+        }
+
+        void CheckMaxFallVelocity()
+        {
+            Vector2 velocity = Context.Rb2D.velocity;
+            Context.Rb2D.velocity = new Vector2(velocity.x, Mathf.Max(velocity.y, MAX_FALL_VELOCITY));
+        }
     }
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace EditorSystems
 {
-    [RequireComponent(typeof(RectTransform))]
-    [RequireComponent(typeof(CanvasRenderer))]
-    [RequireComponent(typeof(TextMeshPro))]
+    //[RequireComponent(typeof(RectTransform))]
+    //[RequireComponent(typeof(CanvasRenderer))]
+    [RequireComponent(typeof(TextMeshProUGUI))]
     public class PlayerStateMachineDebugger : MonoBehaviour
     {
         private static PlayerStateMachineDebugger _instance;
 
         [SerializeField] private PlayerStateMachine playerStateMachine;
-        private TextMeshProUGUI _text;
+        [SerializeField] private TextMeshProUGUI _text;
         
         //This is a pseudo Singleton since I want to ensure that there only is one instance of this class in scene
         //but do not want any other script to be able to access the instance reference

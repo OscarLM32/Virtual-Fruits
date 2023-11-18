@@ -1,102 +1,105 @@
 using UnityEngine;
 
-public class PlayerDashingState : PlayerBaseState, IRootState
+namespace Player.StateMachine
 {
-    private enum Sounds
+    public class PlayerDashingState : PlayerBaseState, IRootState
     {
-        Dash
-    }
-
-    private const string DASH_ANIMATION = "PlayerDash";
-    private float _timeSpentDashing = 0;
-    private Vector2 _lastPosition;
-
-    public PlayerDashingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-        : base(currentContext, playerStateFactory)
-    {
-        IsRootState = true;
-    }
-
-    public override void EnterState()
-    {
-        _timeSpentDashing = 0;
-
-        InitializeSubState();
-        HandleGravity();
-        Dash();
-
-        HandleAnimation();
-
-        Context.PlayerAudioManager.Play(Sounds.Dash.ToString());
-    }
-
-    public override void UpdateState()
-    {
-        HandleDashTimer();
-        CheckSwitchStates();
-    }
-
-    public override void ExitState()
-    {
-        Context.LastDashTime = Time.time;
-    }
-
-    public override void InitializeSubState()
-    {
-        SetSubState(Factory.Empty());
-    }
-
-    public override void CheckSwitchStates()
-    {
-        if (Context.PlayerHit)
+        private enum Sounds
         {
-            SwitchState(Factory.Hit());
-            return;
+            Dash
         }
 
-        if (Context.IsGrapplingWall)
+        private const string DASH_ANIMATION = "PlayerDash";
+        private float _timeSpentDashing = 0;
+        private Vector2 _lastPosition;
+
+        public PlayerDashingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+            : base(currentContext, playerStateFactory)
         {
-            Context.Dashed = true;
-            SwitchState(Factory.GrapplingWall());
-            return;
+            IsRootState = true;
         }
 
-        if (!Context.Dashed)
-            return;
-
-        if (Context.IsGrounded)
+        public override void EnterState()
         {
-            SwitchState(Factory.Grounded());
+            _timeSpentDashing = 0;
+
+            InitializeSubState();
+            HandleGravity();
+            Dash();
+
+            HandleAnimation();
+
+            Context.PlayerAudioManager.Play(Sounds.Dash.ToString());
         }
-        else
+
+        public override void UpdateState()
         {
-            SwitchState(Factory.Falling());
+            HandleDashTimer();
+            CheckSwitchStates();
         }
-    }
 
-    public void HandleGravity()
-    {
-        Context.Rb2D.gravityScale = 0; //The player is not affected by gravity while dashing
-    }
+        public override void ExitState()
+        {
+            Context.LastDashTime = Time.time;
+        }
 
-    public void HandleAnimation()
-    {
-        Context.PlayerAnimator.Play(DASH_ANIMATION);
-    }
+        public override void InitializeSubState()
+        {
+            //SetSubState(null);
+        }
 
-    private void Dash()
-    {
-        //TODO: spawn some particles when the dash begins
-        //TODO: make the dash stop when it collides with an object
-        Context.Rb2D.velocity = new Vector2(Context.DashSpeed * Context.LastFacingDirection, 0f);
-        Context.RequireNewDashPress = true;
-    }
+        public override void CheckSwitchStates()
+        {
+            if (Context.PlayerHit)
+            {
+                SwitchState(PlayerState.HIT);
+                return;
+            }
 
-    private void HandleDashTimer()
-    {
-        if (_timeSpentDashing > Context.DashTime)
-            Context.Dashed = true;
-        _timeSpentDashing += Time.deltaTime;
-    }
+            if (Context.IsGrapplingWall)
+            {
+                Context.Dashed = true;
+                SwitchState(PlayerState.GRAPPLING_WALL);
+                return;
+            }
 
+            if (!Context.Dashed)
+                return;
+
+            if (Context.IsGrounded)
+            {
+                SwitchState(PlayerState.GROUNDED);
+            }
+            else
+            {
+                SwitchState(PlayerState.FALLING);
+            }
+        }
+
+        public void HandleGravity()
+        {
+            Context.Rb2D.gravityScale = 0; //The player is not affected by gravity while dashing
+        }
+
+        public void HandleAnimation()
+        {
+            Context.PlayerAnimator.Play(DASH_ANIMATION);
+        }
+
+        private void Dash()
+        {
+            //TODO: spawn some particles when the dash begins
+            //TODO: make the dash stop when it collides with an object
+            Context.Rb2D.velocity = new Vector2(Context.DashSpeed * Context.LastFacingDirection, 0f);
+            Context.RequireNewDashPress = true;
+        }
+
+        private void HandleDashTimer()
+        {
+            if (_timeSpentDashing > Context.DashTime)
+                Context.Dashed = true;
+            _timeSpentDashing += Time.deltaTime;
+        }
+
+    }
 }

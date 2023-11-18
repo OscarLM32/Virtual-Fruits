@@ -1,5 +1,8 @@
-public interface IRootState
+namespace Player.StateMachine
 {
-    public void HandleGravity();
-    public void HandleAnimation();
+    public interface IRootState
+    {
+        public void HandleGravity();
+        public void HandleAnimation();
+    }
 }

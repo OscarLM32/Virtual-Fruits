@@ -1,40 +1,43 @@
 using UnityEngine;
 
-public class PlayerWallJumpState : PlayerBaseState
+namespace Player.StateMachine
 {
-    private float _timeToHalfApex;
-    private float _timeElapsed = 0;
-
-    public PlayerWallJumpState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-        : base(currentContext, playerStateFactory) { }
-
-    public override void EnterState()
+    public class PlayerWallJumpState : PlayerBaseState
     {
-        _timeToHalfApex = Context.WallJumpsData[Context.WallJumpsCount].TimeToApex * 0.5f;
-        _timeElapsed = 0;
-    }
+        private float _timeToHalfApex;
+        private float _timeElapsed = 0;
 
-    public override void UpdateState()
-    {
-        if (_timeElapsed > _timeToHalfApex)
+        public PlayerWallJumpState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+            : base(currentContext, playerStateFactory) { }
+
+        public override void EnterState()
         {
-            CheckSwitchStates();
+            _timeToHalfApex = Context.WallJumpsData[Context.WallJumpsCount].TimeToApex * 0.5f;
+            _timeElapsed = 0;
         }
-        _timeElapsed += Time.deltaTime;
-    }
 
-    public override void ExitState()
-    {
+        public override void UpdateState()
+        {
+            if (_timeElapsed > _timeToHalfApex)
+            {
+                CheckSwitchStates();
+            }
+            _timeElapsed += Time.deltaTime;
+        }
 
-    }
+        public override void ExitState()
+        {
 
-    public override void InitializeSubState()
-    {
+        }
 
-    }
+        public override void InitializeSubState()
+        {
 
-    public override void CheckSwitchStates()
-    {
-        SwitchState(Factory.Movement());
+        }
+
+        public override void CheckSwitchStates()
+        {
+            SwitchState(PlayerState.MOVEMENT);
+        }
     }
 }
