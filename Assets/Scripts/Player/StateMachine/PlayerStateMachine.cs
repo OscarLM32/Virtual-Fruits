@@ -18,8 +18,6 @@ namespace Player.StateMachine
 
         public Transform groundChecker;
         public Transform wallChecker;
-        //TODO: move this debugging logic to a separate file
-        public TextMeshProUGUI debugText;
 
         public GameObject weaponGameObject;
 
@@ -40,38 +38,26 @@ namespace Player.StateMachine
 
         //Horizontal movement variables
         private Vector2 _currentMovementInput;
-
-        //TODO: change this variable's name. It's just horizontal movement that stores. Not so representative
-        private Vector2 _currentMovement;
-
+        private Vector2 _currentHorizontalMovement;
         private int _lastFacingDirection = 1;
-
-
         private bool _isWalking = false;
 
         //Jumping variables
         private bool _isJumpPressed = false;
         private bool _jumped = false;
         private bool _requireNewJumpPress = false;
-        private float _initialJumpVelocity;
-        private float _maxJumpHeight = 2.7f;
-        private float _maxJumpTime = 0.7f;
+
+        //Double jumping variables: The same input will be used: _isJumpPressed;
+        private bool _doubleJumped = false;
 
         private bool _isJumpDownPlatformPressed = false;
         private bool _isJumpingDownPlatform = false;
 
-        //Double jumping variables: The same input will be used: _isJumpPressed;
-        private bool _doubleJumped = false;
-        private float _initialDoubleJumpVelocity;
-        private float _maxDoubleJumpHeight = 1.7f;
-        private float _maxDoubleJumpTime = 0.5f;
-
         //Wall jumping variables: Uses _isJumpPressed as input
+        private bool _wallJumping = false;
         private const int _maxWallJumps = 3;
-        private bool _wallJumped = false;
         private int _wallJumpsCount = 0;
-        //Each field contains --> InitialJumpVelocity, GravityFactor and TimeToApex
-        private Dictionary<int, WallJumpInformation> _wallJumpsData = new Dictionary<int, WallJumpInformation>();
+        private float _currentWallJumpTimeToApex;
 
         //Dashing variables
         private const float _dashCoolDown = 0.25f;
@@ -81,20 +67,17 @@ namespace Player.StateMachine
         private bool _dashed = false;
 
         //Gravity
-        private float _desiredGravity; //TODO: I have to look into deleting or not this variable
         private float _jumpingGravityFactor;
-        private float _doubleJumpingGravityFactor;
         private float _fallingGravityFactor;
         private float _glidingGravityFactor;
         private float _wallGrapplingGravityFactor;
 
         //Attack variables
-        private const float MAX_ATTACK_DISTANCE = 8f;
+        private const float _maxAttackDistance = 8f;
         private bool _isAttackPressed = false;
         private bool _requireNewAttackPress = true;
         private bool _isWeaponReady = true;
         private float _attackAngle;
-        private Vector2 _aimPosition;
 
         //Player hit
         private bool _playerHit = false;
@@ -121,7 +104,7 @@ namespace Player.StateMachine
 
         //HORIZONTAL MOVEMENT GETTERS AND SETTER
         public Vector2 CurrentMovementInput => _currentMovementInput;
-        public Vector2 CurrentMovement => _currentMovement;
+        public Vector2 CurrentMovement => _currentHorizontalMovement;
         public bool IsWalking => _isWalking;
         public int LastFacingDirection => _lastFacingDirection;
         /////////////////////////////////////////////////////////////////////////////////
@@ -133,12 +116,10 @@ namespace Player.StateMachine
         public bool IsJumpDownPlatformPressed => _isJumpDownPlatformPressed;
         public bool IsJumpingDownPlatform { get => _isJumpingDownPlatform; set => _isJumpingDownPlatform = value; }
         public bool DoubleJumped { get => _doubleJumped; set => _doubleJumped = value; }
-        public float InitialJumpVelocity => _initialJumpVelocity;
-        public float InitialDoubleJumpVelocity => _initialDoubleJumpVelocity;
-        public bool WallJumped { get => _wallJumped; set => _wallJumped = value; }
+        public bool WallJumped { get => _wallJumping; set => _wallJumping = value; }
         public int MaxWallJumps => _maxWallJumps;
         public int WallJumpsCount { get => _wallJumpsCount; set => _wallJumpsCount = value; }
-        public Dictionary<int, WallJumpInformation> WallJumpsData => _wallJumpsData;
+        public float CurrentWallJumpTimeToApex { get => _currentWallJumpTimeToApex; set => _currentWallJumpTimeToApex = value; }
         ////////////////////////////////////////////////////////////////////////////////////
 
         //DASHING GETTERS AND SETTERS
@@ -149,8 +130,7 @@ namespace Player.StateMachine
         ////////////////////////////////////////////////////////////////////////////////////
 
         //GRAVITY GETTER AND SETTERS
-        public float JumpingGravityFactor => _jumpingGravityFactor;
-        public float DoubleJumpingGravityFactor => _doubleJumpingGravityFactor;
+        public float JumpingGravityFactor { get => _jumpingGravityFactor; set => _jumpingGravityFactor = value; }
         public float FallingGravityFactor => _fallingGravityFactor;
         public float GlidingGravityFactor => _glidingGravityFactor;
         public float WallGrapplingGravityFactor => _wallGrapplingGravityFactor;
@@ -163,7 +143,7 @@ namespace Player.StateMachine
         public float AttackAngle => _attackAngle;
 
         //PLAYERHIT GETTER AND SETTERS
-        public float MaxAttackDistance => MAX_ATTACK_DISTANCE;
+        public float MaxAttackDistance => _maxAttackDistance;
         public bool PlayerHit { get => _playerHit; set => _playerHit = value; }
         public bool PlayerBounceBack { get => _playerBounceBack; set => _playerBounceBack = value; }
         public bool PlayerDead { get => _playerDead; set => _playerDead = value; }
@@ -173,6 +153,7 @@ namespace Player.StateMachine
         public bool IsGrounded => _isGrounded;
         public bool IsGrapplingWall { get => _isGrapplingWall; set => _isGrapplingWall = value; }
         //////////////////////////////////////////////////////////////////////////////////////
+
 
         private void Awake()
         {
@@ -193,7 +174,7 @@ namespace Player.StateMachine
 
             SetUpInputs();
 
-            SetUpJumpAndGravityVariables();
+            SetUpGravityVariables();
         }
 
         private void OnEnable()
@@ -213,10 +194,10 @@ namespace Player.StateMachine
         private void HandleSpriteDirection()
         {
             int direction;
-            if (_currentMovement.x == 0)
+            if (_currentHorizontalMovement.x == 0)
                 direction = _lastFacingDirection;
             else
-                direction = _currentMovement.x > 0 ? 1 : -1;
+                direction = _currentHorizontalMovement.x > 0 ? 1 : -1;
 
             _lastFacingDirection = direction;
             transform.localScale = new Vector3(direction, 1, 1);
@@ -240,7 +221,7 @@ namespace Player.StateMachine
             Vector2 position = wallChecker.position;
             bool nextToWall = Physics2D.OverlapBox(position, new Vector2(0.1f, 0.4f), 0, groundLayer);
 
-            if (nextToWall && !_isGrounded && _currentMovementInput != Vector2.zero && !_wallJumped)
+            if (nextToWall && !_isGrounded && _currentMovementInput != Vector2.zero && !_wallJumping)
                 _isGrapplingWall = true;
             else
                 _isGrapplingWall = false;
@@ -256,21 +237,21 @@ namespace Player.StateMachine
         private void OnMovementInput(InputAction.CallbackContext context)
         {
             _currentMovementInput = context.ReadValue<Vector2>();
-            _currentMovement = new Vector2(_currentMovementInput.x, 0);
+            _currentHorizontalMovement = new Vector2(_currentMovementInput.x, 0);
 
-            if (_currentMovement.x > 0)
+            if (_currentHorizontalMovement.x > 0)
             {
-                if (_currentMovement.x < 0.250)
-                    _currentMovement.x = 0;
-                else if (_currentMovement.x > 0.750)
-                    _currentMovement.x = 1;
+                if (_currentHorizontalMovement.x < 0.250)
+                    _currentHorizontalMovement.x = 0;
+                else if (_currentHorizontalMovement.x > 0.750)
+                    _currentHorizontalMovement.x = 1;
             }
             else
             {
-                if (_currentMovement.x > -0.250)
-                    _currentMovement.x = 0;
-                else if (_currentMovement.x < -0.750)
-                    _currentMovement.x = -1;
+                if (_currentHorizontalMovement.x > -0.250)
+                    _currentHorizontalMovement.x = 0;
+                else if (_currentHorizontalMovement.x < -0.750)
+                    _currentHorizontalMovement.x = -1;
             }
             HandleSpriteDirection();
         }
@@ -410,55 +391,16 @@ namespace Player.StateMachine
         }
 
         //The jumps' velocity is also calculated inside
-        private void SetUpJumpAndGravityVariables()
+        private void SetUpGravityVariables()
         {
-            float timeToApex = _maxJumpTime / 2; //The time it takes to reach the highest point
-            _desiredGravity = -2 * _maxJumpHeight / (float)Math.Pow(timeToApex, 2);
-            _initialJumpVelocity = 2 * _maxJumpHeight / timeToApex;
-            _jumpingGravityFactor = _desiredGravity / _gravity;
-
             //The falling gravity is higher than the jumping gravity;
             _fallingGravityFactor = _jumpingGravityFactor * 1.6f;
-
-            //Initialization of double jump variables
-            timeToApex = _maxDoubleJumpTime / 2;
-            _desiredGravity = -2 * _maxDoubleJumpHeight / (float)Math.Pow(timeToApex, 2);
-            _initialDoubleJumpVelocity = 2 * _maxDoubleJumpHeight / timeToApex;
-            _doubleJumpingGravityFactor = _desiredGravity / _gravity;
-
-            //Wall grappling jumps
-            SetUpWallJumpVariables();
 
             //Gliding gravity
             _glidingGravityFactor = _fallingGravityFactor * 0.2f;
 
             //Wall grappling
             _wallGrapplingGravityFactor = _fallingGravityFactor * 0.15f;
-        }
-
-        //All the information is relative to the normal jumpç
-        //TODO: redo the calculus so I get a decent Jump
-        private void SetUpWallJumpVariables()
-        {
-            var ratio = 1f / (_maxWallJumps + 1);
-            for (int i = 0; i < _maxWallJumps; i++)
-            {
-                WallJumpInformation info = new WallJumpInformation();
-                info.TimeToApex = _maxJumpTime / 2 * (1 - ratio * i);
-                var desiredGravity = -2 * _maxJumpHeight * (1 - ratio * i) / (float)Math.Pow(info.TimeToApex, 2);
-                info.InitialJumpVelocity = 2 * _maxJumpHeight * (1 - ratio * i) / info.TimeToApex;
-                info.GravityFactor = desiredGravity / _gravity;
-                _wallJumpsData.Add(i, info);
-            }
-        }
-
-
-
-        public class WallJumpInformation
-        {
-            public float InitialJumpVelocity;
-            public float GravityFactor;
-            public float TimeToApex;
         }
     }
 }

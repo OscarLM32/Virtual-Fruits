@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using static Player.StateMachine.PlayerStateMachine;
 
 namespace Player.StateMachine
 {
@@ -15,23 +18,80 @@ namespace Player.StateMachine
             public static readonly string DOUBLE_JUMP = "PlayerDoubleJump";
         }
 
-        private PlayerStateMachine.WallJumpInformation _currentWallJump;
+        private float _desiredGravity;
 
+        //JUMP
+        private const float _maxJumpHeight = 2.7f;
+        private const float _maxJumpTime = 0.7f;
+        private float _initialJumpVelocity;
+
+        //DOUBLE JUMP
+        private const float _maxDoubleJumpHeight = 1.7f;
+        private const float _maxDoubleJumpTime = 0.5f;
+        private float _initialDoubleJumpVelocity;
+        private float _doubleJumpGravityFactor;
+
+        //WALL JUMP
+        public class WallJumpInformation
+        {
+            public float InitialJumpVelocity;
+            public float GravityFactor;
+            public float TimeToApex;
+        }
+
+        private Dictionary<int, WallJumpInformation> _wallJumpsData = new Dictionary<int, WallJumpInformation>();
+        private WallJumpInformation _currentWallJump;
 
         public PlayerJumpingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
             : base(currentContext, playerStateFactory)
         {
             IsRootState = true;
+            SetUpJumpAndGravityVariables();
+        }
+
+        private void SetUpJumpAndGravityVariables()
+        {
+            float timeToApex = _maxJumpTime / 2; //The time it takes to reach the highest point
+            _desiredGravity = -2 * _maxJumpHeight / (float)Math.Pow(timeToApex, 2);
+            _initialJumpVelocity = 2 * _maxJumpHeight / timeToApex;
+            Context.JumpingGravityFactor = _desiredGravity / Physics.gravity.y;
+
+            //Initialization of double jump variables
+            timeToApex = _maxDoubleJumpTime / 2;
+            _desiredGravity = -2 * _maxDoubleJumpHeight / (float)Math.Pow(timeToApex, 2);
+            _initialDoubleJumpVelocity = 2 * _maxDoubleJumpHeight / timeToApex;
+            _doubleJumpGravityFactor = _desiredGravity / Physics.gravity.y;
+
+            //Wall grappling jumps
+            SetUpWallJumpVariables();
+        }
+
+        private void SetUpWallJumpVariables()
+        {
+            var ratio = 1f / (Context.MaxWallJumps + 1);
+            for (int i = 0; i < Context.MaxWallJumps; i++)
+            {
+                WallJumpInformation info = new WallJumpInformation();
+                info.TimeToApex = _maxJumpTime / 2 * (1 - ratio * i);
+                var desiredGravity = -2 * _maxJumpHeight * (1 - ratio * i) / (float)Math.Pow(info.TimeToApex, 2);
+                info.InitialJumpVelocity = 2 * _maxJumpHeight * (1 - ratio * i) / info.TimeToApex;
+                info.GravityFactor = desiredGravity / -9.8f;
+                _wallJumpsData.Add(i, info);
+            }
         }
 
         public override void EnterState()
         {
-            InitializeSubState();
+            //TODO: this does not look like good code at all
             if (Context.WallJumpsCount < Context.MaxWallJumps)
             {
-                _currentWallJump = Context.WallJumpsData[Context.WallJumpsCount];
+                _currentWallJump = _wallJumpsData[Context.WallJumpsCount];
+                Context.CurrentWallJumpTimeToApex = _currentWallJump.TimeToApex;
             }
+
             Context.PlayerAudioManager.Play(Sounds.Jump.ToString());
+
+            InitializeSubState();
         }
 
         public override void UpdateState()
@@ -130,7 +190,7 @@ namespace Player.StateMachine
             Context.WallJumped = false;
             if (!Context.Jumped)
             {
-                Context.Rb2D.velocity = new Vector2(Context.Rb2D.velocity.x, Context.InitialJumpVelocity);
+                Context.Rb2D.velocity = new Vector2(Context.Rb2D.velocity.x, _initialJumpVelocity);
                 Context.RequireNewJumpPress = true;
                 Context.Jumped = true;
                 HandleAnimation();
@@ -139,7 +199,7 @@ namespace Player.StateMachine
 
             if (!Context.DoubleJumped)
             {
-                Context.Rb2D.velocity = new Vector2(Context.Rb2D.velocity.x, Context.InitialDoubleJumpVelocity);
+                Context.Rb2D.velocity = new Vector2(Context.Rb2D.velocity.x, _initialDoubleJumpVelocity);
                 Context.RequireNewJumpPress = true;
                 Context.DoubleJumped = true;
                 HandleAnimation();
@@ -167,7 +227,7 @@ namespace Player.StateMachine
         {
             if (Context.DoubleJumped && Context.IsJumpPressed)
             {
-                Context.Rb2D.gravityScale = Context.DoubleJumpingGravityFactor;
+                Context.Rb2D.gravityScale = _doubleJumpGravityFactor;
                 return;
             }
             if (Context.Jumped && Context.IsJumpPressed)
@@ -175,6 +235,10 @@ namespace Player.StateMachine
                 Context.Rb2D.gravityScale = Context.JumpingGravityFactor;
                 return;
             }
+            
+            //We wan to set the gravityscale to falling gravity factor so if the player releases the jumping key
+            //the greater falling gravity affects the jump and the players gets better control on the jumping
+            //while still inside the jumping state since tge character has positive y speed
             Context.Rb2D.gravityScale = Context.FallingGravityFactor;
         }
 
