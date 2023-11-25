@@ -59,7 +59,6 @@ public class BunnyBehaviour : MonoBehaviour
             HandleFall();
     }
 
-
     private void HandleGrounded()
     {
         _isGrounded = false;

@@ -125,7 +125,6 @@ MonoBehaviour:
     m_Bits: 128
   groundChecker: {fileID: 249805522648923259}
   wallChecker: {fileID: 249805524185171842}
-  debugText: {fileID: 0}
   weaponGameObject: {fileID: 0}
 --- !u!114 &8698226763603986113
 MonoBehaviour:

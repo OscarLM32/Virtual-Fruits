@@ -20644,8 +20644,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   display: 1
-  playerStateMachine: {fileID: 0}
-  _text: {fileID: 0}
 --- !u!114 &880293304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60828,6 +60826,10 @@ PrefabInstance:
     - target: {fileID: 249805524242443143, guid: d27d94db219dab544b761ccf28a4c01e, type: 3}
       propertyPath: debugText
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 249805524242443143, guid: d27d94db219dab544b761ccf28a4c01e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 249805524242443143, guid: d27d94db219dab544b761ccf28a4c01e, type: 3}
       propertyPath: weaponGameObject

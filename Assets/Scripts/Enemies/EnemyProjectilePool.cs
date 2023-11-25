@@ -11,17 +11,14 @@ public enum ProjectileType
 //TODO: refactor code turn Lists of projectiles into queues
 public class EnemyProjectilePool : MonoBehaviour, ISerializationCallbackReceiver
 {
-    //The amount of projectiles of each type that are going to be spawned
+    //The amount of projectiles of each type that are going to be spawned intaly
     private const int INITIAL_SPAWN_AMOUNT = 5;
 
     public List<ProjectileType> projectileTypesInLevel;
     public List<GameObject> projectilePrefabs;
 
-    private Dictionary<ProjectileType, GameObject> _projectilesToSpawn =
-        new Dictionary<ProjectileType, GameObject>();
-
-    private Dictionary<ProjectileType, List<GameObject>> _projectiles =
-        new Dictionary<ProjectileType, List<GameObject>>();
+    private Dictionary<ProjectileType, GameObject> _projectilesToSpawn =new ();
+    private Dictionary<ProjectileType, List<GameObject>> _projectiles = new ();
 
     private static EnemyProjectilePool _i = null;
 

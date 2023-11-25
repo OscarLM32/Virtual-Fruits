@@ -8,7 +8,6 @@ namespace Player.StateMachine
 {
     public class PlayerStateMachine : MonoBehaviour
     {
-        private const float _gravity = -9.8f;
         private const int _enemyLayer = 3;
         private const int _projectileLayer = 9;
 
@@ -87,7 +86,6 @@ namespace Player.StateMachine
         //Checkers
         private bool _isGrounded;
         private bool _isGrapplingWall;
-
 
 
         //Getters and Setters
@@ -327,7 +325,6 @@ namespace Player.StateMachine
         {
             _isWeaponReady = true;
             _doubleJumped = false;
-            _dashed = false;
             _dashed = false;
             weaponGameObject.SetActive(false);
         }
