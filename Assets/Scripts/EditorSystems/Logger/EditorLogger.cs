@@ -9,10 +9,12 @@ namespace EditorSystems.Logger
         private enum LoggingMode { DEFAULT, WARNING, ERROR }
 
         private static bool _dynamicDifficultySystem = true;
+        private static bool _player = true;
 
         private static Dictionary<LoggingSystem, bool> activeLoggers = new()
         {
-            {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, _dynamicDifficultySystem }
+            {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, _dynamicDifficultySystem },
+            {LoggingSystem.PLAYER, _player }
         };
 
         public static void Log(LoggingSystem loggingSystem, string msg)
@@ -25,7 +27,7 @@ namespace EditorSystems.Logger
             Log(LoggingMode.WARNING, loggingSystem, msg);
         }
 
-        public static void LogErrror(LoggingSystem loggingSystem, string msg)
+        public static void LogError(LoggingSystem loggingSystem, string msg)
         {
             Log(LoggingMode.ERROR, loggingSystem, msg);
         }

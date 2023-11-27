@@ -1,11 +1,11 @@
 using System;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using EditorSystems.Logger;
 
 namespace Player.StateMachine
 {
+    [RequireComponent(typeof(AudioManager), typeof(Animator), typeof(Rigidbody2D))]
     public class PlayerStateMachine : MonoBehaviour
     {
         private const int _enemyLayer = 3;
@@ -77,6 +77,7 @@ namespace Player.StateMachine
         private bool _requireNewAttackPress = true;
         private bool _isWeaponReady = true;
         private float _attackAngle;
+        private bool _attackAvailable = false;
 
         //Player hit
         private bool _playerHit = false;
@@ -152,21 +153,25 @@ namespace Player.StateMachine
         public bool IsGrapplingWall { get => _isGrapplingWall; set => _isGrapplingWall = value; }
         //////////////////////////////////////////////////////////////////////////////////////
 
+        #region UNITY FUNCTIONS
 
         private void Awake()
         {
             _audioManager = GetComponent<AudioManager>();
-
-            _playerInput = new PlayerInput();
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _lastFacingDirection = 1; //Let's make it always look to the right when spawning
-            _weapon = weaponGameObject.GetComponent<PlayerWeapon>();
+            if(weaponGameObject != null)
+            {
+                _weapon = weaponGameObject.GetComponent<PlayerWeapon>();
+                _attackAvailable = true;
+            }
+
+            _playerInput = new PlayerInput();
+            _factory = new PlayerStateFactory(this);
 
             GetLayerIDs();
 
             //Setting up default state
-            _factory = new PlayerStateFactory(this);
             _currentState = _factory.GetState(PlayerState.GROUNDED);
             _currentState.EnterState();
 
@@ -188,6 +193,14 @@ namespace Player.StateMachine
             GameActions.RetrieveWeapon -= OnRetrieveWeapon;
             GameActions.GamePause -= OnGamePause;
         }
+        private void Update()
+        {
+            HandleGrounded();
+            HandleGrapplingWall();
+            _currentState.UpdateStates();
+        }
+
+        #endregion
 
         private void HandleSpriteDirection()
         {
@@ -225,12 +238,6 @@ namespace Player.StateMachine
                 _isGrapplingWall = false;
         }
 
-        private void Update()
-        {
-            HandleGrounded();
-            HandleGrapplingWall();
-            _currentState.UpdateStates();
-        }
 
         private void OnMovementInput(InputAction.CallbackContext context)
         {
@@ -302,6 +309,8 @@ namespace Player.StateMachine
 
         private void OnAttack(InputAction.CallbackContext context)
         {
+            if (!_attackAvailable) return;
+
             _isAttackPressed = context.ReadValueAsButton();
             _requireNewAttackPress = false;
         }
