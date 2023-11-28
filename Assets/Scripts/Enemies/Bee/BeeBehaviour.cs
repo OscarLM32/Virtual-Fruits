@@ -2,108 +2,92 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-
-public class BeeBehaviour : MonoBehaviour
+namespace Enemies
 {
-    private static class BeeAnimations
+    public class BeeBehaviour : ShootingEnemy
     {
-        public static readonly string IDLE = "BeeIdle";
-        public static readonly string ATTACK = "BeeAttack";
-        public static readonly string HIT = "BeeHit";
-    }
-
-    public PhysicsMaterial2D ragdollMaterial;
-    public ProjectileType projectileType;
-
-    private Animator _animator;
-    private string _patrolId;
-    private AudioManager _audioManager;
-
-    private float _attackCycleTime = 3f;
-    private float _timeElapsed = 0f;
-    private bool _stopAttacking = false;
-    private Collider2D _collider;
-    private Rigidbody2D _rb;
-
-
-    private void Start()
-    {
-        if (EnemyProjectilePool.I == null)
+        private static class BeeAnimations
         {
-            this.enabled = false;
+            public static readonly string IDLE = "BeeIdle";
+            public static readonly string ATTACK = "BeeAttack";
+            public static readonly string HIT = "BeeHit";
         }
 
-        _animator = GetComponent<Animator>();
-        _patrolId = GetComponent<EnemyBasicPatrolling>().patrolId;
-        _audioManager = GetComponent<AudioManager>();
+        public PhysicsMaterial2D ragdollMaterial;
 
-        //I get all the possible colliders that the enemy has
-        _collider = GetComponent<Collider2D>();
+        private Animator _animator;
+        private string _patrolId;
+        private AudioManager _audioManager;
 
-        _rb = GetComponent<Rigidbody2D>();
-    }
+        private Collider2D _collider;
+        private Rigidbody2D _rb;
 
-    private void Update()
-    {
-        if (_stopAttacking)
-            return;
-        if (_timeElapsed > _attackCycleTime)
+        protected override void OnStart()
         {
-            StartCoroutine(AttackBehaviour());
-            _timeElapsed = 0f;
+            _animator = GetComponent<Animator>();
+            _audioManager = GetComponent<AudioManager>();
+            _collider = GetComponent<Collider2D>();
+            _rb = GetComponent<Rigidbody2D>();
+
+            _patrolId = GetComponent<EnemyBasicPatrolling>().patrolId;
         }
 
-        _timeElapsed += Time.deltaTime;
-    }
-
-    private IEnumerator AttackBehaviour()
-    {
-        _animator.Play(BeeAnimations.ATTACK);
-        yield return new WaitForSeconds(0.5f);
-        //In case the bee gets hit while mid animation, we need to cancel this logic
-        if (!_stopAttacking)
+        protected override void SetUpEnemy()
         {
-            GameObject projectile = EnemyProjectilePool.I.GetProjectile(projectileType);
-            projectile.transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);
-            yield return new WaitForSeconds(0.16f);
+            projectileType = ProjectileType.Stinger;
+            shootingDirection = new Vector2(0, -1);
+            shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
+            projectileSpeed = 8;
+            attackSpeed = 3;
+        }
+
+        protected override IEnumerator Attack()
+        {
+            _animator.Play(BeeAnimations.ATTACK);
+            if (stopBehaviour) yield break;
+
+            yield return Shoot(0.5f, 0.16f);
+
             _animator.Play(BeeAnimations.IDLE);
             _audioManager.Play("Shoot");
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.layer == (int)LayerValues.Weapon)
+        private void OnCollisionEnter2D(Collision2D col)
         {
-            _stopAttacking = true;
-            StartCoroutine(OnPlayerWeaponCollision(col.gameObject));
+            if (col.gameObject.layer == (int)LayerValues.Weapon)
+            {
+                stopBehaviour = true;
+                StartCoroutine(OnPlayerWeaponCollision(col.gameObject));
+            }
         }
-    }
 
-    private IEnumerator OnPlayerWeaponCollision(GameObject other)
-    {
-        //Stop patrolling
-        DOTween.Pause(_patrolId);
+        private IEnumerator OnPlayerWeaponCollision(GameObject other)
+        {
+            //Stop patrolling
+            DOTween.Pause(_patrolId);
 
-        //Play the proper animation
-        _animator.Play(BeeAnimations.HIT);
+            //Play the proper animation
+            _animator.Play(BeeAnimations.HIT);
 
-        _collider.enabled = false;
+            _collider.enabled = false;
 
-        //Launch the enemy
-        LaunchEnemy(other);
-        yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
-    }
+            //Launch the enemy
+            LaunchEnemy(other);
+            yield return new WaitForSeconds(2f);
+            Destroy(gameObject);
+        }
 
-    private void LaunchEnemy(GameObject other)
-    {
-        //It must have a collider because for the time being it should only be collided by the player 
-        Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
-        int launchDirection = otherRb.velocity.x > 0 ? 1 : -1;
-        _rb.sharedMaterial = ragdollMaterial;
+        private void LaunchEnemy(GameObject other)
+        {
+            //It must have a collider because for the time being it should only be collided by the player 
+            Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
+            int launchDirection = otherRb.velocity.x > 0 ? 1 : -1;
+            _rb.sharedMaterial = ragdollMaterial;
 
-        //TODO: add a little bit of randomness to the launch
-        _rb.AddForce(new Vector2(800 * launchDirection, 550));
+            //TODO: add a little bit of randomness to the launch
+            _rb.AddForce(new Vector2(800 * launchDirection, 550));
+        }
+
+
     }
 }

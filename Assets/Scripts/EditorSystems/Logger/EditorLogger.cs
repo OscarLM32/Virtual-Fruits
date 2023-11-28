@@ -9,10 +9,12 @@ namespace EditorSystems.Logger
         private enum LoggingMode { DEFAULT, WARNING, ERROR }
 
         private static bool _dynamicDifficultySystem = true;
+        private static bool _shootingEnemySystem = true;
 
         private static Dictionary<LoggingSystem, bool> activeLoggers = new()
         {
-            {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, _dynamicDifficultySystem }
+            {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, _dynamicDifficultySystem },
+            {LoggingSystem.SHOOTING_ENEMY, _shootingEnemySystem }
         };
 
         public static void Log(LoggingSystem loggingSystem, string msg)
