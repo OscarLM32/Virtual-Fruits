@@ -8,22 +8,36 @@ using UnityEngine;
 public class EnemyBasicPatrolling : MonoBehaviour
 {
 
-    public Vector3[] patrolPoints;
-    public float totalPatrolTime;
-    public PathType pathType = PathType.CubicBezier;
-    public string patrolId;
-    public Ease easeType = Ease.Linear;
+    private const int _defaultResolution = 5;
 
-    void Start()
+    [SerializeField]private Vector3[] _patrolPoints;
+    [SerializeField]private float _totalPatrolTime;
+    [SerializeField]private PathType _pathType = PathType.CubicBezier;
+    [SerializeField]private Ease _easeType = Ease.Linear;
+
+    private Tween _tween;
+
+    private void OnDisable()
     {
-        transform.DOLocalPath(
-            patrolPoints,
-            totalPatrolTime,
-            pathType,
-            PathMode.Sidescroller2D,
-            5)
-            .SetId(patrolId)
-            .SetEase(easeType)
-            .SetLoops(-1);
+        PausePatrol();
+        _tween = null;
+    }
+
+    public void SetUpPatrol(Vector3[] patrolPoints, float totalPatrolTime, PathType pathType, Ease easeType)
+    {
+        _tween = transform.DOLocalPath(patrolPoints,totalPatrolTime, pathType,PathMode.Sidescroller2D,_defaultResolution)
+                         .SetEase(easeType)
+                         .SetLoops(-1);
+    }
+
+    //Maybe overkills
+    public void StartPatrol()
+    {
+        _tween.Play();
+    }
+
+    public void PausePatrol()
+    {
+        _tween.Pause();
     }
 }

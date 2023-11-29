@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
     private const int MAX_LIVES = 3;
     private const int LVL_SELECT_MENU_IDX = 1;
     private int _currentLives = MAX_LIVES;

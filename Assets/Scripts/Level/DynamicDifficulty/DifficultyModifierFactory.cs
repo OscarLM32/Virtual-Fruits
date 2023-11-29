@@ -43,7 +43,7 @@ namespace Level.DynamicDifficulty
                 _loadedEnemies.Add(type, enemy);
             }
 
-            UnityEngine.Object.Instantiate(enemy, position, Quaternion.identity, parent);
+            var obj = UnityEngine.Object.Instantiate(enemy, position, Quaternion.identity, parent);
         }
 
         //This is currently quite overengenired but it may be possible that we add exra logic to it in a future

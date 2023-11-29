@@ -61164,6 +61164,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3154994747649194174, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
+      propertyPath: _pathType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154994747649194174, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
+      propertyPath: _patrolPoints.Array.data[0].x
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154994747649194174, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
+      propertyPath: _patrolPoints.Array.data[0].y
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154994747649194174, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
+      propertyPath: _patrolPoints.Array.data[0].z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154994747649194174, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
+      propertyPath: _patrolPoints.Array.data[1].x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154994747649194174, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
+      propertyPath: _patrolPoints.Array.data[1].y
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154994747649194174, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
+      propertyPath: _patrolPoints.Array.data[1].z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

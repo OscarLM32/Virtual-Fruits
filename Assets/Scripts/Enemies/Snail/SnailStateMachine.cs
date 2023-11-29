@@ -32,7 +32,7 @@ public class SnailStateMachine : MonoBehaviour
         _currentState = ShellOutState;
         _currentState.enabled = true;
 
-        _patrolId = GetComponent<EnemyBasicPatrolling>().patrolId;
+        //_patrolId = GetComponent<EnemyBasicPatrolling>().patrolId;
         _animator = GetComponent<Animator>();
 
         _lastPosition = transform.position;

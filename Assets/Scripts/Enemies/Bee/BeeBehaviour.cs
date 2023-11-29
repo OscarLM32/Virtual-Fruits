@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Enemies
 {
+    [RequireComponent(typeof(EnemyBasicPatrolling))]
     public class BeeBehaviour : ShootingEnemy
     {
         private static class BeeAnimations
@@ -16,23 +17,24 @@ namespace Enemies
         public PhysicsMaterial2D ragdollMaterial;
 
         private Animator _animator;
-        private string _patrolId;
-        private AudioManager _audioManager;
-
         private Collider2D _collider;
         private Rigidbody2D _rb;
+        private AudioManager _audioManager;
+
+        private EnemyBasicPatrolling _patrolBehaviour;
+
+        #region OVERRIDDEN METHODS
 
         protected override void OnStart()
         {
             _animator = GetComponent<Animator>();
-            _audioManager = GetComponent<AudioManager>();
             _collider = GetComponent<Collider2D>();
             _rb = GetComponent<Rigidbody2D>();
+            _audioManager = GetComponent<AudioManager>();
 
-            _patrolId = GetComponent<EnemyBasicPatrolling>().patrolId;
+            _patrolBehaviour = GetComponent<EnemyBasicPatrolling>();
         }
 
-        //This makes not so much sense since I can serialize the values from the abstract class
         protected override void SetUpEnemy()
         {
             shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
@@ -49,6 +51,8 @@ namespace Enemies
             _audioManager.Play("Shoot");
         }
 
+        #endregion
+
         private void OnCollisionEnter2D(Collision2D col)
         {
             if (col.gameObject.layer == (int)LayerValues.Weapon)
@@ -61,12 +65,11 @@ namespace Enemies
         private IEnumerator OnPlayerWeaponCollision(GameObject other)
         {
             //Stop patrolling
-            DOTween.Pause(_patrolId);
+            _patrolBehaviour.PausePatrol();
+            _collider.enabled = false;
 
             //Play the proper animation
             _animator.Play(BeeAnimations.HIT);
-
-            _collider.enabled = false;
 
             //Launch the enemy
             LaunchEnemy(other);

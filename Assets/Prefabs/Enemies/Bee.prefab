@@ -63,11 +63,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05078fa9aee34cb468b515035635b841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints: []
-  totalPatrolTime: 0
-  pathType: 1
-  patrolId: 0
-  easeType: 1
+  _patrolPoints:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  _totalPatrolTime: 5
+  _pathType: 2
+  _easeType: 1
 --- !u!114 &3154994747649194173
 MonoBehaviour:
   m_ObjectHideFlags: 0

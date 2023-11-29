@@ -19,6 +19,8 @@ namespace Enemies
 
         private const float _beforeAttackAnimationSyncTime = 0.45f;
 
+        #region OVERRIDDEN METHODS
+
         protected override void OnStart()
         {
             _animator = GetComponent<Animator>();
@@ -40,6 +42,8 @@ namespace Enemies
             _animator.Play(PlantAnimations.IDLE);
             _audioManager.Play("Shoot");
         }
+
+        #endregion
 
         private IEnumerator OnTriggerEnter2D(Collider2D coll)
         {

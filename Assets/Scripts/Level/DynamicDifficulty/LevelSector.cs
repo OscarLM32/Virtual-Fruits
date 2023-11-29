@@ -15,9 +15,9 @@ namespace Level.DynamicDifficulty
 
         private void Awake()
         {
-#if UNITY_EDITOR
+            #if UNITY_EDITOR
             CheckSettingsIntegrity();
-#endif
+            #endif
         }
 
         public void SetDifficultyChanges(Difficulty difficulty)
