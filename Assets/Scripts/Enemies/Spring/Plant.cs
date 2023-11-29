@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Enemies.ShootingEnemyLogic;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -29,7 +30,7 @@ namespace Enemies
 
         protected override void SetUpEnemy()
         {
-            shootingDirection = new Vector2(transform.localScale.x, 0).normalized;
+            shootingDirection = new Vector2(-transform.localScale.x, 0).normalized;
             shootingPosition = transform.position;
         }
 

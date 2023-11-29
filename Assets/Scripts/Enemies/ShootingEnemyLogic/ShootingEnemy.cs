@@ -2,15 +2,15 @@ using EditorSystems.Logger;
 using System.Collections;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.ShootingEnemyLogic
 {
     public abstract class ShootingEnemy : MonoBehaviour
     {
-        [SerializeField]protected ProjectileType projectileType;
+        [SerializeField] protected ProjectileType projectileType;
 
-        [SerializeField]protected Vector2 shootingDirection;
+        [SerializeField] protected Vector2 shootingDirection;
         protected Vector2 shootingPosition;
-        [SerializeField]protected float projectileSpeed;
+        [SerializeField] protected float projectileSpeed;
 
         //TODO: this current attack speed is not the the real attack speed since it does not have into
         //account the time animating the attack
@@ -32,7 +32,7 @@ namespace Enemies
         {
             if (stopBehaviour) return;
 
-            if(timeElapsed >= attackSpeed)
+            if (timeElapsed >= attackSpeed)
             {
                 //Not sure if necessary
                 StopCoroutine(Attack());
@@ -48,12 +48,12 @@ namespace Enemies
         protected abstract void SetUpEnemy();
         private void CheckSetUp()
         {
-            if(shootingDirection == Vector2.zero)
+            if (shootingDirection == Vector2.zero)
             {
                 EditorLogger.LogErrror(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Has a shooting direction of (0,0)");
                 Destroy(gameObject);
             }
-            else if(projectileSpeed <= 0)
+            else if (projectileSpeed <= 0)
             {
                 EditorLogger.LogErrror(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Projectile speed has to be bigger than 0");
                 Destroy(gameObject);
@@ -63,7 +63,7 @@ namespace Enemies
                 EditorLogger.LogErrror(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Attack speed has to be bigger than 0");
                 Destroy(gameObject);
             }
-            else if(shootingPosition == Vector2.zero)
+            else if (shootingPosition == Vector2.zero)
             {
                 EditorLogger.LogErrror(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Shooting position is (0,0)");
                 Destroy(gameObject);
@@ -78,10 +78,13 @@ namespace Enemies
             //We need to check if the the enemy is killed or anything mid animation
             if (stopBehaviour) yield break;
 
-            //This is cursed code that needs to be fixed
-            GameObject projectile = EnemyProjectilePool.I.GetProjectile(projectileType);
-            projectile.transform.position = shootingPosition;
-            
+            GameObject obj = EnemyProjectilePool.I.GetProjectile(projectileType);
+            EnemyProjectile projectile = obj.GetComponent<EnemyProjectile>();
+
+            projectile.SetUpProjectile(shootingPosition, shootingDirection, projectileSpeed);
+            obj.SetActive(true);
+            //projectile.transform.position = shootingPosition;
+
             yield return new WaitForSeconds(afterShotAnimationSyncTime);
         }
 

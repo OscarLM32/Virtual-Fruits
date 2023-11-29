@@ -1,4 +1,4 @@
-using Unity.Mathematics;
+using Enemies.ShootingEnemyLogic;
 using UnityEngine;
 
 namespace Enemies
@@ -20,7 +20,7 @@ namespace Enemies
 
         private void InstantiateParticles()
         {
-            Instantiate(particles, gameObject.transform.position, quaternion.identity);
+            Instantiate(particles, gameObject.transform.position, Quaternion.identity);
             EnemyProjectilePool.I.DeleteProjectile(gameObject);
         }
     }

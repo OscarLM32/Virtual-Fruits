@@ -1,3 +1,4 @@
+using Enemies.ShootingEnemyLogic;
 using Unity.Mathematics;
 using UnityEngine;
 

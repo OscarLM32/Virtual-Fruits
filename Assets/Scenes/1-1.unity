@@ -60647,7 +60647,7 @@ MonoBehaviour:
   projectileTypesInLevel: 0000000001000000
   projectilePrefabs:
   - {fileID: 8875561843751952861, guid: f0dcd6ce3387d12489acb27a3d213d90, type: 3}
-  - {fileID: 8875561843751952861, guid: 619f96624ed96b945a20e15ce94be023, type: 3}
+  - {fileID: 231774489082368530, guid: 619f96624ed96b945a20e15ce94be023, type: 3}
 --- !u!4 &2106183932
 Transform:
   m_ObjectHideFlags: 0

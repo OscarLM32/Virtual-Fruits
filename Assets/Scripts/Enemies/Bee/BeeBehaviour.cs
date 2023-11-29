@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Enemies.ShootingEnemyLogic;
 using System.Collections;
 using UnityEngine;
 
