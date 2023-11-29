@@ -32,13 +32,10 @@ namespace Enemies
             _patrolId = GetComponent<EnemyBasicPatrolling>().patrolId;
         }
 
+        //This makes not so much sense since I can serialize the values from the abstract class
         protected override void SetUpEnemy()
         {
-            projectileType = ProjectileType.Stinger;
-            shootingDirection = new Vector2(0, -1);
             shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
-            projectileSpeed = 8;
-            attackSpeed = 3;
         }
 
         protected override IEnumerator Attack()

@@ -27,11 +27,8 @@ namespace Enemies
 
         protected override void SetUpEnemy()
         {
-            projectileType = ProjectileType.Bean;
             shootingDirection = new Vector2(transform.localScale.x, 0).normalized;
             shootingPosition = transform.position;
-            projectileSpeed = 8;
-            attackSpeed = 3;
         }
 
         protected override IEnumerator Attack()

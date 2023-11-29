@@ -8,11 +8,13 @@ namespace Enemies
     {
         [SerializeField]protected ProjectileType projectileType;
 
-        protected Vector2 shootingDirection;
+        [SerializeField]protected Vector2 shootingDirection;
         protected Vector2 shootingPosition;
-        protected float projectileSpeed;
+        [SerializeField]protected float projectileSpeed;
 
-        protected float attackSpeed;
+        //TODO: this current attack speed is not the the real attack speed since it does not have into
+        //account the time animating the attack
+        [SerializeField] protected float attackSpeed;
         protected float timeElapsed;
 
         protected bool stopBehaviour = false;
@@ -40,6 +42,9 @@ namespace Enemies
             timeElapsed += Time.deltaTime;
         }
 
+        //TODO: There is not much need to have this method. All the logic implemented here can be added to Onstart
+        //At the current time I like this solution since I can split the logic of setting up the specific values
+        //of the enemy and the variables of the generic class.
         protected abstract void SetUpEnemy();
         private void CheckSetUp()
         {

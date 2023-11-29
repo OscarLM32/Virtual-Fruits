@@ -80,8 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e063f5441cae0d4ab5c40abafcbf9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdollMaterial: {fileID: 6200000, guid: 23a1982ab5c7f4a48b25f0b7a16a8b9e, type: 2}
   projectileType: 0
+  shootingDirection: {x: 0, y: -1}
+  projectileSpeed: 8
+  attackSpeed: 3
+  ragdollMaterial: {fileID: 6200000, guid: 23a1982ab5c7f4a48b25f0b7a16a8b9e, type: 2}
 --- !u!95 &3154994747649194169
 Animator:
   serializedVersion: 5

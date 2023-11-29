@@ -62,7 +62,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: 1
-  _attackCycleTime: 3
+  shootingDirection: {x: 1, y: 0}
+  projectileSpeed: 8
+  attackSpeed: 2.5
 --- !u!212 &3741260019181953537
 SpriteRenderer:
   m_ObjectHideFlags: 0
