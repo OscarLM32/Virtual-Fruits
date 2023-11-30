@@ -4,6 +4,18 @@ namespace Enemies
 {
     public abstract class Enemy : MonoBehaviour
     {
-        protected abstract void OnBeginBehaviour();
+        //This is going to be called in GameManager Start method
+
+        private void OnEnable()
+        {
+            GameManager.LevelStart += OnLevelStart;
+        }
+
+        private void OnDisable()
+        {
+            GameManager.LevelStart -= OnLevelStart;
+        }
+
+        protected abstract void OnLevelStart();
     }
 }

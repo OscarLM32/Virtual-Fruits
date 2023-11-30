@@ -22,7 +22,7 @@ namespace Enemies
 
         #region OVERRIDDEN METHODS
 
-        protected override void OnStart()
+        protected override void OnAwake()
         {
             _animator = GetComponent<Animator>();
             _audioManager = GetComponent<AudioManager>();

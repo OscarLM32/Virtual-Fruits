@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static Action LevelStart;
+
     private const int MAX_LIVES = 3;
     private const int LVL_SELECT_MENU_IDX = 1;
     private int _currentLives = MAX_LIVES;
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject PauseMenu;
     private bool _gamePaused = false;
+
 
     private void Awake()
     {
@@ -30,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        LevelStart?.Invoke();
         _audioManager.Play("SpringLevelTheme");
     }
 

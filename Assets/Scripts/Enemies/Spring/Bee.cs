@@ -26,7 +26,7 @@ namespace Enemies
 
         #region OVERRIDDEN METHODS
 
-        protected override void OnStart()
+        protected override void OnAwake()
         {
             _animator = GetComponent<Animator>();
             _collider = GetComponent<Collider2D>();
@@ -41,9 +41,9 @@ namespace Enemies
             shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
         }
 
-        protected override void OnBeginBehaviour()
+        protected override void OnLevelStart()
         {
-            base.OnBeginBehaviour();
+            base.OnLevelStart();
             _patrolBehaviour.StartPatrol();
         }
 

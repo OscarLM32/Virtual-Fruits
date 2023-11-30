@@ -37,7 +37,7 @@ namespace Enemies
         private bool _isGrounded = true;
         private bool _stopBehaviour = true;
 
-        private void Start()
+        private void Awake()
         {
             _animator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody2D>();
@@ -60,7 +60,7 @@ namespace Enemies
                 HandleFall();
         }
 
-        protected override void OnBeginBehaviour()
+        protected override void OnLevelStart()
         {
             _stopBehaviour = false;
         }

@@ -46,7 +46,7 @@ namespace Enemies
             _lastPosition = transform.position;
             HandleDirection();
         }
-        protected override void OnBeginBehaviour()
+        protected override void OnLevelStart()
         {
             _currentState = ShellOutState;
             _currentState.enabled = true;

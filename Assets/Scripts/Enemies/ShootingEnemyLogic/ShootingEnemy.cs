@@ -19,14 +19,14 @@ namespace Enemies.ShootingEnemyLogic
 
         protected bool stopShooting = true;
 
-        protected void Start()
+        protected void Awake()
         {
             SetUpEnemy();
             CheckSetUp();
-            OnStart();
+            OnAwake();
         }
 
-        protected abstract void OnStart();
+        protected abstract void OnAwake();
 
         protected void Update()
         {
@@ -42,7 +42,7 @@ namespace Enemies.ShootingEnemyLogic
             timeElapsed += Time.deltaTime;
         }
 
-        protected override void OnBeginBehaviour()
+        protected override void OnLevelStart()
         {
             stopShooting = false;
         }

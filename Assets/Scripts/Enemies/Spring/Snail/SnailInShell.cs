@@ -31,7 +31,7 @@ namespace Enemies
                 StartCoroutine(Exit());
         }
 
-        protected override void OnBeginBehaviour()
+        protected override void OnLevelStart()
         {
             
         }
