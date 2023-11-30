@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 namespace Enemies.ShootingEnemyLogic
 {

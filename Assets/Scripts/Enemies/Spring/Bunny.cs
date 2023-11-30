@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class Bunny : MonoBehaviour
+    public class Bunny : Enemy
     {
         private static class BunnyAnimations
         {
@@ -35,7 +35,7 @@ namespace Enemies
 
         private bool _jumping = false;
         private bool _isGrounded = true;
-        private bool _hit = false;
+        private bool _stopBehaviour = true;
 
         private void Start()
         {
@@ -51,14 +51,18 @@ namespace Enemies
 
         private void Update()
         {
-            if (_hit)
-                return;
+            if (_stopBehaviour) return;
 
             HandleGrounded();
             if (_rb.velocity.y >= 0)
                 HandleJump();
             else
                 HandleFall();
+        }
+
+        protected override void OnBeginBehaviour()
+        {
+            _stopBehaviour = false;
         }
 
         private void HandleGrounded()
@@ -116,7 +120,7 @@ namespace Enemies
 
         private IEnumerator OnHit(GameObject other)
         {
-            _hit = true;
+            _stopBehaviour = true;
             GetComponent<Collider2D>().enabled = false;
             LaunchEnemy(other);
             _animator.Play(BunnyAnimations.HIT);
@@ -133,5 +137,7 @@ namespace Enemies
             //TODO: add a little bit of randomness to the launch
             _rb.AddForce(new Vector2(800 * launchDirection, 550));
         }
+
+
     }
 }

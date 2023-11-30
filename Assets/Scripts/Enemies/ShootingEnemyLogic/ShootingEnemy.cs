@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemies.ShootingEnemyLogic
 {
-    public abstract class ShootingEnemy : MonoBehaviour
+    public abstract class ShootingEnemy : Enemy
     {
         [SerializeField] protected ProjectileType projectileType;
 
@@ -17,9 +17,9 @@ namespace Enemies.ShootingEnemyLogic
         [SerializeField] protected float attackSpeed;
         protected float timeElapsed;
 
-        protected bool stopBehaviour = false;
+        protected bool stopShooting = true;
 
-        private void Start()
+        protected void Start()
         {
             SetUpEnemy();
             CheckSetUp();
@@ -30,7 +30,7 @@ namespace Enemies.ShootingEnemyLogic
 
         protected void Update()
         {
-            if (stopBehaviour) return;
+            if (stopShooting) return;
 
             if (timeElapsed >= attackSpeed)
             {
@@ -40,6 +40,11 @@ namespace Enemies.ShootingEnemyLogic
                 timeElapsed = 0;
             }
             timeElapsed += Time.deltaTime;
+        }
+
+        protected override void OnBeginBehaviour()
+        {
+            stopShooting = false;
         }
 
         //TODO: There is not much need to have this method. All the logic implemented here can be added to Onstart
@@ -76,7 +81,7 @@ namespace Enemies.ShootingEnemyLogic
         {
             yield return new WaitForSeconds(beforeShotAnimationSyncTime);
             //We need to check if the the enemy is killed or anything mid animation
-            if (stopBehaviour) yield break;
+            if (stopShooting) yield break;
 
             GameObject obj = EnemyProjectilePool.I.GetProjectile(projectileType);
             EnemyProjectile projectile = obj.GetComponent<EnemyProjectile>();

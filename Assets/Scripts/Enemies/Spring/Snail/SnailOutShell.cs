@@ -1,33 +1,36 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class SnailOutShell : MonoBehaviour
+namespace Enemies
 {
-    private static class SnailOutShellAnimations
+    public class SnailOutShell : MonoBehaviour
     {
-        public static readonly string IDLE = "SnailIdle";
-        public static readonly string WALK = "SnailWalk";
-        public static readonly string SHELL_IN = "ShellIn";
-    }
+        private static class SnailOutShellAnimations
+        {
+            public static readonly string IDLE = "SnailIdle";
+            public static readonly string WALK = "SnailWalk";
+            public static readonly string SHELL_IN = "ShellIn";
+        }
 
-    private SnailStateMachine Context;
+        private SnailStateMachine Context;
 
-    private void Awake()
-    {
-        Context = GetComponent<SnailStateMachine>();
-    }
+        private void Awake()
+        {
+            Context = GetComponent<SnailStateMachine>();
+        }
 
-    private void Update()
-    {
-        Context.SnailAnimator.Play(SnailOutShellAnimations.WALK);
-        if (Context.PlayerIntrigger)
-            Exit();
-    }
+        private void Update()
+        {
+            Context.SnailAnimator.Play(SnailOutShellAnimations.WALK);
+            if (Context.PlayerIntrigger)
+                Exit();
+        }
 
-    private void Exit()
-    {
-        DOTween.Pause(Context.PatrolId);
-        Context.SnailAnimator.Play(SnailOutShellAnimations.SHELL_IN);
-        Context.ChangeState(Context.ShellInState);
+        private void Exit()
+        {
+            DOTween.Pause(Context.PatrolId);
+            Context.SnailAnimator.Play(SnailOutShellAnimations.SHELL_IN);
+            Context.ChangeState(Context.ShellInState);
+        }
     }
 }

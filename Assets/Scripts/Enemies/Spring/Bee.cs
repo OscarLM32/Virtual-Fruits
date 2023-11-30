@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Enemies
 {
     [RequireComponent(typeof(EnemyBasicPatrolling))]
-    public class BeeBehaviour : ShootingEnemy
+    public class Bee : ShootingEnemy
     {
         private static class BeeAnimations
         {
@@ -41,10 +41,16 @@ namespace Enemies
             shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
         }
 
+        protected override void OnBeginBehaviour()
+        {
+            base.OnBeginBehaviour();
+            _patrolBehaviour.StartPatrol();
+        }
+
         protected override IEnumerator Attack()
         {
             _animator.Play(BeeAnimations.ATTACK);
-            if (stopBehaviour) yield break;
+            if (stopShooting) yield break;
 
             yield return Shoot(0.5f, 0.16f);
 
@@ -58,11 +64,10 @@ namespace Enemies
         {
             if (col.gameObject.layer == (int)LayerValues.Weapon)
             {
-                stopBehaviour = true;
+                stopShooting = true;
                 StartCoroutine(OnPlayerWeaponCollision(col.gameObject));
             }
         }
-
         private IEnumerator OnPlayerWeaponCollision(GameObject other)
         {
             //Stop patrolling

@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
         _playerInput.MenuControls.PauseMenu.started += PauseGame;
 
         _audioManager = GetComponent<AudioManager>();
-
     }
 
     private void Start()

@@ -48,7 +48,7 @@ namespace Enemies
 
         private IEnumerator OnTriggerEnter2D(Collider2D coll)
         {
-            stopBehaviour = true;
+            stopShooting = true;
             GetComponent<Collider2D>().enabled = false;
             _animator.Play(PlantAnimations.HIT);
             GetComponent<SpriteRenderer>().DOFade(0, 2f);
