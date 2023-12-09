@@ -1,3 +1,4 @@
+using Level.DynamicDifficulty.Modifiers;
 using System;
 
 namespace Level.DynamicDifficulty
@@ -6,12 +7,12 @@ namespace Level.DynamicDifficulty
     public class DifficultySetting
     {
         public Difficulty difficulty;
-        public DifficultyModifier[] difficultyModifiers;
+        public Modifier[] modifiers;
 
-        public DifficultySetting(Difficulty difficulty, DifficultyModifier[] difficultyModifiers = null)
+        public DifficultySetting(Difficulty difficulty, Modifier[] difficultyModifiers = null)
         {
             this.difficulty = difficulty;
-            this.difficultyModifiers = difficultyModifiers;
+            this.modifiers = difficultyModifiers;
         }
     }
 }

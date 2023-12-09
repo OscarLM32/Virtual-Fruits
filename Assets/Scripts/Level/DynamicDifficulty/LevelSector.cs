@@ -1,5 +1,6 @@
 using EditorSystems.Logger;
 using Extensions;
+using Level.DynamicDifficulty.Modifiers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace Level.DynamicDifficulty
     public class LevelSector : MonoBehaviour, ISerializationCallbackReceiver
     {
         [SerializeField] private DifficultySetting[] _difficultySettings;
-        private DifficultyModifierFactory _modifierFactory = new();
+        private ModifierFactory _modifierFactory = new();
 
 
         private void Awake()
@@ -29,7 +30,7 @@ namespace Level.DynamicDifficulty
                 return;
             }
 
-            foreach (var modifierSettings in settings.difficultyModifiers)
+            foreach (var modifierSettings in settings.modifiers)
             {
                 Action modifierAction = _modifierFactory.GetLevelModifier(modifierSettings);
                 modifierAction?.Invoke();
@@ -64,7 +65,7 @@ namespace Level.DynamicDifficulty
                 {
                     if (currentSettings[counter] != null)
                     {
-                        aux.Add(new DifficultySetting(difficulty, currentSettings[counter]?.difficultyModifiers));
+                        aux.Add(new DifficultySetting(difficulty, currentSettings[counter]?.modifiers));
                     }
                     else
                     {

@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1bbcd27f0cf0247bd0ced69dfbe1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSkillParameter: 0
+  currentSkillParameter: 1.5
   levelDifficultyOrchestrator: {fileID: 273098480}
   difficulty: 0
 --- !u!4 &24273432
@@ -167,8 +167,7 @@ Transform:
   m_LocalPosition: {x: -0.15648256, y: 2.0578294, z: -0.48295757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 567131878}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &140318770
@@ -272,11 +271,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
---- !u!1 &140318771 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3154994747649194055, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
-  m_PrefabInstance: {fileID: 140318770}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &140318779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3154994747649194168, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
@@ -489,23 +483,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _difficultySettings:
   - difficulty: 0
-    difficultyModifiers:
+    modifiers:
     - action: 2
-      target: {fileID: 0}
-      enemyType: 0
-      position: {x: 8, y: 2}
-      parentObject: {fileID: 239074882}
-    - action: 3
-      target: {fileID: 140318771}
-      enemyType: 0
-      position: {x: 0, y: 0}
-      parentObject: {fileID: 0}
   - difficulty: 1
-    difficultyModifiers: []
+    modifiers: []
   - difficulty: 3
-    difficultyModifiers: []
+    modifiers: []
   - difficulty: 4
-    difficultyModifiers: []
+    modifiers: []
 --- !u!61 &307987974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -801,50 +786,6 @@ Transform:
   - {fileID: 249032147}
   m_Father: {fileID: 1522334532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &567131877
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 567131878}
-  - component: {fileID: 567131879}
-  m_Layer: 0
-  m_Name: PlayerSkillCalculator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &567131878
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567131877}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 24273432}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &567131879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567131877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d307082d47cf4c44dbf4a69bb00d8b21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1110077617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -855,11 +796,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 249805522991430706, guid: d27d94db219dab544b761ccf28a4c01e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11
+      value: -6.7
       objectReference: {fileID: 0}
     - target: {fileID: 249805522991430706, guid: d27d94db219dab544b761ccf28a4c01e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 249805522991430706, guid: d27d94db219dab544b761ccf28a4c01e, type: 3}
       propertyPath: m_LocalPosition.z

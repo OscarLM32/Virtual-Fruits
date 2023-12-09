@@ -1,4 +1,3 @@
-using GameSystems.Singleton;
 using System;
 using UnityEngine;
 
@@ -10,9 +9,10 @@ namespace Level.DynamicDifficulty
      * The formula is as follows --> L / (1 + pow(e, -k + (x - x0)))
      * Being L, k and x0 constant values in the function and only X (the players points) should vary
      */
-    public class PlayerSkillCalculator : SingletonScene<PlayerSkillCalculator>
+    public class PlayerSkillCalculator
     {
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
+        //For testing purposes
         public float PlayerSkillParameter
         {
             get
@@ -28,7 +28,7 @@ namespace Level.DynamicDifficulty
                 CalculatePlayerSkillScore();
             }
         }
-#endif
+        #endif
 
         //TODO: need to assign proper values
         private const float L = 1;
@@ -43,27 +43,8 @@ namespace Level.DynamicDifficulty
         private float _playerSkillParameter = 0;
 
         //TODO: implement consecutiveness bonus
-        //private bool _wasLastObstacleSurpassed = false;
+        //private bool _lastObstacleSurpassed = false;
         //private float _consecutive;
-
-
-        #region UNITY_FUNCTIONS
-        private void Start()
-        {
-            //Need to retrieve a the saved data and propagate this information
-            //to the components needing it (sectors)
-        }
-
-        private void OnEnable()
-        {
-            //Need to suscribe to the related events
-        }
-
-        private void OnDisable()
-        {
-            //Need to unsuscribe from the suscribed event
-        }
-        #endregion
 
         public Difficulty GetPlayerLevelDifficulty()
         {
@@ -71,33 +52,25 @@ namespace Level.DynamicDifficulty
             float range = L / numDifficulties;
 
             int difficultyIndex = (int)(_playerSkillScore / range);
-            Debug.Log("Difficulty index: " + difficultyIndex);
+            //Debug.Log("Difficulty index: " + difficultyIndex);
 
             return (Difficulty)difficultyIndex;
         }
 
         private void PlayerSurpassedObstacle()
         {
-            //if obstacle was not surpassed last time
-            //consecutiveness == 0
-            //currentSkillParameter += f(value,consecutiveness)
-            //consecutiveness += 1
-            //CalculatePlayerSkillScore
+            _playerSkillParameter += 0.1f;
+            //Save values/data
         }
 
         private void PlayerFailedObstacle()
         {
-
+            _playerSkillParameter -= 0.1f;
         }
 
         private void CalculatePlayerSkillScore()
         {
             _playerSkillScore = L / (1 + Mathf.Pow((float)Math.E, -k * (PlayerSkillParameter - x0)));
-        }
-
-        protected override void OnAwake()
-        {
-            //Access the save manager and collect the data neccessary for this class
         }
     }
 }
