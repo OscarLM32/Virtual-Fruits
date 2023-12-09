@@ -15,8 +15,8 @@ namespace EditorSystems.Logger
         private static Dictionary<LoggingSystem, bool> activeLoggers = new()
         {
             {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, _dynamicDifficultySystem },
-            {LoggingSystem.SHOOTING_ENEMY, _shootingEnemySystem }
-            {LoggingSystem.PLAYER, _player }
+            {LoggingSystem.SHOOTING_ENEMY, _shootingEnemySystem },
+            {LoggingSystem.PLAYER, _player },
         };
 
         public static void Log(LoggingSystem loggingSystem, string msg)
