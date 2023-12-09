@@ -16,7 +16,7 @@ namespace EditorSystems.Logger
         {
             {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, _dynamicDifficultySystem },
             {LoggingSystem.SHOOTING_ENEMY, _shootingEnemySystem },
-            {LoggingSystem.PLAYER, _player },
+            {LoggingSystem.PLAYER, _player }
         };
 
         public static void Log(LoggingSystem loggingSystem, string msg)

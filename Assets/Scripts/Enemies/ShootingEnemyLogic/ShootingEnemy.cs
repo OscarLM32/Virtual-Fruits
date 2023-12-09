@@ -55,22 +55,22 @@ namespace Enemies.ShootingEnemyLogic
         {
             if (shootingDirection == Vector2.zero)
             {
-                EditorLogger.LogErrror(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Has a shooting direction of (0,0)");
+                EditorLogger.LogError(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Has a shooting direction of (0,0)");
                 Destroy(gameObject);
             }
             else if (projectileSpeed <= 0)
             {
-                EditorLogger.LogErrror(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Projectile speed has to be bigger than 0");
+                EditorLogger.LogError(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Projectile speed has to be bigger than 0");
                 Destroy(gameObject);
             }
             else if (attackSpeed <= 0)
             {
-                EditorLogger.LogErrror(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Attack speed has to be bigger than 0");
+                EditorLogger.LogError(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Attack speed has to be bigger than 0");
                 Destroy(gameObject);
             }
             else if (shootingPosition == Vector2.zero)
             {
-                EditorLogger.LogErrror(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Shooting position is (0,0)");
+                EditorLogger.LogError(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Shooting position is (0,0)");
                 Destroy(gameObject);
             }
         }
