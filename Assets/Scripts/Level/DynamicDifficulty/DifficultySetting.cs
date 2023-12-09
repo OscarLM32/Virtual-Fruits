@@ -1,5 +1,5 @@
-using Level.DynamicDifficulty.Modifiers;
 using System;
+using UnityEngine.AddressableAssets;
 
 namespace Level.DynamicDifficulty
 {
@@ -7,12 +7,12 @@ namespace Level.DynamicDifficulty
     public class DifficultySetting
     {
         public Difficulty difficulty;
-        public Modifier[] modifiers;
+        public AssetReference layoutReference;
 
-        public DifficultySetting(Difficulty difficulty, Modifier[] difficultyModifiers = null)
+        public DifficultySetting(Difficulty difficulty, AssetReference layoutReference = null)
         {
             this.difficulty = difficulty;
-            this.modifiers = difficultyModifiers;
+            this.layoutReference = layoutReference;
         }
     }
 }

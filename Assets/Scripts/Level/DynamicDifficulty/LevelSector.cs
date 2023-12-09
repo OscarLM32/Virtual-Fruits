@@ -1,6 +1,5 @@
 using EditorSystems.Logger;
 using Extensions;
-using Level.DynamicDifficulty.Modifiers;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +10,6 @@ namespace Level.DynamicDifficulty
     public class LevelSector : MonoBehaviour, ISerializationCallbackReceiver
     {
         [SerializeField] private DifficultySetting[] _difficultySettings;
-        private ModifierFactory _modifierFactory = new();
 
 
         private void Awake()
@@ -30,11 +28,11 @@ namespace Level.DynamicDifficulty
                 return;
             }
 
-            foreach (var modifierSettings in settings.modifiers)
-            {
-                Action modifierAction = _modifierFactory.GetLevelModifier(modifierSettings);
-                modifierAction?.Invoke();
-            }
+            GameObject currentLayout = transform.GetChild(0).gameObject;
+            Destroy(currentLayout);
+
+            GameObject newLayout = settings.layoutReference.LoadAssetAsync<GameObject>().WaitForCompletion();
+            Instantiate(newLayout, Vector3.zero, Quaternion.identity, transform);
         }
 
         private DifficultySetting GetDifficultySettings(Difficulty difficulty)
@@ -59,13 +57,12 @@ namespace Level.DynamicDifficulty
 
             for (int i = 0; i < difficulties.Length; i++)
             {
-                //TODO revisit this code since it does not look like null checking was done properly
                 var difficulty = difficulties[i];
                 if (difficulty != DynamicDifficultyConstants.baseDifficulty)
                 {
                     if (currentSettings[counter] != null)
                     {
-                        aux.Add(new DifficultySetting(difficulty, currentSettings[counter]?.modifiers));
+                        aux.Add(new DifficultySetting(difficulty, currentSettings[counter].layoutReference));
                     }
                     else
                     {
