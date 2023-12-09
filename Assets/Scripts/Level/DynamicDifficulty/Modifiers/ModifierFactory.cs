@@ -5,27 +5,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace Level.DynamicDifficulty
+namespace Level.DynamicDifficulty.Modifiers
 {
-    internal class DifficultyModifierFactory
+    internal class ModifierFactory
     {
         private static Dictionary<EnemyType, GameObject> _loadedEnemies = new();
 
-        public Action GetLevelModifier(DifficultyModifier settings)
+        public Action GetLevelModifier(Modifier settings)
         {
             Action modifier = null;
 
             switch (settings.action)
             {
-                case DifficultyModifierAction.CUSTOM:
+                case ModifierAction.CUSTOM:
                     break;
-                case DifficultyModifierAction.CHANGE_TERRAIN:
+                case ModifierAction.CHANGE_TERRAIN:
                     break;
-                case DifficultyModifierAction.ADD_ENEMY:
-                    modifier = () => AddEnemyAction(settings.enemyType, settings.position, settings.parentObject);
+                case ModifierAction.ADD_ENEMY:
+                    //modifier = () => AddEnemyAction(settings.enemyType, settings.position, settings.parentObject);
                     break;
-                case DifficultyModifierAction.REMOVE_ENEMY:
-                    modifier = () => RemoveEnemyAction(settings.target);
+                case ModifierAction.REMOVE_ENEMY:
+                    //modifier = () => RemoveEnemyAction(settings.target);
                     break;
             }
 

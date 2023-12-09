@@ -271,11 +271,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
---- !u!1 &140318771 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3154994747649194055, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
-  m_PrefabInstance: {fileID: 140318770}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &140318779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3154994747649194168, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
@@ -488,23 +483,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _difficultySettings:
   - difficulty: 0
-    difficultyModifiers:
+    modifiers:
     - action: 2
-      target: {fileID: 0}
-      enemyType: 0
-      position: {x: 8, y: 2}
-      parentObject: {fileID: 239074882}
-    - action: 3
-      target: {fileID: 140318771}
-      enemyType: 0
-      position: {x: 0, y: 0}
-      parentObject: {fileID: 0}
   - difficulty: 1
-    difficultyModifiers: []
+    modifiers: []
   - difficulty: 3
-    difficultyModifiers: []
+    modifiers: []
   - difficulty: 4
-    difficultyModifiers: []
+    modifiers: []
 --- !u!61 &307987974
 BoxCollider2D:
   m_ObjectHideFlags: 0

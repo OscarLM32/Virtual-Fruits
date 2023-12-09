@@ -1,6 +1,6 @@
-namespace Level.DynamicDifficulty
+namespace Level.DynamicDifficulty.Modifiers
 {
-    public enum DifficultyModifierAction
+    public enum ModifierAction
     {
         CUSTOM,
         CHANGE_TERRAIN,
