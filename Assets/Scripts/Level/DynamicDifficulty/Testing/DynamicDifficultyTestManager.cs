@@ -11,13 +11,13 @@ namespace Level.DynamicDifficulty.Testing
         public LevelDifficultyOrchestrator levelDifficultyOrchestrator;
         [HideInInspector] public Difficulty difficulty = Difficulty.VERY_EASY;
 
-        private PlayerSkillCalculator _skillCalculator = new();
+        private LogisticFunctionPlayerSkillCalculator _skillCalculator = new();
 
         [ContextMenu("Test")]
         private void Start()
         {
             _skillCalculator.PlayerSkillParameter = currentSkillParameter;
-            difficulty = _skillCalculator.GetPlayerLevelDifficulty();
+            difficulty = _skillCalculator.CalculatePlayerLevelDifficulty();
 
             Debug.Log("The difficulty is going to be set at: " + difficulty.ToString());
             levelDifficultyOrchestrator.SetLevelDifficulty(difficulty);

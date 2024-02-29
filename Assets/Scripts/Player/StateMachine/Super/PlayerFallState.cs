@@ -1,3 +1,4 @@
+using Level.DynamicDifficulty;
 using UnityEngine;
 
 namespace Player.StateMachine
@@ -11,7 +12,7 @@ namespace Player.StateMachine
         private const float _minGlidingActivationTime = 0.15f;
         private float _glidingPressedTime = 0f;
 
-        public PlayerFallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        public PlayerFallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, Difficulty difficulty = DynamicDifficultyConstants.baseDifficulty)
             : base(currentContext, playerStateFactory)
         {
             IsRootState = true;

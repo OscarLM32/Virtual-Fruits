@@ -1,3 +1,4 @@
+using Level.DynamicDifficulty;
 using UnityEngine;
 
 namespace Player.StateMachine
@@ -17,7 +18,7 @@ namespace Player.StateMachine
         
         private float _timeSpentDashing = 0;
 
-        public PlayerDashingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        public PlayerDashingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, Difficulty difficulty)
             : base(currentContext, playerStateFactory)
         {
             IsRootState = true;

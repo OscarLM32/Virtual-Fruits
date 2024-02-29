@@ -1,3 +1,4 @@
+using Level.DynamicDifficulty;
 using UnityEngine;
 
 namespace Player.StateMachine
@@ -11,7 +12,7 @@ namespace Player.StateMachine
 
         private const string WALL_GRAPPLING_ANIMATION = "PlayerWallGrapple";
 
-        public PlayerGrapplingWallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        public PlayerGrapplingWallState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, Difficulty difficulty)
             : base(currentContext, playerStateFactory)
         {
             IsRootState = true;

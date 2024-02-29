@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using EditorSystems.Logger;
+using Level.DynamicDifficulty;
 
 namespace Player.StateMachine
 {
@@ -166,18 +167,24 @@ namespace Player.StateMachine
                 _attackAvailable = true;
             }
 
-            _playerInput = new PlayerInput();
-            _factory = new PlayerStateFactory(this);
 
             GetLayerIDs();
+
+            SetUpInputs();
+
+            SetUpGravityVariables();
+        }
+
+        private void Start()
+        {
+            _playerInput = new PlayerInput();
+            //
+            _factory = new PlayerStateFactory(this, Level.DynamicDifficulty.Difficulty.NORMAL);
 
             //Setting up default state
             _currentState = _factory.GetState(PlayerState.GROUNDED);
             _currentState.EnterState();
 
-            SetUpInputs();
-
-            SetUpGravityVariables();
         }
 
         private void OnEnable()

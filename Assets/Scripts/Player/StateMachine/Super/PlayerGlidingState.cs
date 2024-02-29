@@ -1,3 +1,4 @@
+using Level.DynamicDifficulty;
 using UnityEngine;
 
 namespace Player.StateMachine
@@ -6,7 +7,7 @@ namespace Player.StateMachine
     {
         private const float MAX_FALL_VELOCITY = -5;
         private const string GLIDING_ANIMATION = "PlayerGlide";
-        public PlayerGlidingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        public PlayerGlidingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, Difficulty difficulty)
             : base(currentContext, playerStateFactory)
         {
             IsRootState = true;

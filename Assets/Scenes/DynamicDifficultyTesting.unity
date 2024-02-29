@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1bbcd27f0cf0247bd0ced69dfbe1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSkillParameter: -1.5
+  currentSkillParameter: -2.32
   levelDifficultyOrchestrator: {fileID: 273098480}
   difficulty: 0
 --- !u!4 &24273432
@@ -819,11 +819,39 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+      propertyPath: _difficultySettings.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+      propertyPath: _difficultySettings.Array.data[0].difficulty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+      propertyPath: _difficultySettings.Array.data[1].difficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+      propertyPath: _difficultySettings.Array.data[2].difficulty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+      propertyPath: _difficultySettings.Array.data[3].difficulty
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+      propertyPath: _difficultySettings.Array.data[4].difficulty
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
       propertyPath: _difficultySettings.Array.data[0].layoutReference.m_AssetGUID
       value: b6b7497aeca4b434f879a1d631692dca
       objectReference: {fileID: 0}
     - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
       propertyPath: _difficultySettings.Array.data[1].layoutReference.m_AssetGUID
+      value: b6b7497aeca4b434f879a1d631692dca
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+      propertyPath: _difficultySettings.Array.data[2].layoutReference.m_AssetGUID
       value: b6b7497aeca4b434f879a1d631692dca
       objectReference: {fileID: 0}
     - target: {fileID: 5793918375807861908, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
@@ -870,8 +898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sector
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 5626389141312626119, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 4631508910295510870, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
@@ -1022,7 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelSectors:
-  - {fileID: 0}
+  - {fileID: 2029425786}
 --- !u!1 &390823711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1418,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2029425786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5197803008819432282, guid: d127f37ec06fb8a498bc32b0bc9d99e9, type: 3}
+  m_PrefabInstance: {fileID: 222243622}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a695990a14a07554bba74c8acdc551df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

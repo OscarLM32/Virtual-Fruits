@@ -1,3 +1,4 @@
+using Level.DynamicDifficulty;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,7 +43,7 @@ namespace Player.StateMachine
         private Dictionary<int, WallJumpInformation> _wallJumpsData = new Dictionary<int, WallJumpInformation>();
         private WallJumpInformation _currentWallJump;
 
-        public PlayerJumpingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        public PlayerJumpingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, Difficulty difficulty)
             : base(currentContext, playerStateFactory)
         {
             IsRootState = true;

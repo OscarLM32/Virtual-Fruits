@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace Level.DynamicDifficulty
 {
-    [RequireComponent(typeof(BoxCollider2D))]
     public class LevelSector : MonoBehaviour, ISerializationCallbackReceiver
     {
         [SerializeField] private DifficultySetting[] _difficultySettings;
@@ -28,9 +27,6 @@ namespace Level.DynamicDifficulty
                 return;
             }
 
-            GameObject currentLayout = transform.GetChild(0).gameObject;
-            Destroy(currentLayout);
-
             GameObject newLayout = settings.layoutReference.LoadAssetAsync<GameObject>().WaitForCompletion();
             Instantiate(newLayout, Vector3.zero, Quaternion.identity, transform);
         }
@@ -50,37 +46,21 @@ namespace Level.DynamicDifficulty
             var difficulties = Enum.GetValues(typeof(Difficulty)) as Difficulty[];
             var currentSettings = _difficultySettings;
 
-            currentSettings = currentSettings.Resize(difficulties.Length - 1);
+            currentSettings = currentSettings.Resize(difficulties.Length);
             List<DifficultySetting> aux = new();
-
-            int counter = 0;
 
             for (int i = 0; i < difficulties.Length; i++)
             {
                 var difficulty = difficulties[i];
-                if (difficulty != DynamicDifficultyConstants.baseDifficulty)
+                if (currentSettings[i] != null)
                 {
-                    if (currentSettings[counter] != null)
-                    {
-                        aux.Add(new DifficultySetting(difficulty, currentSettings[counter].layoutReference));
-                    }
-                    else
-                    {
-                        aux.Add(new DifficultySetting(difficulty));
-                    }
-                    counter++;
+                    aux.Add(new DifficultySetting(difficulty, currentSettings[i].layoutReference));
                 }
-            }
-
-            counter++;
-
-            while (counter < difficulties.Length)
-            {
-                if (difficulties[counter] != DynamicDifficultyConstants.baseDifficulty)
+                else
                 {
-                    aux.Add(new DifficultySetting(difficulties[counter]));
+                    aux.Add(new DifficultySetting(difficulty));
                 }
-                counter++;
+
             }
 
             _difficultySettings = aux.ToArray();
