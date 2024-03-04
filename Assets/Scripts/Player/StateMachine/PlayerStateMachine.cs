@@ -130,7 +130,13 @@ namespace Player.StateMachine
         ////////////////////////////////////////////////////////////////////////////////////
 
         //GRAVITY GETTER AND SETTERS
-        public float JumpingGravityFactor { get => _jumpingGravityFactor; set => _jumpingGravityFactor = value; }
+        public float JumpingGravityFactor { get => _jumpingGravityFactor; 
+            set
+            {
+                _jumpingGravityFactor = value;
+                SetUpGravityVariables();
+            }
+        }
         public float FallingGravityFactor => _fallingGravityFactor;
         public float GlidingGravityFactor => _glidingGravityFactor;
         public float WallGrapplingGravityFactor => _wallGrapplingGravityFactor;
@@ -168,18 +174,13 @@ namespace Player.StateMachine
                 _attackAvailable = true;
             }
 
-
             GetLayerIDs();
-
             SetUpInputs();
-
-            //SetUpGravityVariables();
         }
 
         private void Start()
         {
             _factory = new PlayerStateFactory(this, Difficulty.NORMAL);
-            SetUpGravityVariables();
 
             //Setting up default state
             _currentState = _factory.GetState(PlayerState.GROUNDED);
