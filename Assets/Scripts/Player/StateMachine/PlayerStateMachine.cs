@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using EditorSystems.Logger;
-using Level.DynamicDifficulty;
+using DynamicDifficulty;
 
 namespace Player.StateMachine
 {
@@ -161,7 +161,8 @@ namespace Player.StateMachine
             _audioManager = GetComponent<AudioManager>();
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            if(weaponGameObject != null)
+            _playerInput = new PlayerInput();
+            if (weaponGameObject != null)
             {
                 _weapon = weaponGameObject.GetComponent<PlayerWeapon>();
                 _attackAvailable = true;
@@ -172,19 +173,17 @@ namespace Player.StateMachine
 
             SetUpInputs();
 
-            SetUpGravityVariables();
+            //SetUpGravityVariables();
         }
 
         private void Start()
         {
-            _playerInput = new PlayerInput();
-            //
-            _factory = new PlayerStateFactory(this, Level.DynamicDifficulty.Difficulty.NORMAL);
+            _factory = new PlayerStateFactory(this, Difficulty.NORMAL);
+            SetUpGravityVariables();
 
             //Setting up default state
             _currentState = _factory.GetState(PlayerState.GROUNDED);
             _currentState.EnterState();
-
         }
 
         private void OnEnable()
@@ -403,7 +402,6 @@ namespace Player.StateMachine
 
         }
 
-        //The jumps' velocity is also calculated inside
         private void SetUpGravityVariables()
         {
             //The falling gravity is higher than the jumping gravity;

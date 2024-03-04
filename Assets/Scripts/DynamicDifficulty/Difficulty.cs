@@ -1,4 +1,4 @@
-namespace Level.DynamicDifficulty
+namespace DynamicDifficulty
 {
     public enum Difficulty
     {

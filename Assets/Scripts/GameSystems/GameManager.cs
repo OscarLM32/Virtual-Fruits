@@ -1,3 +1,4 @@
+using DynamicDifficulty;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -35,7 +36,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LevelStart?.Invoke();
-        _audioManager.Play("SpringLevelTheme");
+        //_audioManager.Play("SpringLevelTheme");
+
+        //DynamicDifficultyManager.I.SetUpLevelDifficulty();
     }
 
     private void PauseGame(InputAction.CallbackContext context)

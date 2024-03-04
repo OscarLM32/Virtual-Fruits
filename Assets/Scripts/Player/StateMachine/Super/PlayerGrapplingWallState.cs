@@ -1,4 +1,4 @@
-using Level.DynamicDifficulty;
+using DynamicDifficulty;
 using UnityEngine;
 
 namespace Player.StateMachine

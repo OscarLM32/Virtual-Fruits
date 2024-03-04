@@ -1,7 +1,7 @@
 using EditorSystems.Logger;
 using UnityEngine;
 
-namespace Level.DynamicDifficulty
+namespace DynamicDifficulty
 {
     public class LevelDifficultyOrchestrator : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace Level.DynamicDifficulty
         {
             foreach (LevelSector levelSector in _levelSectors)
             {
-                if(levelSector == null)
+                if (levelSector == null)
                 {
                     EditorLogger.LogError(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "{LevelDifficultyOrchestrator}: The sector was not found or set to null");
                     return;

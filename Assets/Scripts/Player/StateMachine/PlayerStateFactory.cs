@@ -1,4 +1,4 @@
-using Level.DynamicDifficulty;
+using DynamicDifficulty;
 using System.Collections.Generic;
 
 namespace Player.StateMachine

@@ -17,8 +17,14 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6c2caf12a2d1abc488e246906587d0cd
   m_SerializeEntries:
-  - m_GUID: b6b7497aeca4b434f879a1d631692dca
-    m_Address: Test1
+  - m_GUID: 11063435318f1344e835be9218611628
+    m_Address: normal_test1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LevelLayout
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b003ce1d06deae34bbff20040e6e4e14
+    m_Address: very_easy_test1
     m_ReadOnly: 0
     m_SerializedLabels:
     - LevelLayout

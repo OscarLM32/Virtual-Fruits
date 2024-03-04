@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Level.DynamicDifficulty
+namespace DynamicDifficulty
 {
     public class LevelSector : MonoBehaviour, ISerializationCallbackReceiver
     {
@@ -13,9 +13,9 @@ namespace Level.DynamicDifficulty
 
         private void Awake()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             CheckSettingsIntegrity();
-            #endif
+#endif
         }
 
         public void SetDifficultyChanges(Difficulty difficulty)

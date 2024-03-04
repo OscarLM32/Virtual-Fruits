@@ -1,7 +1,7 @@
 using System;
 using UnityEngine.AddressableAssets;
 
-namespace Level.DynamicDifficulty
+namespace DynamicDifficulty
 {
     [Serializable]
     public class DifficultySetting
