@@ -1,4 +1,5 @@
 using DynamicDifficulty;
+using EditorSystems.Logger;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,8 +23,11 @@ namespace Player.StateMachine
         private float _desiredGravity;
 
         //JUMP
-        private const float _maxJumpHeight = 2.7f;
-        private const float _maxJumpTime = 0.7f;
+        private const float _defaultMaxJumpHeight = 2.7f;
+        private const float _defaultMaxJumpTime = 0.7f;
+
+        private float _maxJumpHeight = _defaultMaxJumpHeight;
+        private float _maxJumpTime = _defaultMaxJumpTime;
         private float _initialJumpVelocity;
 
         //DOUBLE JUMP
@@ -47,7 +51,29 @@ namespace Player.StateMachine
             : base(currentContext, playerStateFactory)
         {
             IsRootState = true;
+            SetUpDifficultyParameters(difficulty);
             SetUpJumpAndGravityVariables();
+            _maxJumpHeight = 3;
+        }
+
+        private void SetUpDifficultyParameters(Difficulty difficulty)
+        {
+            if (difficulty >= Difficulty.NORMAL) return;
+
+            switch (difficulty)
+            {
+                case Difficulty.EASY:
+                    _maxJumpHeight = 3;
+                    break;
+                case Difficulty.VERY_EASY:
+                    _maxJumpHeight = 3.3f;
+                    _maxJumpTime = 0.9f;
+                    break;
+                default:
+                    EditorLogger.LogError(LoggingSystem.PLAYER, 
+                        "{PlayerJumpingState}: The assigned difficulty [" + difficulty + "] has no adjustment.");
+                    break;
+            }
         }
 
         private void SetUpJumpAndGravityVariables()

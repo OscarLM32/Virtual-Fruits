@@ -180,7 +180,9 @@ namespace Player.StateMachine
 
         private void Start()
         {
-            _factory = new PlayerStateFactory(this, Difficulty.NORMAL);
+            var difficulty = DynamicDifficultyManager.I.genericDifficulty;
+            EditorLogger.Log(LoggingSystem.PLAYER, $"The difficulty has been set to {difficulty}");
+            _factory = new PlayerStateFactory(this, difficulty);
 
             //Setting up default state
             _currentState = _factory.GetState(PlayerState.GROUNDED);
