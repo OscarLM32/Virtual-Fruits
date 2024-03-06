@@ -15,10 +15,9 @@ namespace DynamicDifficulty
         //Select the type of calculator wanted
         private ISkillCalculator calculator = new LogisticFunctionCalculator();
 
-#if UNITY_EDITOR
-        [Range(-5, 5)] //Only for testing purposes
-        [SerializeField]
-#endif
+        //Only for testing purposes
+        [Range(-5, 5)] 
+        [SerializeField] 
         private float _playerSkillParameter = 0;
 
         private Dictionary<EnemyType, float> enemyDifficultyParameters;
@@ -44,7 +43,11 @@ namespace DynamicDifficulty
         public void SetUpLevelDifficulty()
         {
             LevelDifficultyOrchestrator orchestrator = FindObjectOfType<LevelDifficultyOrchestrator>();
-            if (orchestrator == null) EditorLogger.LogError(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "{DynamicDifficultyManager}: Orchestrator not found");
+            if (orchestrator == null)
+            {
+                EditorLogger.LogError(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "{DynamicDifficultyManager}: Orchestrator not found");
+                return;
+            }
 
             orchestrator.SetLevelDifficulty(genericDifficulty);
         }
