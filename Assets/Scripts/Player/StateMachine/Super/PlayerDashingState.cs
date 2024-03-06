@@ -12,9 +12,9 @@ namespace Player.StateMachine
 
         private const string DASH_ANIMATION = "PlayerDash";
 
-        private const float _dashDuration = 0.25f;
-        private const float _dashDistance = 3.5f;
-        private float _dashSpeed = _dashDistance / _dashDuration;
+        private float _dashDuration = 0.25f;
+        private float _dashDistance = 3.5f;
+        private float _dashSpeed = 0;
         
         private float _timeSpentDashing = 0;
 
@@ -22,6 +22,17 @@ namespace Player.StateMachine
             : base(currentContext, playerStateFactory)
         {
             IsRootState = true;
+            SetUpDifficultyParameters(difficulty);
+        }
+
+        private void SetUpDifficultyParameters(Difficulty difficulty)
+        {
+            if(difficulty < DynamicDifficultyConstants.baseDifficulty)
+            {
+                _dashDuration += 0.05f;
+                _dashDistance += 0.75f;
+            }
+            _dashSpeed = _dashDistance / _dashDuration;
         }
 
         public override void EnterState()
