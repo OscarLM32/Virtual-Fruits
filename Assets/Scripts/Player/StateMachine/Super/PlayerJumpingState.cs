@@ -53,7 +53,6 @@ namespace Player.StateMachine
             IsRootState = true;
             SetUpDifficultyParameters(difficulty);
             SetUpJumpAndGravityVariables();
-            _maxJumpHeight = 3;
         }
 
         private void SetUpDifficultyParameters(Difficulty difficulty)
@@ -64,10 +63,12 @@ namespace Player.StateMachine
             {
                 case Difficulty.EASY:
                     _maxJumpHeight = 3;
+                    Context.MaxWallJumps += DynamicDifficultyConstants.baseDifficulty - Difficulty.EASY;
                     break;
                 case Difficulty.VERY_EASY:
                     _maxJumpHeight = 3.3f;
                     _maxJumpTime = 0.9f;
+                    Context.MaxWallJumps += DynamicDifficultyConstants.baseDifficulty - Difficulty.VERY_EASY;
                     break;
                 default:
                     EditorLogger.LogError(LoggingSystem.PLAYER, 

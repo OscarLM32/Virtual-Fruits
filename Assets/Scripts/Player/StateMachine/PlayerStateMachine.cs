@@ -55,7 +55,7 @@ namespace Player.StateMachine
 
         //Wall jumping variables: Uses _isJumpPressed as input
         private bool _wallJumping = false;
-        private const int _maxWallJumps = 3;
+        private int _maxWallJumps = 3;
         private int _wallJumpsCount = 0;
         private float _currentWallJumpTimeToApex;
 
@@ -117,7 +117,7 @@ namespace Player.StateMachine
         public bool IsJumpingDownPlatform { get => _isJumpingDownPlatform; set => _isJumpingDownPlatform = value; }
         public bool DoubleJumped { get => _doubleJumped; set => _doubleJumped = value; }
         public bool WallJumped { get => _wallJumping; set => _wallJumping = value; }
-        public int MaxWallJumps => _maxWallJumps;
+        public int MaxWallJumps {get => _maxWallJumps; set => _maxWallJumps = value; }
         public int WallJumpsCount { get => _wallJumpsCount; set => _wallJumpsCount = value; }
         public float CurrentWallJumpTimeToApex { get => _currentWallJumpTimeToApex; set => _currentWallJumpTimeToApex = value; }
         ////////////////////////////////////////////////////////////////////////////////////
