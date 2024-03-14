@@ -6839,7 +6839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af9c210eb0ccee64b9746f8d80b50e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSkillParameter: 0.3
+  _playerSkillParameter: -3.63
 --- !u!4 &2003453453
 Transform:
   m_ObjectHideFlags: 0

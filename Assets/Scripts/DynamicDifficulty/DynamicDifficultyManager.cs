@@ -16,8 +16,10 @@ namespace DynamicDifficulty
         private ISkillCalculator calculator = new LogisticFunctionCalculator();
 
         //Only for testing purposes
-        [Range(-5, 5)] 
-        [SerializeField] 
+#if UNITY_EDITOR
+        [Range(-5, 5)]
+        [SerializeField]
+#endif
         private float _playerSkillParameter = 0;
 
         private Dictionary<EnemyType, float> enemyDifficultyParameters;
