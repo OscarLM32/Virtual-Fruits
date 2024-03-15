@@ -1,33 +1,34 @@
+using EditorSystems.Logger;
 using Enemies;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Testing;
 using UnityEngine;
 
 namespace CoreSystems.SaveSystem
 {
     public class DynamicDifficultySaver
     {
-        private string path = Application.persistentDataPath + "/dynamicDifficultyData.dat";
+        private const string saveFileName = "dynamicDifficultyData.dat";
+        private readonly string path;
         private DataSave save = null;
+
+        public DynamicDifficultySaver()
+        {
+            path = $"{Application.persistentDataPath}/{saveFileName}";
+        }
 
 
         public float GetPlayerSkillParameter()
         {
             if (save == null) Load();
-
             return save.playerSkillParameter;
         }
 
         public Dictionary<EnemyType, float> GetEnemyDifficultyParameters()
         {
             if (save == null) Load();
-
-            var aux = save.enemyDifficultyParameters;
-            //The saved data is not too much data but I would not like to have repeated data all over the program
-            save.enemyDifficultyParameters = null;
-            return aux;
+            return save.enemyDifficultyParameters;
         }
 
         public void Save(float skillParameter, Dictionary<EnemyType, float> enemyParameters)
@@ -38,6 +39,7 @@ namespace CoreSystems.SaveSystem
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
             var byteData = System.Text.Encoding.UTF8.GetBytes(stringData);
             stream.Write(byteData);
+            stream.Close();
         }
 
         private void Load()
@@ -53,7 +55,14 @@ namespace CoreSystems.SaveSystem
             while(stream.Read(buffer, 0, buffer.Length) > 0){}
 
             string stringedData = System.Text.Encoding.UTF8.GetString(buffer);
+            EditorLogger.Log(LoggingSystem.SAVE_MANAGER, $"{{DynamicDifficultySaver}}: Teh retrieved info is {stringedData}");
             save = JsonUtility.FromJson<DataSave>(stringedData);
+
+            if (save.enemyDifficultyParameters == null)
+            {
+                save = new DataSave(save.playerSkillParameter);
+            }
+            stream.Close();
         }
 
         private class DataSave

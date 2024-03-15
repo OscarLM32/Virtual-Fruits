@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         LevelStart?.Invoke();
         //_audioManager.Play("SpringLevelTheme");
 
-        DynamicDifficultyManager.I.SetUpLevelDifficulty();
+        //DynamicDifficultyManager.I.SetUpLevelDifficulty();
     }
 
     private void PauseGame(InputAction.CallbackContext context)

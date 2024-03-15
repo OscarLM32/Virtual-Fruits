@@ -1,3 +1,4 @@
+using CoreSystems.SaveSystem;
 using DynamicDifficulty.Skillcalculator;
 using EditorSystems.Logger;
 using Enemies;
@@ -12,33 +13,36 @@ namespace DynamicDifficulty
 
         public Difficulty genericDifficulty { get; private set;}
 
-        //Select the type of calculator wanted
-        private ISkillCalculator calculator = new LogisticFunctionCalculator();
-
         //Only for testing purposes
 #if UNITY_EDITOR
         [Range(-5, 5)]
         [SerializeField]
 #endif
         private float _playerSkillParameter = 0;
+        private Dictionary<EnemyType, float> _enemyDifficultyParameters;
+        private Dictionary<EnemyType, Difficulty> enemyDifficulties = new();
 
-        private Dictionary<EnemyType, float> enemyDifficultyParameters;
-        private Dictionary<EnemyType, Difficulty> enemyDifficulties;
-
+        //Select the type of calculator wanted
+        private ISkillCalculator calculator = new LogisticFunctionCalculator();
 
         protected override void OnAwake()
         {
             //Load data from the SaveManager
-            //_playerSkillParameter = SavaManager.GetPlayerSkillParameter();
-            //enemyDifficultyParameters = SaveManager.GetEnemyDifficultyParameters();
+            _playerSkillParameter = SaveManager.I.GetPlayerSkillParameter();
+            _enemyDifficultyParameters = SaveManager.I.GetEnemyDifficultyParameters();
             genericDifficulty = calculator.GetPlayerSkillLevel(_playerSkillParameter);   
+        }
+
+        private void Start()
+        {
+            SetUpLevelDifficulty();
         }
 
         public Difficulty GetEnemyDifficulty(EnemyType enemy)
         {
             if (enemyDifficulties.ContainsKey(enemy)) return enemyDifficulties[enemy];
 
-            enemyDifficulties.Add(enemy, calculator.CalculateEnemyDifficulty(enemyDifficultyParameters[enemy]));
+            enemyDifficulties.Add(enemy, calculator.CalculateEnemyDifficulty(_enemyDifficultyParameters[enemy]));
             return enemyDifficulties[enemy];
         }
 
@@ -50,7 +54,6 @@ namespace DynamicDifficulty
                 EditorLogger.LogError(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "{DynamicDifficultyManager}: Orchestrator not found");
                 return;
             }
-
             orchestrator.SetLevelDifficulty(genericDifficulty);
         }
     }

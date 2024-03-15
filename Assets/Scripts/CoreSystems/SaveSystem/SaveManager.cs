@@ -1,4 +1,8 @@
+using EditorSystems.Logger;
+using Enemies;
 using GameSystems.Singleton;
+using System.Collections.Generic;
+
 
 namespace CoreSystems.SaveSystem
 {
@@ -9,7 +13,30 @@ namespace CoreSystems.SaveSystem
 
         protected override void OnAwake()
         {
-            
+            //This needs to be called here since "Application.persistentDataPath"
+            //cannot be called inside instanc einitializer
+            _dynamicDifficultySaver = new DynamicDifficultySaver();
+        }
+
+        public float GetPlayerSkillParameter()
+        {
+            return _dynamicDifficultySaver.GetPlayerSkillParameter();
+        }
+
+        public Dictionary<EnemyType, float> GetEnemyDifficultyParameters()
+        {
+            return _dynamicDifficultySaver.GetEnemyDifficultyParameters();
+        }
+
+        public void Save(float skillParameter, Dictionary<EnemyType, float> enemyDifficutlyParameters)
+        {
+            if(enemyDifficutlyParameters == null)
+            {
+                EditorLogger.LogError(LoggingSystem.SAVE_MANAGER, "The enemy difficulty parameters you are trying to save are null. SAVE ABORT");
+                return;
+            }
+            //TODO: check the max skillParameter
+            _dynamicDifficultySaver.Save(skillParameter, enemyDifficutlyParameters);
         }
     }
 }
