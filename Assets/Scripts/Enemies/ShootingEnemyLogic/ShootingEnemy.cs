@@ -17,7 +17,7 @@ namespace Enemies.ShootingEnemyLogic
         [SerializeField] protected float attackSpeed;
         protected float timeElapsed;
 
-        protected bool stopShooting = true;
+        protected bool stopShooting = false;
 
         protected void Awake()
         {
