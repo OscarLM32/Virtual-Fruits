@@ -36,15 +36,14 @@ namespace Enemies
             _patrolBehaviour = GetComponent<EnemyBasicPatrolling>();
         }
 
+        private void Start()
+        {
+            _patrolBehaviour.StartPatrol();
+        }
+
         protected override void SetUpEnemy()
         {
             shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
-        }
-
-        protected override void OnLevelStart()
-        {
-            base.OnLevelStart();
-            _patrolBehaviour.StartPatrol();
         }
 
         protected override IEnumerator Attack()

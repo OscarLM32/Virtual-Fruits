@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class SnailInShell : Enemy
+    public class SnailInShell : MonoBehaviour
     {
         private static class SnailInShellAnimations
         {
@@ -29,11 +29,6 @@ namespace Enemies
                 HandleHit();
             else if (!Context.PlayerIntrigger)
                 StartCoroutine(Exit());
-        }
-
-        protected override void OnLevelStart()
-        {
-            
         }
 
         private void HandleHit()

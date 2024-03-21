@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class SnailStateMachine : Enemy
+    public class SnailStateMachine : MonoBehaviour
     {
         public MonoBehaviour ShellInState;
         public MonoBehaviour ShellOutState;
@@ -40,16 +40,17 @@ namespace Enemies
             _zRotation = transform.eulerAngles.z % 360;
         }
 
+        private void Start()
+        {
+            _currentState = ShellOutState;
+            _currentState.enabled = true;
+        }
+
         private void Update()
         {
             _velocity = (Vector2)transform.position - _lastPosition;
             _lastPosition = transform.position;
             HandleDirection();
-        }
-        protected override void OnLevelStart()
-        {
-            _currentState = ShellOutState;
-            _currentState.enabled = true;
         }
 
         public void ChangeState(MonoBehaviour newState)

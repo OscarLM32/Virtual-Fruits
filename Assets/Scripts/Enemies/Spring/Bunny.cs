@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class Bunny : Enemy
+    public class Bunny : MonoBehaviour
     {
         private static class BunnyAnimations
         {
@@ -58,11 +58,6 @@ namespace Enemies
                 HandleJump();
             else
                 HandleFall();
-        }
-
-        protected override void OnLevelStart()
-        {
-            _stopBehaviour = false;
         }
 
         private void HandleGrounded()

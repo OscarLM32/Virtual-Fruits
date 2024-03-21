@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemies.ShootingEnemyLogic
 {
-    public abstract class ShootingEnemy : Enemy
+    public abstract class ShootingEnemy : MonoBehaviour
     {
         [SerializeField] protected ProjectileType projectileType;
 
@@ -40,11 +40,6 @@ namespace Enemies.ShootingEnemyLogic
                 timeElapsed = 0;
             }
             timeElapsed += Time.deltaTime;
-        }
-
-        protected override void OnLevelStart()
-        {
-            stopShooting = false;
         }
 
         //TODO: There is not much need to have this method. All the logic implemented here can be added to Onstart
