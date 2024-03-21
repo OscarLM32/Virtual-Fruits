@@ -5,7 +5,6 @@ namespace GameSystems.Singleton
     public abstract class Singleton<T> : MonoBehaviour where T : Component
     {
         protected static T i = null;
-        private static int _notFound = 0;
 
         public static T I
         {
@@ -13,9 +12,9 @@ namespace GameSystems.Singleton
             {
                 if (i == null)
                 {
-                    Debug.LogWarning("The singleton trying to be accessed cannot be found");
-                    GameObject newObject = new GameObject("NotfoundSingleton" + _notFound++);
+                    GameObject newObject = new GameObject("NotfoundSingleton");
                     i = newObject.AddComponent<T>();
+                    newObject.name = typeof(T).Name;
                 }
                 return i;
             }

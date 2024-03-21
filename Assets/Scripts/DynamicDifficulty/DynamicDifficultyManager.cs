@@ -51,7 +51,7 @@ namespace DynamicDifficulty
             LevelDifficultyOrchestrator orchestrator = FindObjectOfType<LevelDifficultyOrchestrator>();
             if (orchestrator == null)
             {
-                EditorLogger.LogError(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "{DynamicDifficultyManager}: Orchestrator not found");
+                EditorLogger.LogWarning(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "{DynamicDifficultyManager}: Orchestrator not found. Is this intented behaviour?");
                 return;
             }
             orchestrator.SetLevelDifficulty(genericDifficulty);

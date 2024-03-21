@@ -9,7 +9,7 @@ namespace EditorSystems.Logger
     {
         private enum LoggingMode { DEFAULT, WARNING, ERROR }
 
-        private static bool _dynamicDifficultySystem = true;
+        private static bool _dynamicDifficultySystem = false;
         private static bool _shootingEnemySystem = true;
         private static bool _player = true;
         private static bool _saveManager = true;
