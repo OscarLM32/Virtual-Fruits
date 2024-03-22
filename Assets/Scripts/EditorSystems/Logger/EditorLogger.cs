@@ -9,17 +9,13 @@ namespace EditorSystems.Logger
     {
         private enum LoggingMode { DEFAULT, WARNING, ERROR }
 
-        private static bool _dynamicDifficultySystem = false;
-        private static bool _shootingEnemySystem = true;
-        private static bool _player = true;
-        private static bool _saveManager = true;
-
         private static Dictionary<LoggingSystem, bool> activeLoggers = new()
         {
-            {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, _dynamicDifficultySystem },
-            {LoggingSystem.SHOOTING_ENEMY, _shootingEnemySystem },
-            {LoggingSystem.PLAYER, _player },
-            {LoggingSystem.SAVE_MANAGER, _saveManager}
+            {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, true},
+            {LoggingSystem.SHOOTING_ENEMY, true },
+            {LoggingSystem.PLAYER, true },
+            {LoggingSystem.SAVE_MANAGER, true },
+            {LoggingSystem.SINGLETON, true}
         };
 
         public static void Log(LoggingSystem loggingSystem, string msg)

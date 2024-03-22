@@ -5,6 +5,7 @@ namespace EditorSystems.Logger
         DYNAMIC_DIFFICULTY_SYSTEM,
         SHOOTING_ENEMY,
         PLAYER,
-        SAVE_MANAGER
+        SAVE_MANAGER,
+        SINGLETON
     }
 }

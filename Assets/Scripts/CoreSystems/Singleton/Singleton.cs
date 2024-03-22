@@ -1,3 +1,4 @@
+using EditorSystems.Logger;
 using UnityEngine;
 
 namespace GameSystems.Singleton
@@ -12,6 +13,7 @@ namespace GameSystems.Singleton
             {
                 if (i == null)
                 {
+                    EditorLogger.LogWarning(LoggingSystem.SINGLETON, $"The singleton trying to be accessed {typeof(T)} cannot be found. Creating one...");
                     GameObject newObject = new GameObject("NotfoundSingleton");
                     i = newObject.AddComponent<T>();
                     newObject.name = typeof(T).Name;

@@ -1,3 +1,4 @@
+using EditorSystems.Logger;
 using UnityEngine;
 
 namespace GameSystems.Singleton
@@ -10,9 +11,11 @@ namespace GameSystems.Singleton
         {
             get
             {
+                //I do not instantiate SceneSingleton like I do with generic singletons since these usually
+                //have more spicific code that cannot me simply instantiated
                 if (i == null)
                 {
-                    Debug.LogError("The singleton trying to be accessed cannot be found");
+                    EditorLogger.LogWarning(LoggingSystem.SINGLETON, "The singleton trying to be accessed cannot be found: "+ typeof(T));
                 }
                 return i;
             }
