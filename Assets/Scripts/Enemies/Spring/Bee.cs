@@ -23,10 +23,11 @@ namespace Enemies
         private AudioManager _audioManager;
 
         private EnemyBasicPatrolling _patrolBehaviour;
+        [SerializeField]private float _patrollingSpeed;
 
-        #region OVERRIDDEN METHODS
 
-        protected override void OnAwake()
+
+        protected void Awake()
         {
             _animator = GetComponent<Animator>();
             _collider = GetComponent<Collider2D>();
@@ -34,16 +35,13 @@ namespace Enemies
             _audioManager = GetComponent<AudioManager>();
 
             _patrolBehaviour = GetComponent<EnemyBasicPatrolling>();
+            _patrolBehaviour.SetUpPatrol(_patrollingSpeed);
         }
 
-        private void Start()
-        {
-            _patrolBehaviour.StartPatrol();
-        }
-
-        protected override void SetUpEnemy()
+        protected override void OnStart()
         {
             shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
+            _patrolBehaviour.StartPatrol();
         }
 
         protected override IEnumerator Attack()
@@ -57,7 +55,7 @@ namespace Enemies
             _audioManager.Play("Shoot");
         }
 
-        #endregion
+
 
         private void OnCollisionEnter2D(Collision2D col)
         {

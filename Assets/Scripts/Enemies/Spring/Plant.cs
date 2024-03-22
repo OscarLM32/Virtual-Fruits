@@ -22,13 +22,13 @@ namespace Enemies
 
         #region OVERRIDDEN METHODS
 
-        protected override void OnAwake()
+        protected void Awake()
         {
             _animator = GetComponent<Animator>();
             _audioManager = GetComponent<AudioManager>();
         }
 
-        protected override void SetUpEnemy()
+        protected override void OnStart()
         {
             shootingDirection = new Vector2(-transform.localScale.x, 0).normalized;
             shootingPosition = transform.position;

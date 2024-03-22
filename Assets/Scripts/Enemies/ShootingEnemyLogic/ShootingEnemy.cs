@@ -1,5 +1,6 @@
 using EditorSystems.Logger;
 using System.Collections;
+using UnityEditor.Toolbars;
 using UnityEngine;
 
 namespace Enemies.ShootingEnemyLogic
@@ -19,14 +20,13 @@ namespace Enemies.ShootingEnemyLogic
 
         protected bool stopShooting = false;
 
-        protected void Awake()
+        protected void Start()
         {
-            SetUpEnemy();
+            OnStart();
             CheckSetUp();
-            OnAwake();
         }
 
-        protected abstract void OnAwake();
+        protected abstract void OnStart();
 
         protected void Update()
         {
@@ -42,10 +42,7 @@ namespace Enemies.ShootingEnemyLogic
             timeElapsed += Time.deltaTime;
         }
 
-        //TODO: There is not much need to have this method. All the logic implemented here can be added to Onstart
-        //At the current time I like this solution since I can split the logic of setting up the specific values
-        //of the enemy and the variables of the generic class.
-        protected abstract void SetUpEnemy();
+
         private void CheckSetUp()
         {
             if (shootingDirection == Vector2.zero)
@@ -61,11 +58,6 @@ namespace Enemies.ShootingEnemyLogic
             else if (attackSpeed <= 0)
             {
                 EditorLogger.LogError(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Attack speed has to be bigger than 0");
-                Destroy(gameObject);
-            }
-            else if (shootingPosition == Vector2.zero)
-            {
-                EditorLogger.LogError(LoggingSystem.SHOOTING_ENEMY, $"{gameObject.name}: Shooting position is (0,0)");
                 Destroy(gameObject);
             }
         }
