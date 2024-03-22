@@ -12,6 +12,7 @@ namespace Enemies.ShootingEnemyLogic
         //The amount of projectiles of each type that are going to be spawned intaly
         private const int _initialSpawnAmount = 5;
 
+        //TODO: load prefabs from addressables
         public List<ProjectileType> projectileTypesInLevel;
         public List<GameObject> projectilePrefabs;
 
