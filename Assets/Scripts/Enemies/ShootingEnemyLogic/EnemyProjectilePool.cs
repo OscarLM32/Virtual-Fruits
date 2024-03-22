@@ -1,3 +1,4 @@
+using GameSystems.Singleton;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,10 @@ namespace Enemies.ShootingEnemyLogic
 {
 
     //TODO: refactor code turn Lists of projectiles into queues
-    public class EnemyProjectilePool : MonoBehaviour, ISerializationCallbackReceiver
+    public class EnemyProjectilePool : SingletonScene<EnemyProjectilePool>, ISerializationCallbackReceiver
     {
         //The amount of projectiles of each type that are going to be spawned intaly
-        private const int INITIAL_SPAWN_AMOUNT = 5;
+        private const int _initialSpawnAmount = 5;
 
         public List<ProjectileType> projectileTypesInLevel;
         public List<GameObject> projectilePrefabs;
@@ -17,22 +18,11 @@ namespace Enemies.ShootingEnemyLogic
         private Dictionary<ProjectileType, GameObject> _projectilesToSpawn = new();
         private Dictionary<ProjectileType, List<GameObject>> _projectiles = new();
 
-        private static EnemyProjectilePool _i = null;
-
-        public static EnemyProjectilePool I => _i;
-
-        private void Awake()
+        protected override void OnAwake()
         {
-            _i = this;
             InstantiateProjectiles();
         }
 
-        /// <summary>
-        /// Get an instance of one of the projectiles in the pool. If all the objects are in use it creates
-        /// a new one and returns it.
-        /// </summary>
-        /// <param name="type"> The type of the projectile you want to get</param>
-        /// <returns> The instance of an object in the pool</returns>
         public GameObject GetProjectile(ProjectileType type)
         {
             List<GameObject> projectiles = _projectiles[type];
@@ -59,7 +49,7 @@ namespace Enemies.ShootingEnemyLogic
             foreach (var projectile in _projectilesToSpawn)
             {
                 List<GameObject> tmpList = new List<GameObject>();
-                for (int i = 0; i < INITIAL_SPAWN_AMOUNT; i++)
+                for (int i = 0; i < _initialSpawnAmount; i++)
                 {
                     GameObject tmp = Instantiate(projectile.Value, gameObject.transform);
                     tmp.SetActive(false);
