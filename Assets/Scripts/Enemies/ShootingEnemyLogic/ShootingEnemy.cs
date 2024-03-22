@@ -69,6 +69,11 @@ namespace Enemies.ShootingEnemyLogic
             yield return new WaitForSeconds(beforeShotAnimationSyncTime);
             //We need to check if the the enemy is killed or anything mid animation
             if (stopShooting) yield break;
+            if (EnemyProjectilePool.I == null)
+            {
+                Debug.LogWarning("There is no projectile pool in the scene");
+                yield break;
+            }
 
             GameObject obj = EnemyProjectilePool.I.GetProjectile(projectileType);
             EnemyProjectile projectile = obj.GetComponent<EnemyProjectile>();
