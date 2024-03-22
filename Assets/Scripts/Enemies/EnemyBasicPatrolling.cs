@@ -15,10 +15,10 @@ namespace Enemies
         private const int _defaultResolution = 5;
 
         //These variables may be handy in enemy placement workflow
-        /*[SerializeField]private Vector3[] _patrolPoints;
-        [SerializeField]private float _totalPatrolTime;
+        [SerializeField]private Vector3[] _patrolPoints;
         [SerializeField]private PathType _pathType = PathType.CubicBezier;
-        [SerializeField]private Ease _easeType = Ease.Linear;*/
+        [SerializeField]private Ease _easeType = Ease.Linear;
+        [SerializeField] private LoopType _loopType = LoopType.Restart;
 
         private Tween _tween;
 
@@ -29,11 +29,12 @@ namespace Enemies
             _tween = null;
         }
 
-        public void SetUpPatrol(Vector3[] patrolPoints, float totalPatrolTime, PathType pathType, Ease easeType)
+        public void SetUpPatrol(float speed)
         {
-            _tween = transform.DOLocalPath(patrolPoints, totalPatrolTime, pathType, PathMode.Sidescroller2D, _defaultResolution)
-                              .SetEase(easeType)
-                              .SetLoops(-1);
+            _tween = transform.DOLocalPath(_patrolPoints, speed, _pathType, PathMode.Sidescroller2D, _defaultResolution)
+                              .SetEase(_easeType)
+                              .SetSpeedBased(true)
+                              .SetLoops(-1, _loopType);
             PausePatrol();
         }
 
