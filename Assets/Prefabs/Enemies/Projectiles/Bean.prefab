@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef626777d4acb948b2ef8dc7ce411cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
   _onCollisionParticles: {fileID: 8320350945683519366, guid: ed27da43809eb38499a59bcb7d19a87b, type: 3}
   _rb: {fileID: 8150582562359581917}
 --- !u!50 &8150582562359581917

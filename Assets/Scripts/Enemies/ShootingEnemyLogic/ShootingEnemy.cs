@@ -78,8 +78,9 @@ namespace Enemies.ShootingEnemyLogic
             GameObject obj = EnemyProjectilePool.I.GetProjectile(projectileType);
             EnemyProjectile projectile = obj.GetComponent<EnemyProjectile>();
 
-            projectile.SetUpProjectile(shootingPosition, shootingDirection, projectileSpeed);
             obj.SetActive(true);
+            projectile.SetUpProjectile(shootingPosition, shootingDirection, projectileSpeed);
+
             //projectile.transform.position = shootingPosition;
 
             yield return new WaitForSeconds(afterShotAnimationSyncTime);

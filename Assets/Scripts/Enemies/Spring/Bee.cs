@@ -47,6 +47,7 @@ namespace Enemies
         protected override IEnumerator Attack()
         {
             _animator.Play(BeeAnimations.ATTACK);
+            //update shooting position
             if (stopShooting) yield break;
 
             yield return Shoot(0.5f, 0.16f);

@@ -5,7 +5,7 @@ namespace Extensions
 {
     public static class EnumExtension
     {
-        public static string EnumToPascalCase<T>(this T enumValue) 
+        public static string EnumToPascalCase<T>(this T enumValue) where T : Enum
         { 
             var s = enumValue.ToString();
             var underScores = s.FindIndexOfChar('_');

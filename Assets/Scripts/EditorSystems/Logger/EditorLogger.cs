@@ -13,9 +13,10 @@ namespace EditorSystems.Logger
         {
             {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, true},
             {LoggingSystem.SHOOTING_ENEMY, true },
+            {LoggingSystem.ENEMY_PROJECTILE_POOL, true},
             {LoggingSystem.PLAYER, true },
             {LoggingSystem.SAVE_MANAGER, true },
-            {LoggingSystem.SINGLETON, true}
+            {LoggingSystem.SINGLETON, true},
         };
 
         public static void Log(LoggingSystem loggingSystem, string msg)

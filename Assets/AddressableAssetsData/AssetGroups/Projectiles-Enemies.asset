@@ -12,11 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Projectiles-Enemies
   m_EditorClassIdentifier: 
-  m_GroupName: Projectiles
+  m_GroupName: Projectiles-Enemies
   m_Data:
     m_SerializedData: []
   m_GUID: 83112545eadaab540bbe6ed194176e4a
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: f0dcd6ce3387d12489acb27a3d213d90
+    m_Address: Stinger
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 619f96624ed96b945a20e15ce94be023
+    m_Address: Bean
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3a0639c07672d8049b0c623cae366e5d, type: 2}
   m_SchemaSet:

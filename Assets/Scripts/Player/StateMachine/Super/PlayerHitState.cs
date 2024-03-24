@@ -53,7 +53,7 @@ namespace Player.StateMachine
         public override void ExitState()
         {
             if (Context.PlayerDead)
-                GameActions.PlayerDeath();
+                GameActions.PlayerDeath?.Invoke();
 
             IgnoreThreatCollisions(false);
 
