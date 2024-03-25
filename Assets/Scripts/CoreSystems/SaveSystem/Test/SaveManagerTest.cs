@@ -33,7 +33,7 @@ namespace CoreSystems.SaveSystem.Test
             _enemyDifficultyParameters[EnemyType.BUNNY] = 1.2f;
             _enemyDifficultyParameters[EnemyType.BEE] = -0.8f;
 
-            SaveManager.I.Save(_playerSkillParameter, _enemyDifficultyParameters);
+            SaveManager.I.SaveDynamicDifficultyData(_playerSkillParameter, _enemyDifficultyParameters);
         }
 
         [ContextMenu("SaveDynamicDifficultyWrongData")]
@@ -42,7 +42,7 @@ namespace CoreSystems.SaveSystem.Test
             _enemyDifficultyParameters = null;
             _playerSkillParameter = 327;
 
-            SaveManager.I.Save(_playerSkillParameter, null);
+            SaveManager.I.SaveDynamicDifficultyData(_playerSkillParameter, null);
         }
     }
 #endif

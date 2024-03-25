@@ -10,8 +10,12 @@ namespace DynamicDifficulty
 {
     public class DynamicDifficultyManager : Singleton<DynamicDifficultyManager>
     {
-
         public Difficulty genericDifficulty { get; private set;}
+
+        private const int _maxSkillParameter = 3;
+        private const int _minSkillParameter = -3;
+
+        private const float _improvementFactor = 0.1f;
 
         //Only for testing purposes
 #if UNITY_EDITOR
@@ -27,7 +31,6 @@ namespace DynamicDifficulty
 
         protected override void OnAwake()
         {
-            //Load data from the SaveManager
             _playerSkillParameter = SaveManager.I.GetPlayerSkillParameter();
             _enemyDifficultyParameters = SaveManager.I.GetEnemyDifficultyParameters();
             genericDifficulty = calculator.GetPlayerSkillLevel(_playerSkillParameter);   
@@ -56,5 +59,64 @@ namespace DynamicDifficulty
             }
             orchestrator.SetLevelDifficulty(genericDifficulty);
         }
+
+        public void UpdateData()
+        {
+            SaveManager.I.SaveDynamicDifficultyData(_playerSkillParameter, _enemyDifficultyParameters);
+        }
+
+        #region SkillUpdate
+        private void UpdatePlayerSkill(float value)
+        {
+            _playerSkillParameter += value;
+            _playerSkillParameter = LimitSkillParameter(_playerSkillParameter);
+        }
+
+        private void UpdateEnemyDifficultyParameter(float value, EnemyType type)
+        {
+            _enemyDifficultyParameters[type] += _improvementFactor;
+            _enemyDifficultyParameters[type] = LimitSkillParameter(_enemyDifficultyParameters[type]);
+        }
+
+        private float LimitSkillParameter(float value)
+        {
+            if (value > _maxSkillParameter)
+            {
+                value = _maxSkillParameter;
+            }
+            else if (value < _minSkillParameter)
+            {
+                value = _minSkillParameter;
+            }
+            return value;
+        }
+
+        private void OnPlayerKilled(EnemyType? type)
+        {
+            //TODO: check if using a VOID enum is a better solution
+            if(type != null)
+            {
+                UpdateEnemyDifficultyParameter(_improvementFactor, (EnemyType)type);
+            }
+            UpdatePlayerSkill(-_improvementFactor);
+        }
+
+        private void OnEnemyKilled(EnemyType type)
+        {
+            UpdateEnemyDifficultyParameter(-_improvementFactor, type);
+            UpdatePlayerSkill(_improvementFactor/2);
+        }
+
+        private void OnLevelCompleted(float time, float averageTime)
+        {
+            //Calculate improvement factor based on the time it has taken the player to complete the level
+            //It could be loaded from an addressable 
+        }
+
+        private void OnSpecialCoinPickup()
+        {
+            UpdatePlayerSkill(_improvementFactor / 2);
+        }
+        #endregion
     }
 }

@@ -28,7 +28,7 @@ namespace CoreSystems.SaveSystem
             return _dynamicDifficultySaver.GetEnemyDifficultyParameters();
         }
 
-        public void Save(float skillParameter, Dictionary<EnemyType, float> enemyDifficutlyParameters)
+        public void SaveDynamicDifficultyData(float skillParameter, Dictionary<EnemyType, float> enemyDifficutlyParameters)
         {
             if(enemyDifficutlyParameters == null)
             {
