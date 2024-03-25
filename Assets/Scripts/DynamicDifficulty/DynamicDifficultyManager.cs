@@ -33,7 +33,13 @@ namespace DynamicDifficulty
         {
             _playerSkillParameter = SaveManager.I.GetPlayerSkillParameter();
             _enemyDifficultyParameters = SaveManager.I.GetEnemyDifficultyParameters();
-            genericDifficulty = calculator.GetPlayerSkillLevel(_playerSkillParameter);   
+            genericDifficulty = calculator.GetPlayerSkillLevel(_playerSkillParameter);
+        }
+
+        private void OnEnable()
+        {
+            GameActions.OnPlayerDeath += OnPlayerDeath;
+            GameActions.OnEnemyKilled += OnEnemyKilled;
         }
 
         private void Start()
@@ -91,7 +97,7 @@ namespace DynamicDifficulty
             return value;
         }
 
-        private void OnPlayerKilled(EnemyType? type)
+        private void OnPlayerDeath(EnemyType? type)
         {
             //TODO: check if using a VOID enum is a better solution
             if(type != null)
