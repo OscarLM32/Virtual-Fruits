@@ -66,7 +66,7 @@ namespace DynamicDifficulty
             orchestrator.SetLevelDifficulty(genericDifficulty);
         }
 
-        public void UpdateData()
+        public void SaveData()
         {
             SaveManager.I.SaveDynamicDifficultyData(_playerSkillParameter, _enemyDifficultyParameters);
         }

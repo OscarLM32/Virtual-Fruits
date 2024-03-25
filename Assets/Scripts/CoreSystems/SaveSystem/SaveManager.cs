@@ -14,7 +14,7 @@ namespace CoreSystems.SaveSystem
         protected override void OnAwake()
         {
             //This needs to be called here since "Application.persistentDataPath"
-            //cannot be called inside instanc einitializer
+            //cannot be called inside instance initializer
             _dynamicDifficultySaver = new DynamicDifficultySaver();
         }
 

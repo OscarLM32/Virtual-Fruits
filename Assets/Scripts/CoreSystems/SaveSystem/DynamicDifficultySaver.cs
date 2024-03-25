@@ -33,8 +33,14 @@ namespace CoreSystems.SaveSystem
 
         public void Save(float skillParameter, Dictionary<EnemyType, float> enemyParameters)
         {
+            foreach(var enemy in enemyParameters)
+            {
+                Debug.Log($"{enemy.Key} : {enemy.Value}");
+            }
+
             save = new DataSave(skillParameter, enemyParameters);
             string stringData = JsonUtility.ToJson(save);
+            Debug.Log(stringData);
 
             FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
             var byteData = System.Text.Encoding.UTF8.GetBytes(stringData);
@@ -55,7 +61,7 @@ namespace CoreSystems.SaveSystem
             while(stream.Read(buffer, 0, buffer.Length) > 0){}
 
             string stringedData = System.Text.Encoding.UTF8.GetString(buffer);
-            EditorLogger.Log(LoggingSystem.SAVE_MANAGER, $"{{DynamicDifficultySaver}}: Teh retrieved info is {stringedData}");
+            EditorLogger.Log(LoggingSystem.SAVE_MANAGER, $"{{DynamicDifficultySaver}}: The retrieved info is {stringedData}");
             save = JsonUtility.FromJson<DataSave>(stringedData);
 
             if (save.enemyDifficultyParameters == null)
@@ -65,6 +71,7 @@ namespace CoreSystems.SaveSystem
             stream.Close();
         }
 
+        [Serializable]
         private class DataSave
         {
             public float playerSkillParameter;
