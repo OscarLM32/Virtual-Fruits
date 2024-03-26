@@ -37,7 +37,7 @@ namespace CoreSystems.SaveSystem
                 return;
             }
             //TODO: check the max skillParameter
-            _dynamicDifficultySaver.Save(skillParameter, enemyDifficutlyParameters as SerializableDictionary<EnemyType, float>);
+            _dynamicDifficultySaver.Save(skillParameter, enemyDifficutlyParameters);
         }
     }
 }

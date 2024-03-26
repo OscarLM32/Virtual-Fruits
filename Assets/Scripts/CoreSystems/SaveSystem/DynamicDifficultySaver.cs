@@ -32,14 +32,16 @@ namespace CoreSystems.SaveSystem
             return save.enemyDifficultyParameters;
         }
 
-        public void Save(float skillParameter, SerializableDictionary<EnemyType, float> enemyParameters)
+        public void Save(float skillParameter, Dictionary<EnemyType, float> enemyParameters)
         {
+            var serializableDictionary = enemyParameters as SerializableDictionary<EnemyType, float>;
+
             foreach(var enemy in enemyParameters)
             {
                 Debug.Log($"{enemy.Key} : {enemy.Value}");
             }
 
-            save = new DataSave(skillParameter, enemyParameters);
+            save = new DataSave(skillParameter, serializableDictionary);
             string stringData = JsonUtility.ToJson(save);
             Debug.Log(stringData);
 
