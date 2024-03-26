@@ -1,5 +1,6 @@
 using EditorSystems.Logger;
 using Enemies;
+using Extensions.Serializables;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,7 +32,7 @@ namespace CoreSystems.SaveSystem
             return save.enemyDifficultyParameters;
         }
 
-        public void Save(float skillParameter, Dictionary<EnemyType, float> enemyParameters)
+        public void Save(float skillParameter, SerializableDictionary<EnemyType, float> enemyParameters)
         {
             foreach(var enemy in enemyParameters)
             {
@@ -75,9 +76,9 @@ namespace CoreSystems.SaveSystem
         private class DataSave
         {
             public float playerSkillParameter;
-            public Dictionary<EnemyType, float> enemyDifficultyParameters;
+            public SerializableDictionary<EnemyType, float> enemyDifficultyParameters;
 
-            public DataSave(float skillParameter = 0, Dictionary<EnemyType, float> enemyParameters = null)
+            public DataSave(float skillParameter = 0, SerializableDictionary<EnemyType, float> enemyParameters = null)
             {
                 playerSkillParameter = skillParameter;
 

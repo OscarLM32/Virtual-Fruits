@@ -1,5 +1,6 @@
 using EditorSystems.Logger;
 using Enemies;
+using Extensions.Serializables;
 using GameSystems.Singleton;
 using System.Collections.Generic;
 
@@ -36,7 +37,7 @@ namespace CoreSystems.SaveSystem
                 return;
             }
             //TODO: check the max skillParameter
-            _dynamicDifficultySaver.Save(skillParameter, enemyDifficutlyParameters);
+            _dynamicDifficultySaver.Save(skillParameter, enemyDifficutlyParameters as SerializableDictionary<EnemyType, float>);
         }
     }
 }
