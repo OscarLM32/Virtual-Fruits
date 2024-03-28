@@ -374,7 +374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3154994747649194173, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
       propertyPath: _patrollingSpeed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3154994747649194174, guid: 408099928a8d3cb46b16c5b9955e463a, type: 3}
       propertyPath: _loopType
