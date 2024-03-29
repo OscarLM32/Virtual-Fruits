@@ -80,7 +80,7 @@ namespace DynamicDifficulty
 
         private void UpdateEnemyDifficultyParameter(float value, EnemyType type)
         {
-            _enemyDifficultyParameters[type] += _improvementFactor;
+            _enemyDifficultyParameters[type] += value;
             _enemyDifficultyParameters[type] = LimitSkillParameter(_enemyDifficultyParameters[type]);
         }
 
