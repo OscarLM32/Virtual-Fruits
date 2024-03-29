@@ -1,3 +1,5 @@
+using DynamicDifficulty;
+using DynamicDifficulty.DynamicParametersScriptables;
 using Enemies.ShootingEnemyLogic;
 using System.Collections;
 using UnityEngine;
@@ -14,6 +16,9 @@ namespace Enemies
             public static readonly string HIT = "BeeHit";
         }
 
+        [Header("Bee parameters")]
+        [SerializeField]private SOBeeDynamicParameters _dynamicParameters;
+        //TODO: most likely deletable
         public PhysicsMaterial2D ragdollMaterial;
 
         private Animator _animator;
@@ -25,7 +30,6 @@ namespace Enemies
         [SerializeField]private float _patrollingSpeed;
 
 
-
         protected void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -34,25 +38,39 @@ namespace Enemies
             _audioManager = GetComponent<AudioManager>();
 
             _patrolBehaviour = GetComponent<EnemyBasicPatrolling>();
-            _patrolBehaviour.SetUpPatrol(_patrollingSpeed);
         }
 
         protected override void OnStart()
         {
-            shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
+            SetUpDynamicValues();
+            _patrolBehaviour.SetUpPatrol(_patrollingSpeed);
             _patrolBehaviour.StartPatrol();
+        }
+
+        private void SetUpDynamicValues()
+        {
+            var difficulty = DynamicDifficultyManager.I.GetEnemyDifficulty(EnemyType.BEE);
+            var parameters = _dynamicParameters.parameters[difficulty];
+
+            attackSpeed = parameters.attackSpeed;
+            _patrollingSpeed = parameters.patrollingSpeed;
         }
 
         protected override IEnumerator Attack()
         {
             _animator.Play(BeeAnimations.ATTACK);
-            //update shooting position
-            if (stopShooting) yield break;
 
-            yield return Shoot(0.5f, 0.16f);
+            yield return Shoot(0.5f,
+                () => { UpdateShootingPosition(); },
+                () => { _audioManager.Play("Shoot"); },
+                0.16f);
 
             _animator.Play(BeeAnimations.IDLE);
-            _audioManager.Play("Shoot");
+        }
+
+        private void UpdateShootingPosition()
+        {
+            shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
         }
 
 

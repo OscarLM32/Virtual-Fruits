@@ -24,16 +24,16 @@ namespace DynamicDifficulty
 #endif
         private float _playerSkillParameter = 0;
         private Dictionary<EnemyType, float> _enemyDifficultyParameters;
-        private Dictionary<EnemyType, Difficulty> enemyDifficulties = new();
+        private Dictionary<EnemyType, Difficulty> _enemyDifficulties = new();
 
         //Select the type of calculator wanted
-        private ISkillCalculator calculator = new LogisticFunctionCalculator();
+        private ISkillCalculator _calculator = new LogisticFunctionCalculator();
 
         protected override void OnAwake()
         {
             _playerSkillParameter = SaveManager.I.GetPlayerSkillParameter();
             _enemyDifficultyParameters = SaveManager.I.GetEnemyDifficultyParameters();
-            genericDifficulty = calculator.GetPlayerSkillLevel(_playerSkillParameter);
+            genericDifficulty = _calculator.GetPlayerSkillLevel(_playerSkillParameter);
         }
 
         private void OnEnable()
@@ -49,10 +49,10 @@ namespace DynamicDifficulty
 
         public Difficulty GetEnemyDifficulty(EnemyType enemy)
         {
-            if (enemyDifficulties.ContainsKey(enemy)) return enemyDifficulties[enemy];
+            if (_enemyDifficulties.ContainsKey(enemy)) return _enemyDifficulties[enemy];
 
-            enemyDifficulties.Add(enemy, calculator.CalculateEnemyDifficulty(_enemyDifficultyParameters[enemy]));
-            return enemyDifficulties[enemy];
+            _enemyDifficulties.Add(enemy, _calculator.CalculateEnemyDifficulty(_enemyDifficultyParameters[enemy]));
+            return _enemyDifficulties[enemy];
         }
 
         public void SetUpLevelDifficulty()

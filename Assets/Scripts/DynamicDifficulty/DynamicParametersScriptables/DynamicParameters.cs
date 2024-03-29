@@ -8,8 +8,6 @@ namespace DynamicDifficulty.DynamicParametersScriptables
 {
     public abstract class DynamicParameters<T> : ScriptableObject, ISerializationCallbackReceiver where T : struct
     {
-        public EnemyType type;
-
         public SerializableDictionary<Difficulty, T> parameters;
 
         public void OnAfterDeserialize()
@@ -22,7 +20,7 @@ namespace DynamicDifficulty.DynamicParametersScriptables
 
         public void OnBeforeSerialize()
         {
-            
+        
         }
 
         private void AddMissingFields()

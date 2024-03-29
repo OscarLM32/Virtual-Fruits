@@ -12,11 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1afa07a8039294a976a6beda832e7d, type: 3}
   m_Name: SOBeeDynamicParameters
   m_EditorClassIdentifier: 
-  type: 0
   parameters:
     elements:
     - key: 0
+      value:
+        attackSpeed: 4
+        patrollingSpeed: 2
     - key: 1
+      value:
+        attackSpeed: 3.5
+        patrollingSpeed: 2.5
     - key: 2
+      value:
+        attackSpeed: 3
+        patrollingSpeed: 3
     - key: 3
+      value:
+        attackSpeed: 2.75
+        patrollingSpeed: 3.5
     - key: 4
+      value:
+        attackSpeed: 2.5
+        patrollingSpeed: 4

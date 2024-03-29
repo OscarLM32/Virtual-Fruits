@@ -1,4 +1,5 @@
 using EditorSystems.Logger;
+using System;
 using System.Collections;
 using UnityEditor.Toolbars;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace Enemies.ShootingEnemyLogic
 {
     public abstract class ShootingEnemy : MonoBehaviour
     {
+        [Header("Shooting variables")]
         [SerializeField] protected ProjectileType projectileType;
 
         [SerializeField] protected Vector2 shootingDirection;
@@ -14,7 +16,7 @@ namespace Enemies.ShootingEnemyLogic
         [SerializeField] protected float projectileSpeed;
 
         //TODO: this current attack speed is not the the real attack speed since it does not have into
-        //account the time animating the attack
+        //account the time animating the attack and it actually simply is the time between attacks
         [SerializeField] protected float attackSpeed;
         protected float timeElapsed;
 
@@ -64,11 +66,14 @@ namespace Enemies.ShootingEnemyLogic
 
         protected abstract IEnumerator Attack();
 
-        protected IEnumerator Shoot(float beforeShotAnimationSyncTime = 0, float afterShotAnimationSyncTime = 0)
+        protected IEnumerator Shoot(float beforeShotAnimationSyncTime = 0, Action beforeShotAction = null, Action afterShotAction = null, float afterShotAnimationSyncTime = 0)
         {
             yield return new WaitForSeconds(beforeShotAnimationSyncTime);
-            //We need to check if the the enemy is killed or anything mid animation
+            //We need to check if the the enemy is killed or anything while it was animating
+            //TODO: this coroutine should be destroyed when the enemy gets hit. Should not be needed to handle inside
             if (stopShooting) yield break;
+            beforeShotAction?.Invoke();
+
             if (EnemyProjectilePool.I == null)
             {
                 Debug.LogWarning("There is no projectile pool in the scene");
@@ -82,7 +87,7 @@ namespace Enemies.ShootingEnemyLogic
             projectile.SetUpProjectile(shootingPosition, shootingDirection, projectileSpeed);
 
             //projectile.transform.position = shootingPosition;
-
+            afterShotAction?.Invoke();
             yield return new WaitForSeconds(afterShotAnimationSyncTime);
         }
 
