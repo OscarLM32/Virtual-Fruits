@@ -21,14 +21,14 @@ namespace DynamicDifficulty.Skillcalculator
 
         public Difficulty GetPlayerSkillLevel(float skillParameter)
         {
-            var playerSkillScore = L / (1 + Mathf.Pow((float)Math.E, -k * (skillParameter - x0)));
+            var playerSkillScore = Calculate(skillParameter);
             return CalculateDifficulty(playerSkillScore);
         }
 
         public Difficulty CalculateEnemyDifficulty(float difficultyParameter)
         {
             //Invert the result so that, if an enemy has an score of difficulty 5 it means that we need to make it easier
-            var score = -1 * (L / (1 + Mathf.Pow((float)Math.E, -k * (difficultyParameter - x0))));
+            var score = L - Calculate(difficultyParameter);
             return CalculateDifficulty(score);
         }
 
@@ -38,6 +38,11 @@ namespace DynamicDifficulty.Skillcalculator
             int difficultyIndex = (int)(score / range);
 
             return (Difficulty)difficultyIndex;
+        }
+
+        private float Calculate(float value)
+        {
+            return L / (1 + Mathf.Pow((float)Math.E, -k * (value - x0)));
         }
 
     }
