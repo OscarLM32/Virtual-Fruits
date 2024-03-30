@@ -12,11 +12,12 @@ namespace EditorSystems.Logger
         private static Dictionary<LoggingSystem, bool> activeLoggers = new()
         {
             {LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, true},
-            {LoggingSystem.SHOOTING_ENEMY, true },
-            {LoggingSystem.ENEMY_PROJECTILE_POOL, true},
+            {LoggingSystem.SHOOTING_ENEMY, false},
+            {LoggingSystem.ENEMY_PROJECTILE_POOL, false},
             {LoggingSystem.PLAYER, true },
-            {LoggingSystem.SAVE_MANAGER, true },
-            {LoggingSystem.SINGLETON, true},
+            {LoggingSystem.SAVE_MANAGER, true},
+            {LoggingSystem.SINGLETON, false},
+            {LoggingSystem.ENEMY, true},
         };
 
         public static void Log(LoggingSystem loggingSystem, string msg)

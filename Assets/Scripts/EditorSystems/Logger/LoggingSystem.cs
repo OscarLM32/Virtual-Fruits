@@ -7,6 +7,7 @@ namespace EditorSystems.Logger
         ENEMY_PROJECTILE_POOL,
         PLAYER,
         SAVE_MANAGER,
-        SINGLETON
+        SINGLETON,
+        ENEMY,
     }
 }
