@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Bunny
 {
+    [Obsolete]
     public class Bunny : MonoBehaviour
     {
         private static class BunnyAnimations
         {
+            public static readonly string IDLE = "BunnyIdle";
+            public static readonly string RUN = "BunnyRun";
             public static readonly string JUMP = "BunnyJump";
             public static readonly string FALL = "BunnyFall";
             public static readonly string HIT = "BunnyHit";
