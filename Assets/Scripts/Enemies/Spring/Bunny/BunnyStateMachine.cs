@@ -87,6 +87,7 @@ namespace Enemies.Bunny
                     HandleRunAction(nextPatrolPointPos);
                     break;
                 case BunnyPatrolActionType.JUMP:
+                    HandleJumpAction(nextPatrolPointPos);
                     break;
             }
         }
@@ -99,7 +100,8 @@ namespace Enemies.Bunny
 
         private void HandleJumpAction(Vector2 jumpTo)
         {
-
+            _jumpState.SetUpJump(jumpTo);
+            SwitchState(_jumpState);
         }
     }
 }
