@@ -15,17 +15,15 @@ namespace Enemies.Bunny
         private BunnyRunState _runState;
         private BunnyJumpState _jumpState;
         private BunnyAttackState _attackState;
-
         private MonoBehaviour _currentState;
 
         [SerializeField] private Transform _groundChecker;
-        private bool _isGrounded = true;
+
+        private Rigidbody2D _rb;
 
         [Space]
         [SerializeField] private BunnyPatrolPoint _initialPatrolPoint;
         private BunnyPatrolPoint _currentPatrolPoint;
-
-        private Rigidbody2D _rb;
 
         private float _lastPosition;
         private int _lastFacingDirection = -1;
@@ -67,7 +65,6 @@ namespace Enemies.Bunny
 
         private void Update()
         {
-            HandleGrounded();
             HandleFacingDirection();
         }
 
@@ -91,11 +88,6 @@ namespace Enemies.Bunny
             _currentState.enabled = false;
             _currentState = newState;
             _currentState.enabled = true;
-        }
-
-        private void HandleGrounded()
-        {
-
         }
 
         private void HandleFacingDirection()
