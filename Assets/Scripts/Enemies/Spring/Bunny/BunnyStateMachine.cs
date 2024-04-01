@@ -1,5 +1,7 @@
 
+using JetBrains.Annotations;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Enemies.Bunny
@@ -7,15 +9,6 @@ namespace Enemies.Bunny
     [RequireComponent(typeof(BunnyIdleState), typeof(BunnyJumpState), typeof(BunnyRunState))]
     public class BunnyStateMachine : MonoBehaviour
     {
-        private static class BunnyAnimations
-        {
-            public static readonly string IDLE = "BunnyIdle";
-            public static readonly string RUN = "BunnyRun";
-            public static readonly string JUMP = "BunnyJump";
-            public static readonly string FALL = "BunnyFall";
-            public static readonly string HIT = "BunnyHit";
-        }
-
         private BunnyIdleState _idleState;
         private BunnyRunState _runState;
         private BunnyJumpState _jumpState;
@@ -29,10 +22,17 @@ namespace Enemies.Bunny
         [SerializeField] private BunnyPatrolPoint _initialPatrolPoint;
         private BunnyPatrolPoint _currentPatrolPoint;
 
+        private Rigidbody2D _rb;
+
+        private float _lastPosition;
+        private int _lastFacingDirection = -1;
+
         #region Unity Functions
 
         private void Awake()
         {
+            _rb = GetComponent<Rigidbody2D>();
+
             _idleState = GetComponent<BunnyIdleState>();
             _runState = GetComponent<BunnyRunState>();
             _jumpState = GetComponent<BunnyJumpState>();
@@ -43,6 +43,7 @@ namespace Enemies.Bunny
             _currentPatrolPoint = _initialPatrolPoint;
 
             transform.position = _initialPatrolPoint.transform.position;
+            _lastPosition = transform.position.x;
         }
 
         private void Start()
@@ -53,6 +54,7 @@ namespace Enemies.Bunny
         private void Update()
         {
             HandleGrounded();
+            HandleFacingDirection();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -77,6 +79,33 @@ namespace Enemies.Bunny
         private void HandleGrounded()
         {
 
+        }
+
+        private void HandleFacingDirection()
+        {
+            var currentPosition = transform.position.x;
+            var xVelocity = (currentPosition - _lastPosition)/Time.deltaTime;
+            if(xVelocity == 0)
+            {
+                SetFacingDirection(_lastFacingDirection);
+            }
+            else if(xVelocity > 0)
+            {
+                SetFacingDirection(-1);
+                _lastFacingDirection = -1;
+            }
+            else
+            {
+                SetFacingDirection(1);
+                _lastFacingDirection = 1;
+            }
+            _lastPosition = currentPosition;
+        }
+
+        private void SetFacingDirection(int direction)
+        {
+            var localScale = transform.localScale;
+            transform.localScale = new Vector3(direction, localScale.y, localScale.z);
         }
 
 

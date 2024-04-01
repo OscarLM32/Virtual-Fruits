@@ -12,16 +12,19 @@ namespace Enemies.Bunny
         private float distance = 0;
 
         private Rigidbody2D _rb;
+        private Animator _animator;
 
         private float _pathPercentageDone = 0;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
         }
 
         private void OnEnable()
         {
+            _animator.Play("BunnyRun");
             //Just in case somethign goes wrong with "SetUpMove"
             _pathPercentageDone = 0;
         }

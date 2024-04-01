@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace Enemies.Bunny
@@ -18,12 +19,14 @@ namespace Enemies.Bunny
         private float _horizontalSpeed = 0f;
 
         private Rigidbody2D _rb;
+        private Animator _animator;
 
         private Vector2 jumpTo;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
         }
 
         private void OnEnable()
@@ -36,7 +39,8 @@ namespace Enemies.Bunny
 
         private void Update()
         {
-            //HandleHorizontalMovementLimit();
+            HandleHorizontalMovementLimit();
+            HandleAnimation();
         }
 
         public void SetUpJump(Vector2 jumpTo)
@@ -57,12 +61,25 @@ namespace Enemies.Bunny
             _horizontalSpeed = horizontalDiff / _maxHorizontalMovementDuration;
         }
 
+        //TODO: this is bound to be deleted. It created a very fake effect. Need to find a way to properly calculate the jumps
         private void HandleHorizontalMovementLimit()
         {
-            var distance= jumpTo.x - transform.position.x;
-            if(distance <= 0)
+            var isPassedPoint = _rb.velocity.x > 0 ? transform.position.x > jumpTo.x : transform.position.x < jumpTo.x;
+            if(isPassedPoint)
             {
                 _rb.velocity = new Vector2(0, _rb.velocity.y);
+            }
+        }
+
+        private void HandleAnimation()
+        {
+            if(_rb.velocity.y >= 0)
+            {
+                _animator.Play("BunnyJump");
+            }
+            else
+            {
+                _animator.Play("BunnyFall");
             }
         }
     }
