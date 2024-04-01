@@ -6975,6 +6975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fed4a38a7ae6524ebdd257a3a1bb7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackTrigger: {fileID: 928403972}
 --- !u!114 &1915063720920277931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6999,6 +7000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1264f8ba046f26b4cbf51b02765bd3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackTrigger: {fileID: 928403972}
   _groundChecker: {fileID: 1915063720789126332}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

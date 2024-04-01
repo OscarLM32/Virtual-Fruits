@@ -44,5 +44,10 @@ namespace Enemies.Bunny
             _realSpeed = speed / distance;
             _pathPercentageDone = 0;
         }
+
+        public void SetUpMove(Vector2 moveFrom)
+        {
+            SetUpMove(moveFrom, _moveTo);
+        }
     }
 }

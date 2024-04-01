@@ -92,7 +92,7 @@ namespace Enemies.Bunny
 
         public void PatrolPointEntered(BunnyPatrolPoint patrolPoint)
         {
-            if (patrolPoint == _currentPatrolPoint) return;
+            if (patrolPoint == _currentPatrolPoint || _isAttacking) return;
 
             StartCoroutine(HandlePatrolAction(patrolPoint.GetNextAction(_currentPatrolPoint)));
             _currentPatrolPoint = patrolPoint;
@@ -100,7 +100,9 @@ namespace Enemies.Bunny
 
         private void OnAttackFinished()
         {
-
+            _isAttacking = false;
+            _runState.SetUpMove(transform.position);
+            SwitchState(_runState);
         }
 
         private void SwitchState(MonoBehaviour newState)
