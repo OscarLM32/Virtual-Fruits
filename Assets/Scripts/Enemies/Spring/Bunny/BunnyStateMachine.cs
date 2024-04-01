@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 namespace Enemies.Bunny
@@ -46,7 +47,7 @@ namespace Enemies.Bunny
 
         private void Start()
         {
-            HandlePatrolAction(_initialPatrolPoint.GetFirstAction());
+            StartCoroutine(HandlePatrolAction(_initialPatrolPoint.GetFirstAction()));
         }
 
         private void Update()
@@ -59,7 +60,7 @@ namespace Enemies.Bunny
             var patrolPoint = collision.GetComponent<BunnyPatrolPoint>();
             if(patrolPoint != null && patrolPoint != _currentPatrolPoint)
             {
-                HandlePatrolAction(patrolPoint.GetNextAction(_currentPatrolPoint));
+                StartCoroutine(HandlePatrolAction(patrolPoint.GetNextAction(_currentPatrolPoint)));
                 _currentPatrolPoint = patrolPoint;
             }
         }
@@ -78,8 +79,15 @@ namespace Enemies.Bunny
 
         }
 
-        private void HandlePatrolAction(BunnyPatrolAction patrolAction)
+
+        private IEnumerator HandlePatrolAction(BunnyPatrolAction patrolAction)
         {
+            if(patrolAction.idleTime > 0)
+            {
+                SwitchState(_idleState);
+                yield return new WaitForSeconds(patrolAction.idleTime);
+            }
+
             var nextPatrolPointPos = patrolAction.nextPatrolPoint.position;
             switch (patrolAction.action)
             {

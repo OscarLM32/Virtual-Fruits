@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 namespace Enemies.Bunny
 {

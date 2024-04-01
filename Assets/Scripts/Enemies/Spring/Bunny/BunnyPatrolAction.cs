@@ -9,6 +9,7 @@ namespace Enemies.Bunny
     {
         public BunnyPatrolActionType action;
         public Transform nextPatrolPoint;
+        public float idleTime;
     }
 
 }
