@@ -11,6 +11,15 @@ namespace Enemies.Bunny
     {
         [SerializeField] private List<PatrolContext> _actions = new();
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            var bunny = collision.GetComponent<BunnyStateMachine>();
+            if(bunny != null)
+            {
+                bunny.PatrolPointEntered(this);
+            }
+        }
+
         public BunnyPatrolAction GetNextAction(BunnyPatrolPoint _previousPoint)
         {
             foreach(var action in _actions)

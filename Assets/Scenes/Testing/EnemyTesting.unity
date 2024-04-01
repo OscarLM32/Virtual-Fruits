@@ -349,10 +349,12 @@ MonoBehaviour:
     action:
       action: 0
       nextPatrolPoint: {fileID: 1865548185}
+      idleTime: 0
   - previousPoint: {fileID: 1865548183}
     action:
       action: 1
       nextPatrolPoint: {fileID: 1336953289}
+      idleTime: 0
 --- !u!58 &300733258
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -573,10 +575,12 @@ MonoBehaviour:
     action:
       action: 0
       nextPatrolPoint: {fileID: 2058065284}
+      idleTime: 0
   - previousPoint: {fileID: 2058065285}
     action:
       action: 1
       nextPatrolPoint: {fileID: 1865548185}
+      idleTime: 0
 --- !u!58 &530037319
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -734,10 +738,12 @@ MonoBehaviour:
     action:
       action: 1
       nextPatrolPoint: {fileID: 1335885104}
+      idleTime: 1
   - previousPoint: {fileID: 1335885105}
     action:
       action: 0
       nextPatrolPoint: {fileID: 990830354}
+      idleTime: 0
 --- !u!58 &767676845
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -992,6 +998,7 @@ MonoBehaviour:
     action:
       action: 0
       nextPatrolPoint: {fileID: 767676843}
+      idleTime: 0
 --- !u!58 &990830356
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1199,10 +1206,12 @@ MonoBehaviour:
     action:
       action: 0
       nextPatrolPoint: {fileID: 1336953289}
+      idleTime: 2
   - previousPoint: {fileID: 1336953290}
     action:
       action: 1
       nextPatrolPoint: {fileID: 767676843}
+      idleTime: 0
 --- !u!58 &1335885106
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1288,10 +1297,12 @@ MonoBehaviour:
     action:
       action: 1
       nextPatrolPoint: {fileID: 300733259}
+      idleTime: 0
   - previousPoint: {fileID: 300733257}
     action:
       action: 0
       nextPatrolPoint: {fileID: 1335885104}
+      idleTime: 0
 --- !u!58 &1336953291
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6487,10 +6498,12 @@ MonoBehaviour:
     action:
       action: 1
       nextPatrolPoint: {fileID: 530037320}
+      idleTime: 0
   - previousPoint: {fileID: 530037318}
     action:
       action: 0
       nextPatrolPoint: {fileID: 300733259}
+      idleTime: 0
 --- !u!58 &1865548184
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6591,6 +6604,7 @@ MonoBehaviour:
     action:
       action: 0
       nextPatrolPoint: {fileID: 530037320}
+      idleTime: 0
 --- !u!58 &2058065286
 CircleCollider2D:
   m_ObjectHideFlags: 0

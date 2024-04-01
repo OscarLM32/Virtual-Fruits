@@ -57,17 +57,15 @@ namespace Enemies.Bunny
             HandleFacingDirection();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            var patrolPoint = collision.GetComponent<BunnyPatrolPoint>();
-            if(patrolPoint != null && patrolPoint != _currentPatrolPoint)
-            {
-                StartCoroutine(HandlePatrolAction(patrolPoint.GetNextAction(_currentPatrolPoint)));
-                _currentPatrolPoint = patrolPoint;
-            }
-        }
-
         #endregion
+
+        public void PatrolPointEntered(BunnyPatrolPoint patrolPoint)
+        {
+            if (patrolPoint == _currentPatrolPoint) return;
+
+            StartCoroutine(HandlePatrolAction(patrolPoint.GetNextAction(_currentPatrolPoint)));
+            _currentPatrolPoint = patrolPoint;
+        }
 
         private void SwitchState(MonoBehaviour newState)
         {
