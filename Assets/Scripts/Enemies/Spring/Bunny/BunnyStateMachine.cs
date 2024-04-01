@@ -17,11 +17,11 @@ namespace Enemies.Bunny
         private BunnyAttackState _attackState;
         private MonoBehaviour _currentState;
 
+        [Header("Checkers")]
         [SerializeField] private Transform _groundChecker;
 
         private Rigidbody2D _rb;
 
-        [Space]
         [SerializeField] private BunnyPatrolPoint _initialPatrolPoint;
         private BunnyPatrolPoint _currentPatrolPoint;
 
