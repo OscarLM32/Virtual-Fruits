@@ -1,5 +1,6 @@
 
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -7,11 +8,13 @@ using UnityEngine;
 namespace Enemies.Bunny
 {
     [RequireComponent(typeof(BunnyIdleState), typeof(BunnyJumpState), typeof(BunnyRunState))]
+    [RequireComponent(typeof(BunnyAttackState))]
     public class BunnyStateMachine : MonoBehaviour
     {
         private BunnyIdleState _idleState;
         private BunnyRunState _runState;
         private BunnyJumpState _jumpState;
+        private BunnyAttackState _attackState;
 
         private MonoBehaviour _currentState;
 
@@ -36,6 +39,7 @@ namespace Enemies.Bunny
             _idleState = GetComponent<BunnyIdleState>();
             _runState = GetComponent<BunnyRunState>();
             _jumpState = GetComponent<BunnyJumpState>();
+            _attackState = GetComponent<BunnyAttackState>();
 
             _currentState = _idleState;
             _currentState.enabled = true;
@@ -44,6 +48,16 @@ namespace Enemies.Bunny
 
             transform.position = _initialPatrolPoint.transform.position;
             _lastPosition = transform.position.x;
+        }
+
+        private void OnEnable()
+        {
+            _attackState.OnAttackFinished += OnAttackFinished;
+        }
+
+        private void OnDisable()
+        {
+            _attackState.OnAttackFinished -= OnAttackFinished;
         }
 
         private void Start()
@@ -65,6 +79,11 @@ namespace Enemies.Bunny
 
             StartCoroutine(HandlePatrolAction(patrolPoint.GetNextAction(_currentPatrolPoint)));
             _currentPatrolPoint = patrolPoint;
+        }
+
+        private void OnAttackFinished()
+        {
+
         }
 
         private void SwitchState(MonoBehaviour newState)
