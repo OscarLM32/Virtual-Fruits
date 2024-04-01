@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace Enemies.Bunny
@@ -19,11 +20,18 @@ namespace Enemies.Bunny
 
         [Header("Checkers")]
         [SerializeField] private Transform _groundChecker;
+        //Attack variables
+        [SerializeField] private Collider2D _attackRangeChecker;
+        private float _attackChargeTime = 1f;
+        private bool _isAttacking = false;
 
-        private Rigidbody2D _rb;
 
+        [Header("Initial patrol point")]
         [SerializeField] private BunnyPatrolPoint _initialPatrolPoint;
         private BunnyPatrolPoint _currentPatrolPoint;
+        private Vector2 _attackTo;
+
+        private Rigidbody2D _rb;
 
         private float _lastPosition;
         private int _lastFacingDirection = -1;
@@ -38,6 +46,8 @@ namespace Enemies.Bunny
             _runState = GetComponent<BunnyRunState>();
             _jumpState = GetComponent<BunnyJumpState>();
             _attackState = GetComponent<BunnyAttackState>();
+
+            _attackState.SetDynamicValues(5, 1);
 
             _currentState = _idleState;
             _currentState.enabled = true;
@@ -66,6 +76,16 @@ namespace Enemies.Bunny
         private void Update()
         {
             HandleFacingDirection();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.layer == (int)LayerValues.Player)
+            {
+                _isAttacking = true;
+                _attackTo = collision.transform.position;
+                StartCoroutine(HandleAttack());
+            }
         }
 
         #endregion
@@ -115,6 +135,15 @@ namespace Enemies.Bunny
         {
             var localScale = transform.localScale;
             transform.localScale = new Vector3(direction, localScale.y, localScale.z);
+        }
+
+        private IEnumerator HandleAttack()
+        {
+            SwitchState(_idleState);
+            yield return new WaitForSeconds(_attackChargeTime);
+
+            _attackState.SetUpAttack(_attackTo);
+            SwitchState(_attackState);
         }
 
 

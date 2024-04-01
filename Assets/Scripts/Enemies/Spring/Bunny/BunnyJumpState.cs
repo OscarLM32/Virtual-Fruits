@@ -20,6 +20,7 @@ namespace Enemies.Bunny
 
         private Rigidbody2D _rb;
         private Animator _animator;
+        [SerializeField]private Collider2D _attackTrigger;
 
         private Vector2 jumpTo;
 
@@ -35,6 +36,12 @@ namespace Enemies.Bunny
             Debug.Log($"OnEnable: {_desiredGravityFactor} | {new Vector2(_horizontalSpeed, _initialJumpVelocity)}");
             _rb.gravityScale = _desiredGravityFactor;
             _rb.velocity = new Vector2(_horizontalSpeed, _initialJumpVelocity);
+            _attackTrigger.enabled = false;
+        }
+
+        private void OnDisable()
+        {
+            _attackTrigger.enabled = true;
         }
 
         private void Update()
@@ -48,6 +55,7 @@ namespace Enemies.Bunny
             this.jumpTo = jumpTo;
             var jumpFrom = transform.position;
             bool isJumpingUp = jumpFrom.y < jumpTo.y;
+            //TODO: HUGE ERROR, THERE IS NO NEED TO ADD THE CURRENT ALTITUDE
             _maxJumpHeight = isJumpingUp ? jumpTo.y + _defaultMaxJumpUpHeightDifference : jumpFrom.y + _defaultMaxJumpDownHeightDifference ;
             Debug.Log(_maxJumpHeight);
 

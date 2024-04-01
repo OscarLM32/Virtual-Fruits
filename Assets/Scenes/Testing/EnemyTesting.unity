@@ -6948,7 +6948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundChecker: {fileID: 1915063720789126332}
-  _attackRange: {fileID: 0}
+  _attackRangeChecker: {fileID: 0}
   _initialPatrolPoint: {fileID: 990830355}
 --- !u!114 &1915063720920277929
 MonoBehaviour:
@@ -6994,11 +6994,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915063720920277926}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1264f8ba046f26b4cbf51b02765bd3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _groundChecker: {fileID: 1915063720789126332}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
