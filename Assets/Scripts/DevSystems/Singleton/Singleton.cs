@@ -1,9 +1,9 @@
 using EditorSystems.Logger;
 using UnityEngine;
 
-namespace GameSystems.Singleton
+namespace DevSystems.Singleton
 {
-    public abstract class SingletonScene<T> : MonoBehaviour where T : Component
+    public abstract class Singleton<T> : MonoBehaviour where T : Component
     {
         protected static T i = null;
 
@@ -11,11 +11,12 @@ namespace GameSystems.Singleton
         {
             get
             {
-                //I do not instantiate SceneSingleton like I do with generic singletons since these usually
-                //have more spicific code that cannot me simply instantiated
                 if (i == null)
                 {
-                    EditorLogger.LogWarning(LoggingSystem.SINGLETON, "The singleton trying to be accessed cannot be found: "+ typeof(T));
+                    EditorLogger.LogWarning(LoggingSystem.SINGLETON, $"The singleton trying to be accessed {typeof(T)} cannot be found. Creating one...");
+                    GameObject newObject = new GameObject("NotfoundSingleton");
+                    i = newObject.AddComponent<T>();
+                    newObject.name = typeof(T).Name;
                 }
                 return i;
             }
@@ -35,6 +36,7 @@ namespace GameSystems.Singleton
             {
                 I = this as T;
             }
+            DontDestroyOnLoad(gameObject);
             OnAwake();
         }
 

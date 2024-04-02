@@ -1,7 +1,7 @@
 using EditorSystems.Logger;
 using Enemies;
 using Extensions.Serializables;
-using GameSystems.Singleton;
+using DevSystems.Singleton;
 using System.Collections.Generic;
 
 

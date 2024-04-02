@@ -2,7 +2,7 @@ using CoreSystems.SaveSystem;
 using DynamicDifficulty.Skillcalculator;
 using EditorSystems.Logger;
 using Enemies;
-using GameSystems.Singleton;
+using DevSystems.Singleton;
 using System.Collections.Generic;
 using UnityEngine;
 

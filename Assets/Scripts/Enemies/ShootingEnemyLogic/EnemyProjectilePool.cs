@@ -1,6 +1,6 @@
 using EditorSystems.Logger;
 using Extensions;
-using GameSystems.Singleton;
+using DevSystems.Singleton;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
