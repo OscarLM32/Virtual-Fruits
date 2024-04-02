@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Enemies.Bunny
 {
     public class BunnyRunState : MonoBehaviour
     {
-        public float speed = 2f;
+        [SerializeField]private float _speed = 2f;
         private float _realSpeed = 2f;
 
         private Vector2 _moveFrom;
@@ -41,13 +42,18 @@ namespace Enemies.Bunny
             _moveFrom = moveFrom;
             _moveTo = moveTo;
             distance = Mathf.Abs(_moveTo.x - _moveFrom.x);
-            _realSpeed = speed / distance;
+            _realSpeed = _speed / distance;
             _pathPercentageDone = 0;
         }
 
         public void SetUpMove(Vector2 moveFrom)
         {
             SetUpMove(moveFrom, _moveTo);
+        }
+
+        internal void SetDynamicValues(float patrolSpeed)
+        {
+            _speed = patrolSpeed;
         }
     }
 }

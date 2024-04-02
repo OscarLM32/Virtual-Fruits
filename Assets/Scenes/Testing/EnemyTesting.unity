@@ -6947,8 +6947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8c09d40e42ac84a9a9563a7973ce6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundChecker: {fileID: 1915063720789126332}
-  _attackRangeChecker: {fileID: 0}
+  dynamicParameters: {fileID: 11400000, guid: f549723eef608764583e1ecc9c3dd5fe, type: 2}
   _initialPatrolPoint: {fileID: 990830355}
 --- !u!114 &1915063720920277929
 MonoBehaviour:
@@ -6962,7 +6961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3dce8d580f9bd4caecaf783a17e0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
 --- !u!114 &1915063720920277930
 MonoBehaviour:
   m_ObjectHideFlags: 0

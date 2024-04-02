@@ -1,4 +1,6 @@
 
+using DynamicDifficulty;
+using DynamicDifficulty.DynamicParametersScriptables;
 using JetBrains.Annotations;
 using System;
 using System.Collections;
@@ -12,26 +14,21 @@ namespace Enemies.Bunny
     [RequireComponent(typeof(BunnyAttackState))]
     public class BunnyStateMachine : MonoBehaviour
     {
+        public SOBunnyDynamicPrameters dynamicParameters;
+
         private BunnyIdleState _idleState;
         private BunnyRunState _runState;
         private BunnyJumpState _jumpState;
         private BunnyAttackState _attackState;
         private MonoBehaviour _currentState;
 
-        [Header("Checkers")]
-        [SerializeField] private Transform _groundChecker;
-        //Attack variables
-        [SerializeField] private Collider2D _attackRangeChecker;
         private float _attackChargeTime = 1f;
         private bool _isAttacking = false;
 
-
-        [Header("Initial patrol point")]
         [SerializeField] private BunnyPatrolPoint _initialPatrolPoint;
         private BunnyPatrolPoint _currentPatrolPoint;
         private Vector2 _attackTo;
-
-        private Rigidbody2D _rb;
+        [SerializeField] private float _idleTimeFactor = 1;
 
         private float _lastPosition;
         private int _lastFacingDirection = -1;
@@ -40,14 +37,7 @@ namespace Enemies.Bunny
 
         private void Awake()
         {
-            _rb = GetComponent<Rigidbody2D>();
-
-            _idleState = GetComponent<BunnyIdleState>();
-            _runState = GetComponent<BunnyRunState>();
-            _jumpState = GetComponent<BunnyJumpState>();
-            _attackState = GetComponent<BunnyAttackState>();
-
-            _attackState.SetDynamicValues(5, 1);
+            SetUpComponents();
 
             _currentState = _idleState;
             _currentState.enabled = true;
@@ -70,6 +60,7 @@ namespace Enemies.Bunny
 
         private void Start()
         {
+            SetUpDynamicValues();
             StartCoroutine(HandlePatrolAction(_initialPatrolPoint.GetFirstAction()));
         }
 
@@ -89,6 +80,24 @@ namespace Enemies.Bunny
         }
 
         #endregion
+
+        private void SetUpComponents()
+        {
+            _idleState = GetComponent<BunnyIdleState>();
+            _runState = GetComponent<BunnyRunState>();
+            _jumpState = GetComponent<BunnyJumpState>();
+            _attackState = GetComponent<BunnyAttackState>();
+        }
+
+        private void SetUpDynamicValues()
+        {
+            var ddValues = dynamicParameters[DynamicDifficultyManager.I.GetEnemyDifficulty(EnemyType.BUNNY)];
+
+            _attackChargeTime = ddValues.attackChargeTime;
+            _idleTimeFactor = ddValues.idleTimeFactor;
+            _attackState.SetDynamicValues(ddValues.maxJumpTime, ddValues.maxAttackDistance);
+            _runState.SetDynamicValues(ddValues.patrollingSpeed);
+        }
 
         public void PatrolPointEntered(BunnyPatrolPoint patrolPoint)
         {
@@ -154,7 +163,8 @@ namespace Enemies.Bunny
             if(patrolAction.idleTime > 0)
             {
                 SwitchState(_idleState);
-                yield return new WaitForSeconds(patrolAction.idleTime);
+                var totalIdle = patrolAction.idleTime * _idleTimeFactor;
+                yield return new WaitForSeconds(totalIdle);
             }
 
             var nextPatrolPointPos = patrolAction.nextPatrolPoint.position;

@@ -8,8 +8,8 @@ namespace Enemies.Bunny
     {
         public Action OnAttackFinished;
 
-        private float _maxJumpHeight = 3;
-        private float _maxJumpTime = 1;
+        [SerializeField]private float _maxJumpHeight = 3;
+        [SerializeField]private float _maxJumpTime = 1;
 
         private float _initialJumpVelocity = 9.8f;
         private float _desiredGravityFactor = 1;
@@ -19,7 +19,7 @@ namespace Enemies.Bunny
         private Vector2 _attackTo;
 
         private Rigidbody2D _rb;
-        [SerializeField]private Collider2D _attackTrigger;
+        [SerializeField]private BoxCollider2D _attackTrigger;
         [SerializeField]private Transform _groundChecker;
 
         private void Awake()
@@ -45,15 +45,16 @@ namespace Enemies.Bunny
             CalculateHorizontalVelocity();
         }
 
-        public void SetDynamicValues(float maxJumpHeight, float maxJumpTime)
+        public void SetDynamicValues(float maxJumpTime, float maxAttackRange)
         {
-            _maxJumpHeight = maxJumpHeight;
             _maxJumpTime = maxJumpTime;
 
             var timeToApex = _maxJumpTime / 2;
             var _desiredGravity = -2 * _maxJumpHeight / (float)Math.Pow(timeToApex, 2);
             _initialJumpVelocity = 2 * _maxJumpHeight / timeToApex;
             _desiredGravityFactor = _desiredGravity / Physics2D.gravity.y;
+
+            _attackTrigger.size = new Vector2(maxAttackRange, _attackTrigger.size.y);
         }
 
         private void CalculateHorizontalVelocity()
