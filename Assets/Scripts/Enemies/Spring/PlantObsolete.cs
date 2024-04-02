@@ -6,7 +6,8 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public class Plant : ShootingEnemy
+    [Obsolete]
+    public class PlantObsolete : ShootingEnemy
     {
         private static class PlantAnimations
         {
