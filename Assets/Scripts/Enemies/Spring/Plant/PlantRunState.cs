@@ -9,8 +9,9 @@ namespace Enemies.Plant
         //TODO: implement runAnimation
         private float _speed = 2f;
 
-        public PlantRunState(PlantStateMachine context) : base(context)
+        public PlantRunState(PlantStateMachine context, float speed) : base(context)
         {
+            _speed = speed;
         }
 
         public override void OnEnter()

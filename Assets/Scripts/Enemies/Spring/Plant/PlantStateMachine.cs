@@ -57,7 +57,8 @@ namespace Enemies.Plant
         {
             var dynamicParameters = _dynamicParameters[DynamicDifficultyManager.I.genericDifficulty];
             SetUpStates(dynamicParameters);
-            SetUpAttackCollider();
+            SetUpAttackCollider(dynamicParameters.attackRange);
+            _safeZoneRange = dynamicParameters.fleetingRange;
 
             CurrentState = idleState;
             CurrentState.OnEnter();
@@ -104,15 +105,15 @@ namespace Enemies.Plant
         private void SetUpStates(PlantDynamicParameters dynamicParameters)
         {
             idleState = new PlantIdleState(this);
-            runState = new PlantRunState(this);
+            runState = new PlantRunState(this, dynamicParameters.fleetingSpeed);
             attackState = new PlantAttackState(this, dynamicParameters.attackSpeed, dynamicParameters.proyectileSpeed);
         }
 
-        private void SetUpAttackCollider()
+        private void SetUpAttackCollider(float attackRange)
         {
             var collider = gameObject.AddComponent<BoxCollider2D>();
             collider.isTrigger = true;
-            collider.size = new Vector2(_attackRange * 2, _verticalPlayerDetectionRange);
+            collider.size = new Vector2(attackRange * 2, _verticalPlayerDetectionRange);
             collider.offset = new Vector2(0, _verticalPlayerDetectionRange / 2);
         }
 
