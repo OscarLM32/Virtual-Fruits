@@ -14,7 +14,7 @@ namespace Enemies.Plant
 
         public override void OnEnter()
         {
-
+            
         }
 
         public override void OnUpdate()

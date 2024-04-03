@@ -7,19 +7,30 @@ namespace Enemies.Plant
 {
     public class PlantStateMachine : BaseStateMachine<PlantStateMachine>
     {
+        #region States
         public PlantIdleState idleState { get; private set; }
         public PlantRunState runState { get; private set; }
         public PlantAttackState attackState { get; private set; }
+        #endregion
 
-
+        #region Components
         public Animator animator { get; private set; }
+        public Rigidbody2D rb { get; private set; }
+        #endregion
 
+        #region Attack Variables
         public bool isPlayerInAttackRange { get; private set; }
-        public bool isPlayerInSafeZone { get; private set; }
-
         [SerializeField]private float _attackRange = 8f;
         private const float _verticalPlayerDetectionRange = 4f;
+        #endregion
+
+        #region Run Variables
+        public bool isPlayerInSafeZone { get; private set; }
+        public bool canRun { get; private set; }
+        [SerializeField]private Transform _groundChecker;
         [SerializeField]private float _safeZoneRange = 4f;
+        #endregion
+
         public int playerDirection { get; set; }
 
         #region Unity Functions
@@ -27,6 +38,13 @@ namespace Enemies.Plant
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            rb = GetComponent<Rigidbody2D>();
+
+            if (!CheckComponentsIntegrity())
+            {
+                EditorLogger.LogError(LoggingSystem.ENEMY, $"{{{EnemyType.PLANT}}}: one or more components are not properly set");
+                gameObject.SetActive(false);
+            }
         }
 
         private void Start()
@@ -43,6 +61,7 @@ namespace Enemies.Plant
             if (!IsPlayer(collision.gameObject)) return;
 
             GetPlayerDirection(collision.gameObject);
+            CheckCanRun();
             isPlayerInAttackRange = true;
         }
 
@@ -50,23 +69,24 @@ namespace Enemies.Plant
         {
             var other = collision.gameObject;
             if (!IsPlayer(other)) return;
-            //maybe overkill
-            if (IsBelow(other)) return;
 
             GetPlayerDirection(other);
-
-            var distance = Vector2.Distance(other.transform.position, transform.position);
-            if(distance < _safeZoneRange)
-            {
-                isPlayerInSafeZone = true;
-            }
-            else
-            {
-                isPlayerInSafeZone = false;
-            }
+            CheckCanRun();
+            CheckPlayerInSafeZone(other);
         }
 
         #endregion
+
+        private bool CheckComponentsIntegrity()
+        {
+            bool exit = true;
+            if(animator == null || rb == null || _groundChecker == null)
+            {
+                exit = false;
+            }
+
+            return exit;
+        }
 
         private void SetUpStates()
         {
@@ -88,14 +108,39 @@ namespace Enemies.Plant
             return other.layer != (int)LayerValues.Player;
         }
 
-        private bool IsBelow(GameObject other)
-        {
-            return other.transform.position.y < transform.position.y;
-        }
-
         private void GetPlayerDirection(GameObject player)
         {
+            playerDirection = 1;
 
+            var playerPosX = player.transform.position.x;
+
+            if(playerPosX < transform.position.x)
+            {
+                playerDirection = -1;
+            }
+        }
+
+        private void CheckCanRun()
+        {
+            canRun = true;
+            var collisions = Physics2D.OverlapBox(_groundChecker.position, new Vector2(1, 0.1f), 0, LayerMask.GetMask("Ground"));
+            if(collisions == null)
+            {
+                canRun = false;
+            }
+        }
+
+        private void CheckPlayerInSafeZone(GameObject player)
+        {
+            var distance = Vector2.Distance(player.transform.position, transform.position);
+            if (distance < _safeZoneRange)
+            {
+                isPlayerInSafeZone = true;
+            }
+            else
+            {
+                isPlayerInSafeZone = false;
+            }
         }
 
 
