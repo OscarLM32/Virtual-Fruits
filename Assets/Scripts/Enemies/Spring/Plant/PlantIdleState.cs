@@ -5,6 +5,8 @@ namespace Enemies.Plant
 {
     public class PlantIdleState : BaseState<PlantStateMachine>
     {
+        private const string _idleAnimation = "PlantIdle";
+
         public PlantIdleState(PlantStateMachine context) : base(context)
         {
             
@@ -12,8 +14,7 @@ namespace Enemies.Plant
 
         public override void OnEnter()
         {
-            //Play idle animation
-            //context.animator.Play()
+            context.animator.Play(_idleAnimation);
         }
 
         public override void OnUpdate()
@@ -23,6 +24,16 @@ namespace Enemies.Plant
 
         protected override void CheckSwitchState()
         {
+            if (context.isPlayerInSafeZone)
+            {
+                SwitchState(context.runState);
+                return;
+            }
+
+            if (context.isPlayerInAttackRange)
+            {
+                
+            }
 
         }
 

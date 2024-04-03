@@ -14,7 +14,6 @@ namespace DevSystems.StateMachine
         public abstract void OnUpdate();
         protected abstract void OnExit();
 
-
         protected abstract void CheckSwitchState();
 
         protected void SwitchState(BaseState<T> newState)

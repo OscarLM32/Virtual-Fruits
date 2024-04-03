@@ -1,3 +1,4 @@
+//TODO: refactor this with static class
 public enum LayerValues
 {
     Ground = 6,
