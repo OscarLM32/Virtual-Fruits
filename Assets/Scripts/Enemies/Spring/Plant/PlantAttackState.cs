@@ -17,7 +17,7 @@ namespace Enemies.Plant
 
         public override void OnUpdate()
         {
-
+            CheckSwitchState();
         }
 
         protected override void CheckSwitchState()

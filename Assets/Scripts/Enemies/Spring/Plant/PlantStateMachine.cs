@@ -2,6 +2,7 @@ using DevSystems.StateMachine;
 using EditorSystems.Logger;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Enemies.Plant
 {
@@ -28,6 +29,7 @@ namespace Enemies.Plant
         public bool isPlayerInSafeZone { get; private set; }
         public bool canRun { get; private set; }
         [SerializeField]private Transform _groundChecker;
+        [SerializeField]private Transform _wallChecker;
         [SerializeField]private float _safeZoneRange = 4f;
         #endregion
 
@@ -52,7 +54,7 @@ namespace Enemies.Plant
             SetUpStates();
             SetUpAttackCollider();
 
-            CurrentState = new PlantIdleState(this);
+            CurrentState = idleState;
             CurrentState.OnEnter();
         }
 
@@ -75,16 +77,22 @@ namespace Enemies.Plant
             CheckPlayerInSafeZone(other);
         }
 
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (!IsPlayer(collision.gameObject)) return;
+
+            isPlayerInAttackRange = false;
+        }
+
         #endregion
 
         private bool CheckComponentsIntegrity()
         {
             bool exit = true;
-            if(animator == null || rb == null || _groundChecker == null)
+            if(animator == null || rb == null || _groundChecker == null || _wallChecker == null)
             {
                 exit = false;
             }
-
             return exit;
         }
 
@@ -99,13 +107,13 @@ namespace Enemies.Plant
         {
             var collider = gameObject.AddComponent<BoxCollider2D>();
             collider.isTrigger = true;
-            collider.size = new Vector2(_attackRange, _verticalPlayerDetectionRange);
+            collider.size = new Vector2(_attackRange * 2, _verticalPlayerDetectionRange);
             collider.offset = new Vector2(0, _verticalPlayerDetectionRange / 2);
         }
 
         private bool IsPlayer(GameObject other)
         {
-            return other.layer != (int)LayerValues.Player;
+            return other.layer == (int)LayerValues.Player;
         }
 
         private void GetPlayerDirection(GameObject player)
@@ -113,7 +121,6 @@ namespace Enemies.Plant
             playerDirection = 1;
 
             var playerPosX = player.transform.position.x;
-
             if(playerPosX < transform.position.x)
             {
                 playerDirection = -1;
@@ -123,8 +130,8 @@ namespace Enemies.Plant
         private void CheckCanRun()
         {
             canRun = true;
-            var collisions = Physics2D.OverlapBox(_groundChecker.position, new Vector2(1, 0.1f), 0, LayerMask.GetMask("Ground"));
-            if(collisions == null)
+            if(!Physics2D.OverlapBox(_groundChecker.position, new Vector2(1, 0.1f), 0, LayerMask.GetMask("Ground")) ||
+               Physics2D.OverlapBox(_wallChecker.position, new Vector2(0.1f, 1), 0, LayerMask.GetMask("Ground")))
             {
                 canRun = false;
             }

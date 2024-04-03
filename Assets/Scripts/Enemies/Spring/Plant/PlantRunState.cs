@@ -1,5 +1,6 @@
 
 using DevSystems.StateMachine;
+using UnityEngine;
 
 namespace Enemies.Plant
 {
@@ -14,22 +15,43 @@ namespace Enemies.Plant
 
         public override void OnEnter()
         {
-            
+            HandleVelocity();
         }
 
         public override void OnUpdate()
         {
+            HandleVelocity();
+            HandleSpriteDirection();
             CheckSwitchState();
         }
 
         protected override void CheckSwitchState()
         {
+            if((!context.isPlayerInSafeZone && !context.isPlayerInAttackRange) || !context.canRun)
+            {
+                SwitchState(context.attackState);
+            }
 
+            if (!context.isPlayerInAttackRange)
+            {
+                SwitchState(context.idleState);
+            }
         }
 
         protected override void OnExit()
         {
+            context.rb.velocity = Vector2.zero;
+        }
 
+        private void HandleVelocity()
+        {
+            var velocity = new Vector2(_speed * -context.playerDirection, 0);
+            context.rb.velocity = velocity;
+        }
+
+        private void HandleSpriteDirection()
+        {
+            context.transform.localScale = new Vector3(context.playerDirection, 1, 1);
         }
     }
 }
