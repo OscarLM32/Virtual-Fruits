@@ -1,4 +1,6 @@
 using DevSystems.StateMachine;
+using DynamicDifficulty;
+using DynamicDifficulty.DynamicParametersScriptables;
 using EditorSystems.Logger;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
@@ -8,6 +10,8 @@ namespace Enemies.Plant
 {
     public class PlantStateMachine : BaseStateMachine<PlantStateMachine>
     {
+        [SerializeField] private SOPlantDynamicParameters _dynamicParameters;
+
         #region States
         public PlantIdleState idleState { get; private set; }
         public PlantRunState runState { get; private set; }
@@ -51,7 +55,8 @@ namespace Enemies.Plant
 
         private void Start()
         {
-            SetUpStates();
+            var dynamicParameters = _dynamicParameters[DynamicDifficultyManager.I.genericDifficulty];
+            SetUpStates(dynamicParameters);
             SetUpAttackCollider();
 
             CurrentState = idleState;
@@ -96,11 +101,11 @@ namespace Enemies.Plant
             return exit;
         }
 
-        private void SetUpStates()
+        private void SetUpStates(PlantDynamicParameters dynamicParameters)
         {
             idleState = new PlantIdleState(this);
             runState = new PlantRunState(this);
-            attackState = new PlantAttackState(this);
+            attackState = new PlantAttackState(this, dynamicParameters.attackSpeed, dynamicParameters.proyectileSpeed);
         }
 
         private void SetUpAttackCollider()

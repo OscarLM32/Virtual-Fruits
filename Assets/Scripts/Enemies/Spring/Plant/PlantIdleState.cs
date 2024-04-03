@@ -24,7 +24,7 @@ namespace Enemies.Plant
 
         protected override void CheckSwitchState()
         {
-            if (context.isPlayerInSafeZone)
+            if (context.isPlayerInSafeZone && context.canRun)
             {
                 SwitchState(context.runState);
                 return;
@@ -32,7 +32,8 @@ namespace Enemies.Plant
 
             if (context.isPlayerInAttackRange)
             {
-                
+                SwitchState(context.attackState);
+                return;
             }
 
         }

@@ -7172,6 +7172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18967183d38fa3d448d24391972dd685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dynamicParameters: {fileID: 11400000, guid: ed4673cc4a5e8c549a75ab88714fd681, type: 2}
   _attackRange: 8
   _groundChecker: {fileID: 1535597036}
   _wallChecker: {fileID: 817900968}
