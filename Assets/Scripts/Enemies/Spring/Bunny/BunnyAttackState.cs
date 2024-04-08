@@ -78,8 +78,8 @@ namespace Enemies.Bunny
             if (Physics2D.OverlapBox(position, new Vector2(0.45f, 0.1f), 0, LayerMask.GetMask("Ground")) ||
                 Physics2D.OverlapBox(position, new Vector2(0.45f, 0.1f), 0, LayerMask.GetMask("Platform")))
             {
-                OnAttackFinished?.Invoke();
                 _attackTrigger.enabled = true;
+                OnAttackFinished?.Invoke();
             }
         }
     }

@@ -26,7 +26,8 @@ namespace Enemies.Bunny
         private bool _isAttacking = false;
 
         [SerializeField] private BunnyPatrolPoint _initialPatrolPoint;
-        private BunnyPatrolPoint _currentPatrolPoint;
+        [SerializeField]private BunnyPatrolPoint _currentPatrolPoint;
+        private BunnyPatrolPoint _cachedPoint = null;
         private Vector2 _attackTo;
         [SerializeField] private float _idleTimeFactor = 1;
 
@@ -71,10 +72,12 @@ namespace Enemies.Bunny
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.layer == (int)LayerValues.Player)
+            var other = collision.gameObject;
+            if (other.layer == (int)LayerValues.Player && IsOtherGrounded(other))
             {
                 _isAttacking = true;
                 _attackTo = collision.transform.position;
+                StopCoroutine("HandlePatrolAction");
                 StartCoroutine(HandleAttack());
             }
         }
@@ -101,17 +104,32 @@ namespace Enemies.Bunny
 
         public void PatrolPointEntered(BunnyPatrolPoint patrolPoint)
         {
-            if (patrolPoint == _currentPatrolPoint || _isAttacking) return;
+            if (patrolPoint == _currentPatrolPoint) return;
 
-            StartCoroutine(HandlePatrolAction(patrolPoint.GetNextAction(_currentPatrolPoint)));
-            _currentPatrolPoint = patrolPoint;
+            if (_isAttacking)
+            {
+                Debug.Log("cached action");
+                _cachedPoint = patrolPoint;
+                return;
+            }
+
+            StartCoroutine(HandlePatrolPoint(patrolPoint));
         }
 
         private void OnAttackFinished()
         {
             _isAttacking = false;
-            _runState.SetUpMove(transform.position);
-            SwitchState(_runState);
+
+            if(_cachedPoint != null)
+            {
+                StartCoroutine(HandlePatrolPoint(_cachedPoint));
+                _cachedPoint = null;
+            }
+            else
+            {
+                _runState.SetUpMove(transform.position);
+                SwitchState(_runState);
+            }
         }
 
         private void SwitchState(MonoBehaviour newState)
@@ -148,6 +166,11 @@ namespace Enemies.Bunny
             transform.localScale = new Vector3(direction, localScale.y, localScale.z);
         }
 
+        private bool IsOtherGrounded(GameObject other)
+        {
+            return Physics2D.OverlapBox(other.transform.position, new Vector2(0.1f, 1.1f), 0, LayerMask.GetMask("Ground"));
+        }
+
         private IEnumerator HandleAttack()
         {
             SwitchState(_idleState);
@@ -158,14 +181,24 @@ namespace Enemies.Bunny
         }
 
 
-        private IEnumerator HandlePatrolAction(BunnyPatrolAction patrolAction)
+        private IEnumerator HandlePatrolPoint(BunnyPatrolPoint patrolPoint)
         {
-            if(patrolAction.idleTime > 0)
+            var patrolAction = patrolPoint.GetNextAction(_currentPatrolPoint);
+
+            yield return StartCoroutine(HandlePatrolAction(patrolAction, patrolPoint));
+        }
+
+        private IEnumerator HandlePatrolAction(BunnyPatrolAction patrolAction, BunnyPatrolPoint patrolPoint = null)
+        {
+            if (patrolAction.idleTime > 0)
             {
                 SwitchState(_idleState);
                 var totalIdle = patrolAction.idleTime * _idleTimeFactor;
                 yield return new WaitForSeconds(totalIdle);
             }
+
+            if (_isAttacking) yield break;
+            if (patrolPoint != null) _currentPatrolPoint = patrolPoint;
 
             var nextPatrolPointPos = patrolAction.nextPatrolPoint.position;
             switch (patrolAction.action)

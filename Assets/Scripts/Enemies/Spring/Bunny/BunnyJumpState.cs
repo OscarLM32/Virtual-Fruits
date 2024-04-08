@@ -33,7 +33,6 @@ namespace Enemies.Bunny
         private void OnEnable()
         {
             //Play jump animation
-            Debug.Log($"OnEnable: {_desiredGravityFactor} | {new Vector2(_horizontalSpeed, _initialJumpVelocity)}");
             _rb.gravityScale = _desiredGravityFactor;
             _rb.velocity = new Vector2(_horizontalSpeed, _initialJumpVelocity);
             _attackTrigger.enabled = false;
@@ -57,7 +56,6 @@ namespace Enemies.Bunny
             bool isJumpingUp = jumpFrom.y < jumpTo.y;
             //TODO: HUGE ERROR, THERE IS NO NEED TO ADD THE CURRENT ALTITUDE
             _maxJumpHeight = isJumpingUp ? jumpTo.y + _defaultMaxJumpUpHeightDifference : jumpFrom.y + _defaultMaxJumpDownHeightDifference ;
-            Debug.Log(_maxJumpHeight);
 
             var jumpTime = isJumpingUp ? _maxJumpUpTime : _maxJumpDownTime;
             var timeToApex = jumpTime / 2;

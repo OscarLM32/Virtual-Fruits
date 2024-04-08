@@ -4,6 +4,7 @@ namespace Enemies.Bunny
 {
     public class BunnyIdleState : MonoBehaviour
     {
+        //private BoxCollider2D
         private Animator _animator;
         private Rigidbody2D _rb;
 
