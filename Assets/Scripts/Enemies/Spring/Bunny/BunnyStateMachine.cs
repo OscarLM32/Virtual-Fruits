@@ -122,14 +122,34 @@ namespace Enemies.Bunny
 
             if(_cachedPoint != null)
             {
-                StartCoroutine(HandlePatrolPoint(_cachedPoint));
-                _cachedPoint = null;
+                if (IsBunnyInsidePatrolPoint(_cachedPoint))
+                {
+                    StartCoroutine(HandlePatrolPoint(_cachedPoint));
+                    _cachedPoint = null;
+                }
+                else
+                {
+                    _runState.SetUpMove(transform.position, _cachedPoint.transform.position);
+                    SwitchState(_runState);
+                }
+
             }
             else
             {
                 _runState.SetUpMove(transform.position);
                 SwitchState(_runState);
             }
+        }
+
+        private bool IsBunnyInsidePatrolPoint(BunnyPatrolPoint patrolPoint) 
+        {
+            var bunnyPos = new Vector2(transform.position.x + GetComponent<BoxCollider2D>().offset.x, 0);
+            var patrolPointPos = new Vector2(patrolPoint.transform.position.x, 0);
+
+            var distance = Vector2.Distance(bunnyPos, patrolPointPos);
+            var collSize = GetComponent<BoxCollider2D>().size.x / 2;
+
+            return distance < collSize - 0.1f;
         }
 
         private void SwitchState(MonoBehaviour newState)

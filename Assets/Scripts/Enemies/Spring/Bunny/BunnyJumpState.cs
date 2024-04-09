@@ -55,7 +55,7 @@ namespace Enemies.Bunny
             var jumpFrom = transform.position;
             bool isJumpingUp = jumpFrom.y < jumpTo.y;
             //TODO: HUGE ERROR, THERE IS NO NEED TO ADD THE CURRENT ALTITUDE
-            _maxJumpHeight = isJumpingUp ? jumpTo.y + _defaultMaxJumpUpHeightDifference : jumpFrom.y + _defaultMaxJumpDownHeightDifference ;
+            _maxJumpHeight = isJumpingUp ? jumpTo.y + _defaultMaxJumpUpHeightDifference : jumpFrom.y + _defaultMaxJumpDownHeightDifference;
 
             var jumpTime = isJumpingUp ? _maxJumpUpTime : _maxJumpDownTime;
             var timeToApex = jumpTime / 2;

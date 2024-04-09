@@ -2,6 +2,7 @@
 using Extensions.Serializables;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Enemies.Bunny
@@ -30,8 +31,8 @@ namespace Enemies.Bunny
                 }
             }
 
-            EditorLogger.LogError(LoggingSystem.ENEMY, $"{{{EnemyType.BUNNY}}}: No action was found for the provided point in this context");
-            return new BunnyPatrolAction();
+            EditorLogger.LogWarning(LoggingSystem.ENEMY, $"{{{EnemyType.BUNNY}}}: No action was found for the provided point in this context, returning first action");
+            return _actions.First().action;
         }
 
         //This method is called to get the initial action may not be neccessary
