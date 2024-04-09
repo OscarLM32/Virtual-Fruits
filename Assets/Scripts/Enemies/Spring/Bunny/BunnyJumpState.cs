@@ -7,7 +7,7 @@ namespace Enemies.Bunny
     public class BunnyJumpState : MonoBehaviour
     {
         private const float _defaultMaxJumpUpHeightDifference = 2f;
-        private const float _defaultMaxJumpDownHeightDifference = 0.2f;
+        private const float _defaultMaxJumpDownHeightDifference = 1.75f;
         private const float _maxJumpUpTime = 1f;
         private const float _maxJumpDownTime = 0.75f;
         private float _maxJumpHeight = 0f;
@@ -54,8 +54,8 @@ namespace Enemies.Bunny
             this.jumpTo = jumpTo;
             var jumpFrom = transform.position;
             bool isJumpingUp = jumpFrom.y < jumpTo.y;
-            //TODO: HUGE ERROR, THERE IS NO NEED TO ADD THE CURRENT ALTITUDE
-            _maxJumpHeight = isJumpingUp ? jumpTo.y + _defaultMaxJumpUpHeightDifference : jumpFrom.y + _defaultMaxJumpDownHeightDifference;
+
+            _maxJumpHeight = isJumpingUp ? jumpTo.y - jumpFrom.y + _defaultMaxJumpUpHeightDifference : _defaultMaxJumpDownHeightDifference;
 
             var jumpTime = isJumpingUp ? _maxJumpUpTime : _maxJumpDownTime;
             var timeToApex = jumpTime / 2;
