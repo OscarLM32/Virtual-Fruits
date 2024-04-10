@@ -46,7 +46,7 @@ namespace Enemies.Bunny
         private void Update()
         {
             HandleHorizontalMovementLimit();
-            HandleAnimation();
+            HandleJumpAnimation();
         }
 
         public void SetUpJump(Vector2 jumpTo)
@@ -77,7 +77,7 @@ namespace Enemies.Bunny
             }
         }
 
-        private void HandleAnimation()
+        private void HandleJumpAnimation()
         {
             if(_rb.velocity.y >= 0)
             {

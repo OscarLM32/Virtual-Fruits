@@ -19,12 +19,14 @@ namespace Enemies.Bunny
         private Vector2 _attackTo;
 
         private Rigidbody2D _rb;
+        private Animator _animator;
         [SerializeField]private BoxCollider2D _attackTrigger;
         [SerializeField]private Transform _groundChecker;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
         }
 
         private void OnEnable()
@@ -37,6 +39,7 @@ namespace Enemies.Bunny
         private void Update()
         {
             HandleGrounded();
+            HandleJumpAnimation();
         }
 
         public void SetUpAttack(Vector2 attackTo)
@@ -80,6 +83,18 @@ namespace Enemies.Bunny
             {
                 _attackTrigger.enabled = true;
                 OnAttackFinished?.Invoke();
+            }
+        }
+
+        private void HandleJumpAnimation()
+        {
+            if (_rb.velocity.y >= 0)
+            {
+                _animator.Play("BunnyJump");
+            }
+            else
+            {
+                _animator.Play("BunnyFall");
             }
         }
     }
