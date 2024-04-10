@@ -1,11 +1,16 @@
 using UnityEngine;
 using DevSystems.StateMachine.SpecificStates;
+using System.Collections;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Enemies.Plant
 {
     public class PlantAttackState : ShootingState<PlantStateMachine>
     {
         private readonly Vector2 _shootingOffset;
+        private const float _animationSyncTime = 0.55f;
+        private float _animationSyncElapsedTime = 0;
 
         public PlantAttackState(PlantStateMachine context, float attackSpeed, float projectileSpeed) : base(context)
         {
@@ -64,15 +69,26 @@ namespace Enemies.Plant
             shootingPosition = context.transform.position + (Vector3)_shootingOffset;
         }
 
+
+        //Very bade code. My non-monobehaviour approach makes handling time hard. Since unity behaviour and tasks do not work well
         private void HandleShot()
         {
             elapsedTime += Time.deltaTime;
-            if (elapsedTime > attackSpeed)
+
+            if (elapsedTime < attackSpeed) return;
+
+            _animationSyncElapsedTime += Time.deltaTime;
+            context.animator.Play("PlantAttack");
+            if(_animationSyncElapsedTime > _animationSyncTime)
             {
                 Shoot();
+                _animationSyncElapsedTime = 0;
                 elapsedTime = 0;
+                context.animator.Play("PlantIdle");
             }
         }
+
+
 
     }
 }

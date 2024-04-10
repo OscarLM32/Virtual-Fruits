@@ -1,6 +1,5 @@
 using Enemies.ShootingEnemyLogic;
 using System;
-using System.Collections;
 using UnityEngine;
 
 namespace DevSystems.StateMachine.SpecificStates
