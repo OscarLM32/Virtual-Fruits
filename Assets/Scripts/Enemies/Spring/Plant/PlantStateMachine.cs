@@ -21,6 +21,7 @@ namespace Enemies.Plant
         #region Components
         public Animator animator { get; private set; }
         public Rigidbody2D rb { get; private set; }
+        public SpriteRenderer spriteRenderer { get; private set; }
         #endregion
 
         #region Attack Variables
@@ -45,6 +46,7 @@ namespace Enemies.Plant
         {
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
 
             if (!CheckComponentsIntegrity())
             {
@@ -69,6 +71,7 @@ namespace Enemies.Plant
             if (!IsPlayer(collision.gameObject)) return;
 
             GetPlayerDirection(collision.gameObject);
+            HandleDirection();
             CheckCanRun();
             isPlayerInAttackRange = true;
         }
@@ -79,6 +82,7 @@ namespace Enemies.Plant
             if (!IsPlayer(other)) return;
 
             GetPlayerDirection(other);
+            HandleDirection();
             CheckCanRun();
             CheckPlayerInSafeZone(other);
         }
@@ -114,7 +118,7 @@ namespace Enemies.Plant
             var collider = gameObject.AddComponent<BoxCollider2D>();
             collider.isTrigger = true;
             collider.size = new Vector2(attackRange * 2, _verticalPlayerDetectionRange);
-            collider.offset = new Vector2(0, _verticalPlayerDetectionRange / 2);
+            collider.offset = new Vector2(0, _verticalPlayerDetectionRange / 2 - 0.5f);
         }
 
         private bool IsPlayer(GameObject other)
@@ -131,6 +135,11 @@ namespace Enemies.Plant
             {
                 playerDirection = -1;
             }
+        }
+
+        private void HandleDirection()
+        {
+            transform.localScale = new Vector3(playerDirection, 1, 1);
         }
 
         private void CheckCanRun()

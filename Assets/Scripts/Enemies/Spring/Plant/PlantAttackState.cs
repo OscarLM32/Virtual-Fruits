@@ -47,11 +47,15 @@ namespace Enemies.Plant
         protected override void OnExit()
         {
             elapsedTime = 0;
+            context.spriteRenderer.flipX = false;
         }
 
         private void HandleSpriteDirection()
         {
-            context.transform.localScale = new Vector3(-context.playerDirection, 1, 1);
+            if(context.playerDirection == context.transform.localScale.x)
+            {
+                context.spriteRenderer.flipX = true;
+            }
         }
 
         private void SetUpShot()

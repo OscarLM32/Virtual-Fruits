@@ -22,7 +22,6 @@ namespace Enemies.Plant
         public override void OnUpdate()
         {
             HandleVelocity();
-            HandleSpriteDirection();
             CheckSwitchState();
         }
 
@@ -50,11 +49,6 @@ namespace Enemies.Plant
         {
             var velocity = new Vector2(_speed * -context.playerDirection, 0);
             context.rb.velocity = velocity;
-        }
-
-        private void HandleSpriteDirection()
-        {
-            context.transform.localScale = new Vector3(context.playerDirection, 1, 1);
         }
     }
 }
