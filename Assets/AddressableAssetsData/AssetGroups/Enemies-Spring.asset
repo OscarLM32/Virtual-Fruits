@@ -23,18 +23,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Enemy
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 354040ab2bbb1264584038a1786cdff0
-    m_Address: Bunny
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Enemy
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 37a44087f97a1154e84263b9cc670aa1
-    m_Address: Plant
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Enemy
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5385fa0c2a82597408a1c2244aa6a94e
     m_Address: Snail
     m_ReadOnly: 0
