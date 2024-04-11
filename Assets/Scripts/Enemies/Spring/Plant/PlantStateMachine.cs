@@ -26,7 +26,6 @@ namespace Enemies.Plant
 
         #region Attack Variables
         public bool isPlayerInAttackRange { get; private set; }
-        [SerializeField]private float _attackRange = 8f;
         private const float _verticalPlayerDetectionRange = 4f;
         #endregion
 
