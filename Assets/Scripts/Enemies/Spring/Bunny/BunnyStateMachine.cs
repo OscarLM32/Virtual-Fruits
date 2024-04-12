@@ -45,7 +45,7 @@ namespace Enemies.Bunny
 
             _currentPatrolPoint = _initialPatrolPoint;
 
-            transform.position = _initialPatrolPoint.transform.position;
+            transform.position = _initialPatrolPoint.transform.position + new Vector3(0, 0.5f, 0);
             _lastPosition = transform.position.x;
         }
 
