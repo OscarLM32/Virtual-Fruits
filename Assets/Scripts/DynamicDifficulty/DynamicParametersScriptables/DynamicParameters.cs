@@ -8,7 +8,7 @@ namespace DynamicDifficulty.DynamicParametersScriptables
 {
     public abstract class DynamicParameters<T> : ScriptableObject, ISerializationCallbackReceiver where T : struct
     {
-        //TODO: switch this to public and only use the [] operator
+        //TODO: switch this to private and only use the [] operator
         public SerializableDictionary<Difficulty, T> parameters;
 
         public T this[Difficulty difficulty]

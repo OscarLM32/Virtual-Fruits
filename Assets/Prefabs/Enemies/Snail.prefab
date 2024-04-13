@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -3, y: 3, z: 1}
+  m_LocalScale: {x: -2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,11 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05078fa9aee34cb468b515035635b841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints: []
-  totalPatrolTime: 0
-  pathType: 0
-  patrolId: Snail1
-  easeType: 1
+  _patrolPoints: []
+  _pathType: 2
+  _easeType: 1
+  _loopType: 0
 --- !u!114 &7198473286657619413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,8 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ef1326d4f326c48a664f688b8ab59f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShellInState: {fileID: 7198473286657619410}
-  ShellOutState: {fileID: 7198473286657619411}
+  _dynamicParameters: {fileID: 11400000, guid: 720325b245312b844927788353d6b497, type: 2}
+  shellInState: {fileID: 7198473286657619410}
+  shellOutState: {fileID: 7198473286657619411}
   _currentState: {fileID: 0}
   playerLayer:
     serializedVersion: 2

@@ -44,7 +44,7 @@ namespace Enemies
         {
             SetUpDynamicValues();
             _patrolBehaviour.SetUpPatrol(_patrollingSpeed);
-            _patrolBehaviour.StartPatrol();
+            _patrolBehaviour.StartPatrolling();
         }
 
         private void SetUpDynamicValues()
@@ -86,7 +86,7 @@ namespace Enemies
         private IEnumerator OnPlayerWeaponCollision(GameObject other)
         {
             //Stop patrolling
-            _patrolBehaviour.PausePatrol();
+            _patrolBehaviour.StopPatrolling();
             _collider.enabled = false;
 
             //Play the proper animation

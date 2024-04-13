@@ -28,9 +28,9 @@ namespace Enemies
 
         private void Exit()
         {
-            DOTween.Pause(Context.PatrolId);
+            Context.patrolling.StopPatrolling();
             Context.SnailAnimator.Play(SnailOutShellAnimations.SHELL_IN);
-            Context.ChangeState(Context.ShellInState);
+            Context.ChangeState(Context.shellInState);
         }
     }
 }

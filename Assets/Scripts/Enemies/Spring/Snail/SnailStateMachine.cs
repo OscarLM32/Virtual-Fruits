@@ -1,39 +1,46 @@
+using DynamicDifficulty;
+using DynamicDifficulty.DynamicParametersScriptables;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Enemies
 {
     public class SnailStateMachine : MonoBehaviour
     {
-        public MonoBehaviour ShellInState;
-        public MonoBehaviour ShellOutState;
+        [SerializeField] private SOSnailDynamicParameters _dynamicParameters;
+
+        public MonoBehaviour shellInState;
+        public MonoBehaviour shellOutState;
         [SerializeField] private MonoBehaviour _currentState;
         public LayerMask playerLayer;
 
-        private const float SHELL_IN_ANIMATION_TIME = 0.583f / 3;
-        private const float SHELL_OUT_ANIMATION_TIME = 0.583f / 2;
+        private const float _sheelInAnimationTime = 0.583f / 3;
+        private const float _shellOutAnimationTime = 0.583f / 2;
 
-        private string _patrolId;
+        private EnemyBasicPatrolling _patrolling;
         private Animator _animator;
         private bool _playerInTrigger = false;
 
         private Vector2 _lastPosition;
         private Vector2 _velocity = Vector2.zero;
         private float _zRotation;
+        private const int _defaultScale = 2;
 
-        public float ShellInAnimationTime => SHELL_IN_ANIMATION_TIME;
-        public float ShellOutAnimationTime => SHELL_OUT_ANIMATION_TIME;
+        public float ShellInAnimationTime => _sheelInAnimationTime;
+        public float ShellOutAnimationTime => _shellOutAnimationTime;
 
+        public EnemyBasicPatrolling patrolling => _patrolling;
         public Animator SnailAnimator => _animator;
-        public string PatrolId => _patrolId;
         public bool PlayerIntrigger => _playerInTrigger;
 
 
         private void Awake()
         {
-            ShellInState.enabled = false;
-            ShellOutState.enabled = false;
+            shellInState.enabled = false;
+            shellOutState.enabled = false;
 
             //_patrolId = GetComponent<EnemyBasicPatrolling>().patrolId;
+            _patrolling = GetComponent<EnemyBasicPatrolling>();
             _animator = GetComponent<Animator>();
 
             _lastPosition = transform.position;
@@ -41,9 +48,13 @@ namespace Enemies
         }
 
         private void Start()
-        {
-            _currentState = ShellOutState;
+        { 
+            _currentState = shellOutState;
             _currentState.enabled = true;
+
+            var difficulty = DynamicDifficultyManager.I.genericDifficulty;
+            _patrolling.SetUpPatrol(_dynamicParameters[difficulty].speed);
+            _patrolling.StartPatrolling();
         }
 
         private void Update()
@@ -72,16 +83,16 @@ namespace Enemies
             switch (_zRotation)
             {
                 case 0:
-                    transform.localScale = xPositiveVelocity ? new Vector3(3, 3, 1) : new Vector3(-3, 3, 1);
+                    transform.localScale = xPositiveVelocity ? new Vector3(_defaultScale, _defaultScale, 1) : new Vector3(-_defaultScale, _defaultScale, 1);
                     break;
                 case 90:
-                    transform.localScale = yPositiveVelocity ? new Vector3(-3, 3, 1) : new Vector3(3, 3, 1);
+                    transform.localScale = yPositiveVelocity ? new Vector3(-_defaultScale, _defaultScale, 1) : new Vector3(_defaultScale, _defaultScale, 1);
                     break;
                 case 180:
-                    transform.localScale = xPositiveVelocity ? new Vector3(-3, 3, 1) : new Vector3(3, 3, 1);
+                    transform.localScale = xPositiveVelocity ? new Vector3(_defaultScale, _defaultScale, 1) : new Vector3(-_defaultScale, _defaultScale, 1);
                     break;
                 case 270:
-                    transform.localScale = yPositiveVelocity ? new Vector3(3, 3, 1) : new Vector3(-3, 3, 1);
+                    transform.localScale = yPositiveVelocity ? new Vector3(_defaultScale, _defaultScale, 1) : new Vector3(-_defaultScale, _defaultScale, 1);
                     break;
             }
         }

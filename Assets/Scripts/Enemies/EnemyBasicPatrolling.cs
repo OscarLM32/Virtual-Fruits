@@ -1,5 +1,4 @@
 using DG.Tweening;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 namespace Enemies
@@ -24,7 +23,7 @@ namespace Enemies
 
         private void OnDisable()
         {
-            PausePatrol();
+            StopPatrolling();
             _tween.Kill();
             _tween = null;
         }
@@ -35,16 +34,16 @@ namespace Enemies
                               .SetEase(_easeType)
                               .SetSpeedBased(true)
                               .SetLoops(-1, _loopType);
-            PausePatrol();
+            StopPatrolling();
         }
 
         //Maybe overkills
-        public void StartPatrol()
+        public void StartPatrolling()
         {
             _tween.Play();
         }
 
-        public void PausePatrol()
+        public void StopPatrolling()
         {
             _tween.Pause();
         }

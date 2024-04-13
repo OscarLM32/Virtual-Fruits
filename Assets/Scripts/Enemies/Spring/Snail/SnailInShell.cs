@@ -56,8 +56,8 @@ namespace Enemies
         {
             Context.SnailAnimator.Play(SnailInShellAnimations.SHELL_OUT);
             yield return new WaitForSeconds(Context.ShellOutAnimationTime);
-            DOTween.Play(Context.PatrolId);
-            Context.ChangeState(Context.ShellOutState);
+            Context.patrolling.StartPatrolling();
+            Context.ChangeState(Context.shellOutState);
         }
     }
 }
