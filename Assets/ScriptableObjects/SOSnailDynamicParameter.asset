@@ -15,7 +15,17 @@ MonoBehaviour:
   parameters:
     elements:
     - key: 0
+      value:
+        speed: 2
     - key: 1
+      value:
+        speed: 2.25
     - key: 2
+      value:
+        speed: 2.5
     - key: 3
+      value:
+        speed: 2.75
     - key: 4
+      value:
+        speed: 3

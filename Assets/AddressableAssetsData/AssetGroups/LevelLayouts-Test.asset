@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: LevelLayouts-Spring
+  m_Name: LevelLayouts-Test
   m_EditorClassIdentifier: 
-  m_GroupName: LevelLayouts-Spring
+  m_GroupName: LevelLayouts-Test
   m_Data:
     m_SerializedData: []
-  m_GUID: 6c2caf12a2d1abc488e246906587d0cd
+  m_GUID: 6952df0b5ae67024a81b4e9e9623a67d
   m_SerializeEntries:
-  - m_GUID: 11063435318f1344e835be9218611628
-    m_Address: normal_test1
+  - m_GUID: b003ce1d06deae34bbff20040e6e4e14
+    m_Address: very_easy_test1
     m_ReadOnly: 0
     m_SerializedLabels:
     - LevelLayout
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b003ce1d06deae34bbff20040e6e4e14
-    m_Address: very_easy_test1
+  - m_GUID: 11063435318f1344e835be9218611628
+    m_Address: normal_test1
     m_ReadOnly: 0
     m_SerializedLabels:
     - LevelLayout
@@ -33,5 +33,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 3a0639c07672d8049b0c623cae366e5d, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 88f7c4c96707e204c8d60cbd5e220ed5, type: 2}
-    - {fileID: 11400000, guid: 79938e568a259c54796383be6862f37d, type: 2}
+    - {fileID: 11400000, guid: f012ccb116c507244b9ba71b433b4ae1, type: 2}
+    - {fileID: 11400000, guid: 9216687ccf2687b438b8ad120c62e2a4, type: 2}
