@@ -21,9 +21,9 @@ namespace DynamicDifficulty
         public void SetDifficultyChanges(Difficulty difficulty)
         {
             var settings = GetDifficultySettings(difficulty);
-            if (settings == null)
+            if (settings.layoutReference == null)
             {
-                EditorLogger.LogWarning(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "[" + gameObject.name + "]" + "There are no difficulty settings specified for that difficulty");
+                EditorLogger.LogWarning(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "[" + gameObject.name + "]" + "There are no difficulty settings specified for that difficulty. Is that intended behaviour?");
                 return;
             }
 
