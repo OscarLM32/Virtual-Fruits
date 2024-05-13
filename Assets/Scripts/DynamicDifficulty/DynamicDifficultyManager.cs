@@ -10,7 +10,7 @@ namespace DynamicDifficulty
 {
     public class DynamicDifficultyManager : Singleton<DynamicDifficultyManager>
     {
-        public Difficulty genericDifficulty { get; private set;}
+        public Difficulty GenericDifficulty { get; private set;}
 
         private const int _maxSkillParameter = 3;
         private const int _minSkillParameter = -3;
@@ -33,18 +33,13 @@ namespace DynamicDifficulty
         {
             _playerSkillParameter = SaveManager.I.GetPlayerSkillParameter();
             _enemyDifficultyParameters = SaveManager.I.GetEnemyDifficultyParameters();
-            genericDifficulty = _calculator.GetPlayerSkillLevel(_playerSkillParameter);
+            GenericDifficulty = _calculator.GetPlayerSkillLevel(_playerSkillParameter);
         }
 
         private void OnEnable()
         {
             GameActions.OnPlayerDeath += OnPlayerDeath;
             GameActions.OnEnemyKilled += OnEnemyKilled;
-        }
-
-        private void Start()
-        {
-            SetUpLevelDifficulty();
         }
 
         public Difficulty GetEnemyDifficulty(EnemyType enemy)
@@ -55,16 +50,6 @@ namespace DynamicDifficulty
             return _enemyDifficulties[enemy];
         }
 
-        public void SetUpLevelDifficulty()
-        {
-            LevelDifficultyOrchestrator orchestrator = FindObjectOfType<LevelDifficultyOrchestrator>();
-            if (orchestrator == null)
-            {
-                EditorLogger.LogWarning(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, "{DynamicDifficultyManager}: Orchestrator not found. Is this intented behaviour?");
-                return;
-            }
-            orchestrator.SetLevelDifficulty(genericDifficulty);
-        }
 
         public void SaveData()
         {

@@ -7,7 +7,12 @@ namespace DynamicDifficulty
     {
         [SerializeField] private LevelSector[] _levelSectors;
 
-        public void SetLevelDifficulty(Difficulty difficulty)
+        private void Start()
+        {
+            SetLevelDifficulty(DynamicDifficultyManager.I.GenericDifficulty);
+        }
+
+        private void SetLevelDifficulty(Difficulty difficulty)
         {
             foreach (LevelSector levelSector in _levelSectors)
             {
