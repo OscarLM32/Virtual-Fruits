@@ -4,12 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - BeeEnemy
-  - Item
   - Checkpoint
+  - SpawnPoint
   - End
-  - Weapon
-  - Stinger
+  - BeeEnemy
   - Snail
   layers:
   - Default

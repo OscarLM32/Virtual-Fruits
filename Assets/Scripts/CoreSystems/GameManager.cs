@@ -1,3 +1,5 @@
+using DynamicDifficulty;
+using EditorSystems.Logger;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -12,8 +14,9 @@ public class GameManager : MonoBehaviour
     private const int LVL_SELECT_MENU_IDX = 1;
     private int _currentLives = MAX_LIVES;
 
-    [SerializeField] private Transform _spawnPoint;
-    private Transform _player;
+    [SerializeField]private Transform _spawnPoint;
+    [SerializeField]private Transform _player;
+
     private PlayerInput _playerInput;
     private AudioManager _audioManager;
 
@@ -24,20 +27,56 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _playerInput = new PlayerInput();
-        _player = GameObject.Find("Player").transform;
-        _player.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, 0);
-
         _playerInput.MenuControls.PauseMenu.started += PauseGame;
 
         _audioManager = GetComponent<AudioManager>();
     }
 
+    private void OnEnable()
+    {
+        _playerInput.MenuControls.Enable();
+        GameActions.CheckpointReached += CheckpointReached;
+        GameActions.LevelEndReached += LevelEnd;
+        GameActions.PlayerDeath += PlayerDeath;
+
+        LevelDifficultyOrchestrator.OnLevelDifficultySet += StartLevel;
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.MenuControls.Disable();
+        GameActions.CheckpointReached -= CheckpointReached;
+        GameActions.LevelEndReached -= LevelEnd;
+        GameActions.PlayerDeath -= PlayerDeath;
+
+        LevelDifficultyOrchestrator.OnLevelDifficultySet -= StartLevel;
+    }
+
     private void Start()
     {
-        LevelStart?.Invoke();
+        LoadLevel();
+        
+        var levelDifficultyOrchestrator = FindObjectOfType<LevelDifficultyOrchestrator>();
+        if(levelDifficultyOrchestrator == null)
+        {
+            EditorLogger.Log(LoggingSystem.GAME_MANAGER, "The level loaded seems to have no Level Difficulty Orchestrator");
+            StartLevel();
+        }
         //_audioManager.Play("SpringLevelTheme");
+    }
 
-        //DynamicDifficultyManager.I.SetUpLevelDifficulty();
+    private void LoadLevel()
+    {
+        //access info from an scriptable
+        //Load level
+    }
+
+    private void StartLevel()
+    {
+        _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
+        _player.transform.position = _spawnPoint.position;
+
+        LevelStart?.Invoke();
     }
 
     private void PauseGame(InputAction.CallbackContext context)
@@ -88,21 +127,5 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(LVL_SELECT_MENU_IDX);
-    }
-
-    private void OnEnable()
-    {
-        _playerInput.MenuControls.Enable();
-        GameActions.CheckpointReached += CheckpointReached;
-        GameActions.LevelEndReached += LevelEnd;
-        GameActions.PlayerDeath += PlayerDeath;
-    }
-
-    private void OnDisable()
-    {
-        _playerInput.MenuControls.Disable();
-        GameActions.CheckpointReached -= CheckpointReached;
-        GameActions.LevelEndReached -= LevelEnd;
-        GameActions.PlayerDeath -= PlayerDeath;
     }
 }

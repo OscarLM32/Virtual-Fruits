@@ -1,15 +1,19 @@
 using EditorSystems.Logger;
+using System;
 using UnityEngine;
 
 namespace DynamicDifficulty
 {
     public class LevelDifficultyOrchestrator : MonoBehaviour
     {
+        public static Action OnLevelDifficultySet;
+
         [SerializeField] private LevelSector[] _levelSectors;
 
         private void Start()
         {
             SetLevelDifficulty(DynamicDifficultyManager.I.GenericDifficulty);
+            OnLevelDifficultySet?.Invoke();
         }
 
         private void SetLevelDifficulty(Difficulty difficulty)

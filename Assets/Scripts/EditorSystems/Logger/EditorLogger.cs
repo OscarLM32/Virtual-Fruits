@@ -18,6 +18,7 @@ namespace EditorSystems.Logger
             {LoggingSystem.SAVE_MANAGER, true},
             {LoggingSystem.SINGLETON, false},
             {LoggingSystem.ENEMY, true},
+            {LoggingSystem.GAME_MANAGER, true},
         };
 
         public static void Log(LoggingSystem loggingSystem, string msg)

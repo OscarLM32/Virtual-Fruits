@@ -9,5 +9,6 @@ namespace EditorSystems.Logger
         SAVE_MANAGER,
         SINGLETON,
         ENEMY,
+        GAME_MANAGER
     }
 }
