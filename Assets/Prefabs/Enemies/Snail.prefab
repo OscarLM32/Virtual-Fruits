@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7198473286657619421}
   m_Layer: 3
   m_Name: Snail
-  m_TagString: Untagged
+  m_TagString: Snail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
