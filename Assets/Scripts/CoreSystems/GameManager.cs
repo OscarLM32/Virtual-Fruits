@@ -1,8 +1,10 @@
 using DynamicDifficulty;
 using EditorSystems.Logger;
+using Extensions;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -67,8 +69,8 @@ public class GameManager : MonoBehaviour
 
     private void LoadLevel()
     {
-        //access info from an scriptable
-        //Load level
+        var level = SOLevelData.instance.levelRef.LoadAssetSync<GameObject>();
+        Instantiate(level);
     }
 
     private void StartLevel()
