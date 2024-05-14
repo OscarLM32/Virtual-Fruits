@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Level-Spring
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: Level-Spring
   m_Data:
     m_SerializedData: []
   m_GUID: 0653cf577a051c44194ecd3e9080867c
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 8705c26ce0e96fe4a82ee0626e6f52ff
+    m_Address: Spring1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3a0639c07672d8049b0c623cae366e5d, type: 2}
   m_SchemaSet:
