@@ -8,7 +8,7 @@ using UnityEngine.AddressableAssets;
 namespace Menus.LevelSelection
 {
     [CreateAssetMenu(fileName = "SOLevelsDatabase", menuName = "ScriptableObjects/LevelsDatabase")]
-    public class SOLevelsDatabase : ScriptableSingleton<SOLevelsDatabase>
+    public class SOLevelsDatabase : ScriptableObject
     {
         [Serializable]
         public class LevelData

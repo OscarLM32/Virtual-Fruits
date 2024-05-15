@@ -7,6 +7,8 @@ namespace Menus.LevelSelection
 {
     public class LevelSelection : MonoBehaviour
     {
+        public SOLevelsDatabase database;
+
         public string levelId;
         private AssetReference levelRef;
         private Button _playButton;
@@ -15,7 +17,7 @@ namespace Menus.LevelSelection
         {
             _playButton = GameObject.Find("Play").GetComponent<Button>();
 
-            var level = SOLevelsDatabase.instance[levelId];
+            var level = database[levelId];
             if (level == null) return;
             if (level.unlocked)
             {
