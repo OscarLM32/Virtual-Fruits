@@ -19,7 +19,6 @@ namespace CoreSystems.SaveSystem
             path = $"{Application.persistentDataPath}/{saveFileName}";
         }
 
-
         public float GetPlayerSkillParameter()
         {
             if (save == null) Load();
