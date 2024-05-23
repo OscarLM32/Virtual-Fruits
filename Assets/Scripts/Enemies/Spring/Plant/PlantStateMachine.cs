@@ -175,7 +175,6 @@ namespace Enemies.Plant
         {
             animator.Play("PlantHit");
             CurrentState = null;
-            stopShooting = true;
 
             var colliders = GetComponents<BoxCollider2D>();
             foreach(var col in colliders)
