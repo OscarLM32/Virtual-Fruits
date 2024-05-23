@@ -5283,6 +5283,7 @@ GameObject:
   - component: {fileID: 541542254}
   - component: {fileID: 541542256}
   - component: {fileID: 541542255}
+  - component: {fileID: 541542257}
   m_Layer: 7
   m_Name: FloatingPlatform
   m_TagString: Untagged
@@ -5369,6 +5370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13841e283afe0f4e8f32740229258a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dynamicParameters: {fileID: 11400000, guid: cc6f3b08c471b314a9e34331c5198c3a, type: 2}
 --- !u!95 &541542254
 Animator:
   serializedVersion: 5
@@ -5379,7 +5381,7 @@ Animator:
   m_GameObject: {fileID: 541542250}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f16221f750b21e4989d3c6ff5e0a9b7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5402,11 +5404,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d35cc494c67385e4897d066d616daa33, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5447,7 +5449,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.07772462}
   m_SpriteTilingProperty:
@@ -5462,6 +5464,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.15}
   m_EdgeRadius: 0
+--- !u!251 &541542257
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541542250}
+  m_Enabled: 1
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 150
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &546498135
 GameObject:
   m_ObjectHideFlags: 0

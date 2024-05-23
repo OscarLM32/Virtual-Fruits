@@ -1,12 +1,19 @@
+using DynamicDifficulty;
+using DynamicDifficulty.DynamicParametersScriptables;
 using System.Collections;
 using UnityEngine;
 
 public class FloatingPlatform : MonoBehaviour
 {
+    public SOFloatingPlatformDynamicParameters dynamicParameters;
+
+    private Vector2 _originalPos;
+
     private bool _platformFalling;
     private float _floatingTime = 0.75f;
-    private float _timeAfterMotorStopToFall = 0.5f;
+    private float _timeAfterMotorStopToFall = 0.75f;
 
+    private bool _respawning = false;
     private float _respawnTime = 3f;
 
     private Rigidbody2D _rb;
@@ -14,6 +21,8 @@ public class FloatingPlatform : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+
+        _originalPos = transform.position;
     }
 
     void Start()
@@ -29,21 +38,33 @@ public class FloatingPlatform : MonoBehaviour
         StartCoroutine(Fall());
     }
 
+    private void OnBecameInvisible()
+    {
+        StartCoroutine(Respawn());
+    }
+
 
     private IEnumerator Fall()
     {
         yield return new WaitForSeconds(_floatingTime);
-        //Stop animation
+        _animator.Play("Idle");
         yield return new WaitForSeconds(_timeAfterMotorStopToFall);
-        //Unfreeze position Y
+        _rb.gravityScale = 1;
     }
 
     private IEnumerator Respawn()
     {
+        if (_respawning) yield break;
+
+        _respawning = true;
         yield return new WaitForSeconds(_respawnTime);
-        //Move platform to original position
-        //Lock Y position and set gravity
-        //Play floating animation
+
+        transform.position = _originalPos;
+        _rb.velocity = Vector2.zero;
+        _rb.gravityScale = 0;
+
+        _platformFalling = false;
+        _respawning = false;
     }
 
 }
