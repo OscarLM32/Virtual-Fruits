@@ -15,5 +15,5 @@ namespace DynamicDifficulty.DynamicParametersScriptables
     }
 
     [CreateAssetMenu(fileName = "SOBunnyDynamicParameters", menuName = "ScriptableObjects/DynamicParameters/Spring/Bunny")]
-    public class SOBunnyDynamicPrameters : DynamicParameters<BunnyDynamicParameters> { }
+    public class SOBunnyDynamicParameters : DynamicParameters<BunnyDynamicParameters> { }
 }

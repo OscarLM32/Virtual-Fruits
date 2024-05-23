@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 199090f2ddba8624fb53f5fe4c0b70d5, type: 3}
   m_Name: SOBunnyDynamicParameters
   m_EditorClassIdentifier: Assembly-CSharp:DynamicDifficulty.DynamicParametersScriptables:SOBunnyDynamicPrameters
   parameters:

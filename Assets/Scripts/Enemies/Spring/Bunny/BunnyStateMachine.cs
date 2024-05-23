@@ -14,7 +14,7 @@ namespace Enemies.Bunny
     [RequireComponent(typeof(BunnyAttackState))]
     public class BunnyStateMachine : MonoBehaviour
     {
-        public SOBunnyDynamicPrameters dynamicParameters;
+        public SOBunnyDynamicParameters dynamicParameters;
 
         private BunnyIdleState _idleState;
         private BunnyRunState _runState;
