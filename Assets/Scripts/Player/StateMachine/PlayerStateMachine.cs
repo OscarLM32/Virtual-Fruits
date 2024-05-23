@@ -82,7 +82,8 @@ namespace Player.StateMachine
         private bool _attackAvailable = false;
 
         //Combat
-        protected int playerProtectionLevel { get; private set; } = 0;
+        public int playerProtectionLevel = 0;
+        public int playerAttackPower = 0;
         private bool _playerHit = false;
         private bool _playerBounceBack = false;
         private bool _playerDead = false;
@@ -421,11 +422,13 @@ namespace Player.StateMachine
 
         public void Kill(KillContext killContext)
         {
+            if (killContext.attackPower <= playerProtectionLevel) return;
+
             _playerDead = true;
             _playerHit = true;
         }
 
-        public void Push()
+        public void Push(PushContext pushContext = null)
         {
             _playerBounceBack = true;
             _playerHit = true;

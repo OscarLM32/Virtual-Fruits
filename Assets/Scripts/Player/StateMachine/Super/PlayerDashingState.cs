@@ -18,6 +18,9 @@ namespace Player.StateMachine
         
         private float _timeSpentDashing = 0;
 
+        private int _attackPower = 1;
+        private int _protectionLevel = 1;
+
         public PlayerDashingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, Difficulty difficulty)
             : base(currentContext, playerStateFactory)
         {
@@ -57,6 +60,9 @@ namespace Player.StateMachine
         public override void ExitState()
         {
             Context.LastDashTime = Time.time;
+
+            Context.playerAttackPower = 0;
+            Context.playerProtectionLevel = 0;
         }
 
         public override void InitializeSubState()
@@ -106,6 +112,9 @@ namespace Player.StateMachine
         {
             //TODO: spawn some particles when the dash begins
             //TODO: make the dash stop when it collides with an object
+
+            Context.playerAttackPower = _attackPower;
+            Context.playerProtectionLevel = _protectionLevel;
 
             Context.Rb2D.velocity = new Vector2(_dashSpeed * Context.LastFacingDirection, 0f);
             Context.RequireNewDashPress = true;
