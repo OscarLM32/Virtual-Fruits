@@ -1,18 +1,15 @@
 
+using DevSystems.CombatSystem;
 using DynamicDifficulty;
 using DynamicDifficulty.DynamicParametersScriptables;
-using JetBrains.Annotations;
-using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace Enemies.Bunny
 {
     [RequireComponent(typeof(BunnyIdleState), typeof(BunnyJumpState), typeof(BunnyRunState))]
     [RequireComponent(typeof(BunnyAttackState))]
-    public class BunnyStateMachine : MonoBehaviour
+    public class BunnyStateMachine : MonoBehaviour, IKillable
     {
         public SOBunnyDynamicParameters dynamicParameters;
 
@@ -33,6 +30,9 @@ namespace Enemies.Bunny
 
         private float _lastPosition;
         private int _lastFacingDirection = -1;
+
+        private const int _attackPower = 3;
+        private const int _attackProtection = 3;
 
         #region Unity Functions
 
@@ -79,6 +79,15 @@ namespace Enemies.Bunny
                 _attackTo = collision.transform.position;
                 StopCoroutine("HandlePatrolAction");
                 StartCoroutine(HandleAttack());
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            var killable = collision.gameObject.GetComponent<IKillable>();
+            if(killable != null)
+            {
+                killable.Kill(new KillContext(_attackPower, EnemyType.BUNNY));
             }
         }
 
@@ -242,6 +251,12 @@ namespace Enemies.Bunny
         {
             _jumpState.SetUpJump(jumpTo);
             SwitchState(_jumpState);
+        }
+
+        public void Kill(KillContext killContext)
+        {
+            if (killContext.attackPower <= _attackProtection) return;
+            //Destroy(gameObject);
         }
     }
 }

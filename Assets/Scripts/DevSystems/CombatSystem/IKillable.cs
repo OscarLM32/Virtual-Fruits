@@ -2,7 +2,7 @@
 
 namespace DevSystems.CombatSystem
 {
-    public interface Ikillable
+    public interface IKillable
     {
         public void Kill(KillContext killContext);
     }

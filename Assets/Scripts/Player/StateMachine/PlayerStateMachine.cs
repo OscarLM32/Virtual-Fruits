@@ -8,7 +8,7 @@ using DevSystems.CombatSystem;
 namespace Player.StateMachine
 {
     [RequireComponent(typeof(AudioManager), typeof(Animator), typeof(Rigidbody2D))]
-    public class PlayerStateMachine : MonoBehaviour, Ikillable, IPushable
+    public class PlayerStateMachine : MonoBehaviour, IKillable, IPushable
     {
         private const int _enemyLayer = 3;
         private const int _projectileLayer = 9;

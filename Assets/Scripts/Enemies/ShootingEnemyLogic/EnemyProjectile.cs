@@ -27,7 +27,7 @@ namespace Enemies.ShootingEnemyLogic
                 Instantiate(_onCollisionParticles, gameObject.transform.position, Quaternion.identity);
             }
 
-            var killable = collision.gameObject.GetComponent<Ikillable>();
+            var killable = collision.gameObject.GetComponent<IKillable>();
             if(killable != null) killable.Kill(new KillContext(_attackPower, enemyType));
 
             EnemyProjectilePool.I.DeleteProjectile(type, gameObject);
