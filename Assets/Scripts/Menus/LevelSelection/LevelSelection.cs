@@ -8,6 +8,7 @@ namespace Menus.LevelSelection
     public class LevelSelection : MonoBehaviour
     {
         public SOLevelsDatabase database;
+        public SOSelectedLevelData selectedLevel;
 
         public string levelId;
         private AssetReference levelRef;
@@ -28,7 +29,7 @@ namespace Menus.LevelSelection
 
         public void OnClick()
         {
-            SOLevelData.instance.levelRef = levelRef;
+            selectedLevel.levelRef = levelRef;
             _playButton.interactable = true;
         }
     }

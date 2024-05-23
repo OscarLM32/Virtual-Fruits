@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 {
     public static Action LevelStart;
 
+    [SerializeField]private SOSelectedLevelData levelData;
+
     private const int MAX_LIVES = 3;
     private const int LVL_SELECT_MENU_IDX = 1;
     private int _currentLives = MAX_LIVES;
@@ -69,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     private void LoadLevel()
     {
-        var level = SOLevelData.instance.levelRef.LoadAssetSync<GameObject>();
+        var level = levelData.levelRef.LoadAssetSync<GameObject>();
         Instantiate(level);
     }
 

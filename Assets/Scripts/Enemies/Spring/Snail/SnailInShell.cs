@@ -1,3 +1,4 @@
+using DevSystems.CombatSystem;
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
@@ -46,8 +47,10 @@ namespace Enemies
 
         private void OnCollisionEnter2D(Collision2D col)
         {
-            if (col.gameObject.tag.Equals("Player"))
+            var pushable = col.gameObject.GetComponent<IPushable>();
+            if(pushable != null)
             {
+                pushable.Push(new PushContext(EnemyType.SNAIL));
                 _playerCollided = true;
             }
         }
