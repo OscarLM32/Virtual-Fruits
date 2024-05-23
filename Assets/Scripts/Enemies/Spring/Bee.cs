@@ -117,8 +117,9 @@ namespace Enemies
 
         public IEnumerator OnKillBehavior()
         {
-            _animator.Play("PlantHit");
+            _animator.Play("BeeHit");
             _patrolBehaviour.StopPatrolling();
+            stopShooting = true;
 
             var colliders = GetComponents<BoxCollider2D>();
             foreach (var col in colliders)
