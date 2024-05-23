@@ -3,11 +3,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using EditorSystems.Logger;
 using DynamicDifficulty;
+using DevSystems.CombatSystem;
 
 namespace Player.StateMachine
 {
     [RequireComponent(typeof(AudioManager), typeof(Animator), typeof(Rigidbody2D))]
-    public class PlayerStateMachine : MonoBehaviour
+    public class PlayerStateMachine : MonoBehaviour, Ikillable, IPushable
     {
         private const int _enemyLayer = 3;
         private const int _projectileLayer = 9;
@@ -80,7 +81,8 @@ namespace Player.StateMachine
         private float _attackAngle;
         private bool _attackAvailable = false;
 
-        //Player hit
+        //Combat
+        protected int playerProtectionLevel { get; private set; } = 0;
         private bool _playerHit = false;
         private bool _playerBounceBack = false;
         private bool _playerDead = false;
@@ -324,7 +326,7 @@ namespace Player.StateMachine
             _requireNewAttackPress = false;
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        /*private void OnCollisionEnter2D(Collision2D col)
         {
             if (col.gameObject.layer == _enemyLayer || col.gameObject.layer == _projectileLayer)
             {
@@ -337,7 +339,7 @@ namespace Player.StateMachine
                 _playerDead = true;
                 _playerHit = true;
             }
-        }
+        }*/
 
         private void OnRetrieveWeapon()
         {
@@ -415,6 +417,18 @@ namespace Player.StateMachine
 
             //Wall grappling
             _wallGrapplingGravityFactor = _fallingGravityFactor * 0.15f;
+        }
+
+        public void Kill(KillContext killContext)
+        {
+            _playerDead = true;
+            _playerHit = true;
+        }
+
+        public void Push()
+        {
+            _playerBounceBack = true;
+            _playerHit = true;
         }
     }
 }

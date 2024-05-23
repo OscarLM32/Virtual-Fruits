@@ -1,0 +1,10 @@
+using Enemies;
+
+namespace DevSystems.CombatSystem
+{
+    public class KillContext
+    {
+        public int attackPower = 0;
+        public EnemyType? enemyType = null;
+    }
+}
