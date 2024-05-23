@@ -8,7 +8,7 @@ namespace DevSystems.StateMachine
 
         protected void Update()
         {
-            CurrentState.OnUpdate();
+            CurrentState?.OnUpdate();
         }
     }
 }

@@ -1,3 +1,4 @@
+using DevSystems.CombatSystem;
 using DynamicDifficulty;
 using DynamicDifficulty.DynamicParametersScriptables;
 using Enemies.ShootingEnemyLogic;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace Enemies
 {
     [RequireComponent(typeof(EnemyBasicPatrolling))]
-    public class Bee : ShootingEnemy
+    public class Bee : ShootingEnemy, IKillable
     {
         private static class BeeAnimations
         {
@@ -17,7 +18,7 @@ namespace Enemies
         }
 
         [Header("Bee parameters")]
-        [SerializeField]private SOBeeDynamicParameters _dynamicParameters;
+        [SerializeField] private SOBeeDynamicParameters _dynamicParameters;
         //TODO: most likely deletable
         public PhysicsMaterial2D ragdollMaterial;
 
@@ -27,7 +28,7 @@ namespace Enemies
         private AudioManager _audioManager;
 
         private EnemyBasicPatrolling _patrolBehaviour;
-        [SerializeField]private float _patrollingSpeed;
+        [SerializeField] private float _patrollingSpeed;
 
 
         protected void Awake()
@@ -109,6 +110,24 @@ namespace Enemies
             _rb.AddForce(new Vector2(800 * launchDirection, 550));
         }
 
+        public void Kill(KillContext killContext)
+        {
+            StartCoroutine(OnKillBehavior());
+        }
 
+        public IEnumerator OnKillBehavior()
+        {
+            _animator.Play("PlantHit");
+            _patrolBehaviour.StopPatrolling();
+
+            var colliders = GetComponents<BoxCollider2D>();
+            foreach (var col in colliders)
+            {
+                col.enabled = false;
+            }
+
+            yield return new WaitForSeconds(1.5f);
+            Destroy(gameObject);
+        }
     }
 }

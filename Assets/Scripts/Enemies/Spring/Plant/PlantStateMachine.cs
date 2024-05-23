@@ -1,14 +1,16 @@
+using DevSystems.CombatSystem;
 using DevSystems.StateMachine;
 using DynamicDifficulty;
 using DynamicDifficulty.DynamicParametersScriptables;
 using EditorSystems.Logger;
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 namespace Enemies.Plant
 {
-    public class PlantStateMachine : BaseStateMachine<PlantStateMachine>
+    public class PlantStateMachine : BaseStateMachine<PlantStateMachine>, IKillable
     {
         [SerializeField] private SOPlantDynamicParameters _dynamicParameters;
 
@@ -164,6 +166,24 @@ namespace Enemies.Plant
             }
         }
 
+        public void Kill(KillContext killContext)
+        {
+            StartCoroutine(OnKillBehavior());
+        }
 
+        public IEnumerator OnKillBehavior()
+        {
+            animator.Play("PlantHit");
+            CurrentState = null;
+
+            var colliders = GetComponents<BoxCollider2D>();
+            foreach(var col in colliders)
+            {
+                col.enabled = false;
+            }
+
+            yield return new WaitForSeconds(1.5f);
+            Destroy(gameObject);
+        }
     }
 }

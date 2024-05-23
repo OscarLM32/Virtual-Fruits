@@ -212,6 +212,12 @@ namespace Player.StateMachine
             _currentState.UpdateStates();
         }
 
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            var killable = col.gameObject.GetComponent<IKillable>();
+            killable?.Kill(new KillContext(playerAttackPower));
+        }
+
         #endregion
 
         private void HandleSpriteDirection()
@@ -326,21 +332,6 @@ namespace Player.StateMachine
             _isAttackPressed = context.ReadValueAsButton();
             _requireNewAttackPress = false;
         }
-
-        /*private void OnCollisionEnter2D(Collision2D col)
-        {
-            if (col.gameObject.layer == _enemyLayer || col.gameObject.layer == _projectileLayer)
-            {
-                if (col.gameObject.CompareTag("Snail"))
-                {
-                    _playerBounceBack = true;
-                    _playerHit = true;
-                    return;
-                }
-                _playerDead = true;
-                _playerHit = true;
-            }
-        }*/
 
         private void OnRetrieveWeapon()
         {
