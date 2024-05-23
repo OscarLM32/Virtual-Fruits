@@ -45,6 +45,22 @@ public class FloatingPlatform : MonoBehaviour
         StartCoroutine(Respawn());
     }
 
+    private void SetUpDynamicParameters()
+    {
+        if (dynamicParameters == null)
+        {
+            Debug.LogWarning($"[FLOATING_PLATFORM]: The dynamic parameters passed are null, using default parameters");
+            return;
+        }
+
+        var difficulty = DynamicDifficultyManager.I.GenericDifficulty;
+        var parameters = dynamicParameters[difficulty];
+
+        transform.localScale = new Vector3(parameters.scale, transform.localScale.y, transform.localScale.z);
+        _floatingTime = parameters.floatingTime;
+        _timeAfterMotorStopToFall = parameters.timeAfterMotorStopToFall;
+    }
+
 
     private IEnumerator Fall()
     {
