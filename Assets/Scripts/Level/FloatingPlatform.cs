@@ -17,17 +17,19 @@ public class FloatingPlatform : MonoBehaviour
     private float _respawnTime = 3f;
 
     private Rigidbody2D _rb;
+    private Animator _animator;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
 
         _originalPos = transform.position;
     }
 
     void Start()
     {
-        //Set up dyamic difficulty settings
+        SetUpDynamicParameters();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -62,6 +64,7 @@ public class FloatingPlatform : MonoBehaviour
         transform.position = _originalPos;
         _rb.velocity = Vector2.zero;
         _rb.gravityScale = 0;
+        _animator.Play("Floating");
 
         _platformFalling = false;
         _respawning = false;
