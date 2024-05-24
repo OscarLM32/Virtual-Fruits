@@ -1,3 +1,4 @@
+using CoreSystems.SaveSystem;
 using DynamicDifficulty;
 using EditorSystems.Logger;
 using Enemies;
@@ -102,16 +103,22 @@ public class GameManager : MonoBehaviour
 
     public void ExitLevel()
     {
+        DynamicDifficultyManager.I.SaveData();
         SceneManager.LoadScene(LVL_SELECT_MENU_IDX);
     }
 
     private void PlayerDeath(EnemyType? enemyType)
     {
+        StartCoroutine(PlayerDeathCoroutine());
+    }
+
+    private IEnumerator PlayerDeathCoroutine()
+    {
+        yield return new WaitForSeconds(1.5f);
         _currentLives--;
         if (_currentLives <= 0)
         {
-            SceneManager.LoadScene(LVL_SELECT_MENU_IDX); //Level selection menu
-            return;
+            ExitLevel();
         }
         _player.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, 0);
     }
@@ -131,6 +138,6 @@ public class GameManager : MonoBehaviour
     private IEnumerator LevelEndCoroutine()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(LVL_SELECT_MENU_IDX);
+        ExitLevel();
     }
 }

@@ -13,6 +13,7 @@ namespace DevSystems.StateMachine.SpecificStates
         protected Action beforeShotAction;
         protected Action afterShotAction;
 
+        protected int projectileAttackPower = 1;
         protected float projectileSpeed;
         protected float attackSpeed;
         protected float elapsedTime;
@@ -44,7 +45,7 @@ namespace DevSystems.StateMachine.SpecificStates
             EnemyProjectile projectile = obj.GetComponent<EnemyProjectile>();
 
             obj.SetActive(true);
-            projectile.SetUpProjectile(shootingPosition, shootingDirection, projectileSpeed);
+            projectile.SetUpProjectile(shootingPosition, shootingDirection, projectileSpeed, projectileAttackPower);
 
             afterShotAction?.Invoke();
         }

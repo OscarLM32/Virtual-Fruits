@@ -3,6 +3,7 @@ using DevSystems.StateMachine.SpecificStates;
 using System.Collections;
 using System.Threading.Tasks;
 using System.Threading;
+using JetBrains.Annotations;
 
 namespace Enemies.Plant
 {
@@ -12,12 +13,15 @@ namespace Enemies.Plant
         private const float _animationSyncTime = 0.55f;
         private float _animationSyncElapsedTime = 0;
 
+        private const int _projectileAttackPower = 1;
+
         public PlantAttackState(PlantStateMachine context, float attackSpeed, float projectileSpeed) : base(context)
         {
             projectileType = ShootingEnemyLogic.ProjectileType.Bean;
 
             this.attackSpeed = attackSpeed;
             this.projectileSpeed = projectileSpeed;
+            projectileAttackPower = _projectileAttackPower;
 
             //TODO: set up a proper offset
             _shootingOffset = Vector2.zero;
@@ -70,7 +74,7 @@ namespace Enemies.Plant
         }
 
 
-        //Very bade code. My non-monobehaviour approach makes handling time hard. Since unity behaviour and tasks do not work well
+        //Very bad code. My non-monobehaviour approach makes handling time hard. Since unity behaviour and tasks do not work well
         private void HandleShot()
         {
             elapsedTime += Time.deltaTime;

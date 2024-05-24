@@ -26,9 +26,12 @@ namespace Enemies.Plant
         public SpriteRenderer spriteRenderer { get; private set; }
         #endregion
 
-        #region Attack Variables
+        #region Combat Variables
         public bool isPlayerInAttackRange { get; private set; }
         private const float _verticalPlayerDetectionRange = 4f;
+
+        private const int _defaultAttackPower = 1;
+        private const int _protectionPower = 0;
         #endregion
 
         #region Run Variables
@@ -93,6 +96,12 @@ namespace Enemies.Plant
             if (!IsPlayer(collision.gameObject)) return;
 
             isPlayerInAttackRange = false;
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            var killable = col.gameObject.GetComponent<IKillable>();
+            killable?.Kill(new KillContext(_defaultAttackPower));
         }
 
         #endregion
@@ -168,6 +177,7 @@ namespace Enemies.Plant
 
         public void Kill(KillContext killContext)
         {
+            if (killContext.attackPower <= _protectionPower) return;
             StartCoroutine(OnKillBehavior());
         }
 

@@ -30,6 +30,8 @@ namespace Enemies
         private EnemyBasicPatrolling _patrolBehaviour;
         [SerializeField] private float _patrollingSpeed;
 
+        private const int _protectionPower = 0;
+
 
         protected void Awake()
         {
@@ -112,6 +114,7 @@ namespace Enemies
 
         public void Kill(KillContext killContext)
         {
+            if (killContext.attackPower <= _protectionPower) return;
             StartCoroutine(OnKillBehavior());
         }
 
