@@ -1,5 +1,6 @@
 using DynamicDifficulty;
 using EditorSystems.Logger;
+using Enemies;
 using Extensions;
 using System;
 using System.Collections;
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
         _playerInput.MenuControls.Enable();
         GameActions.CheckpointReached += CheckpointReached;
         GameActions.LevelEndReached += LevelEnd;
-        GameActions.PlayerDeath += PlayerDeath;
+        GameActions.OnPlayerDeath += PlayerDeath;
 
         LevelDifficultyOrchestrator.OnLevelDifficultySet += StartLevel;
     }
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
         _playerInput.MenuControls.Disable();
         GameActions.CheckpointReached -= CheckpointReached;
         GameActions.LevelEndReached -= LevelEnd;
-        GameActions.PlayerDeath -= PlayerDeath;
+        GameActions.OnPlayerDeath -= PlayerDeath;
 
         LevelDifficultyOrchestrator.OnLevelDifficultySet -= StartLevel;
     }
@@ -104,7 +105,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(LVL_SELECT_MENU_IDX);
     }
 
-    private void PlayerDeath()
+    private void PlayerDeath(EnemyType? enemyType)
     {
         _currentLives--;
         if (_currentLives <= 0)

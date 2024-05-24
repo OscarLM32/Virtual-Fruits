@@ -1,3 +1,4 @@
+using Enemies;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class HUDManager : MonoBehaviour
         _currentChild = transform.childCount - 1;
     }
 
-    private void UpdateHealth()
+    private void UpdateHealth(EnemyType? enemyType)
     {
         Transform child = transform.GetChild(_currentChild);
         child.GetComponent<Image>().sprite = EmptyHeartImg;
@@ -20,11 +21,11 @@ public class HUDManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameActions.PlayerDeath += UpdateHealth;
+        GameActions.OnPlayerDeath += UpdateHealth;
     }
 
     private void OnDisable()
     {
-        GameActions.PlayerDeath -= UpdateHealth;
+        GameActions.OnPlayerDeath -= UpdateHealth;
     }
 }

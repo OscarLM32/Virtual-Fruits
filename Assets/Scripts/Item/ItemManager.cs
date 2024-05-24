@@ -30,7 +30,7 @@ public class ItemManager : MonoBehaviour
 
     private void GetPickedItemsList()
     {
-        _pickedItems = SaveLoadSystem.I.GetLevelBitMap();
+        /*_pickedItems = SaveLoadSystem.I.GetLevelBitMap();
         //This logic inside the "if" only makes sense in development, may be cut out on launch
         if (_pickedItems.Count != _items.Count || debug)
         {
@@ -38,7 +38,7 @@ public class ItemManager : MonoBehaviour
             SaveLoadSystem.I.ResetItemBitMap(_items.Count);
             //Calling the function recursively is an overkill
             _pickedItems = SaveLoadSystem.I.GetLevelBitMap();
-        }
+        }*/
     }
 
     private void SetUpItems()

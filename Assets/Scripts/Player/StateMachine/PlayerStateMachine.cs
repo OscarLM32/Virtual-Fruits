@@ -417,6 +417,8 @@ namespace Player.StateMachine
 
             _playerDead = true;
             _playerHit = true;
+            
+            GameActions.OnPlayerDeath?.Invoke(killContext.enemyType);
         }
 
         public void Push(PushContext pushContext = null)
