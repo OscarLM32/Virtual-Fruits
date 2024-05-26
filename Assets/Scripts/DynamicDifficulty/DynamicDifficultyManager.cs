@@ -61,12 +61,15 @@ namespace DynamicDifficulty
         {
             _playerSkillParameter += value;
             _playerSkillParameter = LimitSkillParameter(_playerSkillParameter);
+            GenericDifficulty = _calculator.GetPlayerSkillLevel(_playerSkillParameter);
         }
 
         private void UpdateEnemyDifficultyParameter(float value, EnemyType type)
         {
             _enemyDifficultyParameters[type] += value;
             _enemyDifficultyParameters[type] = LimitSkillParameter(_enemyDifficultyParameters[type]);
+            //Update the difficulty
+            _enemyDifficulties[type] = _calculator.CalculateEnemyDifficulty(_enemyDifficultyParameters[type]);
         }
 
         private float LimitSkillParameter(float value)
