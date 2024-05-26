@@ -84,6 +84,7 @@ namespace DynamicDifficulty
 
         private void OnPlayerDeath(EnemyType? type)
         {
+            EditorLogger.Log(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, $"Player died to: {type.ToString()}");
             //TODO: check if using a VOID enum is a better solution
             if(type != null)
             {
@@ -94,6 +95,8 @@ namespace DynamicDifficulty
 
         private void OnEnemyKilled(EnemyType type)
         {
+            EditorLogger.Log(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, $"Enemy {type} was killed");
+
             UpdateEnemyDifficultyParameter(-_improvementFactor, type);
             UpdatePlayerSkill(_improvementFactor/2);
         }
