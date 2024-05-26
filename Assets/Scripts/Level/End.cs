@@ -16,7 +16,7 @@ public class End : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         GetComponent<Collider2D>().enabled = false;
-        GameActions.LevelEndReached();
+        GameActions.OnLevelCompleted?.Invoke();
         _animator.enabled = true;
         _audioManager.Play("VictoryTheme");
     }

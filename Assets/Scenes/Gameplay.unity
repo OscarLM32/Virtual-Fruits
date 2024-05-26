@@ -655,7 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b698f4ae2e9e9e042b234c0322689721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soLevelData: {fileID: 11400000, guid: 80c36a466691cc24381b7b988ae4ad91, type: 2}
+  _soLevelData: {fileID: 11400000, guid: 80c36a466691cc24381b7b988ae4ad91, type: 2}
   _spawnPoint: {fileID: 0}
   _player: {fileID: 789025706}
   PauseMenu: {fileID: 0}

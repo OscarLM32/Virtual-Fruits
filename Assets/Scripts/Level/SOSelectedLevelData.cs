@@ -1,9 +1,7 @@
 using DynamicDifficulty;
 using Menus.LevelSelection;
 using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 //Singleton so that I can ensure that the info is unique
 [CreateAssetMenu(fileName = "SOLevelData", menuName = "ScriptableObjects/LevelData")]

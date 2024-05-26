@@ -42,6 +42,12 @@ namespace DynamicDifficulty
             GameActions.OnEnemyKilled += OnEnemyKilled;
         }
 
+        private void OnDisable()
+        {
+            GameActions.OnPlayerDeath -= OnPlayerDeath;
+            GameActions.OnEnemyKilled -= OnEnemyKilled;
+        }
+
         public Difficulty GetEnemyDifficulty(EnemyType enemy)
         {
             if (_enemyDifficulties.ContainsKey(enemy)) return _enemyDifficulties[enemy];
@@ -104,10 +110,13 @@ namespace DynamicDifficulty
             UpdatePlayerSkill(_improvementFactor/2);
         }
 
-        private void OnLevelCompleted(float time, float averageTime)
+        public void OnLevelCompleted(float time, float averageTime)
         {
-            //Calculate improvement factor based on the time it has taken the player to complete the level
-            //It could be loaded from an addressable 
+            //TODO: Calculate improvement factor based on the time it has taken the player to complete the level
+            float skillUpdate = 0.5f * _improvementFactor;
+            skillUpdate *= time > averageTime ? -1 : 1;
+            UpdatePlayerSkill(skillUpdate);
+            EditorLogger.Log(LoggingSystem.DYNAMIC_DIFFICULTY_SYSTEM, $"The player skill has been updated by {skillUpdate} after completing the level");
         }
 
         private void OnSpecialCoinPickup()
