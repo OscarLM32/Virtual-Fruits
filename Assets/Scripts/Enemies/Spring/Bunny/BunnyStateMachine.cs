@@ -256,7 +256,10 @@ namespace Enemies.Bunny
         public void Kill(KillContext killContext)
         {
             if (killContext.attackPower <= _attackProtection) return;
-            //Destroy(gameObject);
+
+            GameActions.OnEnemyKilled?.Invoke(EnemyType.BUNNY);
+
+            Destroy(gameObject);
         }
     }
 }

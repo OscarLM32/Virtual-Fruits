@@ -115,6 +115,7 @@ namespace Enemies
         public void Kill(KillContext killContext)
         {
             if (killContext.attackPower <= _protectionPower) return;
+            GameActions.OnEnemyKilled?.Invoke(EnemyType.BEE);
             StartCoroutine(OnKillBehavior());
         }
 
