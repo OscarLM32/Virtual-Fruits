@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7922904911ea6b41ad48f9cdbcd956c, type: 3}
   m_Name: SOLevelData
   m_EditorClassIdentifier: 
-  id: Spring1
-  levelRef:
-    m_AssetGUID: 8705c26ce0e96fe4a82ee0626e6f52ff
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  levelData:
+    id: Spring1
+    reference:
+      m_AssetGUID: 8705c26ce0e96fe4a82ee0626e6f52ff
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    unlocked: 1
+    completionTimes:
+      elements:
+      - key: 0
+        value: 0
+      - key: 1
+        value: 0
+      - key: 2
+        value: 0
+      - key: 3
+        value: 0
+      - key: 4
+        value: 0

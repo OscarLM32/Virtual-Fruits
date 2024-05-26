@@ -1,22 +1,13 @@
-using Extensions.Serializables;
+using DynamicDifficulty;
 using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace Menus.LevelSelection
 {
     [CreateAssetMenu(fileName = "SOLevelsDatabase", menuName = "ScriptableObjects/LevelsDatabase")]
-    public class SOLevelsDatabase : ScriptableObject
+    public class SOLevelsDatabase : ScriptableObject, ISerializationCallbackReceiver
     {
-        [Serializable]
-        public class LevelData
-        {
-            public string id = "";
-            public AssetReference reference = null;
-            public bool unlocked;
-        }
 
         public LevelData this[string id]
         {
@@ -30,7 +21,23 @@ namespace Menus.LevelSelection
             }
         } 
 
-
         public List<LevelData> database;
+
+        public void OnBeforeSerialize()
+        {
+            Difficulty[] difficulties = Enum.GetValues(typeof(Difficulty)) as Difficulty[];
+            foreach(LevelData levelData in database)
+            {
+                foreach (Difficulty difficulty in difficulties)
+                {
+                    levelData.completionTimes.TryAdd(difficulty, 0);
+                }
+            }
+        }
+
+        public void OnAfterDeserialize()
+        {
+
+        }
     }
 }

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 {
     public static Action LevelStart;
 
-    [SerializeField]private SOSelectedLevelData levelData;
+    [SerializeField]private SOSelectedLevelData soLevelData;
 
     private const int MAX_LIVES = 3;
     private const int LVL_SELECT_MENU_IDX = 1;
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     private void LoadLevel()
     {
-        var level = levelData.levelRef.LoadAssetSync<GameObject>();
+        var level = soLevelData.levelData.reference.LoadAssetSync<GameObject>();
         Instantiate(level);
     }
 
