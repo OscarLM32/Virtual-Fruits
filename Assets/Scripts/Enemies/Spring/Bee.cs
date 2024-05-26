@@ -76,16 +76,12 @@ namespace Enemies
             shootingPosition = (Vector2)transform.position - new Vector2(0, 0.5f);
         }
 
-
-
         private void OnCollisionEnter2D(Collision2D col)
         {
-            if (col.gameObject.layer == (int)LayerValues.Weapon)
-            {
-                stopShooting = true;
-                StartCoroutine(OnPlayerWeaponCollision(col.gameObject));
-            }
+            IKillable killable = col.gameObject.GetComponent<IKillable>();
+            killable?.Kill(new KillContext(1, EnemyType.BEE));
         }
+
         private IEnumerator OnPlayerWeaponCollision(GameObject other)
         {
             //Stop patrolling
@@ -124,6 +120,7 @@ namespace Enemies
             _animator.Play("BeeHit");
             _patrolBehaviour.StopPatrolling();
             stopShooting = true;
+            StopCoroutine(Shoot());
 
             var colliders = GetComponents<BoxCollider2D>();
             foreach (var col in colliders)

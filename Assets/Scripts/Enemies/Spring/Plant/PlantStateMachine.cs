@@ -101,7 +101,7 @@ namespace Enemies.Plant
         private void OnCollisionEnter2D(Collision2D col)
         {
             var killable = col.gameObject.GetComponent<IKillable>();
-            killable?.Kill(new KillContext(_defaultAttackPower));
+            killable?.Kill(new KillContext(_defaultAttackPower, EnemyType.PLANT));
         }
 
         #endregion
