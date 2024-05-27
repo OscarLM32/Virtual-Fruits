@@ -2,6 +2,7 @@ using DynamicDifficulty;
 using EditorSystems.Logger;
 using Enemies;
 using Extensions;
+using Level;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static Action LevelStart;
 
     [SerializeField]private SOSelectedLevelData _soLevelData;
+    [SerializeField]private HUDManager _hudManager;
 
     private const int MAX_LIVES = 3;
     private const int LVL_SELECT_MENU_IDX = 1;
@@ -119,6 +121,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlayerDeathCoroutine()
     {
+        _hudManager.UpdateHP(-1f/MAX_LIVES);
         yield return new WaitForSeconds(1.5f);
         _currentLives--;
         if (_currentLives <= 0)
