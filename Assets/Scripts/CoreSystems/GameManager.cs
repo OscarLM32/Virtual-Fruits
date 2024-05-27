@@ -1,4 +1,3 @@
-using CoreSystems.SaveSystem;
 using DynamicDifficulty;
 using EditorSystems.Logger;
 using Enemies;
@@ -6,7 +5,6 @@ using Extensions;
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -14,7 +12,7 @@ public class GameManager : MonoBehaviour
 {
     public static Action LevelStart;
 
-    [SerializeField]private SOSelectedLevelData levelData;
+    [SerializeField]private SOSelectedLevelData _soLevelData;
 
     private const int MAX_LIVES = 3;
     private const int LVL_SELECT_MENU_IDX = 1;
@@ -29,6 +27,8 @@ public class GameManager : MonoBehaviour
     public GameObject PauseMenu;
     private bool _gamePaused = false;
 
+    private float _timeElapsed = 0f;
+
 
     private void Awake()
     {
@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         _playerInput.MenuControls.Enable();
-        GameActions.CheckpointReached += CheckpointReached;
-        GameActions.LevelEndReached += LevelEnd;
+        GameActions.OnCheckPointReached += CheckpointReached;
+        GameActions.OnLevelCompleted += LevelEnd;
         GameActions.OnPlayerDeath += PlayerDeath;
 
         LevelDifficultyOrchestrator.OnLevelDifficultySet += StartLevel;
@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         _playerInput.MenuControls.Disable();
-        GameActions.CheckpointReached -= CheckpointReached;
-        GameActions.LevelEndReached -= LevelEnd;
+        GameActions.OnCheckPointReached -= CheckpointReached;
+        GameActions.OnLevelCompleted -= LevelEnd;
         GameActions.OnPlayerDeath -= PlayerDeath;
 
         LevelDifficultyOrchestrator.OnLevelDifficultySet -= StartLevel;
@@ -71,9 +71,14 @@ public class GameManager : MonoBehaviour
         //_audioManager.Play("SpringLevelTheme");
     }
 
+    private void Update()
+    {
+        _timeElapsed += Time.deltaTime;
+    }
+
     private void LoadLevel()
     {
-        var level = levelData.levelRef.LoadAssetSync<GameObject>();
+        var level = _soLevelData.levelData.reference.LoadAssetSync<GameObject>();
         Instantiate(level);
     }
 
@@ -123,15 +128,16 @@ public class GameManager : MonoBehaviour
         _player.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, 0);
     }
 
-    private void CheckpointReached()
+    private void CheckpointReached(Vector2 position)
     {
-        //Maybe we could pass the transform while calling so more than one checkpoint can be placed
-        Transform checkpoint = GameObject.FindWithTag("Checkpoint").transform;
-        _spawnPoint = checkpoint;
+        _spawnPoint.position = position + new Vector2(0, 0.5f);
     }
 
     private void LevelEnd()
     {
+        var averageTime = _soLevelData.levelData.completionTimes[DynamicDifficultyManager.I.GenericDifficulty];
+        DynamicDifficultyManager.I.OnLevelCompleted(_timeElapsed, averageTime);
+
         StartCoroutine(LevelEndCoroutine());
     }
 

@@ -29,7 +29,7 @@ namespace Menus.LevelSelection
 
         public void OnClick()
         {
-            selectedLevel.levelRef = levelRef;
+            selectedLevel.levelData = database[levelId];
             _playButton.interactable = true;
         }
     }

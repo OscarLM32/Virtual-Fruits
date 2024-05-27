@@ -32,7 +32,7 @@ public class Checkpoint : MonoBehaviour
             _flagOut = true;
             StartCoroutine(FlagAnimation());
         }
-        GameActions.CheckpointReached();
+        GameActions.OnCheckPointReached?.Invoke(transform.position);
     }
 
     private IEnumerator FlagAnimation()

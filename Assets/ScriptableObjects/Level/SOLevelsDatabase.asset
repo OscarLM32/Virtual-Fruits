@@ -20,6 +20,18 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     unlocked: 1
+    completionTimes:
+      elements:
+      - key: 0
+        value: 100
+      - key: 1
+        value: 80
+      - key: 2
+        value: 60
+      - key: 3
+        value: 50
+      - key: 4
+        value: 45
   - id: Spring2
     reference:
       m_AssetGUID: 
@@ -27,6 +39,18 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     unlocked: 0
+    completionTimes:
+      elements:
+      - key: 0
+        value: 0
+      - key: 1
+        value: 0
+      - key: 2
+        value: 0
+      - key: 3
+        value: 0
+      - key: 4
+        value: 0
   - id: Spring3
     reference:
       m_AssetGUID: 
@@ -34,6 +58,18 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     unlocked: 0
+    completionTimes:
+      elements:
+      - key: 0
+        value: 0
+      - key: 1
+        value: 0
+      - key: 2
+        value: 0
+      - key: 3
+        value: 0
+      - key: 4
+        value: 0
   - id: Spring4
     reference:
       m_AssetGUID: 
@@ -41,3 +77,15 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     unlocked: 0
+    completionTimes:
+      elements:
+      - key: 0
+        value: 0
+      - key: 1
+        value: 0
+      - key: 2
+        value: 0
+      - key: 3
+        value: 0
+      - key: 4
+        value: 0

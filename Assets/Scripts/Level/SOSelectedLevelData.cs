@@ -1,11 +1,25 @@
-using UnityEditor;
+using DynamicDifficulty;
+using Menus.LevelSelection;
+using System;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 //Singleton so that I can ensure that the info is unique
 [CreateAssetMenu(fileName = "SOLevelData", menuName = "ScriptableObjects/LevelData")]
-public class SOSelectedLevelData : ScriptableObject
+public class SOSelectedLevelData : ScriptableObject, ISerializationCallbackReceiver
 {
-    public string id;
-    public AssetReference levelRef;
+    public LevelData levelData;
+
+    public void OnAfterDeserialize()
+    {
+
+    }
+
+    public void OnBeforeSerialize()
+    {
+        var difficulties = Enum.GetValues(typeof(Difficulty)) as Difficulty[];
+        foreach (var difficulty in difficulties)
+        {
+            levelData.completionTimes.TryAdd(difficulty, 0);
+        }
+    }
 }
