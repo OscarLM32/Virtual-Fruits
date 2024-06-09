@@ -57,6 +57,7 @@ namespace Enemies
 
             attackSpeed = parameters.attackSpeed;
             _patrollingSpeed = parameters.patrollingSpeed;
+            projectileSpeed = parameters.projectileSpeed;
         }
 
         protected override IEnumerator Attack()
