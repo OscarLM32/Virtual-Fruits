@@ -59,7 +59,7 @@ namespace Player.StateMachine
                 //set the superstate's substate to be the new one.
                 CurrentSuperState.SetSubState(newState);
             }
-
+            
             //In case a want to debug all states
             //Context.OnStateChange?.Invoke(state);
         }
