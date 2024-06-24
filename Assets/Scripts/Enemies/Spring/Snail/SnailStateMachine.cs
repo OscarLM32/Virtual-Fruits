@@ -83,7 +83,7 @@ namespace Enemies
             switch (_zRotation)
             {
                 case 0:
-                    transform.localScale = xPositiveVelocity ? new Vector3(_defaultScale, _defaultScale, 1) : new Vector3(-_defaultScale, _defaultScale, 1);
+                    transform.localScale = xPositiveVelocity ? new Vector3(-_defaultScale, _defaultScale, 1) : new Vector3(_defaultScale, _defaultScale, 1);
                     break;
                 case 90:
                     transform.localScale = yPositiveVelocity ? new Vector3(-_defaultScale, _defaultScale, 1) : new Vector3(_defaultScale, _defaultScale, 1);

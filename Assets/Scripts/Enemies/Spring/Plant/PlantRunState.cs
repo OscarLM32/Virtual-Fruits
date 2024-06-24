@@ -16,6 +16,7 @@ namespace Enemies.Plant
 
         public override void OnEnter()
         {
+            Debug.Log("On Run state");
             HandleVelocity();
         }
 
@@ -27,7 +28,9 @@ namespace Enemies.Plant
 
         protected override void CheckSwitchState()
         {
-            if(context.isPlayerInAttackRange && !context.canRun)
+            if (context.isPlayerInSafeZone && context.canRun) return;
+
+            if(context.isPlayerInAttackRange)
             {
                 SwitchState(context.attackState);
                 return;
