@@ -29,6 +29,7 @@ namespace Enemies.Plant
 
         public override void OnEnter()
         {
+            Debug.Log("On Run state");
             HandleSpriteDirection();
             SetUpShot();
         }

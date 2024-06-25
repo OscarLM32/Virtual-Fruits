@@ -29,6 +29,7 @@ namespace DynamicDifficulty
 
             GameObject newLayout = settings.layoutReference.LoadAssetAsync<GameObject>().WaitForCompletion();
             Instantiate(newLayout, Vector3.zero, Quaternion.identity, transform);
+            settings.layoutReference.ReleaseAsset();
         }
 
         private DifficultySetting GetDifficultySettings(Difficulty difficulty)

@@ -5,6 +5,7 @@ using DynamicDifficulty.DynamicParametersScriptables;
 using EditorSystems.Logger;
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -64,7 +65,7 @@ namespace Enemies.Plant
             var dynamicParameters = _dynamicParameters[DynamicDifficultyManager.I.GenericDifficulty];
             SetUpStates(dynamicParameters);
             SetUpAttackCollider(dynamicParameters.attackRange);
-            _safeZoneRange = dynamicParameters.fleetingRange;
+            _safeZoneRange = dynamicParameters.fleetingRange / 2;
 
             CurrentState = idleState;
             CurrentState.OnEnter();
@@ -96,6 +97,7 @@ namespace Enemies.Plant
             if (!IsPlayer(collision.gameObject)) return;
 
             isPlayerInAttackRange = false;
+            isPlayerInSafeZone = false;
         }
 
         private void OnCollisionEnter2D(Collision2D col)
@@ -164,15 +166,18 @@ namespace Enemies.Plant
 
         private void CheckPlayerInSafeZone(GameObject player)
         {
+            isPlayerInSafeZone = false;
             var distance = Vector2.Distance(player.transform.position, transform.position);
             if (distance < _safeZoneRange)
             {
                 isPlayerInSafeZone = true;
+                Debug.Log("Player in safe zone");
             }
-            else
-            {
-                isPlayerInSafeZone = false;
-            }
+            //else
+            //{
+            //    isPlayerInSafeZone = false;
+            //    Debug.Log("Not in safe zone");
+            //}
         }
 
         public void Kill(KillContext killContext)

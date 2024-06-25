@@ -18,19 +18,24 @@ MonoBehaviour:
       value:
         attackSpeed: 4
         patrollingSpeed: 2
+        projectileSpeed: 8
     - key: 1
       value:
         attackSpeed: 3.5
         patrollingSpeed: 2.5
+        projectileSpeed: 9
     - key: 2
       value:
         attackSpeed: 3
         patrollingSpeed: 3
+        projectileSpeed: 10
     - key: 3
       value:
         attackSpeed: 2.75
         patrollingSpeed: 3.5
+        projectileSpeed: 11
     - key: 4
       value:
         attackSpeed: 2.5
         patrollingSpeed: 4
+        projectileSpeed: 12

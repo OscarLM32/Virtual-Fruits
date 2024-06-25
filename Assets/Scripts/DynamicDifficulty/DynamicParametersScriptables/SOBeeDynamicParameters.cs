@@ -8,6 +8,7 @@ namespace DynamicDifficulty.DynamicParametersScriptables
     {
         public float attackSpeed;
         public float patrollingSpeed;
+        public float projectileSpeed;
     }
 
     [CreateAssetMenu(fileName = "SOBeeDynamicParameters", menuName = "ScriptableObjects/DynamicParameters/Spring/Bee")]
