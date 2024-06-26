@@ -13,6 +13,8 @@ public class FloatingPlatform : MonoBehaviour
     private float _floatingTime = 0.75f;
     private float _timeAfterMotorStopToFall = 0.75f;
 
+    private bool _isVisible = false;
+
     private bool _respawning = false;
     private float _respawnTime = 3f;
 
@@ -40,9 +42,16 @@ public class FloatingPlatform : MonoBehaviour
         StartCoroutine(Fall());
     }
 
+    private void OnBecameVisible()
+    {
+        _isVisible = true;
+    }
+
     private void OnBecameInvisible()
     {
-        StartCoroutine(Respawn());
+        if(_isVisible) StartCoroutine(Respawn());
+
+        _isVisible = false;
     }
 
     private void SetUpDynamicParameters()
