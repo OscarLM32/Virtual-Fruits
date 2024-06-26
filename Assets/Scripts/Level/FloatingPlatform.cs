@@ -13,8 +13,6 @@ public class FloatingPlatform : MonoBehaviour
     private float _floatingTime = 0.75f;
     private float _timeAfterMotorStopToFall = 0.75f;
 
-    private bool _isVisible = false;
-
     private bool _respawning = false;
     private float _respawnTime = 3f;
 
@@ -42,18 +40,6 @@ public class FloatingPlatform : MonoBehaviour
         StartCoroutine(Fall());
     }
 
-    private void OnBecameVisible()
-    {
-        _isVisible = true;
-    }
-
-    private void OnBecameInvisible()
-    {
-        if(_isVisible) StartCoroutine(Respawn());
-
-        _isVisible = false;
-    }
-
     private void SetUpDynamicParameters()
     {
         if (dynamicParameters == null)
@@ -77,6 +63,8 @@ public class FloatingPlatform : MonoBehaviour
         _animator.Play("Idle");
         yield return new WaitForSeconds(_timeAfterMotorStopToFall);
         _rb.gravityScale = 1;
+
+        StartCoroutine(Respawn());
     }
 
     private IEnumerator Respawn()
