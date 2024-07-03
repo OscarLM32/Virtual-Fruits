@@ -62,7 +62,7 @@ namespace Enemies.Plant
 
         private void Start()
         {
-            var dynamicParameters = _dynamicParameters[DynamicDifficultyManager.I.GenericDifficulty];
+            var dynamicParameters = _dynamicParameters[DynamicDifficultyManager.I.GetEnemyDifficulty(EnemyType.PLANT)];
             SetUpStates(dynamicParameters);
             SetUpAttackCollider(dynamicParameters.attackRange);
             _safeZoneRange = dynamicParameters.fleetingRange / 2;

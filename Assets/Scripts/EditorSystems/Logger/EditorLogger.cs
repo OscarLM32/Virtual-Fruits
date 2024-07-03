@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.Build.Pipeline.Utilities;
 using UnityEngine;
 
 namespace EditorSystems.Logger

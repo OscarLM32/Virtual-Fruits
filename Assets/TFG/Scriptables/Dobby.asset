@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: LevelLayouts-Test_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: 6a891f0367f62dc40a62d143e407caad, type: 3}
+  m_Name: Dobby
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: e7da5807d96c39e4baeb1ea4fff7006e, type: 2}
-  m_StaticContent: 0
+  nombre: Dobby
+  edad: 12
+  jugueteFavorito: 0

@@ -62,6 +62,29 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd4e0ddeeddb1a44781cf86f5d39ac20
+    m_Address: Sector3Hard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e91c8d84baadf74cad71dfa3aac9cbe
+    m_Address: Assets/VisualAssets/Environment/Terrain/Seasonal Tilesets/1 - Grassland/Extra_plants
+      (16 x 16).png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdf247f159a235b43bf72f0c7976d160
+    m_Address: Assets/VisualAssets/Environment/Terrain/Seasonal Tilesets/1 - Grassland/Grassland_entities
+      (16 x 16).png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 144d1d609aafc7141bc20b5a66f21cfc
+    m_Address: Assets/VisualAssets/Environment/Terrain/Seasonal Tilesets/1 - Grassland/Terrain
+      (16 x 16).png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3a0639c07672d8049b0c623cae366e5d, type: 2}
   m_SchemaSet:

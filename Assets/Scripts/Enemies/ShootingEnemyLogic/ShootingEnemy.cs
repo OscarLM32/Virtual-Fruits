@@ -1,7 +1,6 @@
 using EditorSystems.Logger;
 using System;
 using System.Collections;
-using UnityEditor.Toolbars;
 using UnityEngine;
 
 namespace Enemies.ShootingEnemyLogic

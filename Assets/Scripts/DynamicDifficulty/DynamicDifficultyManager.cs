@@ -53,6 +53,7 @@ namespace DynamicDifficulty
             if (_enemyDifficulties.ContainsKey(enemy)) return _enemyDifficulties[enemy];
 
             _enemyDifficulties.Add(enemy, _calculator.CalculateEnemyDifficulty(_enemyDifficultyParameters[enemy]));
+            Debug.Log($"{enemy} : {_enemyDifficulties[enemy]}");
             return _enemyDifficulties[enemy];
         }
 

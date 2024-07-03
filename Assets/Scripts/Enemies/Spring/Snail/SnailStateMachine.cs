@@ -52,7 +52,7 @@ namespace Enemies
             _currentState = shellOutState;
             _currentState.enabled = true;
 
-            var difficulty = DynamicDifficultyManager.I.GenericDifficulty;
+            var difficulty = DynamicDifficultyManager.I.GetEnemyDifficulty(EnemyType.SNAIL);
             _patrolling.SetUpPatrol(_dynamicParameters[difficulty].speed);
             _patrolling.StartPatrolling();
         }
